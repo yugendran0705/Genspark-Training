@@ -1,0 +1,41 @@
+Movie_CD_Type_Master:
+id, type
+
+Movie_Genre_Type_Master:
+id, type
+
+User_Member_Type_Master:
+id, type
+
+Rented_type_master:
+id, type
+
+state_master:
+id, state
+
+City_Master:
+id, city, state_id
+
+Address:
+Id, DoorNumber/Apartment Name, Street_name, Area, Pincode , City_id
+
+Users:
+id, name, address_id, phone, favourite_genre, membership_type
+
+Movie:
+id, title, genre, details(JSON), quantity, CD_type, price
+
+Store:
+id, name, address_id, phone
+
+Rented:
+id, User_id, Movie_id, Rented_date, Given_Return_Date, Actual_Return_Date, amount, type, dependent_id
+
+Payments:
+id, payment_type, status, amount, user_id, rented_id
+
+Dependents:
+id, user_id, dependent_name, relation, rented
+
+
+

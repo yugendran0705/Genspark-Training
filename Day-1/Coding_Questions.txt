@@ -1,0 +1,153 @@
+1. public static void plusMinus(List<int> arr)
+    {
+        double p = 0, m = 0, z = 0;
+        int l = arr.Count;
+        foreach (int i in arr){
+            if(i>0) p++;
+            else if (i<0) m++;
+            else z++;
+        }
+        p/=l;
+        m/=l;
+        z/=l;
+        Console.WriteLine($"{p:F6}");
+        Console.WriteLine($"{m:F6}");
+        Console.WriteLine($"{z:F6}");
+    }
+
+2.  public static void staircase(int n)
+    {
+        for(int i=0; i<n; i++){
+            string space = new string(' ',n-i-1);
+            string star = new string('#',i+1); 
+            Console.WriteLine(space+star);
+        }
+    }
+
+3.  public static void miniMaxSum(List<int> arr)
+    {
+        arr.Sort();
+        long sum1 = 0, sum2=0;
+        int n = arr.Count();
+        for(int i = 0 ; i < n; i++){
+            if(i!=0) sum2+=arr[i];
+            if(i!=n-1) sum1+=arr[i];
+        }
+        Console.WriteLine(sum1+" "+sum2);
+    }
+
+4.  public static int birthdayCakeCandles(List<int> candles)
+    {
+        int largest = 0, count = 0;
+        foreach(int i in candles){
+            if(i>largest) {
+                largest = i;
+                count = 1;
+            }
+            else if(i==largest) count++;
+        }
+        return count;
+    }
+
+5.  public static string timeConversion(string s)
+    {
+        string median = s.Substring(8,2);
+        int hr = Convert.ToInt32(s.Substring(0,2));
+        string min = (s.Substring(3,2));
+        string sec = (s.Substring(6,2));
+        if( hr==12 && median=="PM"){
+            return hr.ToString("D2")+":"+min+":"+sec;
+        }
+        else if( hr==12 && median=="AM"){
+            return "00"+":"+min+":"+sec;
+        }
+        else if( median=="PM"){
+            hr+=12;
+            return hr.ToString("D2")+":"+min+":"+sec;
+        }
+        return " ";
+    }
+
+6.  public static List<int> gradingStudents(List<int> grades)
+    {
+        for(int i = 0; i < grades.Count(); i++){
+            int rem = grades[i] % 5;
+            if( rem == 0 || grades[i]<38) continue;
+            else if(rem > 2) {
+                grades[i]+=5-rem;
+            }
+        }
+        return grades;
+    }
+
+7.  public static void countApplesAndOranges(int s, int t, int a, int b, List<int> apples, List<int> oranges)
+    {
+        int num1=0,num2=0;
+        for (int i=0;i<apples.Count;i++){
+            if(a+apples[i]>=s && a+apples[i]<=t){
+                num1+=1;
+            }
+        }
+        for (int i=0;i<oranges.Count;i++){
+            if(b+oranges[i]>=s && b+oranges[i]<=t){
+                num2+=1;
+            }
+        }
+       
+        Console.Write($"{num1}\n{num2}");
+    }
+
+8.  public static string kangaroo(int x1, int v1, int x2, int v2)
+    {
+        if(v1==v2){
+            if(x1==x2){
+                return "YES";
+            }
+            return "NO";
+        }
+        if((x1-x2)%(v1-v2)==0 && (x2-x1)/(v1-v2)>=0){
+            return "YES";
+        }
+        return "NO";
+    }
+
+9.  public static int getTotalX(List<int> a, List<int> b)
+    {
+        int n=0;
+        for(int i=1; i<=b.Max();i++){
+            bool isFactA=true;
+            bool isFactB=true;
+            for(int j=0;j<a.Count;j++){
+                if(i%a[j]!=0){
+                    isFactA=false;
+                    break;
+                }
+            }
+            for(int j=0;j<b.Count;j++){
+                if(b[j]%i!=0){
+                    isFactB=false;
+                    break;
+                }
+            }
+            if(isFactA && isFactB){
+                n++;
+            }  
+        }
+        return n;
+    }
+
+10. public static List<int> breakingRecords(List<int> scores)
+    {
+        int m1=scores[0], m2=scores[0], minc=0,maxc=0;
+        for(int i=1;i<scores.Count;i++){
+            if(scores[i]>m1){
+                m1=scores[i];
+                maxc++;
+            }else if(scores[i]<m2){
+                m2=scores[i];
+                minc++;
+            }
+        }
+        List<int> res=new List<int> {maxc,minc};
+        return res;
+    }
