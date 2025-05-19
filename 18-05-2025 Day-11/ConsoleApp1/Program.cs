@@ -6,17 +6,17 @@ class Program
     static void GreetUser()
     {
         Console.Write("Enter your name: ");
-        string name = Console.ReadLine();
+        string name = Console.ReadLine() ?? string.Empty;
         Console.WriteLine($"Hello, {name}!");
     }
 
     static void FindLargestNumber()
     {
         Console.Write("Enter first number: ");
-        int num1 = int.Parse(Console.ReadLine());
+        int num1 = int.Parse(Console.ReadLine() ?? string.Empty);
 
         Console.Write("Enter second number: ");
-        int num2 = int.Parse(Console.ReadLine());
+        int num2 = int.Parse(Console.ReadLine() ?? string.Empty);
 
         int largest = (num1 > num2) ? num1 : num2;
 
@@ -32,7 +32,13 @@ class Program
         double num2 = Convert.ToDouble(Console.ReadLine());
 
         Console.Write("Enter operation (+, -, *, /): ");
-        char operation = Console.ReadLine()[0];
+        string? opInput = Console.ReadLine();
+        if (string.IsNullOrEmpty(opInput))
+        {
+            Console.WriteLine("No operation entered.");
+            return;
+        }
+        char operation = opInput[0];
 
         double result = 0;
         bool valid = true;
@@ -59,10 +65,10 @@ class Program
         for (int i = 1; i <= attempts; i++)
         {
             Console.Write("Enter Username: ");
-            string username = Console.ReadLine();
+            string username = Console.ReadLine() ?? string.Empty;
 
             Console.Write("Enter Password: ");
-            string password = Console.ReadLine();
+            string password = Console.ReadLine() ?? string.Empty;
 
             if (username == correctUsername && password == correctPassword)
             {
@@ -97,6 +103,12 @@ class Program
     static void CountFrequency(int[] arr)
     {
         Dictionary<int, int> frequencyMap = new Dictionary<int, int>();
+
+        if(arr.Length == 0 && arr == null)
+        {
+            Console.WriteLine("Array is empty or null.");
+            return;
+        }
 
         foreach (int num in arr)
         {
@@ -144,7 +156,7 @@ class Program
         while (true)
         {
             Console.Write("Enter your 4-letter guess: ");
-            string guess = Console.ReadLine()?.ToUpper();
+            string guess = (Console.ReadLine() ?? string.Empty).ToUpper();
 
             if (guess.Length != 4)
             {
@@ -211,34 +223,55 @@ class Program
     {
         return row.Length == 9 && row.All(n => n >= 1 && n <= 9) && row.Distinct().Count() == 9;
     }
+    static string Encrypt(string input, int shift)
+    {
+        return ShiftCharacters(input, shift);
+    }
+
+    static string Decrypt(string input, int shift)
+    {
+        return ShiftCharacters(input, -shift);
+    }
+
+    static string ShiftCharacters(string input, int shift)
+    {
+        char[] result = new char[input.Length];
+
+        for (int i = 0; i < input.Length; i++)
+        {
+            char c = input[i];
+            result[i] = (char)('a' + (c - 'a' + shift + 26) % 26);
+        }
+
+        return new string(result);
+    }
     static void Main(string[] args)
     {
+        // 1.
         // GreetUser();
-
+        // 2.
         // FindLargestNumber();
-
+        // 3.
         // PerformOperation();
-
+        // 4.
         // ValidateLogin();
-
+        // 5.
         // CountDivisibleBySeven();
-
-        // int[] numbers = { 1, 2, 2, 3, 4, 4, 4 };
-        // CountFrequency(numbers);
-
+        // 6.
+        int[] numbers = {  };
+        CountFrequency(numbers);
+        // 7.
         // int[] numbers = { 10, 20, 30, 40, 50 };
         // RotateLeft(numbers);
         // Console.WriteLine("Rotated Array: " + string.Join(", ", numbers));
-
+        // 8.
         // int[] array1 = { 1, 3, 5 };
         // int[] array2 = { 2, 4, 6 };
-
         // int[] mergedArray = MergeArrays(array1, array2);
-
         // Console.WriteLine("Merged Array: " + string.Join(", ", mergedArray));
-
+        // 9.
         // PlayGame();
-
+        // 10.
         // int[] sudokuRow = new int[9];
 
         // Console.WriteLine("Enter 9 numbers for the Sudoku row:");
@@ -249,19 +282,28 @@ class Program
         // }
 
         // ValidateSudokuRow(sudokuRow);
+        // 11.
+        // int[,] board = {
+        //     {5, 3, 4, 6, 7, 8, 9, 1, 2},
+        //     {6, 7, 2, 1, 9, 5, 3, 4, 8},
+        //     {1, 9, 8, 3, 4, 2, 5, 6, 7},
+        //     {8, 5, 9, 7, 6, 1, 4, 8, 3},
+        //     {4, 2, 6, 8, 5, 3, 7, 9, 1},
+        //     {7, 1, 3, 9, 2, 4, 8, 5, 6},
+        //     {9, 6, 1, 5, 3, 7, 2, 8, 4},
+        //     {2, 8, 7, 4, 1, 9, 6, 3, 5},
+        //     {3, 4, 5, 2, 8, 6, 1, 7, 9}
+        // };
 
-        int[,] board = {
-            {5, 3, 4, 6, 7, 8, 9, 1, 2},
-            {6, 7, 2, 1, 9, 5, 3, 4, 8},
-            {1, 9, 8, 3, 4, 2, 5, 6, 7},
-            {8, 5, 9, 7, 6, 1, 4, 8, 3},
-            {4, 2, 6, 8, 5, 3, 7, 9, 1},
-            {7, 1, 3, 9, 2, 4, 8, 5, 6},
-            {9, 6, 1, 5, 3, 7, 2, 8, 4},
-            {2, 8, 7, 4, 1, 9, 6, 3, 5},
-            {3, 4, 5, 2, 8, 6, 1, 7, 9}
-        };
+        // ValidateSudokuBoard(board);
+        // 12.
+        // Console.Write("Enter a message (lowercase, no spaces/symbols): ");
+        // string message = Console.ReadLine() ?? string.Empty;
 
-        ValidateSudokuBoard(board);
+        // string encrypted = Encrypt(message, 3);
+        // string decrypted = Decrypt(encrypted, 3);
+
+        // Console.WriteLine($"Encrypted: {encrypted}");
+        // Console.WriteLine($"Decrypted: {decrypted}");
     }
 }
