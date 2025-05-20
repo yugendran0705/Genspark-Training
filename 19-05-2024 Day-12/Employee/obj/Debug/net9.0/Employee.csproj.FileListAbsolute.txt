@@ -1,0 +1,15 @@
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\19-05-2024 Day-12\Employee\bin\Debug\net9.0\Employee.exe
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\19-05-2024 Day-12\Employee\bin\Debug\net9.0\Employee.deps.json
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\19-05-2024 Day-12\Employee\bin\Debug\net9.0\Employee.runtimeconfig.json
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\19-05-2024 Day-12\Employee\bin\Debug\net9.0\Employee.dll
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\19-05-2024 Day-12\Employee\bin\Debug\net9.0\Employee.pdb
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\19-05-2024 Day-12\Employee\obj\Debug\net9.0\Employee.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\19-05-2024 Day-12\Employee\obj\Debug\net9.0\Employee.AssemblyInfoInputs.cache
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\19-05-2024 Day-12\Employee\obj\Debug\net9.0\Employee.AssemblyInfo.cs
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\19-05-2024 Day-12\Employee\obj\Debug\net9.0\Employee.csproj.CoreCompileInputs.cache
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\19-05-2024 Day-12\Employee\obj\Debug\net9.0\Employee.sourcelink.json
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\19-05-2024 Day-12\Employee\obj\Debug\net9.0\Employee.dll
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\19-05-2024 Day-12\Employee\obj\Debug\net9.0\refint\Employee.dll
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\19-05-2024 Day-12\Employee\obj\Debug\net9.0\Employee.pdb
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\19-05-2024 Day-12\Employee\obj\Debug\net9.0\Employee.genruntimeconfig.cache
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\19-05-2024 Day-12\Employee\obj\Debug\net9.0\ref\Employee.dll
