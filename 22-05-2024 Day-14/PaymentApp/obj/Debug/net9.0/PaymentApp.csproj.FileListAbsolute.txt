@@ -1,0 +1,15 @@
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\22-05-2024 Day-14\PaymentApp\bin\Debug\net9.0\PaymentApp.exe
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\22-05-2024 Day-14\PaymentApp\bin\Debug\net9.0\PaymentApp.deps.json
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\22-05-2024 Day-14\PaymentApp\bin\Debug\net9.0\PaymentApp.runtimeconfig.json
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\22-05-2024 Day-14\PaymentApp\bin\Debug\net9.0\PaymentApp.dll
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\22-05-2024 Day-14\PaymentApp\bin\Debug\net9.0\PaymentApp.pdb
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\22-05-2024 Day-14\PaymentApp\obj\Debug\net9.0\PaymentApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\22-05-2024 Day-14\PaymentApp\obj\Debug\net9.0\PaymentApp.AssemblyInfoInputs.cache
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\22-05-2024 Day-14\PaymentApp\obj\Debug\net9.0\PaymentApp.AssemblyInfo.cs
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\22-05-2024 Day-14\PaymentApp\obj\Debug\net9.0\PaymentApp.csproj.CoreCompileInputs.cache
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\22-05-2024 Day-14\PaymentApp\obj\Debug\net9.0\PaymentApp.sourcelink.json
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\22-05-2024 Day-14\PaymentApp\obj\Debug\net9.0\PaymentApp.dll
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\22-05-2024 Day-14\PaymentApp\obj\Debug\net9.0\refint\PaymentApp.dll
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\22-05-2024 Day-14\PaymentApp\obj\Debug\net9.0\PaymentApp.pdb
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\22-05-2024 Day-14\PaymentApp\obj\Debug\net9.0\PaymentApp.genruntimeconfig.cache
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\22-05-2024 Day-14\PaymentApp\obj\Debug\net9.0\ref\PaymentApp.dll

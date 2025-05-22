@@ -42,7 +42,7 @@ namespace WholeApplication
             int empId = 102;
             Predicate<Employee> predicate = e => e.Id == empId;
             Employee? emp = employees.Find(predicate);
-            Console.WriteLine(emp.ToString()??"No such employee");
+            Console.WriteLine(emp != null ? emp.ToString() : "No such employee");
         }
         void SortEmployee()
         {
