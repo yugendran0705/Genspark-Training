@@ -1,0 +1,15 @@
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\21-05-2024 Day-13\CardioAppointments\bin\Debug\net9.0\CardioAppointments.exe
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\21-05-2024 Day-13\CardioAppointments\bin\Debug\net9.0\CardioAppointments.deps.json
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\21-05-2024 Day-13\CardioAppointments\bin\Debug\net9.0\CardioAppointments.runtimeconfig.json
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\21-05-2024 Day-13\CardioAppointments\bin\Debug\net9.0\CardioAppointments.dll
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\21-05-2024 Day-13\CardioAppointments\bin\Debug\net9.0\CardioAppointments.pdb
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\21-05-2024 Day-13\CardioAppointments\obj\Debug\net9.0\CardioAppointments.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\21-05-2024 Day-13\CardioAppointments\obj\Debug\net9.0\CardioAppointments.AssemblyInfoInputs.cache
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\21-05-2024 Day-13\CardioAppointments\obj\Debug\net9.0\CardioAppointments.AssemblyInfo.cs
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\21-05-2024 Day-13\CardioAppointments\obj\Debug\net9.0\CardioAppointments.csproj.CoreCompileInputs.cache
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\21-05-2024 Day-13\CardioAppointments\obj\Debug\net9.0\CardioAppointments.sourcelink.json
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\21-05-2024 Day-13\CardioAppointments\obj\Debug\net9.0\CardioAppointments.dll
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\21-05-2024 Day-13\CardioAppointments\obj\Debug\net9.0\refint\CardioAppointments.dll
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\21-05-2024 Day-13\CardioAppointments\obj\Debug\net9.0\CardioAppointments.pdb
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\21-05-2024 Day-13\CardioAppointments\obj\Debug\net9.0\CardioAppointments.genruntimeconfig.cache
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\21-05-2024 Day-13\CardioAppointments\obj\Debug\net9.0\ref\CardioAppointments.dll

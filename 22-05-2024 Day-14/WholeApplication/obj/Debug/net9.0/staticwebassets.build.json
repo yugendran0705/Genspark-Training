@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "VAtFCMHbKXNbTLyrFyFwLL26G2wsHWdSCkVzWrMLzNc=",
+  "Source": "WholeApplication",
+  "BasePath": "_content/WholeApplication",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
