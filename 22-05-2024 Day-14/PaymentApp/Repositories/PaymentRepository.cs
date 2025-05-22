@@ -9,7 +9,7 @@ namespace PaymentApp.Repositories
     public class PaymentRepository : IPaymentRepository
     {
         private readonly List<Payment> _payments = new List<Payment>();
-        private int _counter = 100; // Starting Payment Id
+        private int _counter = 100; 
 
         public Payment Add(Payment payment)
         {

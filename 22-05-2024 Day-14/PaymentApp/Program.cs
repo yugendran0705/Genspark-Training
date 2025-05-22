@@ -11,15 +11,11 @@ namespace PaymentApp
     {
         static void Main(string[] args)
         {
-            // Set up dependencies:
-            // You can easily switch out the payment processor here.
-            IPaymentProcessor paymentProcessor = new CreditCardPaymentProcessor();
-            // Alternatively, try:
-            // IPaymentProcessor paymentProcessor = new UPIPaymentProcessor();
+            IPaymentProcessor cardPaymentProcessor = new CreditCardPaymentProcessor();
 
+            IPaymentProcessor UPIPaymentProcessor = new UPIPaymentProcessor();
             IPaymentRepository paymentRepository = new PaymentRepository();
-            IPaymentService paymentService = new PaymentService(paymentRepository, paymentProcessor);
-
+            IPaymentService paymentService;
             Console.WriteLine("Welcome to PaymentApp!");
 
             // Get payment details from the user.
@@ -46,7 +42,8 @@ namespace PaymentApp
             }
             // Create and process the payment.
             Payment payment = new Payment(amount, paymentDate, method);
-            int paymentId = paymentService.ProcessPayment(payment, method);
+            paymentService = new PaymentService(paymentRepository, method == "CreditCard" ? cardPaymentProcessor : UPIPaymentProcessor);
+            int paymentId = paymentService.ProcessPayment(payment);
             if (paymentId != -1)
             {
                 Console.WriteLine($"Payment successfully processed with ID: {paymentId}");

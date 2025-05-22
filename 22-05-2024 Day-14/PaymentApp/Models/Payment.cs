@@ -2,7 +2,6 @@ using System;
 
 namespace PaymentApp.Models
 {
-    // Domain model representing a payment
     public class Payment
     {
         public int Id { get; set; }
@@ -21,7 +20,7 @@ namespace PaymentApp.Models
 
         public override string ToString()
         {
-            return $"Payment ID: {Id}, Amount: {Amount:C}, Date: {PaymentDate}, " +
+            return $"Payment ID: {Id}, Amount: {Amount}, Date: {PaymentDate}, " +
                    $"Method: {PaymentMethod}, Processed: {IsProcessed}";
         }
     }
