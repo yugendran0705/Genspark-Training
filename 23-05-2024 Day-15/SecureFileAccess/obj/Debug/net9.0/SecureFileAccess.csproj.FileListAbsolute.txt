@@ -1,0 +1,15 @@
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\23-05-2024 Day-15\SecureFileAccess\bin\Debug\net9.0\SecureFileAccess.exe
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\23-05-2024 Day-15\SecureFileAccess\bin\Debug\net9.0\SecureFileAccess.deps.json
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\23-05-2024 Day-15\SecureFileAccess\bin\Debug\net9.0\SecureFileAccess.runtimeconfig.json
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\23-05-2024 Day-15\SecureFileAccess\bin\Debug\net9.0\SecureFileAccess.dll
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\23-05-2024 Day-15\SecureFileAccess\bin\Debug\net9.0\SecureFileAccess.pdb
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\23-05-2024 Day-15\SecureFileAccess\obj\Debug\net9.0\SecureFileAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\23-05-2024 Day-15\SecureFileAccess\obj\Debug\net9.0\SecureFileAccess.AssemblyInfoInputs.cache
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\23-05-2024 Day-15\SecureFileAccess\obj\Debug\net9.0\SecureFileAccess.AssemblyInfo.cs
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\23-05-2024 Day-15\SecureFileAccess\obj\Debug\net9.0\SecureFileAccess.csproj.CoreCompileInputs.cache
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\23-05-2024 Day-15\SecureFileAccess\obj\Debug\net9.0\SecureFileAccess.sourcelink.json
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\23-05-2024 Day-15\SecureFileAccess\obj\Debug\net9.0\SecureFileAccess.dll
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\23-05-2024 Day-15\SecureFileAccess\obj\Debug\net9.0\refint\SecureFileAccess.dll
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\23-05-2024 Day-15\SecureFileAccess\obj\Debug\net9.0\SecureFileAccess.pdb
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\23-05-2024 Day-15\SecureFileAccess\obj\Debug\net9.0\SecureFileAccess.genruntimeconfig.cache
+C:\Users\ysunder\Documents\Genspark_Tasks\Genspark-Training\23-05-2024 Day-15\SecureFileAccess\obj\Debug\net9.0\ref\SecureFileAccess.dll
