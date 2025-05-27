@@ -24,7 +24,6 @@ public class PatientRepository : IPatientRepository
         {
             patient.Name = updatedPatient.Name;
             patient.Age = updatedPatient.Age;
-            patient.Disease = updatedPatient.Disease;
             return patient;
         }
         return null;

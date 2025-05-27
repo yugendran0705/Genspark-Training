@@ -1,6 +1,9 @@
 using FirstApi.Services;
 using FirstApi.Repositories;
+using FirstApi.Contexts;
 using FirstApi.Interfaces;
+using Microsoft.EntityFrameworkCore;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +20,9 @@ builder.Services.AddScoped<IPatientRepository, PatientRepository>();
 builder.Services.AddScoped<PatientService>();
 builder.Services.AddScoped<IAppointmentRepository, AppointmentRepository>();
 builder.Services.AddScoped<AppointmentService>();
+
+builder.Services.AddDbContext<ClinicContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 
