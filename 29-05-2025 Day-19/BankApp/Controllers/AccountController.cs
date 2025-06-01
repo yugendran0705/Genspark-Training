@@ -20,8 +20,19 @@ namespace BankApp.Controllers
         [HttpPost]
         public async Task<ActionResult<AccountResponseDto>> CreateAccount([FromBody] AccountCreateDto accountDto)
         {
-            var createdAccount = await _accountService.CreateAccountAsync(accountDto);
-            return CreatedAtAction(nameof(GetAccountById), new { id = createdAccount.Id }, createdAccount);
+            try
+            {
+                var createdAccount = await _accountService.CreateAccountAsync(accountDto);
+                return CreatedAtAction(nameof(GetAccountById), new { id = createdAccount.Id }, createdAccount);    
+            } 
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Internal server error: " + ex.Message);
+            }
         }
 
         [HttpGet("{id}")]

@@ -18,6 +18,10 @@ namespace BankApp.Services
 
         public async Task<AccountResponseDto> CreateAccountAsync(AccountCreateDto dto)
         {
+            if(dto.InitialDeposit < 0)
+            {
+                throw new ArgumentException("Initial deposit cannot be negative.");
+            }
             var account = new Account
             {
                 AccountNumber = dto.AccountNumber,
