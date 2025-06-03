@@ -1,6 +1,6 @@
-@FirstAPI_HostAddress = http://localhost:5001
+@firstapi_HostAddress = http://localhost:5029
 
-GET {{FirstAPI_HostAddress}}/weatherforecast/
+GET {{firstapi_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###

@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FirstAPI\FirstAPI.csproj" />
+    <ProjectReference Include="..\firstapi\firstapi.csproj" />
   </ItemGroup>
 
 </Project>

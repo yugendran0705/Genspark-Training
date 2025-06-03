@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace FirstAPI.Migrations
+namespace firstapi.Migrations
 {
     /// <inheritdoc />
     public partial class init : Migration
@@ -12,6 +12,20 @@ namespace FirstAPI.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "DoctorsByName",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Dname = table.Column<string>(type: "text", nullable: false),
+                    Yoe = table.Column<float>(type: "real", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DoctorsByName", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "DoctorsBySpeciality",
                 columns: table => new
@@ -27,7 +41,7 @@ namespace FirstAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Specialities",
+                name: "specialities",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
@@ -37,7 +51,7 @@ namespace FirstAPI.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Specialities", x => x.Id);
+                    table.PrimaryKey("PK_specialities", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -55,7 +69,7 @@ namespace FirstAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Doctors",
+                name: "doctors",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
@@ -67,7 +81,7 @@ namespace FirstAPI.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Doctors", x => x.Id);
+                    table.PrimaryKey("PK_doctors", x => x.Id);
                     table.ForeignKey(
                         name: "FK_User_Doctor",
                         column: x => x.Email,
@@ -77,7 +91,7 @@ namespace FirstAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Patients",
+                name: "patients",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
@@ -89,7 +103,7 @@ namespace FirstAPI.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Patients", x => x.Id);
+                    table.PrimaryKey("PK_patients", x => x.Id);
                     table.ForeignKey(
                         name: "FK_User_Patient",
                         column: x => x.Email,
@@ -99,36 +113,38 @@ namespace FirstAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "DoctorSpecialities",
+                name: "doctorSpecialities",
                 columns: table => new
                 {
                     SerialNumber = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Id = table.Column<int>(type: "integer", nullable: false),
                     DoctorId = table.Column<int>(type: "integer", nullable: false),
                     SpecialityId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DoctorSpecialities", x => x.SerialNumber);
+                    table.PrimaryKey("PK_doctorSpecialities", x => x.SerialNumber);
                     table.ForeignKey(
                         name: "FK_Speciality_Doctor",
                         column: x => x.DoctorId,
-                        principalTable: "Doctors",
+                        principalTable: "doctors",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Speciality_Spec",
                         column: x => x.SpecialityId,
-                        principalTable: "Specialities",
+                        principalTable: "specialities",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Appointments",
+                name: "appointments",
                 columns: table => new
                 {
                     AppointmentNumber = table.Column<string>(type: "text", nullable: false),
+                    Id = table.Column<int>(type: "integer", nullable: false),
                     PatientId = table.Column<int>(type: "integer", nullable: false),
                     DoctorId = table.Column<int>(type: "integer", nullable: false),
                     AppointmentDateTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
@@ -138,48 +154,48 @@ namespace FirstAPI.Migrations
                 {
                     table.PrimaryKey("PK_AppointmentNumber", x => x.AppointmentNumber);
                     table.ForeignKey(
-                        name: "FK_Appoinment_Doctor",
+                        name: "FK_Appointment_Doctor",
                         column: x => x.DoctorId,
-                        principalTable: "Doctors",
+                        principalTable: "doctors",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Appoinment_Patient",
+                        name: "FK_Appointment_Patient",
                         column: x => x.PatientId,
-                        principalTable: "Patients",
+                        principalTable: "patients",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Appointments_DoctorId",
-                table: "Appointments",
+                name: "IX_appointments_DoctorId",
+                table: "appointments",
                 column: "DoctorId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Appointments_PatientId",
-                table: "Appointments",
+                name: "IX_appointments_PatientId",
+                table: "appointments",
                 column: "PatientId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Doctors_Email",
-                table: "Doctors",
+                name: "IX_doctors_Email",
+                table: "doctors",
                 column: "Email",
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_DoctorSpecialities_DoctorId",
-                table: "DoctorSpecialities",
+                name: "IX_doctorSpecialities_DoctorId",
+                table: "doctorSpecialities",
                 column: "DoctorId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DoctorSpecialities_SpecialityId",
-                table: "DoctorSpecialities",
+                name: "IX_doctorSpecialities_SpecialityId",
+                table: "doctorSpecialities",
                 column: "SpecialityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Patients_Email",
-                table: "Patients",
+                name: "IX_patients_Email",
+                table: "patients",
                 column: "Email",
                 unique: true);
         }
@@ -188,22 +204,25 @@ namespace FirstAPI.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Appointments");
+                name: "appointments");
+
+            migrationBuilder.DropTable(
+                name: "DoctorsByName");
 
             migrationBuilder.DropTable(
                 name: "DoctorsBySpeciality");
 
             migrationBuilder.DropTable(
-                name: "DoctorSpecialities");
+                name: "doctorSpecialities");
 
             migrationBuilder.DropTable(
-                name: "Patients");
+                name: "patients");
 
             migrationBuilder.DropTable(
-                name: "Doctors");
+                name: "doctors");
 
             migrationBuilder.DropTable(
-                name: "Specialities");
+                name: "specialities");
 
             migrationBuilder.DropTable(
                 name: "Users");

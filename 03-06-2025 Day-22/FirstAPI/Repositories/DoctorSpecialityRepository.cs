@@ -1,29 +1,29 @@
-using FirstAPI.Contexts;
-using FirstAPI.Interfaces;
-using FirstAPI.Models;
+namespace FirstApi.Repositories;
+
+using FirstApi.Interfaces;
+using FirstApi.Contexts;
+using FirstApi.Models;
 using Microsoft.EntityFrameworkCore;
-
-namespace FirstAPI.Repositories
+public class DoctorSpecialityRepository : Repository<int, DoctorSpeciality>
 {
-    public  class DoctorSpecialityRepository : Repository<int, DoctorSpeciality>
+    public DoctorSpecialityRepository(ClinicContext clinicContext) : base(clinicContext)
     {
-        public DoctorSpecialityRepository(ClinicContext clinicContext) : base(clinicContext)
-        {
-        }
-
-        public override async Task<DoctorSpeciality> Get(int key)
-        {
-            var doctorSpecialities = await _clinicContext.DoctorSpecialities.SingleOrDefaultAsync(p => p.SerialNumber == key);
-
-            return doctorSpecialities??throw new Exception("No doctor specialities with the given ID");
-        }
-
-        public override async Task<IEnumerable<DoctorSpeciality>> GetAll()
-        {
-            var doctorSpeciality = _clinicContext.DoctorSpecialities;
-            if (doctorSpeciality.Count() == 0)
-                throw new Exception("No doctor speciality in the database");
-            return (await doctorSpeciality.ToListAsync());
-        }
     }
+
+    public override async Task<DoctorSpeciality> Get(int key)
+    {
+        var doctorspec = await _clinicContext.doctorSpecialities.SingleOrDefaultAsync(p => p.SerialNumber== key);
+
+        return doctorspec ?? throw new Exception("No doctorSpeciality with the given ID");
+    }
+
+    public override async Task<IEnumerable<DoctorSpeciality>> GetAll()
+    {
+        var doctorsspec = _clinicContext.doctorSpecialities;
+        if (doctorsspec.Count() == 0)
+            throw new Exception("No doctorSpeciality in the database");
+        return (await doctorsspec.ToListAsync());
+    }
+
+    
 }

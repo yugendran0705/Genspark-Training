@@ -1,17 +1,17 @@
-using FirstAPI.Models;
-using FirstAPI.Models.DTOs.DoctorSpecialities;
+namespace FirstApi.Misc;
+using FirstApi.Interfaces;
+using FirstApi.Models;
 
-namespace FirstAPI.Misc
+using FirstApi.Models.DTOs.DoctorSpecialities;
+public class DoctorMapper
 {
-    public class DoctorMapper
+    public Doctor? MapDoctorAddRequestDto(DoctorAddRequestDto addRequestDto)
     {
-        public Doctor? MapDoctorAddRequestDoctor(DoctorAddRequestDto addRequestDto)
-        {
-            Doctor doctor = new();
-            doctor.Name = addRequestDto.Name;
-            doctor.YearsOfExperience = addRequestDto.YearsOfExperience;
-            doctor.Email = addRequestDto.Email;
-            return doctor;
-        }
+        Doctor doctor = new();
+        doctor.Name = addRequestDto.Name;
+        doctor.YearsOfExperience = addRequestDto.YearsOfExperience;
+        doctor.Status = "Active"; 
+        doctor.Email = addRequestDto.Email;
+        return doctor;
     }
 }

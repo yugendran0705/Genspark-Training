@@ -1,79 +1,52 @@
-using System.Text;
-using FirstAPI.Contexts;
-using FirstAPI.Interfaces;
-using FirstAPI.Misc;
-using FirstAPI.Models;
-using FirstAPI.Repositories;
-using FirstAPI.Services;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+// using FirstApi.Services;
+using FirstApi.Repositories;
+using FirstApi.Contexts;
+using FirstApi.Interfaces;
+using FirstApi.Models;
+using FirstApi.Services;
 using Microsoft.EntityFrameworkCore;
+using FirstApi.Misc;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi.Models;
-using Npgsql.Replication.PgOutput.Messages;
+using System.Text;
+using Microsoft.AspNetCore.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+// builder.Services.AddOpenApi();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(opt =>
-{
-    opt.SwaggerDoc("v1", new OpenApiInfo { Title = "Clinic API", Version = "v1" });
-    opt.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+builder.Services.AddSwaggerGen();
+builder.Services.AddControllers().AddJsonOptions(options =>
     {
-        In = ParameterLocation.Header,
-        Description = "Please enter token",
-        Name = "Authorization",
-        Type = SecuritySchemeType.Http,
-        BearerFormat = "JWT",
-        Scheme = "bearer"
-    });
-    opt.AddSecurityRequirement(new OpenApiSecurityRequirement
-    {
-        {
-            new OpenApiSecurityScheme
-            {
-                Reference = new OpenApiReference
-                {
-                    Type=ReferenceType.SecurityScheme,
-                    Id="Bearer"
-                }
-            },
-            new string[]{}
-        }
-    });
-});
-builder.Services.AddControllers()
-                .AddJsonOptions(opts =>
-                {
-                    opts.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
-                    opts.JsonSerializerOptions.WriteIndented = true;
-                });
+        options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
+        options.JsonSerializerOptions.WriteIndented = true;
+    }); ;
 
+// builder.Services.AddScoped<IDoctorRepository, DoctorRepository>();
+// builder.Services.AddScoped<DoctorService>();
+// builder.Services.AddScoped<IPatientRepository, PatientRepository>();
+// builder.Services.AddScoped<PatientService>();
+// builder.Services.AddScoped<IAppointmentRepository, AppointmentRepository>();
+// builder.Services.AddScoped<AppointmentService>();
 
-
-builder.Services.AddDbContext<ClinicContext>(opts =>
-{
-    opts.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
-});
-#region  Repositories
 builder.Services.AddTransient<IRepository<int, Doctor>, DoctorRepository>();
-builder.Services.AddTransient<IRepository<int, Patient>, PatinetRepository>();
+builder.Services.AddTransient<IRepository<int, Patient>, PatientRepository>();
 builder.Services.AddTransient<IRepository<int, Speciality>, SpecialityRepository>();
 builder.Services.AddTransient<IRepository<string, Appointment>, AppointmentRepository>();
 builder.Services.AddTransient<IRepository<int, DoctorSpeciality>, DoctorSpecialityRepository>();
 builder.Services.AddTransient<IRepository<string, User>, UserRepository>();
-#endregion
 
-#region Services
-builder.Services.AddTransient<IDoctorService, DoctorService>();
-builder.Services.AddTransient<IOtherContextFunctionities, OtherFuncinalitiesImplementation>();
+builder.Services.AddScoped<IPatientService, PatientService>();
+builder.Services.AddScoped<IDoctorService, DoctorService>();
+builder.Services.AddScoped<IOtherContextFunctionities, OtherFuncinalitiesImplementation>();
 builder.Services.AddTransient<IEncryptionService, EncryptionService>();
 builder.Services.AddTransient<ITokenService, TokenService>();
 builder.Services.AddTransient<IAuthenticationService, AuthenticationService>();
-#endregion
+builder.Services.AddTransient<IAppointmentService, AppointmentService>();
 
-#region AuthenticationFilter
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
@@ -86,26 +59,35 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Keys:JwtTokenKey"]))
                     };
                 });
-#endregion
 
-#region  Misc
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("ExperiencedDoctorOnly", policy =>
+        policy.Requirements.Add(new ExperiencedDoctorRequirement(3)));
+});
+builder.Services.AddScoped<IAuthorizationHandler, ExperiencedDoctorHandler>();
+
 builder.Services.AddAutoMapper(typeof(User));
-#endregion
 
+builder.Services.AddDbContext<ClinicContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    //app.MapOpenApi();
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
+
 app.UseAuthentication();
 app.UseAuthorization();
-app.MapControllers();
 
+
+app.MapControllers();
 app.Run();
 
 

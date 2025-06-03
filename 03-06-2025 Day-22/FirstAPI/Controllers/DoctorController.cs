@@ -1,50 +1,92 @@
-
-using System.Threading.Tasks;
-using FirstAPI.Interfaces;
-using FirstAPI.Models;
-using FirstAPI.Models.DTOs.DoctorSpecialities;
-using FirstAPI.Services;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using FirstApi.Models;
+using FirstApi.Interfaces;
+using FirstApi.Models.DTOs.DoctorSpecialities;
+using FirstApi.Services;
+using FirstApi.Repositories;
+using FirstApi.Contexts;
+using Microsoft.AspNetCore.Authorization;
 
-
-namespace FirstAPI.Controllers
+[ApiController]
+[Route("api/[controller]")]
+public class DoctorController : ControllerBase
 {
+    private readonly IDoctorService _doctorService;
 
-
-    [ApiController]
-    [Route("/api/[controller]")]
-    public class DoctorController : ControllerBase
+    public DoctorController(IDoctorService doctorService)
     {
-        private readonly IDoctorService _doctorService;
+        _doctorService = doctorService;
+    }
 
-        public DoctorController(IDoctorService doctorService)
-        {
-            _doctorService = doctorService;
-        }
 
-        [HttpGet]
-        [Authorize]
-        public async Task<ActionResult<IEnumerable<DoctorsBySpecialityResponseDto>>> GetDoctors(string speciality)
+    [HttpGet("GetAllDoctors")]
+    [Authorize(Roles = "Admin,Doctor")]
+    public async Task<ActionResult<IEnumerable<Doctor>>> GetAllDoctors()
+    {
+        try
         {
-            var result = await _doctorService.GetDoctorsBySpeciality(speciality);
-            return Ok(result);
+            var doctors = await _doctorService.GetAllDoctors();
+            return Ok(doctors);
         }
-        [HttpPost]
-        public async Task<ActionResult<Doctor>> PostDoctor([FromBody] DoctorAddRequestDto doctor)
+        catch (Exception e)
         {
-            try
-            {
-                var newDoctor = await _doctorService.AddDoctor(doctor);
-                if (newDoctor != null)
-                    return Created("", newDoctor);
-                return BadRequest("Unable to process request at this moment");
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.Message);
-            }
+            return NotFound(e.Message);
         }
+    }
+    [Authorize(Policy = "ExperiencedDoctorOnly")]
+    [HttpDelete("DeleteAppointment/{id}")]
+    public async Task<ActionResult> DeleteAppointment(string id)
+    {
+        try
+        {
+            await _doctorService.DeleteApppointment(id);
+            return NoContent();
+        }
+        catch (Exception e)
+        {
+            return NotFound(e.Message);
+        }
+    }
 
+    [HttpGet("GetDoctorByName/{name}")]
+    public async Task<ActionResult<Doctor>> GetDoctorByName(string name)
+    {
+        try
+        {
+            var doctor = await _doctorService.GetDoctByName(name);
+            return Ok(doctor);
+        }
+        catch (Exception e)
+        {
+            return NotFound(e.Message);
+        }
+    }
+
+    [HttpGet("GetDoctorsBySpeciality/{speciality}")]
+    public async Task<ActionResult<ICollection<Doctor>>> GetDoctorsBySpeciality(string speciality)
+    {
+        try
+        {
+            var doctors = await _doctorService.GetDoctorsBySpeciality(speciality);
+            return Ok(doctors);
+        }
+        catch (Exception e)
+        {
+            return NotFound(e.Message);
+        }
+    }
+
+    [HttpPost("AddDoctor")]
+    public async Task<ActionResult<Doctor>> AddDoctor([FromBody] DoctorAddRequestDto doctorDto)
+    {
+        try
+        {
+            var doctor = await _doctorService.AddDoctor(doctorDto);
+            return Created("",doctor);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
     }
 }

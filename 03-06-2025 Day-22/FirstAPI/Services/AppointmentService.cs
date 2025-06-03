@@ -1,35 +1,30 @@
-using System;
-using System.Threading.Tasks;
-using FirstAPI.Contexts;
-using FirstAPI.Models;
+namespace FirstApi.Services;
+
+using FirstApi.Interfaces;
+using FirstApi.Models;
+using FirstApi.Models.DTOs;
 using Microsoft.EntityFrameworkCore;
-
-namespace FirstAPI.Services
+using FirstApi.Repositories;
+public class AppointmentService : IAppointmentService
 {
-    public class AppointmentService
+    private readonly IRepository<string,Appointment> _appointmentRepository;
+    public AppointmentService(IRepository<string,Appointment> appointmentRepository)
     {
-        private readonly ClinicContext _context;
+        _appointmentRepository = appointmentRepository;
+    }
+    public async Task<Appointment> CreateAppointmentAsync(AppointmentDto appointmentDto)
+    {
+        
 
-        public AppointmentService(ClinicContext context)
+        var appointment = new Appointment
         {
-            _context = context;
-        }
+            AppointmentNumber = Guid.NewGuid().ToString(),
+            PatientId = appointmentDto.PatientId,
+            DoctorId = appointmentDto.DoctorId,
+            AppointmentDateTime = DateTime.UtcNow,
+            Status = "Scheduled" 
+        };
 
-        public async Task CancelAppointment(string appointmentNumber, int doctorId)
-        {
-            var appointment = await _context.Appointments.FindAsync(appointmentNumber)
-                            ?? throw new Exception("Appointment not found");
-
-            var doctor = await _context.Doctors.FindAsync(doctorId)
-                        ?? throw new Exception("Doctor not found");
-
-            // Enforce the cancellation rule
-            if (doctor.YearsOfExperience < 3)
-                throw new Exception("Only doctors with at least 3 years of experience can cancel an Appointment");
-
-            appointment.Status = "Cancelled";
-            await _context.SaveChangesAsync();
-        }
-
+        return await _appointmentRepository.Add(appointment);
     }
 }

@@ -1,6 +1,5 @@
-namespace FirstAPI.Interfaces
-{
-    public interface IRepository<K, T> where T : class
+namespace FirstApi.Interfaces;
+public interface IRepository<K, T> where T : class
     {
         public Task<T> Add(T item);
         public Task<T> Get(K key);
@@ -8,4 +7,3 @@ namespace FirstAPI.Interfaces
         public Task<T> Update(K key, T item);
         public Task<T> Delete(K key);
     }
-}

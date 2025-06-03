@@ -1,12 +1,12 @@
+namespace FirstApi.Services;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using FirstAPI.Interfaces;
-using FirstAPI.Models;
+using FirstApi.Interfaces;
+using FirstApi.Models;
 using Microsoft.IdentityModel.Tokens;
 
-namespace FirstAPI.Services
-{
+
     public class TokenService : ITokenService
     {
         private readonly SymmetricSecurityKey _securityKey;
@@ -16,6 +16,7 @@ namespace FirstAPI.Services
         }
         public async  Task<string> GenerateToken(User user)
         {
+            //jwt payload filled with username and role
             List<Claim> claims = new List<Claim>
             {
                 new Claim(ClaimTypes.NameIdentifier,user.Username),
@@ -35,4 +36,3 @@ namespace FirstAPI.Services
             return tokenHandler.WriteToken(token);
         }
     }
-}

@@ -1,7 +1,6 @@
-namespace FirstAPI.Models.DTOs.DoctorSpecialities
+namespace FirstApi.Models.DTOs.DoctorSpecialities;
+
+public class SpecialityAddRequestDto
 {
-    public class SpecialityAddRequestDto
-    {
-        public string Name { get; set; } = string.Empty;
-    }
+    public string Name { get; set; } = string.Empty;
 }

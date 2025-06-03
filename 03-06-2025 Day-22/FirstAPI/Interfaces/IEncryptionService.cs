@@ -1,9 +1,7 @@
-using FirstAPI.Models;
+namespace FirstApi.Interfaces;
+using FirstApi.Models;
 
-namespace FirstAPI.Interfaces
+public interface IEncryptionService
 {
-    public interface IEncryptionService
-    {
-        public Task<EncryptModel> EncryptData(EncryptModel data);
-    }
+    public Task<EncryptModel> EncryptData(EncryptModel data);
 }
