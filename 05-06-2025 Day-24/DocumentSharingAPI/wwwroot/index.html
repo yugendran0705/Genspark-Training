@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SignalR Test Client</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.0/signalr.min.js"></script>
+</head>
+<body>
+  <h1>SignalR Notification Test</h1>
+  <div id="messages"></div>
+
+  <script>
+    // Build the connection
+    const connection = new signalR.HubConnectionBuilder()
+      .withUrl("http://localhost:5212/hubs/notify")
+      .configureLogging(signalR.LogLevel.Information)
+      .build();
+
+    // Receive notifications
+    connection.on("ReceiveDocumentUpload", (data) => {
+      console.log("Notification received:", data);
+      // Display the message on the page
+      const msgDiv = document.getElementById("messages");
+      msgDiv.innerHTML += `<p>Notification: ${data.Message} for file ${data.FileName} at ${data.UploadedAt}</p>`;
+    });
+
+    // Start the connection
+    connection.start()
+      .then(() => {
+        console.log("Connected to SignalR hub!");
+      })
+      .catch(err => console.error("Error connecting: ", err));
+  </script>
+</body>
+</html>
