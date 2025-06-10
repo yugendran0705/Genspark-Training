@@ -9,12 +9,11 @@ import { FormsModule } from '@angular/forms';
 })
 export class Customer {
   name: string = '';
-  like: number = 0;  
-  dislike: number = 0;
-  imageUrl: string = './favicon.ico';
-  // className: string = "bi bi-hand-thumbs-up";
+  like: number = 5;  
+  dislike: number = 7;
+  imageUrl: string = './dp.jpg';
   constructor() {
-    this.name = "Ramu";
+    this.name = "Chill Guy";
   }
   onButtonClick(uname: string) {
     this.name = uname;

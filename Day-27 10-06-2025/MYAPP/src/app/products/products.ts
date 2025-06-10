@@ -9,15 +9,19 @@ import { Component } from '@angular/core';
 })
 export class Products {
   products: any[] = [
-    { id: 1, name: 'Product 1', price: 100, imageUrl: './favicon.ico', count: 0 },
-    { id: 2, name: 'Product 2', price: 200, imageUrl: './favicon.ico', count: 0 },
-    { id: 3, name: 'Product 3', price: 300, imageUrl: './favicon.ico', count: 0 },
+    { id: 1, name: 'Dog', price: 100, imageUrl: './images.jpeg', count: 0, quantity: 2 },
+    { id: 2, name: 'Cat', price: 200, imageUrl: './cat.png', count: 0, quantity: 1 },
+    { id: 3, name: 'Hamster', price: 300, imageUrl: './hamster.jpg', count: 0, quantity: 3 },
   ];
 
   constructor() {
   }
 
   addToCart(product: any) {
+    if (product.count >= product.quantity) {
+      alert(`You can only add ${product.quantity} of ${product.name} to the cart.`);
+      return;
+    }
     product.count++;
   }
 

@@ -1,11 +1,12 @@
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using VehicleServiceAPI.Context;
+using VehicleServiceAPI.Interfaces;
 using VehicleServiceAPI.Models;
 
 namespace VehicleServiceAPI.Repositories
 {
-    public class VehicleRepository
+    public class VehicleRepository : IRepository<Vehicle>
     {
         private readonly VehicleServiceDbContext _context;
 
@@ -14,34 +15,31 @@ namespace VehicleServiceAPI.Repositories
             _context = context;
         }
 
-        public async Task<Vehicle> CreateVehicleAsync(Vehicle vehicle)
+        public async Task<Vehicle> AddAsync(Vehicle vehicle)
         {
             _context.Vehicles.Add(vehicle);
             await _context.SaveChangesAsync();
             return vehicle;
         }
 
-        public async Task<Vehicle?> GetVehicleByIdAsync(int id)
+        public async Task<Vehicle> GetByIdAsync(int id)
         {
-            return await _context.Vehicles
+            var vehicle = await _context.Vehicles
                 .Include(v => v.Owner)
-                .FirstOrDefaultAsync(v => v.Id == id);
+                .FirstOrDefaultAsync(v => v.Id == id) ?? throw new InvalidOperationException($"Vehicle not found.");
+            return vehicle;
         }
 
-        public async Task<Vehicle?> UpdateVehicleAsync(Vehicle vehicle)
+        public async Task<Vehicle> UpdateAsync(Vehicle vehicle)
         {
-            var existingVehicle = await _context.Vehicles.FindAsync(vehicle.Id);
-            if (existingVehicle == null)
-            {
-                return null;
-            }
-
+            var existingVehicle = await _context.Vehicles.FindAsync(vehicle.Id) ?? throw new InvalidOperationException($"Vehicle not found.");
+            
             _context.Entry(existingVehicle).CurrentValues.SetValues(vehicle);
             await _context.SaveChangesAsync();
             return existingVehicle;
         }
 
-        public async Task<bool> DeleteVehicleAsync(int id)
+        public async Task<bool> DeleteAsync(int id)
         {
             var vehicle = await _context.Vehicles.FindAsync(id);
             if (vehicle == null)
@@ -54,7 +52,7 @@ namespace VehicleServiceAPI.Repositories
             return true;
         }
         
-        public async Task<List<Vehicle>> GetAllVehicleAsync()
+        public async Task<IEnumerable<Vehicle>> GetAllAsync()
         {
             return await _context.Vehicles
                 .Include(v => v.Owner)
