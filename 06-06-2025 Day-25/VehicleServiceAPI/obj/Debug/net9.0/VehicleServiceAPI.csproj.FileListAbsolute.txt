@@ -1,0 +1,7 @@
+/Users/yugendransunder/Documents/Genspark-training/Genspark-Training/06-06-2025 Day-25/VehicleServiceAPI/obj/Debug/net9.0/VehicleServiceAPI.GeneratedMSBuildEditorConfig.editorconfig
+/Users/yugendransunder/Documents/Genspark-training/Genspark-Training/06-06-2025 Day-25/VehicleServiceAPI/obj/Debug/net9.0/VehicleServiceAPI.AssemblyInfoInputs.cache
+/Users/yugendransunder/Documents/Genspark-training/Genspark-Training/06-06-2025 Day-25/VehicleServiceAPI/obj/Debug/net9.0/VehicleServiceAPI.AssemblyInfo.cs
+/Users/yugendransunder/Documents/Genspark-training/Genspark-Training/06-06-2025 Day-25/VehicleServiceAPI/obj/Debug/net9.0/VehicleServiceAPI.csproj.CoreCompileInputs.cache
+/Users/yugendransunder/Documents/Genspark-training/Genspark-Training/06-06-2025 Day-25/VehicleServiceAPI/obj/Debug/net9.0/VehicleServiceAPI.MvcApplicationPartsAssemblyInfo.cache
+/Users/yugendransunder/Documents/Genspark-training/Genspark-Training/06-06-2025 Day-25/VehicleServiceAPI/obj/Debug/net9.0/VehicleServiceAPI.sourcelink.json
+/Users/yugendransunder/Documents/Genspark-training/Genspark-Training/06-06-2025 Day-25/VehicleServiceAPI/obj/Debug/net9.0/VehicleServiceAPI.csproj.AssemblyReference.cache
