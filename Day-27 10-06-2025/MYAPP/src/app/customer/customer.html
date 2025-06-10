@@ -1,0 +1,17 @@
+<p>customer works!</p>
+<h2>
+    <!-- interpolation -->
+    Hello {{name}}
+</h2>
+<!-- Property Binding -->
+<img src="{{imageUrl}}" alt="Image" />
+<div>
+    <i class="bi bi-hand-thumbs-up-fill" (click)="clickLike()"></i>
+    {{like}}
+</div>
+<div>
+    <i class="bi bi-hand-thumbs-down-fill" (click)="clickDislike()"></i> 
+    {{dislike}}
+</div>
+<input type="text" #uname [value]="name"/>
+<button (click)="onButtonClick(uname.value)">Click Me</button>

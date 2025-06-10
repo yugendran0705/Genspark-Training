@@ -691,11 +691,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/yugendransunder/Documents/Genspark-training/Genspark-Training/06-06-2025 Day-25/VehicleServiceAPI/VehicleServiceAPI.csproj",
+      "projectUniqueName": "/Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025/VehicleServiceAPI/VehicleServiceAPI.csproj",
       "projectName": "VehicleServiceAPI",
-      "projectPath": "/Users/yugendransunder/Documents/Genspark-training/Genspark-Training/06-06-2025 Day-25/VehicleServiceAPI/VehicleServiceAPI.csproj",
+      "projectPath": "/Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025/VehicleServiceAPI/VehicleServiceAPI.csproj",
       "packagesPath": "/Users/yugendransunder/.nuget/packages/",
-      "outputPath": "/Users/yugendransunder/Documents/Genspark-training/Genspark-Training/06-06-2025 Day-25/VehicleServiceAPI/obj/",
+      "outputPath": "/Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025/VehicleServiceAPI/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/yugendransunder/.nuget/NuGet/NuGet.Config"

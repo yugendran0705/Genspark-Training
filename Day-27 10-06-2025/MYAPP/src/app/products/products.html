@@ -1,0 +1,10 @@
+<p>products works!</p>
+<ul>
+  <li *ngFor="let product of products">
+    <h3>{{ product.name }}</h3>
+    <img [src]="product.imageUrl" alt="Image" />
+    <p>Price: {{ product.price}}</p>
+    <button (click)="addToCart(product)">Add to Cart</button>
+    <span *ngIf="product.count > 0">{{ product.count }}</span>
+  </li>
+</ul>
