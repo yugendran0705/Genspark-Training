@@ -7,6 +7,6 @@ namespace VehicleServiceAPI.DTOs
         public int InvoiceId { get; set; }
         public decimal Amount { get; set; }
         public string ServiceDetails { get; set; }
-        public DateTime CreatedAt { get; set; }
+        // public DateTime CreatedAt { get; set; }
     }
 }

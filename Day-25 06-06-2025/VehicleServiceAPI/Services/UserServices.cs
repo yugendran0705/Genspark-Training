@@ -78,7 +78,7 @@ namespace VehicleServiceAPI.Services
                 PasswordHash = SecurityUtils.ComputeSha256Hash(dto.Password),
                 RoleId = dto.RoleId,
                 Role = role,
-                CreatedAt = DateTime.UtcNow
+                // CreatedAt = DateTime.UtcNow
             };
         }
 
@@ -94,7 +94,7 @@ namespace VehicleServiceAPI.Services
                 PasswordHash = user.PasswordHash,
                 RoleId = user.RoleId,
                 RoleName = user.Role.RoleName,
-                CreatedAt = user.CreatedAt
+                // CreatedAt = user.CreatedAt
             };
         }
         #endregion

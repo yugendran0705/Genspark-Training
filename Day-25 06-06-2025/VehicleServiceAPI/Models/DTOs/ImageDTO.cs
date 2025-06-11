@@ -6,6 +6,6 @@ namespace VehicleServiceAPI.DTOs
     {
         public int ImageId { get; set; }
         public string FilePath { get; set; }
-        public DateTime UploadedAt { get; set; }
+        // public DateTime UploadedAt { get; set; }
     }
 }

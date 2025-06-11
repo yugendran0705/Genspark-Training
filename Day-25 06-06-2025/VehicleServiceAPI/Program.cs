@@ -22,6 +22,7 @@ builder.Services.AddScoped<ServiceSlotRepository>();
 builder.Services.AddScoped<VehicleRepository>();
 builder.Services.AddScoped<InvoiceRepository>();
 builder.Services.AddScoped<ImageRepository>();
+builder.Services.AddScoped<RoleRepository>();
 
 // Register service implementations.
 // (If you are following best practice, your controllers should depend on services,

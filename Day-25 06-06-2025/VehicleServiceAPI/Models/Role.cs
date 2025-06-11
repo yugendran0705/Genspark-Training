@@ -12,6 +12,5 @@ namespace VehicleServiceAPI.Models
         [Required]
         public required string RoleName { get; set; }
 
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     }
 }

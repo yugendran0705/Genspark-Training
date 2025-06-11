@@ -10,7 +10,7 @@ namespace VehicleServiceAPI.Models.DTOs
         public int RoleId { get; set; }
         public string RoleName { get; set; }
         public bool IsDeleted { get; set; }
-        public DateTime CreatedAt { get; set; }
+        // public DateTime CreatedAt { get; set; }
     }
     public class UserCreationRequestDTO
     {

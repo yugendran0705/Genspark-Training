@@ -23,6 +23,6 @@ namespace VehicleServiceAPI.Models
         
         public bool IsDeleted { get; set; } = false;
 
-        public DateTime UploadedAt { get; set; } = DateTime.UtcNow;
+        // public DateTime UploadedAt { get; set; } = DateTime.UtcNow;
     }
 }
