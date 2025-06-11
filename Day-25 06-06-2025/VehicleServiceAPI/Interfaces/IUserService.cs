@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using VehicleServiceAPI.DTOs;
+using VehicleServiceAPI.Models.DTOs;
 
 namespace VehicleServiceAPI.Interfaces
 {
@@ -7,8 +7,9 @@ namespace VehicleServiceAPI.Interfaces
     {
         Task<UserDTO> GetUserByIdAsync(int id);
         Task<UserDTO> GetUserByEmailAsync(string email);
-        Task<UserDTO> CreateUserAsync(UserDTO userDto);
+        Task<UserDTO> CreateUserAsync(UserCreationRequestDTO userDto);
         Task<UserDTO> UpdateUserAsync(int id, UserDTO userDto);
         Task<bool> DeleteUserAsync(int id);
+        Task<IEnumerable<UserDTO>> GetAllUsersAsync();
     }
 }

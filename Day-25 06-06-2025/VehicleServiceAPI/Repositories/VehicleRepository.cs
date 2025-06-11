@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using VehicleServiceAPI.Context;
 using VehicleServiceAPI.Interfaces;

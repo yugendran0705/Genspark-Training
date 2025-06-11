@@ -1,4 +1,3 @@
-using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -15,6 +14,9 @@ namespace VehicleServiceAPI.Models
 
         [Required, MaxLength(150)]
         public required string Email { get; set; }
+
+        [Required, Length(10,10)]
+        public required string Phone { get; set; }
 
         [Required]
         public required string PasswordHash { get; set; }

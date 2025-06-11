@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using System.Threading.Tasks;
 using VehicleServiceAPI.Context;
 using VehicleServiceAPI.Interfaces;
 using VehicleServiceAPI.Models;
@@ -30,6 +29,7 @@ namespace VehicleServiceAPI.Repositories
             var existingUser = await _context.Users.FindAsync(user.Id) ?? throw new InvalidOperationException($"User not found.");
             existingUser.Name = user.Name;
             existingUser.Email = user.Email;
+            existingUser.Phone = user.Phone;
             existingUser.PasswordHash = user.PasswordHash;
             existingUser.RoleId = user.RoleId;
 

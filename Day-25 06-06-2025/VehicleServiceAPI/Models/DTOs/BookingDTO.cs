@@ -1,18 +1,17 @@
-using System;
-
-namespace VehicleServiceAPI.DTOs
+namespace VehicleServiceAPI.Models.DTOs
 {
     public class BookingDTO
     {
-        public int BookingId { get; set; }
-        public string Status { get; set; }
-        public DateTime CreatedAt { get; set; }
-
-        public class CreateBookingDTO
-        {
-            public int UserId { get; set; }
-            public int SlotId { get; set; }
-            public int VehicleId { get; set; }
-        }
+        public int Id { get; set; }
+        public int UserId { get; set; }
+        public int SlotId { get; set; }
+        public int VehicleId { get; set; }
     }
+    public class CreateBookingDTO
+    {
+        public int UserId { get; set; }
+        public int SlotId { get; set; }
+        public int VehicleId { get; set; }
+    }
+
 }

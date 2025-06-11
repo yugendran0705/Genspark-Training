@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using System.Threading.Tasks;
 using VehicleServiceAPI.Context;
 using VehicleServiceAPI.Models;
 using VehicleServiceAPI.Interfaces;
