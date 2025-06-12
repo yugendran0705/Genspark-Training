@@ -28,7 +28,7 @@ namespace VehicleServiceAPI.Services
             }
 
             var accessToken = SecurityUtils.GenerateJwtToken(user, _configuration);
-            var refreshToken = SecurityUtils.GenerateRefreshToken();
+            var refreshToken = SecurityUtils.GenerateRefreshJwtToken(user,_configuration);
 
             return new LoginResponseDTO { AccessToken = accessToken, RefreshToken = refreshToken };
         }
@@ -46,9 +46,11 @@ namespace VehicleServiceAPI.Services
             }
 
             var newAccessToken = SecurityUtils.GenerateJwtToken(user, _configuration);
-            var newRefreshToken = SecurityUtils.GenerateRefreshToken();
+            var newRefreshToken = SecurityUtils.GenerateRefreshJwtToken(user, _configuration);
 
             return new LoginResponseDTO { AccessToken = newAccessToken, RefreshToken = newRefreshToken };
         }
+
+        
     }
 }

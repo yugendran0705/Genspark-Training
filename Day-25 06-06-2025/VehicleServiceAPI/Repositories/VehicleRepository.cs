@@ -32,7 +32,7 @@ namespace VehicleServiceAPI.Repositories
         public async Task<Vehicle> UpdateAsync(Vehicle vehicle)
         {
             var existingVehicle = await _context.Vehicles.FindAsync(vehicle.Id) ?? throw new InvalidOperationException($"Vehicle not found.");
-            
+
             _context.Entry(existingVehicle).CurrentValues.SetValues(vehicle);
             await _context.SaveChangesAsync();
             return existingVehicle;
@@ -50,12 +50,21 @@ namespace VehicleServiceAPI.Repositories
             await _context.SaveChangesAsync();
             return true;
         }
-        
+
         public async Task<IEnumerable<Vehicle>> GetAllAsync()
         {
             return await _context.Vehicles
                 .Include(v => v.Owner)
                 .ToListAsync();
         }
+
+        public async Task<IEnumerable<Vehicle>> GetAllByUserAsync(int userId)
+        {
+            return await _context.Vehicles
+                .Include(v => v.Owner)
+                .Where(v => v.OwnerId == userId)
+                .ToListAsync();
+        }
+
     }
 }

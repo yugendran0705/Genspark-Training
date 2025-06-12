@@ -2,6 +2,11 @@ using Microsoft.EntityFrameworkCore;
 using VehicleServiceAPI.Context;
 using VehicleServiceAPI.Repositories;
 using VehicleServiceAPI.Services;
+using VehicleServiceAPI.Interfaces;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,15 +30,78 @@ builder.Services.AddScoped<ImageRepository>();
 builder.Services.AddScoped<RoleRepository>();
 
 // Register service implementations.
-// (If you are following best practice, your controllers should depend on services,
-// and services should depend on repositories. However, you can register and use both if needed.)
-builder.Services.AddScoped<AuthService>();
-builder.Services.AddScoped<UserService>();
-// Register any additional services as needed...
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IRoleService, RoleService>();
+builder.Services.AddScoped<IVehicleService, VehicleService>();
+builder.Services.AddScoped<IServiceSlotService, ServiceSlotService>();
+builder.Services.AddScoped<IBookingService, BookingService>();
+builder.Services.AddScoped<IInvoiceService, InvoiceService>();
+// builder.Services.AddScoped<, >();
 
-// Add Swagger/OpenAPI support.
+// Configure JWT Authentication.
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        var jwtSettings = configuration.GetSection("JwtSettings");
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidIssuer = jwtSettings["Issuer"],
+            ValidateAudience = true,
+            ValidAudience = jwtSettings["Audience"],
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings["Secret"])),
+            ValidateLifetime = true
+        };
+    });
+
+// Configure authorization policies.
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminOnly", policy =>
+         policy.RequireRole("Admin"));
+    options.AddPolicy("MechanicAccess", policy =>
+         policy.RequireRole("Admin", "Mechanic"));
+    options.AddPolicy("UserAccess", policy =>
+         policy.RequireRole("Admin", "Mechanic", "User"));
+});
+
+// Add Swagger/OpenAPI support BEFORE building the app.
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "VehicleServiceAPI", Version = "v1" });
+    
+    // Define the Bearer auth scheme
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Description = "JWT Authorization header using the Bearer scheme. \r\n\r\n " +
+                      "Enter 'Bearer' [space] and then your token in the text input below.\r\n\r\nExample: \"Bearer abcdefgh12345\"",
+        Name = "Authorization",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "Bearer"
+    });
+    
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement()
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                },
+                Scheme = "oauth2",
+                Name = "Bearer",
+                In = ParameterLocation.Header,
+            },
+            new List<string>()
+        }
+    });
+});
 
 var app = builder.Build();
 
@@ -42,7 +110,6 @@ using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<VehicleServiceDbContext>();
     dbContext.Database.Migrate();
-    // Optionally seed the database if necessary.
 }
 
 // Configure the middleware pipeline.
@@ -54,6 +121,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

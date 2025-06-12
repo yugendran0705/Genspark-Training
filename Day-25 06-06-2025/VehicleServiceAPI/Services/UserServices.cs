@@ -40,14 +40,14 @@ namespace VehicleServiceAPI.Services
             return MapUserToDto(createdUser);
         }
 
-        public async Task<UserDTO> UpdateUserAsync(int id, UserDTO userDto)
+        public async Task<UserDTO> UpdateUserAsync(int id, UserUpdateRequestDTO userDto)
         {
             var existingUser = await _userRepository.GetByIdAsync(id);
             // Update the desired properties.
             existingUser.Name = userDto.Name;
             existingUser.Email = userDto.Email;
             existingUser.Phone = userDto.Phone;
-            existingUser.PasswordHash = userDto.PasswordHash; // Ensure proper hashing in real scenarios.
+            // existingUser.PasswordHash = SecurityUtils.ComputeSha256Hash(userDto.Password);
             existingUser.RoleId = userDto.RoleId;
 
             var updatedUser = await _userRepository.UpdateAsync(existingUser);

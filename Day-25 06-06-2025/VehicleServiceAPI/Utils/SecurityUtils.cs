@@ -62,15 +62,6 @@ namespace VehicleServiceAPI.Utils
         }
 
         /// <summary>
-        /// Generate a secure Refresh Token.
-        /// </summary>
-        public static string GenerateRefreshToken()
-        {
-            var randomBytes = RandomNumberGenerator.GetBytes(64);
-            return Convert.ToBase64String(randomBytes);
-        }
-
-        /// <summary>
         /// Extract User ID from Refresh Token (for demonstration, using JWT parsing).
         /// </summary>
         public static int ExtractUserIdFromToken(string token)
@@ -80,5 +71,28 @@ namespace VehicleServiceAPI.Utils
             var userIdClaim = jwtToken.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
             return userIdClaim != null ? int.Parse(userIdClaim.Value) : 0;
         }
+
+        public static string GenerateRefreshJwtToken(User user, IConfiguration configuration)
+        {
+            var jwtSettings = configuration.GetSection("JwtSettings");
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings["RefreshSecret"]));
+            var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+            var claims = new[]
+            {
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
+            };
+
+            var token = new JwtSecurityToken(
+                issuer: jwtSettings["Issuer"],
+                audience: jwtSettings["Audience"],
+                claims: claims,
+                expires: DateTime.UtcNow.AddDays(7), 
+                signingCredentials: credentials
+            );
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
     }
 }

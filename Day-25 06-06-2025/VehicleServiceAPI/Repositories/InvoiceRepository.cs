@@ -71,6 +71,7 @@ namespace VehicleServiceAPI.Repositories
         public async Task<IEnumerable<Invoice>> GetInvoicesByBookingIdAsync(int bookingId)
         {
             return await _context.Invoices
+                .Include(i => i.Booking)
                 .Where(i => i.BookingId == bookingId && !i.IsDeleted)
                 .ToListAsync();
         }

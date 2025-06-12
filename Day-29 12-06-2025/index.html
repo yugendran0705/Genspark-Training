@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Async JavaScript Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    button {
+      margin-right: 10px;
+      padding: 10px 15px;
+      cursor: pointer;
+    }
+    table {
+      margin-top: 20px;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px 12px;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <h2>Fetch User Details</h2>
+  <button onclick="loadWithCallback()">Callback</button>
+  <button onclick="loadWithPromise()">Promise</button>
+  <button onclick="loadWithAsyncAwait()">Async/Await</button>
+ 
+  <div id="output"></div>
+ 
+  <script>
+    const users = [
+      { id: 1, name: "Alice", email: "alice@example.com" },
+      { id: 2, name: "Bob", email: "bob@example.com" },
+      { id: 3, name: "Charlie", email: "charlie@example.com" }
+    ];
+ 
+    function simulateFetch(data, delay = 1000, callback) {
+      setTimeout(() => {
+        callback(data);
+      }, delay);
+    }
+ 
+    function fetchUsersWithPromise() {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(users);
+        }, 1000);
+      });
+    }
+ 
+    function displayUsers(userList) {
+      const outputDiv = document.getElementById("output");
+      let html = `<table>
+        <tr><th>ID</th><th>Name</th><th>Email</th></tr>`;
+      userList.forEach(user => {
+        html += `<tr>
+          <td>${user.id}</td>
+          <td>${user.name}</td>
+          <td>${user.email}</td>
+        </tr>`;
+      });
+      html += `</table>`;
+      outputDiv.innerHTML = html;
+    }
+ 
+    // Callback version
+    function loadWithCallback() {
+        console.log("With Call Back");
+      simulateFetch(users, 1000, displayUsers);
+    }
+ 
+    // Promise version
+    function loadWithPromise() {
+        console.log("With Promise");
+      fetchUsersWithPromise().then(displayUsers);
+    }
+ 
+    // Async/Await version
+    async function loadWithAsyncAwait() {
+        console.log("With Async Await")
+      const data = await fetchUsersWithPromise();
+      displayUsers(data);
+    }
+  </script>
+</body>
+</html>

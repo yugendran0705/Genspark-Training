@@ -1,3 +1,5 @@
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using VehicleServiceAPI.Interfaces;
 using VehicleServiceAPI.Models.DTOs;
@@ -5,7 +7,7 @@ using VehicleServiceAPI.Models.DTOs;
 namespace VehicleServiceAPI.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
@@ -16,55 +18,69 @@ namespace VehicleServiceAPI.Controllers
         }
         
         /// <summary>
-        /// Retrieves all users.
+        /// Retrieves all users (Admin access only).
         /// </summary>
+        [Authorize(Policy = "AdminOnly")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<UserDTO>>> GetAll()
         {
-            var users = await _userService.GetAllUsersAsync();
-            return Ok(users);
+            try
+            {
+                var users = await _userService.GetAllUsersAsync();
+                return Ok(users);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return NotFound(new { error = ex.Message });
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Forbid();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { error = ex.Message });
+            }
         }
         
         /// <summary>
-        /// Retrieves a user by their ID.
+        /// Retrieves the profile of the currently logged-in user.
         /// </summary>
-        /// <param name="id">The user's ID.</param>
-        [HttpGet("{id}")]
-        public async Task<ActionResult<UserDTO>> Get(int id)
+        [Authorize(Policy = "UserAccess")]
+        [HttpGet("profile")]
+        public async Task<ActionResult<UserDTO>> GetProfile()
         {
+            // Extract user Id from the JWT token claims.
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+            if (userIdClaim == null)
+            {
+                return Unauthorized("User ID not found in token.");
+            }
+            
+            int userId = int.Parse(userIdClaim.Value);
+            
             try
             {
-                var user = await _userService.GetUserByIdAsync(id);
+                var user = await _userService.GetUserByIdAsync(userId);
                 return Ok(user);
             }
             catch (InvalidOperationException ex)
             {
-                return NotFound(ex.Message);
+                return NotFound(new { error = ex.Message });
             }
-        }
-        
-        /// <summary>
-        /// Retrieves a user by their email.
-        /// </summary>
-        /// <param name="email">The user's email address.</param>
-        [HttpGet("email")]
-        public async Task<ActionResult<UserDTO>> GetByEmail([FromQuery] string email)
-        {
-            try
+            catch (UnauthorizedAccessException ex)
             {
-                var user = await _userService.GetUserByEmailAsync(email);
-                return Ok(user);
+                return Forbid();
             }
-            catch (InvalidOperationException ex)
+            catch (Exception ex)
             {
-                return NotFound(ex.Message);
+                return BadRequest(new { error = ex.Message });
             }
         }
         
         /// <summary>
         /// Creates a new user.
         /// </summary>
-        /// <param name="userRequest">The request object containing new user data.</param>
         [HttpPost]
         public async Task<ActionResult<UserDTO>> Create([FromBody] UserCreationRequestDTO userRequest)
         {
@@ -76,46 +92,93 @@ namespace VehicleServiceAPI.Controllers
             try
             {
                 var createdUser = await _userService.CreateUserAsync(userRequest);
-                return CreatedAtAction(nameof(Get), new { id = createdUser.Id }, createdUser);
+                // Return the created profile; note for creation, the input is used.
+                return CreatedAtAction(nameof(GetProfile), null, createdUser);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return NotFound(new { error = ex.Message });
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Forbid();
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest(new { error = ex.Message });
             }
         }
         
         /// <summary>
-        /// Updates an existing user.
+        /// Updates the profile of the currently logged-in user.
         /// </summary>
-        /// <param name="id">The user's ID.</param>
-        /// <param name="userDto">The updated user data.</param>
-        [HttpPut("{id}")]
-        public async Task<ActionResult<UserDTO>> Update(int id, [FromBody] UserDTO userDto)
+        [Authorize(Policy = "UserAccess")]
+        [HttpPut("")]
+        public async Task<ActionResult<UserDTO>> UpdateProfile([FromBody] UserUpdateRequestDTO userDto)
         {
+            // Extract user Id from the JWT token claims.
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+            if (userIdClaim == null)
+            {
+                return Unauthorized("User ID not found in token.");
+            }
+            int userId = int.Parse(userIdClaim.Value);
+            
             try
             {
-                var updatedUser = await _userService.UpdateUserAsync(id, userDto);
+                var updatedUser = await _userService.UpdateUserAsync(userId, userDto);
                 return Ok(updatedUser);
             }
             catch (InvalidOperationException ex)
             {
-                return NotFound(ex.Message);
+                return NotFound(new { error = ex.Message });
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Forbid();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { error = ex.Message });
             }
         }
         
         /// <summary>
-        /// Soft-deletes a user.
+        /// Soft-deletes the profile of the currently logged-in user.
         /// </summary>
-        /// <param name="id">The user's ID.</param>
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        [Authorize(Policy = "UserAccess")]
+        [HttpDelete("")]
+        public async Task<IActionResult> DeleteProfile()
         {
-            var result = await _userService.DeleteUserAsync(id);
-            if (!result)
+            try
             {
-                return NotFound($"User with id {id} not found.");
+                // Extract user Id from the JWT token claims.
+                var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+                if (userIdClaim == null)
+                {
+                    return Unauthorized("User ID not found in token.");
+                }
+                int userId = int.Parse(userIdClaim.Value);
+
+                var result = await _userService.DeleteUserAsync(userId);
+                if (!result)
+                {
+                    return NotFound($"User with id {userId} not found.");
+                }
+                return NoContent();
             }
-            return NoContent();
+            catch (InvalidOperationException ex)
+            {
+                return NotFound(new { error = ex.Message });
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Forbid();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { error = ex.Message });
+            }
         }
     }
 }
