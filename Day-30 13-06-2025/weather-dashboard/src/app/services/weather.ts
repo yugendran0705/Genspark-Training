@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({ providedIn: 'root' })
 export class WeatherService {
   // Replace with your actual OpenWeatherMap API key.
-  private readonly API_KEY = 'YOUR_OPENWEATHERMAP_API_KEY';
+  private readonly API_KEY = '';
   private readonly BASE_URL = 'https://api.openweathermap.org/data/2.5/weather';
 
   // Signals to hold current city, weather data, and error messages.
