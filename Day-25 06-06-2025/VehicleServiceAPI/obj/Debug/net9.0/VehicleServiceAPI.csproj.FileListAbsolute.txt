@@ -141,3 +141,13 @@
 /Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025/VehicleServiceAPI/obj/Debug/net9.0/VehicleServiceAPI.pdb
 /Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025/VehicleServiceAPI/obj/Debug/net9.0/VehicleServiceAPI.genruntimeconfig.cache
 /Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025/VehicleServiceAPI/obj/Debug/net9.0/ref/VehicleServiceAPI.dll
+/Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025/VehicleServiceAPI/bin/Debug/net9.0/VehicleServiceAPI.staticwebassets.runtime.json
+/Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025/VehicleServiceAPI/bin/Debug/net9.0/Serilog.dll
+/Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025/VehicleServiceAPI/bin/Debug/net9.0/Serilog.AspNetCore.dll
+/Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025/VehicleServiceAPI/bin/Debug/net9.0/Serilog.Extensions.Hosting.dll
+/Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025/VehicleServiceAPI/bin/Debug/net9.0/Serilog.Extensions.Logging.dll
+/Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025/VehicleServiceAPI/bin/Debug/net9.0/Serilog.Formatting.Compact.dll
+/Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025/VehicleServiceAPI/bin/Debug/net9.0/Serilog.Settings.Configuration.dll
+/Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025/VehicleServiceAPI/bin/Debug/net9.0/Serilog.Sinks.Console.dll
+/Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025/VehicleServiceAPI/bin/Debug/net9.0/Serilog.Sinks.Debug.dll
+/Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025/VehicleServiceAPI/bin/Debug/net9.0/Serilog.Sinks.File.dll

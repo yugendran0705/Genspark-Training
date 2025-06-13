@@ -1,0 +1,132 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SignalR Event Broadcaster</title>
+    <script src="https://cdn.jsdelivr.net/npm/@microsoft/signalr@8.0.7/dist/browser/signalr.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        input[type="text"], button {
+            width: 100%;
+            padding: 12px 10px;
+            margin: 10px 0;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .messages {
+            margin-top: 30px;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+        }
+
+        .event-message {
+            background-color: #f0f7ff;
+            border-left: 4px solid #2196f3;
+            margin: 10px 0;
+            padding: 12px;
+            border-radius: 5px;
+        }
+
+        .event-message span {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>📢 Event Notification</h2>
+
+
+        <div id="msgs" class="messages"></div>
+    </div>
+
+    <script>
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("http://localhost:5192/eventhub", { withCredentials: true })
+            .build();
+
+        connection.on("ReceiveMessage", (type, SlotDateTime, MechanicName, Status) => {
+            const placeHolder = document.getElementById("msgs");
+            const content = document.createElement("div");
+            content.className = "event-message";
+            content.innerHTML = `
+                <span>${type} :</span>
+                <strong>SlotDateTime:</strong> ${SlotDateTime}<br>
+                <strong>MechanicName:</strong> ${MechanicName}<br>
+                <strong>Status:</strong> ${Status}
+            `;
+            placeHolder.prepend(content);
+        });
+
+        connection.start()
+            .then(() => console.log("Connected to SignalR"))
+            .catch(err => console.error("SignalR connection failed", err));
+
+        connection.onclose(err => {
+            console.warn("Connection closed", err);
+        });
+
+        window.addEventListener("beforeunload", () => {
+            connection.stop();
+        });
+
+        function sendMessage(e) {
+            e.preventDefault();
+            const user = document.getElementById("user").value.trim();
+            const SlotDateTime = document.getElementById("SlotDateTime").value.trim();
+            const MechanicName = document.getElementById("MechanicName").value.trim();
+            const Status = document.getElementById("Status").value.trim();
+
+            if (!user || !SlotDateTime || !MechanicName || !Status) {
+                alert("Please fill in all fields before sending.");
+                return;
+            }
+
+            connection.invoke("SendMessage", user, SlotDateTime, MechanicName, Status)
+                .catch(err => console.error("SendMessage failed:", err));
+        }
+    </script>
+</body>
+</html>

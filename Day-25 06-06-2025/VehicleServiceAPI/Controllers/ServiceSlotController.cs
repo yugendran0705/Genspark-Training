@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using VehicleServiceAPI.Interfaces;
 using VehicleServiceAPI.Models.DTOs;
+using VehicleServiceAPI.Misc;
+using Microsoft.AspNetCore.SignalR;
 
 namespace VehicleServiceAPI.Controllers
 {
@@ -10,10 +12,17 @@ namespace VehicleServiceAPI.Controllers
     public class ServiceSlotController : ControllerBase
     {
         private readonly IServiceSlotService _serviceSlotService;
+        private readonly ILogger<ServiceSlotController> _logger;
+        private readonly IHubContext<EventHub> _hubContext;
         
-        public ServiceSlotController(IServiceSlotService serviceSlotService)
+        public ServiceSlotController(
+            IServiceSlotService serviceSlotService, 
+            ILogger<ServiceSlotController> logger,
+            IHubContext<EventHub> hubContext)
         {
             _serviceSlotService = serviceSlotService;
+            _logger = logger;
+            _hubContext = hubContext;
         }
         
         /// <summary>
@@ -25,15 +34,18 @@ namespace VehicleServiceAPI.Controllers
         {
             try
             {
+                _logger.LogInformation("Getting all service slots");
                 var slots = await _serviceSlotService.GetAllServiceSlotsAsync();
                 return Ok(slots);
             }
             catch (InvalidOperationException ex)
             {
+                _logger.LogWarning(ex, "GetAllServiceSlots: No slots found");
                 return NotFound(new { error = ex.Message });
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "Error retrieving all service slots");
                 return BadRequest(new { error = ex.Message });
             }
         }
@@ -48,15 +60,18 @@ namespace VehicleServiceAPI.Controllers
         {
             try
             {
+                _logger.LogInformation("Getting service slot {Id}", id);
                 var slot = await _serviceSlotService.GetServiceSlotByIdAsync(id);
                 return Ok(slot);
             }
             catch (InvalidOperationException ex)
             {
+                _logger.LogWarning(ex, "Service slot {Id} not found", id);
                 return NotFound(new { error = ex.Message });
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "Error retrieving service slot {Id}", id);
                 return BadRequest(new { error = ex.Message });
             }
         }
@@ -71,20 +86,28 @@ namespace VehicleServiceAPI.Controllers
         {
             if (!ModelState.IsValid)
             {
+                _logger.LogWarning("CreateServiceSlot: Invalid model state {@ModelState}", ModelState);
                 return BadRequest(ModelState);
             }
             
             try
             {
                 var createdSlot = await _serviceSlotService.CreateServiceSlotAsync(request);
+                _logger.LogInformation("Service slot created successfully with id {Id}", createdSlot.Id);
+                
+                // Notify all connected clients that a new slot has been created.
+                await _hubContext.Clients.All.SendAsync("ReceiveMessage", "New slot added", $"{createdSlot.SlotDateTime}", $"{createdSlot.MechanicName}", $"{createdSlot.Status}");
+                
                 return CreatedAtAction(nameof(GetServiceSlotById), new { id = createdSlot.Id }, createdSlot);
             }
             catch (InvalidOperationException ex)
             {
+                _logger.LogWarning(ex, "CreateServiceSlot: Service slot creation failed");
                 return NotFound(new { error = ex.Message });
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "CreateServiceSlot: Error occurred while creating slot");
                 return BadRequest(new { error = ex.Message });
             }
         }
@@ -100,20 +123,24 @@ namespace VehicleServiceAPI.Controllers
         {
             if (!ModelState.IsValid)
             {
+                _logger.LogWarning("UpdateServiceSlot: Invalid model state for id {Id}", id);
                 return BadRequest(ModelState);
             }
             
             try
             {
                 var updatedSlot = await _serviceSlotService.UpdateServiceSlotAsync(id, request);
+                _logger.LogInformation("Service slot {Id} updated successfully", id);
                 return Ok(updatedSlot);
             }
             catch (InvalidOperationException ex)
             {
+                _logger.LogWarning(ex, "UpdateServiceSlot: Service slot {Id} not found", id);
                 return NotFound(new { error = ex.Message });
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "UpdateServiceSlot: Error occurred while updating slot {Id}", id);
                 return BadRequest(new { error = ex.Message });
             }
         }
@@ -128,19 +155,24 @@ namespace VehicleServiceAPI.Controllers
         {
             try
             {
+                _logger.LogInformation("Deleting service slot {Id}", id);
                 bool success = await _serviceSlotService.DeleteServiceSlotAsync(id);
                 if (!success)
                 {
-                    return NotFound($"Service slot with id {id} not found.");
+                    _logger.LogWarning("DeleteServiceSlot: Service slot {Id} not found", id);
+                    return NotFound(new { error = $"Service slot with id {id} not found." });
                 }
+                _logger.LogInformation("Service slot {Id} deleted successfully", id);
                 return NoContent();
             }
             catch (InvalidOperationException ex)
             {
+                _logger.LogWarning(ex, "DeleteServiceSlot: Service slot {Id} not found", id);
                 return NotFound(new { error = ex.Message });
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "DeleteServiceSlot: Error occurred while deleting slot {Id}", id);
                 return BadRequest(new { error = ex.Message });
             }
         }
@@ -154,15 +186,18 @@ namespace VehicleServiceAPI.Controllers
         {
             try
             {
+                _logger.LogInformation("Getting available service slots");
                 var availableSlots = await _serviceSlotService.GetAvailableSlotsAsync();
                 return Ok(availableSlots);
             }
             catch (InvalidOperationException ex)
             {
+                _logger.LogWarning(ex, "No available service slots found");
                 return NotFound(new { error = ex.Message });
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "Error retrieving available service slots");
                 return BadRequest(new { error = ex.Message });
             }
         }
@@ -177,15 +212,18 @@ namespace VehicleServiceAPI.Controllers
         {
             try
             {
+                _logger.LogInformation("Getting service slots for mechanic {MechanicId}", mechanicId);
                 var slots = await _serviceSlotService.GetSlotsByMechanicIdAsync(mechanicId);
                 return Ok(slots);
             }
             catch (InvalidOperationException ex)
             {
+                _logger.LogWarning(ex, "Service slots not found for mechanic {MechanicId}", mechanicId);
                 return NotFound(new { error = ex.Message });
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "Error retrieving slots for mechanic {MechanicId}", mechanicId);
                 return BadRequest(new { error = ex.Message });
             }
         }

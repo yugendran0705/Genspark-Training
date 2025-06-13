@@ -12,7 +12,7 @@ using VehicleServiceAPI.Context;
 namespace VehicleServiceAPI.Migrations
 {
     [DbContext(typeof(VehicleServiceDbContext))]
-    [Migration("20250611112047_Init")]
+    [Migration("20250612090524_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -68,7 +68,7 @@ namespace VehicleServiceAPI.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("BookingId")
+                    b.Property<int>("BookingId")
                         .HasColumnType("integer");
 
                     b.Property<string>("FilePath")
@@ -78,7 +78,7 @@ namespace VehicleServiceAPI.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
 
-                    b.Property<int?>("VehicleId")
+                    b.Property<int>("VehicleId")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
@@ -289,11 +289,15 @@ namespace VehicleServiceAPI.Migrations
                 {
                     b.HasOne("VehicleServiceAPI.Models.Booking", "Booking")
                         .WithMany()
-                        .HasForeignKey("BookingId");
+                        .HasForeignKey("BookingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("VehicleServiceAPI.Models.Vehicle", "Vehicle")
                         .WithMany()
-                        .HasForeignKey("VehicleId");
+                        .HasForeignKey("VehicleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Booking");
 

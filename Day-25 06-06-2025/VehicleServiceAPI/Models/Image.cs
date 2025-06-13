@@ -14,11 +14,11 @@ namespace VehicleServiceAPI.Models
         public required string FilePath { get; set; }
         
         [ForeignKey("Booking")]
-        public int? BookingId { get; set; }
+        public int BookingId { get; set; }
         public Booking? Booking { get; set; }
         
         [ForeignKey("Vehicle")]
-        public int? VehicleId { get; set; }
+        public int VehicleId { get; set; }
         public required Vehicle Vehicle { get; set; }
         
         public bool IsDeleted { get; set; } = false;

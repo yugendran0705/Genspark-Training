@@ -1,0 +1,14 @@
+.recipes{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    gap: 16px;
+    margin: 20px;
+}
+
+@media (max-width: 600px) {
+    .recipes {
+        grid-template-columns: 1fr;
+        margin: 10px;
+    }
+}

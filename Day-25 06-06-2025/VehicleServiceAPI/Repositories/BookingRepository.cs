@@ -77,7 +77,8 @@ namespace VehicleServiceAPI.Repositories
             return await _context.Bookings
                 .Include(b => b.ServiceSlot)
                 .Include(b => b.Vehicle)
-                .Where(b => b.UserId == userId && !b.IsDeleted)
+                .Include(b => b.User)
+                .Where(b => b.UserId == userId)
                 .ToListAsync();
         }
 
@@ -88,7 +89,7 @@ namespace VehicleServiceAPI.Repositories
                 .Include(b => b.User)
                 .Include(b => b.ServiceSlot)
                 .Include(b => b.Vehicle)
-                .Where(b => b.Status == status && !b.IsDeleted)
+                .Where(b => b.Status == status)
                 .ToListAsync();
         }
     }
