@@ -1,0 +1,24 @@
+<div class="dashboard">
+      <app-city-search></app-city-search>
+
+      <div *ngIf="weatherService.weather() as weather; else noSearch">
+        <div *ngIf="weatherService.error(); else showCard">
+          <p class="error">{{ weatherService.error() }}</p>
+        </div>
+        <ng-template #showCard>
+          <app-weather-card [weather]="weather"></app-weather-card>
+        </ng-template>
+      </div>
+      <ng-template #noSearch>
+        <p>Search for a city to view weather details.</p>
+      </ng-template>
+
+      <div class="history" *ngIf="historyArray.length">
+        <h3>Search History</h3>
+        <div class="history-buttons">
+          <button *ngFor="let city of historyArray" (click)="searchFromHistory(city)">
+            {{ city }}
+          </button>
+        </div>
+      </div>
+    </div>

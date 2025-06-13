@@ -1,0 +1,16 @@
+.dashboard {
+      text-align: center;
+      margin: 20px;
+    }
+    .error {
+      color: red;
+      font-weight: bold;
+    }
+    .history {
+      margin-top: 20px;
+    }
+    .history-buttons button {
+      margin: 2px;
+      padding: 6px 12px;
+      cursor: pointer;
+    }

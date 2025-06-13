@@ -9,6 +9,7 @@ using System.Text;
 using Microsoft.OpenApi.Models;using Serilog;
 using System.Threading.RateLimiting;
 using VehicleServiceAPI.Misc;
+using System.Security.Claims;
 
 
 Log.Logger = new LoggerConfiguration()
@@ -53,16 +54,19 @@ builder.Services.AddScoped<IImageService, ImageService>();
 builder.Services.AddRateLimiter(options =>
 {
     options.GlobalLimiter = PartitionedRateLimiter.Create<HttpContext, string>(httpContext =>
-        RateLimitPartition.GetFixedWindowLimiter(
-            partitionKey: httpContext.User.Identity?.Name ?? httpContext.Request.Headers.Host.ToString(),
-            factory: partition => new FixedWindowRateLimiterOptions
-            {
-                AutoReplenishment = true,
-                PermitLimit = 10,
-                QueueLimit = 0,
-                Window = TimeSpan.FromMinutes(1)
-            }));
+    {
+        var userIdentifier = httpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value 
+                             ?? httpContext.Request.Headers.Host.ToString();
+        return RateLimitPartition.GetFixedWindowLimiter(userIdentifier, partition => new FixedWindowRateLimiterOptions
+        {
+            AutoReplenishment = true,
+            PermitLimit = 20,
+            QueueLimit = 0,
+            Window = TimeSpan.FromMinutes(5)
+        });
+    });
 });
+
 
 
 

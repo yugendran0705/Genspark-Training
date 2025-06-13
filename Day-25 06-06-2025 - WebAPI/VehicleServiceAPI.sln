@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehicleServiceAPI", "VehicleServiceAPI\VehicleServiceAPI.csproj", "{9731F9CF-BF4D-4704-A6DA-761061262F50}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehicleServiceAPI.Test", "VehicleServiceAPI.Test\VehicleServiceAPI.Test.csproj", "{459C2921-564F-486D-BF08-5A571708577F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,18 @@ Global
 		{9731F9CF-BF4D-4704-A6DA-761061262F50}.Release|x64.Build.0 = Release|Any CPU
 		{9731F9CF-BF4D-4704-A6DA-761061262F50}.Release|x86.ActiveCfg = Release|Any CPU
 		{9731F9CF-BF4D-4704-A6DA-761061262F50}.Release|x86.Build.0 = Release|Any CPU
+		{459C2921-564F-486D-BF08-5A571708577F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{459C2921-564F-486D-BF08-5A571708577F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{459C2921-564F-486D-BF08-5A571708577F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{459C2921-564F-486D-BF08-5A571708577F}.Debug|x64.Build.0 = Debug|Any CPU
+		{459C2921-564F-486D-BF08-5A571708577F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{459C2921-564F-486D-BF08-5A571708577F}.Debug|x86.Build.0 = Debug|Any CPU
+		{459C2921-564F-486D-BF08-5A571708577F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{459C2921-564F-486D-BF08-5A571708577F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{459C2921-564F-486D-BF08-5A571708577F}.Release|x64.ActiveCfg = Release|Any CPU
+		{459C2921-564F-486D-BF08-5A571708577F}.Release|x64.Build.0 = Release|Any CPU
+		{459C2921-564F-486D-BF08-5A571708577F}.Release|x86.ActiveCfg = Release|Any CPU
+		{459C2921-564F-486D-BF08-5A571708577F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
