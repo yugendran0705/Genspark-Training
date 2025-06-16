@@ -1,0 +1,13 @@
+img{
+    width: 100%;
+    height: fit-content;
+}
+
+.card :hover{
+    background-color: antiquewhite;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card{
+    height: 500px;
+}

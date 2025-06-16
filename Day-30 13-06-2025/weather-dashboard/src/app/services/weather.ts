@@ -4,17 +4,14 @@ import { HttpClient } from '@angular/common/http';
 
 @Injectable({ providedIn: 'root' })
 export class WeatherService {
-  // Replace with your actual OpenWeatherMap API key.
   private readonly API_KEY = '';
   private readonly BASE_URL = 'https://api.openweathermap.org/data/2.5/weather';
 
-  // Signals to hold current city, weather data, and error messages.
   currentCity = signal<string>('');
   weather = signal<any | null>(null);
   error = signal<string>('');
 
   constructor(private http: HttpClient) {
-    // Run an effect that fetches weather whenever the currentCity changes.
     effect(() => {
       const city = this.currentCity();
       if (city) {
@@ -33,7 +30,6 @@ export class WeatherService {
     }, 300000); // 300,000 ms = 5 minutes
   }
 
-  // Called when a search is submitted.
   searchCity(city: string): void {
     const trimmed = city.trim();
     if (!trimmed) return;
