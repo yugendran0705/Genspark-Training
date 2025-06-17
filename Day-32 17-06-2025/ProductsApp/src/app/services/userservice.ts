@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { UserLoginModel } from '../models/userloginmodel';
+import { Observable, of } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root',
@@ -24,8 +26,10 @@ export class Userservice {
     }
   }
 
-  loginApi(user: UserLoginModel) {
-    return this.http.post('https://dummyjson.com/auth/login', user);
+  loginApi(user: UserLoginModel): Observable<{ accessToken: string }> {
+    return of({
+      accessToken: user.username
+    });
   }
 
   getprofile() {
