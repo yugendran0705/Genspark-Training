@@ -26,8 +26,8 @@ namespace VehicleServiceAPI.Context
 
             modelBuilder.Entity<Role>().HasData(
                 new Role { Id = 1, RoleName = "Admin" },
-                new Role { Id = 2, RoleName = "Customer" },
-                new Role { Id = 3, RoleName = "Mechanic" }
+                new Role { Id = 2, RoleName = "Mechanic" },
+                new Role { Id = 3, RoleName = "User" }
             );
 
             base.OnModelCreating(modelBuilder);

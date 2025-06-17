@@ -9,10 +9,12 @@ namespace VehicleServiceAPI.Controllers
     public class AuthController : ControllerBase
     {
         private readonly IAuthService _authService;
-        
-        public AuthController(IAuthService authService)
+        private readonly ILogger<AuthController> _logger;
+
+        public AuthController(IAuthService authService, ILogger<AuthController> logger)
         {
             _authService = authService;
+            _logger = logger;
         }
         
         /// <summary>
@@ -25,25 +27,29 @@ namespace VehicleServiceAPI.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+            _logger.LogWarning("Invalid login request model state.");
+            return BadRequest(ModelState);
             }
             
             try
             {
-                // Authenticate the user and generate tokens.
-                LoginResponseDTO response = await _authService.AuthenticateUserAsync(request.Email, request.Password);
-                return Ok(response);
+            _logger.LogInformation("Attempting to authenticate user with email: {Email}", request.Email);
+            // Authenticate the user and generate tokens.
+            LoginResponseDTO response = await _authService.AuthenticateUserAsync(request.Email, request.Password);
+            _logger.LogInformation("User authenticated successfully: {Email}", request.Email);
+            return Ok(response);
             }
             catch (UnauthorizedAccessException uaEx)
             {
-                return Unauthorized(new { error = uaEx.Message });
+            _logger.LogWarning("Unauthorized login attempt for email: {Email}. Reason: {Reason}", request.Email, uaEx.Message);
+            return Unauthorized(new { error = uaEx.Message });
             }
             catch (Exception ex)
             {
-                return BadRequest(new { error = ex.Message });
+            _logger.LogError(ex, "Error occurred during login for email: {Email}", request.Email);
+            return BadRequest(new { error = ex.Message });
             }
         }
-        
         /// <summary>
         /// Refreshes the access token using a valid refresh token.
         /// </summary>

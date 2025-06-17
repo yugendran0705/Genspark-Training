@@ -11,10 +11,12 @@ namespace VehicleServiceAPI.Controllers
     public class RoleController : ControllerBase
     {
         private readonly IRoleService _roleService;
-        
-        public RoleController(IRoleService roleService)
+        private readonly ILogger<RoleController> _logger;
+
+        public RoleController(IRoleService roleService, ILogger<RoleController> logger)
         {
             _roleService = roleService;
+            _logger = logger;
         }
 
         /// <summary>
@@ -23,24 +25,29 @@ namespace VehicleServiceAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<RoleDTO>>> GetAllRoles()
         {
-            try{
-                var roles = await _roleService.GetAllRolesAsync();
-                return Ok(roles);
+            _logger.LogInformation("GetAllRoles called.");
+            try
+            {
+            var roles = await _roleService.GetAllRolesAsync();
+            _logger.LogInformation("Retrieved {Count} roles.", roles.Count());
+            return Ok(roles);
             }
             catch (InvalidOperationException ex)
             {
-                return NotFound(new { error = ex.Message });
+            _logger.LogWarning(ex, "Invalid operation in GetAllRoles: {Message}", ex.Message);
+            return NotFound(new { error = ex.Message });
             }
             catch (UnauthorizedAccessException ex)
             {
-                return Forbid();
+            _logger.LogWarning(ex, "Unauthorized access in GetAllRoles: {Message}", ex.Message);
+            return Forbid();
             }
             catch (Exception ex)
             {
-                return BadRequest(new { error = ex.Message });
+            _logger.LogError(ex, "Unexpected error in GetAllRoles: {Message}", ex.Message);
+            return BadRequest(new { error = ex.Message });
             }
         }
-        
         /// <summary>
         /// Retrieves a role by its ID.
         /// </summary>
@@ -48,22 +55,27 @@ namespace VehicleServiceAPI.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<RoleDTO>> GetRoleById(int id)
         {
+            _logger.LogInformation("GetRoleById called with id: {Id}", id);
             try
             {
-                var role = await _roleService.GetRoleByIdAsync(id);
-                return Ok(role);
+            var role = await _roleService.GetRoleByIdAsync(id);
+            _logger.LogInformation("Role with id {Id} retrieved successfully.", id);
+            return Ok(role);
             }
             catch (InvalidOperationException ex)
             {
-                return NotFound(new { error = ex.Message });
+            _logger.LogWarning(ex, "Invalid operation in GetRoleById: {Message}", ex.Message);
+            return NotFound(new { error = ex.Message });
             }
             catch (UnauthorizedAccessException ex)
             {
-                return Forbid();
+            _logger.LogWarning(ex, "Unauthorized access in GetRoleById: {Message}", ex.Message);
+            return Forbid();
             }
             catch (Exception ex)
             {
-                return BadRequest(new { error = ex.Message });
+            _logger.LogError(ex, "Unexpected error in GetRoleById: {Message}", ex.Message);
+            return BadRequest(new { error = ex.Message });
             }
         }
 
@@ -75,30 +87,36 @@ namespace VehicleServiceAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<RoleDTO>> CreateRole([FromBody] RoleRequest request)
         {
+            _logger.LogInformation("CreateRole called with role: {Role}", request?.Role);
+
             if (request == null || string.IsNullOrWhiteSpace(request.Role))
             {
-                return BadRequest("Role name must be provided.");
+            _logger.LogWarning("CreateRole failed: Role name must be provided.");
+            return BadRequest("Role name must be provided.");
             }
             
             try
             {
-                var createdRole = await _roleService.CreateRoleAsync(request.Role);
-                return CreatedAtAction(nameof(GetRoleById), new { id = createdRole.Id }, createdRole);
+            var createdRole = await _roleService.CreateRoleAsync(request.Role);
+            _logger.LogInformation("Role '{Role}' created successfully with id {Id}.", createdRole.RoleName, createdRole.Id);
+            return CreatedAtAction(nameof(GetRoleById), new { id = createdRole.Id }, createdRole);
             }
             catch (InvalidOperationException ex)
             {
-                return NotFound(new { error = ex.Message });
+            _logger.LogWarning(ex, "Invalid operation in CreateRole: {Message}", ex.Message);
+            return NotFound(new { error = ex.Message });
             }
             catch (UnauthorizedAccessException ex)
             {
-                return Forbid();
+            _logger.LogWarning(ex, "Unauthorized access in CreateRole: {Message}", ex.Message);
+            return Forbid();
             }
             catch (Exception ex)
             {
-                return BadRequest(new { error = ex.Message });
+            _logger.LogError(ex, "Unexpected error in CreateRole: {Message}", ex.Message);
+            return BadRequest(new { error = ex.Message });
             }
         }
-        
         /// <summary>
         /// Updates an existing role.
         /// </summary>
@@ -108,30 +126,36 @@ namespace VehicleServiceAPI.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult<RoleDTO>> UpdateRole(int id, [FromBody] RoleRequest request)
         {
+            _logger.LogInformation("UpdateRole called with id: {Id}, role: {Role}", id, request?.Role);
+
             if (request == null || string.IsNullOrWhiteSpace(request.Role))
             {
-                return BadRequest("Role name must be provided.");
+            _logger.LogWarning("UpdateRole failed: Role name must be provided.");
+            return BadRequest("Role name must be provided.");
             }
             
             try
             {
-                var updatedRole = await _roleService.UpdateRoleAsync(id, request.Role);
-                return Ok(updatedRole);
+            var updatedRole = await _roleService.UpdateRoleAsync(id, request.Role);
+            _logger.LogInformation("Role with id {Id} updated successfully to '{Role}'.", id, updatedRole.RoleName);
+            return Ok(updatedRole);
             }
             catch (InvalidOperationException ex)
             {
-                return NotFound(new { error = ex.Message });
+            _logger.LogWarning(ex, "Invalid operation in UpdateRole: {Message}", ex.Message);
+            return NotFound(new { error = ex.Message });
             }
             catch (UnauthorizedAccessException ex)
             {
-                return Forbid();
+            _logger.LogWarning(ex, "Unauthorized access in UpdateRole: {Message}", ex.Message);
+            return Forbid();
             }
             catch (Exception ex)
             {
-                return BadRequest(new { error = ex.Message });
+            _logger.LogError(ex, "Unexpected error in UpdateRole: {Message}", ex.Message);
+            return BadRequest(new { error = ex.Message });
             }
         }
-        
         /// <summary>
         /// Deletes a role by its ID.
         /// </summary>
@@ -140,33 +164,33 @@ namespace VehicleServiceAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteRole(int id)
         {
+            _logger.LogInformation("DeleteRole called with id: {Id}", id);
             try
             {
-                var success = await _roleService.DeleteRoleAsync(id);
-                if (!success)
-                {
-                    return NotFound($"Role with id {id} not found.");
-                }
-                return NoContent();
+            var success = await _roleService.DeleteRoleAsync(id);
+            if (!success)
+            {
+                _logger.LogWarning("DeleteRole failed: Role with id {Id} not found.", id);
+                return NotFound($"Role with id {id} not found.");
+            }
+            _logger.LogInformation("Role with id {Id} deleted successfully.", id);
+            return NoContent();
             }
             catch (InvalidOperationException ex)
             {
-                return NotFound(new { error = ex.Message });
+            _logger.LogWarning(ex, "Invalid operation in DeleteRole: {Message}", ex.Message);
+            return NotFound(new { error = ex.Message });
             }
             catch (UnauthorizedAccessException ex)
             {
-                return Forbid();
+            _logger.LogWarning(ex, "Unauthorized access in DeleteRole: {Message}", ex.Message);
+            return Forbid();
             }
             catch (Exception ex)
             {
-                return BadRequest(new { error = ex.Message });
+            _logger.LogError(ex, "Unexpected error in DeleteRole: {Message}", ex.Message);
+            return BadRequest(new { error = ex.Message });
             }
         }
-    }
-
-    // Request DTO for both role creation and updating
-    public class RoleRequest
-    {
-        public string Role { get; set; }
     }
 }

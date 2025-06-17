@@ -5,4 +5,9 @@ namespace VehicleServiceAPI.Models.DTOs
         public int Id { get; set; }
         public string RoleName { get; set; }
     }
+
+    public class RoleRequest
+    {
+        public string Role { get; set; }
+    }
 }

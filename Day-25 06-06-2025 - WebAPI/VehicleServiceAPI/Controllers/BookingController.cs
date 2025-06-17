@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Security.Claims;
@@ -14,12 +15,14 @@ namespace VehicleServiceAPI.Controllers
     public class BookingController : ControllerBase
     {
         private readonly IBookingService _bookingService;
-        
-        public BookingController(IBookingService bookingService)
+        private readonly ILogger<BookingController> _logger;
+
+        public BookingController(IBookingService bookingService, ILogger<BookingController> logger)
         {
             _bookingService = bookingService;
+            _logger = logger;
         }
-        
+
         /// <summary>
         /// Retrieves all bookings. (Admin access only)
         /// </summary>
@@ -27,17 +30,20 @@ namespace VehicleServiceAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<BookingDTO>>> GetAllBookings()
         {
+            _logger.LogInformation("Getting all bookings (Admin access).");
             try
             {
                 var bookings = await _bookingService.GetAllBookingsAsync();
+                _logger.LogInformation("Retrieved {Count} bookings.", bookings?.Count() ?? 0);
                 return Ok(bookings);
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "Error retrieving all bookings.");
                 return BadRequest(new { error = ex.Message });
             }
         }
-        
+
         /// <summary>
         /// Retrieves a booking by its ID.
         /// </summary>
@@ -45,21 +51,25 @@ namespace VehicleServiceAPI.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<BookingDTO>> GetBookingById(int id)
         {
+            _logger.LogInformation("Getting booking by ID: {Id}", id);
             try
             {
                 var booking = await _bookingService.GetBookingByIdAsync(id);
+                _logger.LogInformation("Booking with ID {Id} retrieved.", id);
                 return Ok(booking);
             }
             catch (InvalidOperationException ex)
             {
+                _logger.LogWarning(ex, "Booking with ID {Id} not found.", id);
                 return NotFound(new { error = ex.Message });
             }
             catch(Exception ex)
             {
+                _logger.LogError(ex, "Error retrieving booking with ID {Id}.", id);
                 return BadRequest(new { error = ex.Message });
             }
         }
-        
+
         /// <summary>
         /// Creates a new booking using the currently authenticated user's ID.
         /// </summary>
@@ -68,29 +78,38 @@ namespace VehicleServiceAPI.Controllers
         public async Task<ActionResult<BookingDTO>> CreateBooking([FromBody] CreateBookingDTO request)
         {
             if (!ModelState.IsValid)
+            {
+                _logger.LogWarning("Invalid model state for booking creation.");
                 return BadRequest(ModelState);
-            
+            }
+
             try
             {
-                // Extract the user ID from the JWT token claims.
                 var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
                 if (userIdClaim == null)
+                {
+                    _logger.LogWarning("User ID not found in token during booking creation.");
                     return Unauthorized("User ID not found in token.");
-                
+                }
+
                 int userId = int.Parse(userIdClaim.Value);
+                _logger.LogInformation("Creating booking for user ID {UserId}.", userId);
                 var createdBooking = await _bookingService.CreateBookingAsync(userId, request);
+                _logger.LogInformation("Booking created with ID {BookingId} for user ID {UserId}.", createdBooking.Id, userId);
                 return CreatedAtAction(nameof(GetBookingById), new { id = createdBooking.Id }, createdBooking);
             }
             catch (InvalidOperationException ex)
             {
+                _logger.LogWarning(ex, "Invalid operation during booking creation.");
                 return NotFound(new { error = ex.Message });
             }
             catch(Exception ex)
             {
+                _logger.LogError(ex, "Error creating booking.");
                 return BadRequest(new { error = ex.Message });
             }
         }
-        
+
         /// <summary>
         /// Updates an existing booking.
         /// </summary>
@@ -99,27 +118,35 @@ namespace VehicleServiceAPI.Controllers
         public async Task<ActionResult<BookingDTO>> UpdateBooking(int id, [FromBody] UpdateBookingDTO request)
         {
             if (!ModelState.IsValid)
+            {
+                _logger.LogWarning("Invalid model state for booking update.");
                 return BadRequest(ModelState);
-            
+            }
+
             try
             {
+                _logger.LogInformation("Updating booking with ID {Id}.", id);
                 var updatedBooking = await _bookingService.UpdateBookingAsync(id, request);
+                _logger.LogInformation("Booking with ID {Id} updated.", id);
                 return Ok(updatedBooking);
             }
             catch (InvalidOperationException ex)
             {
+                _logger.LogWarning(ex, "Booking with ID {Id} not found for update.", id);
                 return NotFound(new { error = ex.Message });
             }
             catch (UnauthorizedAccessException)
             {
+                _logger.LogWarning("Unauthorized access attempt to update booking with ID {Id}.", id);
                 return Forbid();
             }
             catch(Exception ex)
             {
+                _logger.LogError(ex, "Error updating booking with ID {Id}.", id);
                 return BadRequest(new { error = ex.Message });
             }
         }
-        
+
         /// <summary>
         /// Soft-deletes a booking by its ID.
         /// </summary>
@@ -127,23 +154,30 @@ namespace VehicleServiceAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteBooking(int id)
         {
+            _logger.LogInformation("Deleting booking with ID {Id}.", id);
             try
             {
                 bool success = await _bookingService.DeleteBookingAsync(id);
                 if (!success)
+                {
+                    _logger.LogWarning("Booking with ID {Id} not found for deletion.", id);
                     return NotFound($"Booking with ID {id} not found.");
+                }
+                _logger.LogInformation("Booking with ID {Id} deleted.", id);
                 return NoContent();
             }
             catch (InvalidOperationException ex)
             {
+                _logger.LogWarning(ex, "Invalid operation during deletion of booking with ID {Id}.", id);
                 return NotFound(new { error = ex.Message });
             }
             catch(Exception ex)
             {
+                _logger.LogError(ex, "Error deleting booking with ID {Id}.", id);
                 return BadRequest(new { error = ex.Message });
             }
         }
-        
+
         /// <summary>
         /// Retrieves all bookings made by the currently authenticated user.
         /// </summary>
@@ -155,18 +189,24 @@ namespace VehicleServiceAPI.Controllers
             {
                 var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
                 if (userIdClaim == null)
+                {
+                    _logger.LogWarning("User ID not found in token during retrieval of user bookings.");
                     return Unauthorized("User ID not found in token.");
-                
+                }
+
                 int userId = int.Parse(userIdClaim.Value);
+                _logger.LogInformation("Getting bookings for user ID {UserId}.", userId);
                 var bookings = await _bookingService.GetBookingsByUserIdAsync(userId);
+                _logger.LogInformation("Retrieved {Count} bookings for user ID {UserId}.", bookings?.Count() ?? 0, userId);
                 return Ok(bookings);
             }
             catch(Exception ex)
             {
+                _logger.LogError(ex, "Error retrieving bookings for current user.");
                 return BadRequest(new { error = ex.Message });
             }
         }
-        
+
         /// <summary>
         /// Retrieves all bookings filtered by status. (Admin access only)
         /// </summary>
@@ -174,13 +214,16 @@ namespace VehicleServiceAPI.Controllers
         [HttpGet("status/{status}")]
         public async Task<ActionResult<IEnumerable<BookingDTO>>> GetBookingsByStatus(string status)
         {
+            _logger.LogInformation("Getting bookings by status: {Status}", status);
             try
             {
                 var bookings = await _bookingService.GetBookingsByStatusAsync(status);
+                _logger.LogInformation("Retrieved {Count} bookings with status {Status}.", bookings?.Count() ?? 0, status);
                 return Ok(bookings);
             }
             catch(Exception ex)
             {
+                _logger.LogError(ex, "Error retrieving bookings by status {Status}.", status);
                 return BadRequest(new { error = ex.Message });
             }
         }

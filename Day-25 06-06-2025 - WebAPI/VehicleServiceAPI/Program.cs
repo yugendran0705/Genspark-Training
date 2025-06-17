@@ -169,12 +169,11 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseCors();
-app.UseRateLimiter();  // Global rate limiter remains here - but we disable it for the hub below.
+app.UseRateLimiter();  
 app.UseSerilogRequestLogging();
 
 app.MapControllers();
 
-// Disable rate limiting for SignalR hub endpoints.
 app.MapHub<EventHub>("/eventhub")
    .DisableRateLimiting();
 
