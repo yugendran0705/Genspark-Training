@@ -1,0 +1,58 @@
+<div class="container my-4">
+  <h2 class="text-center mb-4">Users</h2>
+
+
+  <div class="row mb-4 g-3">
+    <div class="col-md-4">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search by name"
+        [(ngModel)]="filters.name"
+      />
+    </div>
+
+    <div class="col-md-4">
+      <input
+        type="number"
+        class="form-control"
+        placeholder="Minimum age"
+        [(ngModel)]="filters.age"
+      />
+    </div>
+
+    <div class="col-md-4">
+      <select class="form-select" [(ngModel)]="filters.gender">
+        <option value="">All Genders</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+    </div>
+  </div>
+
+
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div
+      class="col"
+      *ngFor="let user of filteredUsers()"
+    >
+      <div class="card h-100 shadow-sm">
+        <img
+          [src]="user.image"
+          class="card-img-top object-fit-cover"
+          alt="User Image"
+          height="200"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ user.firstName }} {{ user.lastName }}</h5>
+          <p class="card-text">
+            <strong>Age:</strong> {{ user.age }}<br />
+            <strong>Gender:</strong> {{ user.gender }}<br />
+            <strong>Country:</strong> {{ user.address.country }}<br />
+            <strong>Company:</strong> {{ user.company.name }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
