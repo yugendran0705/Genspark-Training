@@ -1,0 +1,19 @@
+/* Basic styling */
+form div {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+input, select {
+  width: 250px;
+  padding: 5px;
+}
+
+span {
+  color: red;
+  font-size: 12px;
+}

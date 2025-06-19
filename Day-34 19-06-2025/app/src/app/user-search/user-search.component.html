@@ -1,0 +1,11 @@
+<div>
+  <input #searchInput type="text" placeholder="Search users by username or role" />
+</div>
+<div *ngIf="filteredUsers.length === 0">
+  <p>No users found.</p>
+</div>
+<ul>
+  <li *ngFor="let user of filteredUsers">
+    {{ user.username }} ({{ user.role }}) - {{ user.email }}
+  </li>
+</ul>
