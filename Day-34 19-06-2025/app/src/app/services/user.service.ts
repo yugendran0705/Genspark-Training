@@ -6,7 +6,6 @@ import { User } from '../models/user.model';
   providedIn: 'root'
 })
 export class UserService {
-  // Start with an empty user list (or add some dummy users if you prefer)
   private usersSubject: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
 
   constructor() { }
