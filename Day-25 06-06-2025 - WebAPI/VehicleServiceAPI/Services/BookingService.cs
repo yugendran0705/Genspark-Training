@@ -39,7 +39,14 @@ namespace VehicleServiceAPI.Services
         public async Task<IEnumerable<BookingDTO>> GetAllBookingsAsync()
         {
             var bookings = await _bookingRepository.GetAllAsync();
-            var bookingDtos = await Task.WhenAll(bookings.Select(b => MapBookingToDto(b)));
+            var bookingDtos = new List<BookingDTO>();
+
+            foreach (var booking in bookings)
+            {
+                var dto = await MapBookingToDto(booking);
+                bookingDtos.Add(dto);
+            }
+
             return bookingDtos;
         }
 
@@ -89,7 +96,14 @@ namespace VehicleServiceAPI.Services
         public async Task<IEnumerable<BookingDTO>> GetBookingsByUserIdAsync(int userId)
         {
             var bookings = await _bookingRepository.GetBookingsByUserIdAsync(userId);
-            var bookingDtos = await Task.WhenAll(bookings.Select(b => MapBookingToDto(b)));
+            var bookingDtos = new List<BookingDTO>();
+
+            foreach (var booking in bookings)
+            {
+                var dto = await MapBookingToDto(booking);
+                bookingDtos.Add(dto);
+            }
+
             return bookingDtos;
         }
 
@@ -98,7 +112,14 @@ namespace VehicleServiceAPI.Services
         public async Task<IEnumerable<BookingDTO>> GetBookingsByStatusAsync(string status)
         {
             var bookings = await _bookingRepository.GetBookingsByStatusAsync(status);
-            var bookingDtos = await Task.WhenAll(bookings.Select(b => MapBookingToDto(b)));
+            var bookingDtos = new List<BookingDTO>();
+
+            foreach (var booking in bookings)
+            {
+                var dto = await MapBookingToDto(booking);
+                bookingDtos.Add(dto);
+            }
+
             return bookingDtos;
         }
 

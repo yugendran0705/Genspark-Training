@@ -35,8 +35,15 @@ namespace VehicleServiceAPI.Services
         public async Task<IEnumerable<ServiceSlotDTO>> GetAllServiceSlotsAsync()
         {
             var slots = await _serviceSlotRepository.GetAllAsync();
-            var slotDtoTasks = slots.Select(s => MapServiceSlotToDto(s));
-            return await Task.WhenAll(slotDtoTasks);
+            var slotDtos = new List<ServiceSlotDTO>();
+
+            foreach (var slot in slots)
+            {
+                var dto = await MapServiceSlotToDto(slot);
+                slotDtos.Add(dto);
+            }
+
+            return slotDtos;
         }
 
         /// <summary>
@@ -44,6 +51,10 @@ namespace VehicleServiceAPI.Services
         /// </summary>
         public async Task<ServiceSlotDTO> CreateServiceSlotAsync(CreateServiceSlotDTO request)
         {
+            if(request.SlotDateTime < DateTime.UtcNow)
+            {
+                throw new ArgumentException("Slot date and time cannot be in the past.");
+            }
             var slotEntity = await MapCreateDTOToServiceSlot(request);
             var createdSlot = await _serviceSlotRepository.AddAsync(slotEntity);
             return await MapServiceSlotToDto(createdSlot);
@@ -84,8 +95,15 @@ namespace VehicleServiceAPI.Services
         public async Task<IEnumerable<ServiceSlotDTO>> GetAvailableSlotsAsync()
         {
             var slots = await _serviceSlotRepository.GetAvailableSlotsAsync();
-            var dtoTasks = slots.Select(s => MapServiceSlotToDto(s));
-            return await Task.WhenAll(dtoTasks);
+            var slotDtos = new List<ServiceSlotDTO>();
+
+            foreach (var slot in slots)
+            {
+                var dto = await MapServiceSlotToDto(slot);
+                slotDtos.Add(dto);
+            }
+
+            return slotDtos;
         }
 
         /// <summary>
@@ -94,8 +112,15 @@ namespace VehicleServiceAPI.Services
         public async Task<IEnumerable<ServiceSlotDTO>> GetSlotsByMechanicIdAsync(int mechanicId)
         {
             var slots = await _serviceSlotRepository.GetSlotsByMechanicIdAsync(mechanicId);
-            var dtoTasks = slots.Select(s => MapServiceSlotToDto(s));
-            return await Task.WhenAll(dtoTasks);
+            var slotDtos = new List<ServiceSlotDTO>();
+
+            foreach (var slot in slots)
+            {
+                var dto = await MapServiceSlotToDto(slot);
+                slotDtos.Add(dto);
+            }
+
+            return slotDtos;
         }
 
         #region Mapping Methods

@@ -1,0 +1,252 @@
+2025-06-23 11:09:55.913 +05:30 [INF] Application is shutting down...
+2025-06-23 21:51:15.911 +05:30 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-06-23 21:51:16.232 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-06-23 21:51:16.239 +05:30 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-06-23 21:51:16.241 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2025-06-23 21:51:16.241 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-06-23 21:51:16.245 +05:30 [INF] No migrations were applied. The database is already up to date.
+2025-06-23 21:51:16.344 +05:30 [INF] User profile is available. Using '/Users/yugendransunder/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-06-23 21:51:16.411 +05:30 [INF] Now listening on: http://localhost:5192
+2025-06-23 21:51:16.412 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-23 21:51:16.412 +05:30 [INF] Hosting environment: Development
+2025-06-23 21:51:16.412 +05:30 [INF] Content root path: /Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025 - WebAPI/VehicleServiceAPI
+2025-06-23 21:51:46.123 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5192/api/v1/User - application/json 101
+2025-06-23 21:51:46.162 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-06-23 21:51:46.207 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.UserController.Create (VehicleServiceAPI)'
+2025-06-23 21:51:46.225 +05:30 [INF] Route matched with {action = "Create", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[VehicleServiceAPI.Models.DTOs.UserDTO]] Create(VehicleServiceAPI.Models.DTOs.UserCreationRequestDTO) on controller VehicleServiceAPI.Controllers.UserController (VehicleServiceAPI).
+2025-06-23 21:51:46.260 +05:30 [INF] Creating a new user with email: user1@xyz.com
+2025-06-23 21:51:46.561 +05:30 [INF] Executed DbCommand (15ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT r."Id", r."RoleName"
+FROM "Roles" AS r
+WHERE r."Id" = @__p_0
+LIMIT 1
+2025-06-23 21:51:46.694 +05:30 [INF] Executed DbCommand (13ms) [Parameters=[@p0='?', @p1='?' (DbType = Boolean), @p2='?', @p3='?', @p4='?', @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Users" ("Email", "IsDeleted", "Name", "PasswordHash", "Phone", "RoleId")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+RETURNING "Id";
+2025-06-23 21:51:46.714 +05:30 [INF] User created successfully with ID: 5
+2025-06-23 21:51:46.720 +05:30 [INF] Executing CreatedAtActionResult, writing value of type 'VehicleServiceAPI.Models.DTOs.UserDTO'.
+2025-06-23 21:51:46.756 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.UserController.Create (VehicleServiceAPI) in 526.4117ms
+2025-06-23 21:51:46.761 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.UserController.Create (VehicleServiceAPI)'
+2025-06-23 21:51:46.764 +05:30 [INF] HTTP POST /api/v1/User responded 201 in 556.4701 ms
+2025-06-23 21:51:46.772 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5192/api/v1/User - 201 null application/json; charset=utf-8 651.4714ms
+2025-06-23 22:01:17.796 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5192/api/v1/Auth/login - application/json 56
+2025-06-23 22:01:17.800 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.AuthController.Login (VehicleServiceAPI)'
+2025-06-23 22:01:17.806 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(VehicleServiceAPI.Models.DTOs.LoginRequestDTO) on controller VehicleServiceAPI.Controllers.AuthController (VehicleServiceAPI).
+2025-06-23 22:01:17.814 +05:30 [INF] Attempting to authenticate user with email: admin@xyz.com
+2025-06-23 22:01:17.972 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Email" = @__email_0 AND NOT (u."IsDeleted")
+LIMIT 1
+2025-06-23 22:01:18.002 +05:30 [INF] User authenticated successfully: admin@xyz.com
+2025-06-23 22:01:18.003 +05:30 [INF] Executing OkObjectResult, writing value of type 'VehicleServiceAPI.Models.DTOs.LoginResponseDTO'.
+2025-06-23 22:01:18.005 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.AuthController.Login (VehicleServiceAPI) in 198.6554ms
+2025-06-23 22:01:18.005 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.AuthController.Login (VehicleServiceAPI)'
+2025-06-23 22:01:18.005 +05:30 [INF] HTTP POST /api/v1/Auth/login responded 200 in 205.8202 ms
+2025-06-23 22:01:18.006 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5192/api/v1/Auth/login - 200 null application/json; charset=utf-8 210.258ms
+2025-06-23 22:01:45.414 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5192/api/v1/ServiceSlot - application/json 92
+2025-06-23 22:01:45.461 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.ServiceSlotController.CreateServiceSlot (VehicleServiceAPI)'
+2025-06-23 22:01:45.464 +05:30 [INF] Route matched with {action = "CreateServiceSlot", controller = "ServiceSlot"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[VehicleServiceAPI.Models.DTOs.ServiceSlotDTO]] CreateServiceSlot(VehicleServiceAPI.Models.DTOs.CreateServiceSlotDTO) on controller VehicleServiceAPI.Controllers.ServiceSlotController (VehicleServiceAPI).
+2025-06-23 22:01:45.486 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-06-23 22:01:45.518 +05:30 [INF] Executed DbCommand (12ms) [Parameters=[@p0='?' (DbType = Boolean), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime), @p3='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "ServiceSlots" ("IsDeleted", "MechanicID", "SlotDateTime", "Status")
+VALUES (@p0, @p1, @p2, @p3)
+RETURNING "Id";
+2025-06-23 22:01:45.524 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-06-23 22:01:45.526 +05:30 [INF] Service slot created successfully with id 9
+2025-06-23 22:01:45.528 +05:30 [INF] Executing CreatedAtActionResult, writing value of type 'VehicleServiceAPI.Models.DTOs.ServiceSlotDTO'.
+2025-06-23 22:01:45.531 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.ServiceSlotController.CreateServiceSlot (VehicleServiceAPI) in 66.5809ms
+2025-06-23 22:01:45.531 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.ServiceSlotController.CreateServiceSlot (VehicleServiceAPI)'
+2025-06-23 22:01:45.531 +05:30 [INF] HTTP POST /api/v1/ServiceSlot responded 201 in 70.3197 ms
+2025-06-23 22:01:45.531 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5192/api/v1/ServiceSlot - 201 null application/json; charset=utf-8 117.1669ms
+2025-06-23 22:01:51.315 +05:30 [INF] Application is shutting down...
+2025-06-23 22:02:06.517 +05:30 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-06-23 22:02:06.838 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-06-23 22:02:06.846 +05:30 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-06-23 22:02:06.847 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2025-06-23 22:02:06.848 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-06-23 22:02:06.852 +05:30 [INF] No migrations were applied. The database is already up to date.
+2025-06-23 22:02:06.941 +05:30 [INF] User profile is available. Using '/Users/yugendransunder/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-06-23 22:02:07.001 +05:30 [INF] Now listening on: http://localhost:5192
+2025-06-23 22:02:07.002 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-23 22:02:07.002 +05:30 [INF] Hosting environment: Development
+2025-06-23 22:02:07.002 +05:30 [INF] Content root path: /Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025 - WebAPI/VehicleServiceAPI
+2025-06-23 22:02:12.819 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5192/api/v1/ServiceSlot - application/json 92
+2025-06-23 22:02:12.865 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-06-23 22:02:12.963 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.ServiceSlotController.CreateServiceSlot (VehicleServiceAPI)'
+2025-06-23 22:02:12.985 +05:30 [INF] Route matched with {action = "CreateServiceSlot", controller = "ServiceSlot"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[VehicleServiceAPI.Models.DTOs.ServiceSlotDTO]] CreateServiceSlot(VehicleServiceAPI.Models.DTOs.CreateServiceSlotDTO) on controller VehicleServiceAPI.Controllers.ServiceSlotController (VehicleServiceAPI).
+2025-06-23 22:02:13.027 +05:30 [ERR] CreateServiceSlot: Error occurred while creating slot
+System.ArgumentException: Slot date and time cannot be in the past.
+   at VehicleServiceAPI.Services.ServiceSlotService.CreateServiceSlotAsync(CreateServiceSlotDTO request) in /Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025 - WebAPI/VehicleServiceAPI/Services/ServiceSlotServices.cs:line 56
+   at VehicleServiceAPI.Controllers.ServiceSlotController.CreateServiceSlot(CreateServiceSlotDTO request) in /Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025 - WebAPI/VehicleServiceAPI/Controllers/ServiceSlotController.cs:line 95
+2025-06-23 22:02:13.065 +05:30 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-06-23 22:02:13.076 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.ServiceSlotController.CreateServiceSlot (VehicleServiceAPI) in 87.333ms
+2025-06-23 22:02:13.081 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.ServiceSlotController.CreateServiceSlot (VehicleServiceAPI)'
+2025-06-23 22:02:13.083 +05:30 [INF] HTTP POST /api/v1/ServiceSlot responded 400 in 119.4486 ms
+2025-06-23 22:02:13.086 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5192/api/v1/ServiceSlot - 400 null application/json; charset=utf-8 270.0325ms
+2025-06-23 22:03:18.457 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/ServiceSlot/mechanic/1 - null null
+2025-06-23 22:03:18.467 +05:30 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '6/20/2025 11:31:53 AM', Current time (UTC): '6/23/2025 4:33:18 PM'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-06-23 22:03:18.469 +05:30 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '6/20/2025 11:31:53 AM', Current time (UTC): '6/23/2025 4:33:18 PM'.
+2025-06-23 22:03:18.471 +05:30 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin|Mechanic|User)
+2025-06-23 22:03:18.475 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2025-06-23 22:03:18.476 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/ServiceSlot/mechanic/1 - 401 0 null 18.717ms
+2025-06-23 22:03:29.033 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/ServiceSlot/mechanic/1 - null null
+2025-06-23 22:03:29.036 +05:30 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenSignatureKeyNotFoundException: IDX10517: Signature validation failed. The token's kid is missing. Keys tried: 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey, KeyId: '', InternalId: 'CUdZfEb9EoBuJiH_QV_kr4lO7y5DQ9CEn7KdMPcM5nw'. , KeyId: 
+'. Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'. 
+Exceptions caught:
+ '[PII of type 'System.String' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'Microsoft.IdentityModel.JsonWebTokens.JsonWebToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. See https://aka.ms/IDX10503 for details.
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignature(JsonWebToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignatureAndIssuerSecurityKey(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-06-23 22:03:29.036 +05:30 [INF] Bearer was not authenticated. Failure message: IDX10517: Signature validation failed. The token's kid is missing. Keys tried: 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey, KeyId: '', InternalId: 'CUdZfEb9EoBuJiH_QV_kr4lO7y5DQ9CEn7KdMPcM5nw'. , KeyId: 
+'. Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'. 
+Exceptions caught:
+ '[PII of type 'System.String' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'Microsoft.IdentityModel.JsonWebTokens.JsonWebToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. See https://aka.ms/IDX10503 for details.
+2025-06-23 22:03:29.038 +05:30 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin|Mechanic|User)
+2025-06-23 22:03:29.039 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2025-06-23 22:03:29.039 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/ServiceSlot/mechanic/1 - 401 0 null 6.6187ms
+2025-06-23 22:03:36.297 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/ServiceSlot/mechanic/1 - null null
+2025-06-23 22:03:36.297 +05:30 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenSignatureKeyNotFoundException: IDX10517: Signature validation failed. The token's kid is missing. Keys tried: 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey, KeyId: '', InternalId: 'CUdZfEb9EoBuJiH_QV_kr4lO7y5DQ9CEn7KdMPcM5nw'. , KeyId: 
+'. Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'. 
+Exceptions caught:
+ '[PII of type 'System.String' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'Microsoft.IdentityModel.JsonWebTokens.JsonWebToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. See https://aka.ms/IDX10503 for details.
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignature(JsonWebToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignatureAndIssuerSecurityKey(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-06-23 22:03:36.297 +05:30 [INF] Bearer was not authenticated. Failure message: IDX10517: Signature validation failed. The token's kid is missing. Keys tried: 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey, KeyId: '', InternalId: 'CUdZfEb9EoBuJiH_QV_kr4lO7y5DQ9CEn7KdMPcM5nw'. , KeyId: 
+'. Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'. 
+Exceptions caught:
+ '[PII of type 'System.String' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'Microsoft.IdentityModel.JsonWebTokens.JsonWebToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. See https://aka.ms/IDX10503 for details.
+2025-06-23 22:03:36.298 +05:30 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin|Mechanic|User)
+2025-06-23 22:03:36.298 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2025-06-23 22:03:36.298 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/ServiceSlot/mechanic/1 - 401 0 null 1.3687ms
+2025-06-23 22:03:41.416 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/ServiceSlot/mechanic/1 - null null
+2025-06-23 22:03:41.417 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.ServiceSlotController.GetSlotsByMechanicId (VehicleServiceAPI)'
+2025-06-23 22:03:41.424 +05:30 [INF] Route matched with {action = "GetSlotsByMechanicId", controller = "ServiceSlot"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.ServiceSlotDTO]]] GetSlotsByMechanicId(Int32) on controller VehicleServiceAPI.Controllers.ServiceSlotController (VehicleServiceAPI).
+2025-06-23 22:03:41.428 +05:30 [INF] Getting service slots for mechanic 1
+2025-06-23 22:03:41.773 +05:30 [INF] Executed DbCommand (17ms) [Parameters=[@__mechanicId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status"
+FROM "ServiceSlots" AS s
+WHERE s."MechanicID" = @__mechanicId_0 AND NOT (s."IsDeleted")
+2025-06-23 22:03:41.899 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-06-23 22:03:41.933 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-06-23 22:03:41.934 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-06-23 22:03:41.935 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-06-23 22:03:41.937 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.ServiceSlotDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-06-23 22:03:41.947 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.ServiceSlotController.GetSlotsByMechanicId (VehicleServiceAPI) in 522.6827ms
+2025-06-23 22:03:41.947 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.ServiceSlotController.GetSlotsByMechanicId (VehicleServiceAPI)'
+2025-06-23 22:03:41.948 +05:30 [INF] HTTP GET /api/v1/ServiceSlot/mechanic/1 responded 200 in 530.6250 ms
+2025-06-23 22:03:41.953 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/ServiceSlot/mechanic/1 - 200 null application/json; charset=utf-8 536.6766ms
+2025-06-23 22:03:47.794 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/ServiceSlot/available - null null
+2025-06-23 22:03:47.795 +05:30 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '6/20/2025 11:31:53 AM', Current time (UTC): '6/23/2025 4:33:47 PM'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-06-23 22:03:47.795 +05:30 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '6/20/2025 11:31:53 AM', Current time (UTC): '6/23/2025 4:33:47 PM'.
+2025-06-23 22:03:47.796 +05:30 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin|Mechanic|User)
+2025-06-23 22:03:47.796 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2025-06-23 22:03:47.796 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/ServiceSlot/available - 401 0 null 2.5981ms
+2025-06-23 22:03:54.404 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/ServiceSlot/available - null null
+2025-06-23 22:03:54.405 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.ServiceSlotController.GetAvailableSlots (VehicleServiceAPI)'
+2025-06-23 22:03:54.408 +05:30 [INF] Route matched with {action = "GetAvailableSlots", controller = "ServiceSlot"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.ServiceSlotDTO]]] GetAvailableSlots() on controller VehicleServiceAPI.Controllers.ServiceSlotController (VehicleServiceAPI).
+2025-06-23 22:03:54.412 +05:30 [INF] Getting available service slots
+2025-06-23 22:03:54.473 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Status" = 'available' AND NOT (s."IsDeleted")
+2025-06-23 22:03:54.476 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-06-23 22:03:54.477 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-06-23 22:03:54.477 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.ServiceSlotDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-06-23 22:03:54.478 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.ServiceSlotController.GetAvailableSlots (VehicleServiceAPI) in 68.9596ms
+2025-06-23 22:03:54.478 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.ServiceSlotController.GetAvailableSlots (VehicleServiceAPI)'
+2025-06-23 22:03:54.478 +05:30 [INF] HTTP GET /api/v1/ServiceSlot/available responded 200 in 72.9878 ms
+2025-06-23 22:03:54.478 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/ServiceSlot/available - 200 null application/json; charset=utf-8 74.291ms
+2025-06-23 22:12:43.904 +05:30 [INF] Application is shutting down...

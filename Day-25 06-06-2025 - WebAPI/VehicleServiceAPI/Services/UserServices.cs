@@ -43,12 +43,10 @@ namespace VehicleServiceAPI.Services
         public async Task<UserDTO> UpdateUserAsync(int id, UserUpdateRequestDTO userDto)
         {
             var existingUser = await _userRepository.GetByIdAsync(id);
-            // Update the desired properties.
+            
             existingUser.Name = userDto.Name;
             existingUser.Email = userDto.Email;
             existingUser.Phone = userDto.Phone;
-            // existingUser.PasswordHash = SecurityUtils.ComputeSha256Hash(userDto.Password);
-            existingUser.RoleId = userDto.RoleId;
 
             var updatedUser = await _userRepository.UpdateAsync(existingUser);
             return MapUserToDto(updatedUser);
@@ -69,7 +67,16 @@ namespace VehicleServiceAPI.Services
         // Convert a UserCreationRequestDTO to a User entity.
         private async Task<User> MapUserCreationRequestDtoToUser(UserCreationRequestDTO dto)
         {
-            Role role = await _roleRepository.GetByIdAsync(dto.RoleId);
+            int roleId = dto.RoleId != 0 ? dto.RoleId : 3;
+            if (roleId == 1)
+            {
+                var admin = await _userRepository.GetAdminAsync();
+                if (admin != null)
+                {
+                    throw new InvalidOperationException("An admin user already exists. Cannot create another admin.");
+                }
+            }
+            Role role = await _roleRepository.GetByIdAsync(roleId);
             return new User
             {
                 Name = dto.Name,

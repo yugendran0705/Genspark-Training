@@ -78,7 +78,7 @@ builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
     {
-        policy.WithOrigins("http://localhost:5192", "http://127.0.0.1:5500")
+        policy.WithOrigins("http://localhost:5192", "http://127.0.0.1:5500", "http://127.0.0.1:4200", "http://localhost:4200")
               .AllowAnyHeader()
               .AllowAnyMethod()
               .AllowCredentials();
@@ -166,9 +166,9 @@ if (app.Environment.IsDevelopment())
 }
 app.UseHttpsRedirection();
 
+app.UseCors();
 app.UseAuthentication();
 app.UseAuthorization();
-app.UseCors();
 app.UseRateLimiter();  
 app.UseSerilogRequestLogging();
 

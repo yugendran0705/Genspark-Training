@@ -28,8 +28,15 @@ namespace VehicleServiceAPI.Services
         public async Task<IEnumerable<VehicleDTO>> GetVehicleByUserAsync(int userId)
         {
             var vehicles = await _vehicleRepository.GetAllByUserAsync(userId);
-            var vehicleDtoTasks = vehicles.Select(v => MapVehicleToDto(v));
-            return await Task.WhenAll(vehicleDtoTasks);
+            var vehicleDtos = new List<VehicleDTO>();
+
+            foreach (var vehicle in vehicles)
+            {
+                var dto = await MapVehicleToDto(vehicle);
+                vehicleDtos.Add(dto);
+            }
+
+            return vehicleDtos;
         }
 
         /// <summary>

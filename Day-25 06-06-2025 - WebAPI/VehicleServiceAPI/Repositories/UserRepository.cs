@@ -66,5 +66,13 @@ namespace VehicleServiceAPI.Repositories
                 .ToListAsync();
         }
 
+        public async Task<User> GetAdminAsync()
+        {
+            var adminRole = await _context.Roles.FirstOrDefaultAsync(r => r.RoleName == "Admin") ?? throw new InvalidOperationException("Admin role not found.");
+            var adminUser = await _context.Users
+                .Include(u => u.Role)
+                .FirstOrDefaultAsync(u => u.RoleId == adminRole.Id && !u.IsDeleted) ?? throw new InvalidOperationException("Admin user not found.");
+            return adminUser;
+        }
     }
 }
