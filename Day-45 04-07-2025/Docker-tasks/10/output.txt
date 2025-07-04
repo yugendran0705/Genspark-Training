@@ -1,0 +1,11 @@
+yugendransunder@C02CQ2LAMD6M-yugendransunder 10 % docker service create \
+  --name visualizer \
+  --publish 8082:8080 \
+  --constraint node.role==manager \
+  --mount type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock \
+  dockersamples/visualizer
+
+8oi8dq3ty5uafpncgbcg4xrtb
+overall progress: 1 out of 1 tasks 
+1/1: running   [==================================================>] 
+verify: Service 8oi8dq3ty5uafpncgbcg4xrtb converged 

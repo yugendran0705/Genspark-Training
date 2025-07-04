@@ -7,13 +7,13 @@ const axios = require('axios');
 app.use(express.json(), cors());
 
 razor = new Razorpay({
-    key_id:    'rzp_test_LeN3ZEeJMwH6tz',
-    key_secret:'rzp_test_mh5uhIosksoSk25UGu9kvvTM'
+    key_id:    '',
+    key_secret:''
 });
 
 
-const KEY_ID     = 'rzp_test_c3ua0PWpyWlc9U';
-const KEY_SECRET = 'G8FBL6sobz7Mja3e31XfIOhG';
+const KEY_ID     = '';
+const KEY_SECRET = '';
 const auth = Buffer
   .from(`${KEY_ID}:${KEY_SECRET}`)
   .toString('base64');

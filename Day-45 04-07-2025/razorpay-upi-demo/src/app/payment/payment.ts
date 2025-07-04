@@ -61,7 +61,7 @@ export class PaymentComponent implements OnInit {
       .subscribe({
         next: o => {
           const options = {
-            key:      'rzp_test_c3ua0PWpyWlc9U',
+            key:      '',
             amount:   o.amount,
             currency: o.currency ?? 'INR',
             name:     this.f.name.value,

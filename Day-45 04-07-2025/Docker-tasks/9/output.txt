@@ -1,0 +1,39 @@
+yugendransunder@C02CQ2LAMD6M-yugendransunder 9 % docker service create \                  
+  --name webapp \
+  --replicas 3 \
+  --update-delay 10s \
+  --update-parallelism 1 \
+  -p 8081:80 \
+  httpd:latest
+
+3o9jkorha4b3q3i723dkovkcu
+overall progress: 3 out of 3 tasks 
+1/3: running   [==================================================>] 
+2/3: running   [==================================================>] 
+3/3: running   [==================================================>] 
+verify: Service 3o9jkorha4b3q3i723dkovkcu converged 
+yugendransunder@C02CQ2LAMD6M-yugendransunder 9 % docker service update --image httpd:alpine webapp
+
+webapp
+overall progress: 3 out of 3 tasks 
+1/3: running   [==================================================>] 
+2/3: running   [==================================================>] 
+3/3: running   [==================================================>] 
+verify: Service webapp converged 
+yugendransunder@C02CQ2LAMD6M-yugendransunder 9 % docker service ls
+
+ID             NAME      MODE         REPLICAS   IMAGE          PORTS
+3o9jkorha4b3   webapp    replicated   3/3        httpd:alpine   *:8081->80/tcp
+yugendransunder@C02CQ2LAMD6M-yugendransunder 9 % docker service ps webapp
+
+ID             NAME           IMAGE          NODE             DESIRED STATE   CURRENT STATE             ERROR     PORTS
+4latuarjz3l2   webapp.1       httpd:alpine   docker-desktop   Running         Running 16 seconds ago              
+voku2bqx0019    \_ webapp.1   httpd:latest   docker-desktop   Shutdown        Shutdown 17 seconds ago             
+rzzd851j5vv6   webapp.2       httpd:alpine   docker-desktop   Running         Running 46 seconds ago              
+7y0xdi7apzav    \_ webapp.2   httpd:latest   docker-desktop   Shutdown        Shutdown 49 seconds ago             
+ebygl4bxm7gn   webapp.3       httpd:alpine   docker-desktop   Running         Running 31 seconds ago              
+q1hlig2uy0n4    \_ webapp.3   httpd:latest   docker-desktop   Shutdown        Shutdown 32 seconds ago             
+yugendransunder@C02CQ2LAMD6M-yugendransunder 9 % curl http://localhost:8081
+
+<html><body><h1>It works!</h1></body></html>
+yugendransunder@C02CQ2LAMD6M-yugendransunder 9 % 
