@@ -11,7 +11,7 @@ namespace VehicleServiceAPI.Models
         public int Id { get; set; }
         
         [Required]
-        public required string FilePath { get; set; }
+        public required string Base64Data { get; set; }
         
         [ForeignKey("Booking")]
         public int BookingId { get; set; }

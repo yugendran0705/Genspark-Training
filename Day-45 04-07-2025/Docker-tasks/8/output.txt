@@ -1,0 +1,23 @@
+yugendransunder@C02CQ2LAMD6M-yugendransunder 8 % docker service scale nginx-web=5
+
+nginx-web scaled to 5
+overall progress: 5 out of 5 tasks 
+1/5: running   [==================================================>] 
+2/5: running   [==================================================>] 
+3/5: running   [==================================================>] 
+4/5: running   [==================================================>] 
+5/5: running   [==================================================>] 
+verify: Service nginx-web converged 
+yugendransunder@C02CQ2LAMD6M-yugendransunder 8 % docker service ls
+
+ID             NAME        MODE         REPLICAS   IMAGE          PORTS
+p8evrspioly4   nginx-web   replicated   5/5        nginx:alpine   *:8080->80/tcp
+yugendransunder@C02CQ2LAMD6M-yugendransunder 8 % docker service ps nginx-web
+
+ID             NAME          IMAGE          NODE             DESIRED STATE   CURRENT STATE            ERROR     PORTS
+pxku6gdwpnut   nginx-web.1   nginx:alpine   docker-desktop   Running         Running 2 minutes ago              
+61nskin4m9iq   nginx-web.2   nginx:alpine   docker-desktop   Running         Running 2 minutes ago              
+o0vfnew7gux8   nginx-web.3   nginx:alpine   docker-desktop   Running         Running 2 minutes ago              
+mbi4waoq638j   nginx-web.4   nginx:alpine   docker-desktop   Running         Running 19 seconds ago             
+vefn73o8pa30   nginx-web.5   nginx:alpine   docker-desktop   Running         Running 19 seconds ago             
+yugendransunder@C02CQ2LAMD6M-yugendransunder 8 % 

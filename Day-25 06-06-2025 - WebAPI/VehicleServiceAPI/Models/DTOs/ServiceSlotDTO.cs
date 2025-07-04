@@ -9,7 +9,7 @@ namespace VehicleServiceAPI.Models.DTOs
         public string Status { get; set; }
         public int MechanicID { get; set; }
         public string MechanicName { get; set; }
-        public bool IsDeleted { get; set; }
+        public bool isDeleted { get; set; }
     }
 
     public class CreateServiceSlotDTO

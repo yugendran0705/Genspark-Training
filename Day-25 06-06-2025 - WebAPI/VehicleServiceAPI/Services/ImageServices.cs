@@ -48,21 +48,11 @@ namespace VehicleServiceAPI.Services
         /// </summary>
         public async Task<ImageDTO> CreateImageAsync(CreateImageDTO request)
         {
-            if (request.File == null || request.File.Length == 0)
-            {
-                throw new InvalidOperationException("Invalid file.");
-            }
-
-            // Save the uploaded file and generate its relative file path.
-            string filePath = await SaveFileAsync(request.File);
-
-            // Create the domain Image entity.
-            // (Assumes that your Image model has a property called 'FilePath' to hold this information.)
             var booking = await _bookingRepository.GetByIdAsync(request.BookingId);
             var vehicle = await _vehicleRepository.GetByIdAsync(request.VehicleID);
             var imageEntity = new Image
             {
-                FilePath = filePath,
+                Base64Data = request.Base64Data,
                 BookingId = request.BookingId,
                 VehicleId = request.VehicleID,
                 Booking = booking,
@@ -85,13 +75,7 @@ namespace VehicleServiceAPI.Services
                 throw new InvalidOperationException("Image not found.");
             }
 
-            // If a new file is provided, save it and update the file path.
-            if (request.File != null && request.File.Length > 0)
-            {
-                string newFilePath = await SaveFileAsync(request.File);
-                image.FilePath = newFilePath;
-            }
-            // Update the associated booking and vehicle IDs.
+            image.Base64Data = request.Base64Data;
             image.BookingId = request.BookingId;
             image.VehicleId = request.VehicleID;
 
@@ -104,6 +88,7 @@ namespace VehicleServiceAPI.Services
         /// </summary>
         public async Task<bool> DeleteImageAsync(int id)
         {
+            Console.Write(id);
             return await _imageRepository.DeleteAsync(id);
         }
 
@@ -132,52 +117,15 @@ namespace VehicleServiceAPI.Services
         // we leave it null in the DTO output.
         private ImageDTO MapImageToDto(Image image)
         {
-            IFormFile formFile = null;
-            if (!string.IsNullOrEmpty(image.FilePath))
-            {
-                // Construct the absolute path to the file.
-                var physicalPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", image.FilePath);
-                if (File.Exists(physicalPath))
-                {
-                    // Open the file stream for reading.
-                    var stream = new FileStream(physicalPath, FileMode.Open, FileAccess.Read);
-                    // Create a FormFile instance wrapping the file stream.
-                    formFile = new FormFile(stream, 0, stream.Length, "file", Path.GetFileName(physicalPath))
-                    {
-                        Headers = new HeaderDictionary(),
-                        ContentType = GetContentType(physicalPath)
-                    };
-                }
-            }
-
             return new ImageDTO
             {
                 Id = image.Id,
-                File = formFile,
                 BookingId = image.BookingId,
-                VehicleID = image.VehicleId,
-                RegistrationNumber = image.Vehicle.RegistrationNumber
+                VehicleId = image.VehicleId,
+                RegistrationNumber = image.Vehicle?.RegistrationNumber ?? "Unknown",
+                Base64Data = image.Base64Data
             };
         }
-
-        // Helper method to determine the MIME type based on file extension.
-        private string GetContentType(string path)
-        {
-            var extension = Path.GetExtension(path).ToLowerInvariant();
-            switch (extension)
-            {
-                case ".jpg":
-                case ".jpeg":
-                    return "image/jpeg";
-                case ".png":
-                    return "image/png";
-                case ".gif":
-                    return "image/gif";
-                default:
-                    return "application/octet-stream";
-            }
-        }
-
         #endregion
 
         /// <summary>

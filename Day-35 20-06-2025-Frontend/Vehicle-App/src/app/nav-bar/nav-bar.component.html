@@ -1,0 +1,77 @@
+<header class="bg-white shadow-md">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+
+    <!-- Logo / Home -->
+    <a routerLink="/" class="text-2xl font-bold text-blue-600">
+      <!-- <img src="assets/logo.png" alt="AutoCare" class="inline h-8 w-auto mr-2" /> -->
+      AutoCare
+    </a>    
+
+    <!-- Desktop Menu -->
+    <nav class="hidden md:flex space-x-6 items-center ml-auto mr-6">
+      <a routerLink="/slots" routerLinkActive="text-blue-600" class="hover:text-blue-600">Slots</a>
+      <a routerLink="/bookings" routerLinkActive="text-blue-600" class="hover:text-blue-600">Bookings</a>
+      <a routerLink="/notifications" routerLinkActive="text-blue-600" class="hover:text-blue-600">Notifications</a>
+    </nav>
+
+    <!-- Auth Buttons -->
+    <div class="hidden md:flex items-center space-x-4">
+      <!-- If not logged in -->
+      <ng-container *ngIf="!isLoggedIn; else loggedInTpl">
+        <a routerLink="/login"
+           class="px-4 py-2 border border-blue-600 text-blue-600 rounded hover:bg-blue-50">
+          Login
+        </a>
+        <a routerLink="/signup"
+           class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+          Signup
+        </a>
+      </ng-container>
+
+      <!-- If logged in -->
+      <ng-template #loggedInTpl>
+        <a routerLink="/profile"
+           class="px-4 py-2 border text-white bg-blue-600 border-gray-300 rounded hover:bg-blue-800">
+          Profile
+        </a>
+      </ng-template>
+    </div>
+
+    <!-- Mobile menu button -->
+    <button
+      class="md:hidden text-gray-600 focus:outline-none"
+      (click)="mobileMenuOpen = !mobileMenuOpen"
+      aria-label="Toggle menu"
+    >
+      <svg *ngIf="!mobileMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+      <svg *ngIf="mobileMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div *ngIf="mobileMenuOpen" class="md:hidden bg-white border-t">
+    <nav class="px-4 pt-4 pb-2 space-y-2">
+      <a routerLink="/slots" class="block hover:text-blue-600">Slots</a>
+      <a routerLink="/bookings" class="block hover:text-blue-600">Bookings</a>
+      <a href="#testimonials" class="block hover:text-blue-600">Testimonials</a>
+
+      <hr class="my-2" />
+
+      <ng-container *ngIf="!isLoggedIn; else mobileLoggedInTpl">
+        <a routerLink="/login" class="block px-2 py-1 border rounded hover:bg-blue-50">Login</a>
+        <a routerLink="/signup" class="block px-2 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 mt-1">Signup</a>
+      </ng-container>
+
+      <ng-template #mobileLoggedInTpl>
+        <a routerLink="/profile" class="block w-fit bg-blue-600 text-white px-2 py-1 rounded hover:bg-blue-800">Profile</a>
+        <!-- <button (click)="logout()" class="block px-2 py-1 text-red-600 hover:underline text-left">Logout</button> -->
+      </ng-template>
+    </nav>
+  </div>
+</header>

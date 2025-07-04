@@ -11,5 +11,6 @@ namespace VehicleServiceAPI.Interfaces
         Task<UserDTO> UpdateUserAsync(int id, UserUpdateRequestDTO userDto);
         Task<bool> DeleteUserAsync(int id);
         Task<IEnumerable<UserDTO>> GetAllUsersAsync();
+        Task<IEnumerable<UserDTO>> GetAllMechanicsAsync();
     }
 }

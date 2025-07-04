@@ -62,6 +62,12 @@ namespace VehicleServiceAPI.Services
             var users = await _userRepository.GetAllAsync();
             return users.Select(u => MapUserToDto(u));
         }
+
+        public async Task<IEnumerable<UserDTO>> GetAllMechanicsAsync()
+        {
+            var users = await _userRepository.GetMechanicsAsync();
+            return users.Select(u => MapUserToDto(u));
+        }
         #region Helper Mapping Methods
 
         // Convert a UserCreationRequestDTO to a User entity.

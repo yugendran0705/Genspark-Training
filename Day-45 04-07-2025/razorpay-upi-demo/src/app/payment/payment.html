@@ -1,0 +1,31 @@
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"> </script>
+<form [formGroup]="paymentForm" (ngSubmit)="pay()">
+  <div>
+    <label>Amount</label>
+    <input formControlName="amount" type="number" min="1" />
+    <div *ngIf="f.amount.invalid && f.amount.touched">Enter valid amount &gt; 0</div>
+  </div>
+
+  <div>
+    <label>Name</label>
+    <input formControlName="name" type="text" />
+    <div *ngIf="f.name.invalid && f.name.touched">Name is required</div>
+  </div>
+
+  <div>
+    <label>Email</label>
+    <input formControlName="email" type="email" />
+    <div *ngIf="f.email.invalid && f.email.touched">Enter valid email</div>
+  </div>
+
+  <div>
+    <label>Contact</label>
+    <input formControlName="contact" type="tel" maxlength="10" />
+    <div *ngIf="f.contact.invalid && f.contact.touched">10-digit contact required</div>
+  </div>
+
+  <button type="submit" [disabled]="paymentForm.invalid">Pay ₹{{ paymentForm.value.amount }}</button>
+</form>
+
+<div *ngIf="message" class="message">{{ message }}</div>

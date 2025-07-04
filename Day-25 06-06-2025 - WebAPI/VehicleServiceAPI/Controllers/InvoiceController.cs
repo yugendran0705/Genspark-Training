@@ -33,7 +33,7 @@ namespace VehicleServiceAPI.Controllers
                 _logger.LogInformation("Retrieved {Count} invoices.", invoices.Count());
                 return Ok(invoices);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 _logger.LogError(ex, "Error retrieving all invoices.");
                 return BadRequest(new { error = ex.Message });
@@ -54,12 +54,12 @@ namespace VehicleServiceAPI.Controllers
                 _logger.LogInformation("Invoice with ID {Id} retrieved.", id);
                 return Ok(invoice);
             }
-            catch(InvalidOperationException ex)
+            catch (InvalidOperationException ex)
             {
                 _logger.LogWarning(ex, "Invoice with ID {Id} not found.", id);
                 return NotFound(new { error = ex.Message });
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 _logger.LogError(ex, "Error retrieving invoice with ID {Id}.", id);
                 return BadRequest(new { error = ex.Message });
@@ -86,12 +86,12 @@ namespace VehicleServiceAPI.Controllers
                 _logger.LogInformation("Invoice created with ID: {Id}", invoice.Id);
                 return CreatedAtAction(nameof(GetInvoiceById), new { id = invoice.Id }, invoice);
             }
-            catch(InvalidOperationException ex)
+            catch (InvalidOperationException ex)
             {
                 _logger.LogWarning(ex, "Failed to create invoice for booking ID: {BookingId}", request.BookingId);
                 return BadRequest(new { error = ex.Message });
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 _logger.LogError(ex, "Error creating invoice for booking ID: {BookingId}", request.BookingId);
                 return BadRequest(new { error = ex.Message });
@@ -118,12 +118,12 @@ namespace VehicleServiceAPI.Controllers
                 _logger.LogInformation("Invoice with ID {Id} updated.", request.Id);
                 return Ok(invoice);
             }
-            catch(InvalidOperationException ex)
+            catch (InvalidOperationException ex)
             {
                 _logger.LogWarning(ex, "Invoice with ID {Id} not found for update.", request.Id);
                 return NotFound(new { error = ex.Message });
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 _logger.LogError(ex, "Error updating invoice with ID {Id}.", request.Id);
                 return BadRequest(new { error = ex.Message });
@@ -149,7 +149,7 @@ namespace VehicleServiceAPI.Controllers
                 _logger.LogInformation("Invoice with ID {Id} deleted.", id);
                 return NoContent();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 _logger.LogError(ex, "Error deleting invoice with ID {Id}.", id);
                 return BadRequest(new { error = ex.Message });
@@ -160,19 +160,55 @@ namespace VehicleServiceAPI.Controllers
         /// Retrieves all invoices associated with a specific booking.
         /// </summary>
         [Authorize(Policy = "UserAccess")]
-        [HttpGet("booking/{bookingId}")]
-        public async Task<ActionResult<IEnumerable<InvoiceDTO>>> GetInvoicesByBookingId(int bookingId)
+        [HttpGet("booking/{bookingId}/pdf")]
+        public async Task<IActionResult> DownloadInvoicePdf(int bookingId)
         {
-            _logger.LogInformation("Getting invoices for booking ID: {BookingId}", bookingId);
+            _logger.LogInformation("Generating PDF for Booking ID: {BookingId}", bookingId);
+
             try
             {
-                var invoices = await _invoiceService.GetInvoicesByBookingIdAsync(bookingId);
-                _logger.LogInformation("Retrieved {Count} invoices for booking ID: {BookingId}", invoices.Count(), bookingId);
-                return Ok(invoices);
+                var pdfDto = await _invoiceService.GetInvoicePDFByBookingIdAsync(bookingId);
+
+                if (pdfDto?.FileContents == null || pdfDto.FileContents.Length == 0)
+                {
+                    _logger.LogWarning("No PDF content for Booking ID: {BookingId}", bookingId);
+                    return NotFound();
+                }
+
+                // Stream the PDF back to the client
+                return File(
+                    pdfDto.FileContents,
+                    pdfDto.ContentType,   
+                    pdfDto.FileName
+                );
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                _logger.LogError(ex, "Error retrieving invoices for booking ID: {BookingId}", bookingId);
+                _logger.LogError(ex, "Error generating PDF for Booking ID: {BookingId}", bookingId);
+                return BadRequest(new { error = ex.Message });
+            }
+        }
+
+
+        [Authorize(Policy = "UserAccess")]
+        [HttpGet("booking/{bookingId}")]
+        public async Task<IActionResult> GetInvoiceByBookingId(int bookingId)
+        {
+            _logger.LogInformation("Generating Booking Meta Data for Booking ID: {BookingId}", bookingId);
+            try
+            {
+                var invoice = await _invoiceService.GetInvoiceByBookingIdAsync(bookingId);
+                _logger.LogInformation("Invoice for Booking ID {Id} retrieved.", bookingId);
+                return Ok(invoice);
+            }
+            catch (InvalidOperationException ex)
+            {
+                _logger.LogWarning(ex, "Invoice for Booking ID {Id} not found.", bookingId);
+                return NotFound(new { error = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error retrieving invoice for Booking ID {Id}.", bookingId);
                 return BadRequest(new { error = ex.Message });
             }
         }

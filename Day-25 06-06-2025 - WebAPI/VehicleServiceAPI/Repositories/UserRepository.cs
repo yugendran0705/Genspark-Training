@@ -74,5 +74,13 @@ namespace VehicleServiceAPI.Repositories
                 .FirstOrDefaultAsync(u => u.RoleId == adminRole.Id && !u.IsDeleted) ?? throw new InvalidOperationException("Admin user not found.");
             return adminUser;
         }
+
+        public async Task<IEnumerable<User>> GetMechanicsAsync()
+        {
+            return await _context.Users
+                .Include(u => u.Role)
+                .Where(u => u.RoleId == 2 && !u.IsDeleted)
+                .ToListAsync();
+        }
     }
 }

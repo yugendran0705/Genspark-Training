@@ -20,6 +20,36 @@ namespace VehicleServiceAPI.Controllers
         }
         
         /// <summary>
+        /// Retrieves all mechanics (Admin access only).
+        /// </summary>
+        [Authorize(Policy = "AdminOnly")]
+        [HttpGet("mechanics")]
+        public async Task<ActionResult<IEnumerable<UserDTO>>> GetAllMechanics()
+        {
+            try
+            {
+            _logger?.LogInformation("Admin requested all mechanics.");
+            var users = await _userService.GetAllMechanicsAsync();
+            return Ok(users);
+            }
+            catch (InvalidOperationException ex)
+            {
+            _logger?.LogWarning(ex, "Invalid operation while retrieving all mechanics.");
+            return NotFound(new { error = ex.Message });
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+            _logger?.LogWarning(ex, "Unauthorized access while retrieving all mechanics.");
+            return Forbid();
+            }
+            catch (Exception ex)
+            {
+            _logger?.LogError(ex, "Unexpected error while retrieving all mechanics.");
+            return BadRequest(new { error = ex.Message });
+            }
+        }
+        
+        /// <summary>
         /// Retrieves all users (Admin access only).
         /// </summary>
         [Authorize(Policy = "AdminOnly")]

@@ -1,7 +1,10 @@
+using Microsoft.OpenApi.Any;
 using VehicleServiceAPI.Interfaces;
 using VehicleServiceAPI.Models;
 using VehicleServiceAPI.Models.DTOs;
 using VehicleServiceAPI.Repositories;
+using PdfSharpCore.Pdf;
+using PdfSharpCore.Drawing;
 
 namespace VehicleServiceAPI.Services
 {
@@ -37,7 +40,12 @@ namespace VehicleServiceAPI.Services
         public async Task<IEnumerable<InvoiceDTO>> GetAllInvoicesAsync()
         {
             var invoices = await _invoiceRepository.GetAllAsync();
-            var invoiceDtos = await Task.WhenAll(invoices.Select(MapInvoiceToDto));
+            var invoiceDtos = new List<InvoiceDTO>();
+            foreach (var invoice in invoices)
+            {
+                var dto = await MapInvoiceToDto(invoice);
+                invoiceDtos.Add(dto);
+            }
             return invoiceDtos;
         }
 
@@ -82,15 +90,64 @@ namespace VehicleServiceAPI.Services
             return await _invoiceRepository.DeleteAsync(id);
         }
 
+        public async Task<InvoiceDTO> GetInvoiceByBookingIdAsync(int id)
+        {
+            var invoiceMeta = await _invoiceRepository.GetInvoicesByBookingIdAsync(id);
+            var dto = await MapInvoiceToDto(invoiceMeta);
+            return dto;
+        }
+
         /// <summary>
         /// Retrieves all invoices associated with a booking.
         /// </summary>
-        public async Task<IEnumerable<InvoiceDTO>> GetInvoicesByBookingIdAsync(int bookingId)
+        public async Task<InvoicePdfDTO> GetInvoicePDFByBookingIdAsync(int id)
         {
-            var invoices = await _invoiceRepository.GetInvoicesByBookingIdAsync(bookingId);
-            var invoiceDtos = await Task.WhenAll(invoices.Select(MapInvoiceToDto));
-            return invoiceDtos;
+            var invoiceMeta = await _invoiceRepository.GetInvoicesByBookingIdAsync(id);
+            var dto = await MapInvoiceToDto(invoiceMeta);
+            byte[] pdfBytes;
+
+            using (var ms = new MemoryStream())
+            {
+                PdfDocument document = new PdfDocument();
+                PdfPage page = document.AddPage();
+                XGraphics gfx = XGraphics.FromPdfPage(page);
+
+                XFont titleFont = new("Arial", 20, XFontStyle.Bold);
+                XFont labelFont = new XFont("Arial", 12, XFontStyle.Bold);
+                XFont valueFont = new XFont("Arial", 12, XFontStyle.Regular);
+
+                double y = 40;
+                gfx.DrawString($"Invoice #{dto.Id}", titleFont, XBrushes.DarkGray, new XRect(0, y, page.Width, 30), XStringFormats.TopCenter);
+                y += 40;
+
+                void DrawRow(string label, string value)
+                {
+                    gfx.DrawString(label + ":", labelFont, XBrushes.Black, new XRect(40, y, 120, 20), XStringFormats.TopLeft);
+                    gfx.DrawString(value, valueFont, XBrushes.Black, new XRect(170, y, page.Width - 210, 20), XStringFormats.TopLeft);
+                    y += 25;
+                }
+
+                DrawRow("Booking ID", dto.BookingId.ToString());
+                DrawRow("Customer", $"{dto.Name} ({dto.Email}, {dto.Phone})");
+                DrawRow("Service Date", dto.SlotDateTime.ToString("f"));
+                DrawRow("Mechanic", dto.MechanicName);
+                DrawRow("Vehicle", dto.RegistrationNumber);
+                DrawRow("Details", dto.ServiceDetails);
+                DrawRow("Amount", $"Rs.{dto.Amount:F2}");
+
+                document.Save(ms, false);
+                pdfBytes = ms.ToArray();
+            }
+
+            return new InvoicePdfDTO
+            {
+                FileName = $"invoice_{dto.Id}.pdf",
+                ContentType = "application/pdf",
+                FileContents = pdfBytes
+            };
         }
+
+
 
         #region Mapping Methods
 

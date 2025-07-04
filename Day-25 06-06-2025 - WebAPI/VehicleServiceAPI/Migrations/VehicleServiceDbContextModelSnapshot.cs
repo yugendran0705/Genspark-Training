@@ -65,12 +65,12 @@ namespace VehicleServiceAPI.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("BookingId")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("FilePath")
+                    b.Property<string>("Base64Data")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<int>("BookingId")
+                        .HasColumnType("integer");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");

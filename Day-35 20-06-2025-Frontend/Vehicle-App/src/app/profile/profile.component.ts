@@ -16,7 +16,10 @@ export class ProfileComponent implements OnInit {
   user: any = null;
   vehicles: any[] = [];
   isModalOpen: boolean = false;
+  isModalDeleteOpen: boolean = false;
   vehicleForm: FormGroup;
+  vehicleIdToDelete: number | null = null;
+  yearOptions: number[] = [];
 
   constructor(
     private userService: UserService, 
@@ -34,21 +37,26 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void { 
+    const currentYear = new Date().getFullYear();
+    const startYear = 1980;
+    for (let y = currentYear; y >= startYear; y--) {
+      this.yearOptions.push(y);
+    }
     this.userService.getOne().subscribe({
       next: (response) => {
         this.user = response;
+        console.log(response);
       },
       error: (error) => {
-        this.errorMessage = error.error ?? "Error. Please try again later";
+        this.errorMessage = error.error.error ?? "Error. Please try again later";
       }
     })
     this.vehicleService.getAllByUser().subscribe({
       next: (response) => {
-        console.log(response);
         this.vehicles = response;
       },
       error: (error) => {
-        this.errorMessage = error.error ?? "Error. Please try again later";
+        this.errorMessage = error.error.error ?? "Error. Please try again later";
       }
     })
   }
@@ -76,7 +84,7 @@ export class ProfileComponent implements OnInit {
       console.log('Vehicle Details:', this.vehicleForm.value);
       this.vehicleService.create(this.vehicleForm.value).subscribe({
         next: (response)=>{
-          console.log(response);
+          this.vehicles.push(response);
         },
         error: (error) => {
           this.errorMessage = 'Vehicle is not added.';
@@ -88,5 +96,27 @@ export class ProfileComponent implements OnInit {
       // Mark all as touched to trigger validation errors display.
       this.vehicleForm.markAllAsTouched();
     }
+  }
+
+  openDelete(id: number):void{
+    this.vehicleIdToDelete = id;
+    this.isModalDeleteOpen = true;
+  }
+
+  closeDelete():void{
+    this.vehicleIdToDelete = null;
+    this.isModalDeleteOpen = false;
+  }
+
+  deleteVehicle(): void {
+    this.vehicleService.delete(this.vehicleIdToDelete).subscribe({
+      next: () => {
+        this.vehicles = this.vehicles.filter(v => v.id !== this.vehicleIdToDelete);
+        this.closeDelete();
+      },
+      error: (error) => {
+        this.errorMessage = 'Failed to delete vehicle.';
+      }
+    });
   }
 }

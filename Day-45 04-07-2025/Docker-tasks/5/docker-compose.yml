@@ -1,0 +1,23 @@
+
+version: '3.8'
+
+services:
+  api:
+    build: 
+      context: ./api          # Path to your Node.js API Dockerfile
+    ports:
+      - "3000:3000"       # Expose API on localhost:3000
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/db
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:7
+    volumes:
+      - mongo-data:/data/db
+    ports:
+      - "27017:27017"
+
+volumes:
+  mongo-data:

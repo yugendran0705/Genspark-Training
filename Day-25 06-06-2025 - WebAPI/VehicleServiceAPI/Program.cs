@@ -60,7 +60,7 @@ builder.Services.AddRateLimiter(options =>
         return RateLimitPartition.GetFixedWindowLimiter(userIdentifier, partition => new FixedWindowRateLimiterOptions
         {
             AutoReplenishment = true,
-            PermitLimit = 20,
+            PermitLimit = 200,
             QueueLimit = 0,
             Window = TimeSpan.FromMinutes(5)
         });
@@ -78,7 +78,7 @@ builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
     {
-        policy.WithOrigins("http://localhost:5192", "http://127.0.0.1:5500", "http://127.0.0.1:4200", "http://localhost:4200")
+        policy.WithOrigins("http://localhost:5192", "http://127.0.0.1:5500", "http://127.0.0.1:4200", "http://localhost:4200", "http://localhost:53225")
               .AllowAnyHeader()
               .AllowAnyMethod()
               .AllowCredentials();

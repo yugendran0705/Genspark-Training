@@ -1,0 +1,157 @@
+<div *ngIf="errorMessage; else bookingDetails" class="text-red-600 text-center p-4">
+  {{ errorMessage }}
+</div>
+
+<ng-template #bookingDetails>
+  <div class="max-w-4xl mx-auto my-10 p-6 bg-white shadow-lg rounded-lg border space-y-6">
+    <h2 class="text-2xl font-semibold text-gray-800">Booking Details</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <div>
+        <p class="text-sm text-gray-500">Booking ID</p>
+        <p class="text-lg font-medium text-gray-800">{{ booking.id }}</p>
+      </div>
+      <div>
+        <p class="text-sm text-gray-500">Booking Status</p>
+        <select
+          [(ngModel)]="booking.status"
+          (change)="updateStatus(booking)"
+          class="w-full mt-1 px-3 py-2 border rounded text-sm capitalize"
+          [ngClass]="{
+            'text-green-600': booking.status === 'completed',
+            'text-yellow-600': booking.status !== 'completed'
+          }"
+        >
+          <option value="pending">Pending</option>
+          <option value="completed">Completed</option>
+          <option value="cancelled">Cancelled</option>
+        </select>
+      </div>
+      <div>
+        <p class="text-sm text-gray-500">Slot Date</p>
+        <p class="text-lg font-medium">{{ booking.slotDateTime | date: 'mediumDate' }}</p>
+      </div>
+      <div>
+        <p class="text-sm text-gray-500">Slot Time</p>
+        <p class="text-lg font-medium">{{ booking.slotDateTime | date: 'shortTime' }}</p>
+      </div>
+      <div>
+        <p class="text-sm text-gray-500">Slot Availability</p>
+        <p class="text-lg font-medium capitalize text-green-600">{{ booking.slotStatus }}</p>
+      </div>
+      <div>
+        <p class="text-sm text-gray-500">Mechanic</p>
+        <p class="text-lg font-medium">{{ booking.mechanicName }}</p>
+      </div>
+      <div class="sm:col-span-2">
+        <p class="text-sm text-gray-500">Vehicle</p>
+        <p class="text-lg font-medium">
+          {{ booking.make }} {{ booking.model }} ({{ booking.year }}) — {{ booking.registrationNumber }}
+        </p>
+      </div>
+      <div class="sm:col-span-2">
+        <p class="text-sm text-gray-500">Owner</p>
+        <p class="text-lg font-medium">
+          {{ booking.name }} — {{ booking.email }} — {{ booking.phone }}
+        </p>  
+      </div>
+    </div>
+    <div class="mt-6 text-right">
+      <button
+        (click)="openInvoiceModal()"
+        [disabled]="booking.status !== 'completed'"
+        class="px-4 py-2 rounded text-white"
+        [ngClass]="{
+          'bg-blue-600 hover:bg-blue-700': booking.status === 'completed',
+          'bg-gray-400 cursor-not-allowed': booking.status !== 'completed'
+        }"
+      >
+        Create Invoice
+      </button>
+    </div>
+    <div *ngIf="images && images.length > 0" class="mt-8 py-6 relative w-full overflow-hidden rounded-md border">
+      <!-- Slides -->
+      <div
+        class="whitespace-nowrap transition-transform duration-500 ease-in-out"
+        [ngStyle]="{ transform: 'translateX(-' + currentIndex * 100 + '%)' }"
+      >
+        <div
+          *ngFor="let img of images; let i = index"
+          class="relative inline-block w-full h-64 bg-white"
+        >
+          <img
+            [src]="img.base64Data"
+            class="w-full h-full object-contain"
+            alt="Booking Image"
+          />
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <button
+        class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-black bg-opacity-50 text-white px-3 py-1"
+        (click)="prev()"
+      >
+        &#x2039;
+      </button>
+      <button
+        class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-black bg-opacity-50 text-white px-3 py-1"
+        (click)="next()"
+      >
+        &#x203a;
+      </button>
+    </div>
+  </div>
+</ng-template>
+<!-- Invoice Creation Modal -->
+<div *ngIf="isInvoiceModalOpen" class="fixed inset-0 bg-black bg-opacity-40 flex justify-center items-center z-50">
+  <div class="bg-white p-6 rounded-lg w-full max-w-md">
+    <div class="flex justify-between items-center mb-4">
+      <h3 class="text-lg font-semibold">Create Invoice</h3>
+      <button (click)="closeInvoiceModal()" class="text-2xl text-gray-500 hover:text-black">&times;</button>
+    </div>
+    
+    <form [formGroup]="invoiceForm" (ngSubmit)="createInvoice()">
+      <div class="space-y-4">
+        <div>
+          <label class="text-sm text-gray-600">Booking ID</label>
+          <input
+            formControlName="bookingId"
+            class="w-full border rounded px-3 py-2 bg-gray-100"
+            readonly
+          />
+        </div>
+        <div>
+          <label class="text-sm text-gray-600">Amount</label>
+          <input
+            type="number"
+            formControlName="amount"
+            class="w-full border rounded px-3 py-2"
+            placeholder="Enter amount"
+          />
+        </div>
+        <div>
+          <label class="text-sm text-gray-600">Service Details</label>
+          <textarea
+            formControlName="serviceDetails"
+            class="w-full border rounded px-3 py-2"
+            rows="3"
+            placeholder="Describe service done"
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="mt-6 flex justify-end gap-3">
+        <button type="button" (click)="closeInvoiceModal()" class="border px-4 py-2 rounded">
+          Cancel
+        </button>
+        <button
+          type="submit"
+          [disabled]="invoiceForm.invalid"
+          class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

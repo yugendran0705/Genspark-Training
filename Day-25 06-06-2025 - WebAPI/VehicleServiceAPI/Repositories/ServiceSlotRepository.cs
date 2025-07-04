@@ -61,8 +61,7 @@ namespace VehicleServiceAPI.Repositories
                 return false;
             }
 
-            serviceSlot.IsDeleted = true;
-            _context.ServiceSlots.Update(serviceSlot);
+            _context.ServiceSlots.Remove(serviceSlot);
             await _context.SaveChangesAsync();
             return true;
         }

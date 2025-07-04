@@ -36,4 +36,11 @@ namespace VehicleServiceAPI.Models.DTOs
         public decimal Amount { get; set; }
         public required string ServiceDetails { get; set; }
     }
+
+    public class InvoicePdfDTO
+    {
+        public string FileName { get; set; }
+        public string ContentType { get; set; }
+        public byte[] FileContents { get; set; }
+    }
 }

@@ -1,0 +1,31 @@
+yugendransunder@C02CQ2LAMD6M-yugendransunder 3 % docker network create app-net               
+
+1b04b5282a78236606584d1f9ed345722411e115505a0b2c6ce8d9600ba873b4
+yugendransunder@C02CQ2LAMD6M-yugendransunder 3 % docker run -d \              
+  --name backend-api \
+  --network app-net \
+  -p 3000:3000 \
+  1               
+
+dcee8f42b2eefb03994e1e7ad407db18507d296aa71e72680f6b2327fa440036
+yugendransunder@C02CQ2LAMD6M-yugendransunder 3 % docker run -d \
+  --name frontend-app \
+  --network app-net \
+  -p 5173:5173 \
+  3                
+
+5fc2ba446f800a5c76541f88a525ad13990ff50e8ccccdcfa03d5e8020733b3a
+yugendransunder@C02CQ2LAMD6M-yugendransunder 3 % docker exec -it frontend-app ping backend-api
+
+PING backend-api (172.18.0.2): 56 data bytes
+64 bytes from 172.18.0.2: seq=0 ttl=64 time=0.065 ms
+64 bytes from 172.18.0.2: seq=1 ttl=64 time=0.062 ms
+64 bytes from 172.18.0.2: seq=2 ttl=64 time=0.059 ms
+64 bytes from 172.18.0.2: seq=3 ttl=64 time=0.195 ms
+64 bytes from 172.18.0.2: seq=4 ttl=64 time=0.089 ms
+64 bytes from 172.18.0.2: seq=5 ttl=64 time=0.064 ms
+^C
+--- backend-api ping statistics ---
+6 packets transmitted, 6 packets received, 0% packet loss
+round-trip min/avg/max = 0.059/0.089/0.195 ms
+yugendransunder@C02CQ2LAMD6M-yugendransunder 3 % 

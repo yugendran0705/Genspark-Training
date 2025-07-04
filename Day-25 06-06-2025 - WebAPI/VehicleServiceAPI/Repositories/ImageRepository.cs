@@ -45,7 +45,7 @@ namespace VehicleServiceAPI.Repositories
         public async Task<Image> UpdateAsync(Image image)
         {
             var existingImage = await _context.Images.FindAsync(image.Id) ?? throw new InvalidOperationException($"Image not found.");
-            existingImage.FilePath = image.FilePath;
+            existingImage.Base64Data = image.Base64Data;
             existingImage.BookingId = image.BookingId;
             existingImage.VehicleId = image.VehicleId;
 

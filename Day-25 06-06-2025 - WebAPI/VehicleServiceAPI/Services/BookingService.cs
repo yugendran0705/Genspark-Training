@@ -156,6 +156,7 @@ namespace VehicleServiceAPI.Services
         private async Task<Booking> MapCreateBookingDtoToBooking(int userId, CreateBookingDTO request)
         {
             var user = await _userRepository.GetByIdAsync(userId);
+            Console.WriteLine("SlotID",request.SlotId);
             var slot = await _serviceSlotRepository.GetByIdAsync(request.SlotId);
             var vehicle = await _vehicleRepository.GetByIdAsync(request.VehicleId);
             return new Booking

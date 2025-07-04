@@ -9,7 +9,8 @@ namespace VehicleServiceAPI.Interfaces
         Task<IEnumerable<InvoiceDTO>> GetAllInvoicesAsync();
         Task<InvoiceDTO> CreateInvoiceAsync(CreateInvoiceDTO request);
         Task<InvoiceDTO> UpdateInvoiceAsync(UpdateInvoiceDTO request);
-        Task<IEnumerable<InvoiceDTO>> GetInvoicesByBookingIdAsync(int bookingId);
+        Task<InvoicePdfDTO> GetInvoicePDFByBookingIdAsync(int bookingId);
+        Task<InvoiceDTO> GetInvoiceByBookingIdAsync(int bookingId);
         Task<bool> DeleteInvoiceAsync(int id);
     }
 }
