@@ -1,0 +1,13 @@
+@if (recipes().length > 0) {
+  <div class="container mt-4 d-flex flex-wrap justify-content-center align-items-center">
+    @for (recipe of recipes(); track recipe.id) {
+      <div class="m-2" style="flex: 0 0 auto; width: 400px;">
+        <app-recipe [recipe]="recipe"></app-recipe>
+      </div>
+    }
+  </div>
+} @else {
+  <div class="text-center mt-5">
+    <h5 class="text-muted">No recipes found.</h5>
+  </div>
+}
