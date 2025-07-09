@@ -1,0 +1,140 @@
+yugendransunder@C02CQ2LAMD6M-yugendransunder Day-48 09-07-2025 % az deployment group create --resource-group yugen-rg  --template-file azuredeploy.json --parameters @parameters.json
+{
+  "id": "/subscriptions/e34397b2-486a-417d-bd5a-b9113a4a1b0c/resourceGroups/yugen-rg/providers/Microsoft.Resources/deployments/azuredeploy",
+  "location": null,
+  "name": "azuredeploy",
+  "properties": {
+    "correlationId": "174e4247-e678-4886-b035-81e104ed9cab",
+    "debugSetting": null,
+    "dependencies": [
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/e34397b2-486a-417d-bd5a-b9113a4a1b0c/resourceGroups/yugen-rg/providers/Microsoft.Sql/servers/yug",
+            "resourceGroup": "yugen-rg",
+            "resourceName": "yug",
+            "resourceType": "Microsoft.Sql/servers"
+          }
+        ],
+        "id": "/subscriptions/e34397b2-486a-417d-bd5a-b9113a4a1b0c/resourceGroups/yugen-rg/providers/Microsoft.Sql/servers/yug/databases/SampleDB",
+        "resourceGroup": "yugen-rg",
+        "resourceName": "yug/SampleDB",
+        "resourceType": "Microsoft.Sql/servers/databases"
+      },
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/e34397b2-486a-417d-bd5a-b9113a4a1b0c/resourceGroups/yugen-rg/providers/Microsoft.Sql/servers/yug",
+            "resourceGroup": "yugen-rg",
+            "resourceName": "yug",
+            "resourceType": "Microsoft.Sql/servers"
+          }
+        ],
+        "id": "/subscriptions/e34397b2-486a-417d-bd5a-b9113a4a1b0c/resourceGroups/yugen-rg/providers/Microsoft.Sql/servers/yug/firewallRules/AllowAzureServices",
+        "resourceGroup": "yugen-rg",
+        "resourceName": "yug/AllowAzureServices",
+        "resourceType": "Microsoft.Sql/servers/firewallRules"
+      }
+    ],
+    "diagnostics": null,
+    "duration": "PT3M55.7367079S",
+    "error": null,
+    "mode": "Incremental",
+    "onErrorDeployment": null,
+    "outputResources": [
+      {
+        "id": "/subscriptions/e34397b2-486a-417d-bd5a-b9113a4a1b0c/resourceGroups/yugen-rg/providers/Microsoft.Sql/servers/yug",
+        "resourceGroup": "yugen-rg"
+      },
+      {
+        "id": "/subscriptions/e34397b2-486a-417d-bd5a-b9113a4a1b0c/resourceGroups/yugen-rg/providers/Microsoft.Sql/servers/yug/databases/SampleDB",
+        "resourceGroup": "yugen-rg"
+      },
+      {
+        "id": "/subscriptions/e34397b2-486a-417d-bd5a-b9113a4a1b0c/resourceGroups/yugen-rg/providers/Microsoft.Sql/servers/yug/firewallRules/AllowAzureServices",
+        "resourceGroup": "yugen-rg"
+      }
+    ],
+    "outputs": null,
+    "parameters": {
+      "administratorLogin": {
+        "type": "String",
+        "value": "yugen"
+      },
+      "administratorLoginPassword": {
+        "type": "SecureString"
+      },
+      "databaseName": {
+        "type": "String",
+        "value": "SampleDB"
+      },
+      "serverName": {
+        "type": "String",
+        "value": "yug"
+      }
+    },
+    "parametersLink": null,
+    "providers": [
+      {
+        "id": null,
+        "namespace": "Microsoft.Sql",
+        "providerAuthorizationConsentState": null,
+        "registrationPolicy": null,
+        "registrationState": null,
+        "resourceTypes": [
+          {
+            "aliases": null,
+            "apiProfiles": null,
+            "apiVersions": null,
+            "capabilities": null,
+            "defaultApiVersion": null,
+            "locationMappings": null,
+            "locations": [
+              "eastus"
+            ],
+            "properties": null,
+            "resourceType": "servers",
+            "zoneMappings": null
+          },
+          {
+            "aliases": null,
+            "apiProfiles": null,
+            "apiVersions": null,
+            "capabilities": null,
+            "defaultApiVersion": null,
+            "locationMappings": null,
+            "locations": [
+              "eastus"
+            ],
+            "properties": null,
+            "resourceType": "servers/databases",
+            "zoneMappings": null
+          },
+          {
+            "aliases": null,
+            "apiProfiles": null,
+            "apiVersions": null,
+            "capabilities": null,
+            "defaultApiVersion": null,
+            "locationMappings": null,
+            "locations": [
+              null
+            ],
+            "properties": null,
+            "resourceType": "servers/firewallRules",
+            "zoneMappings": null
+          }
+        ]
+      }
+    ],
+    "provisioningState": "Succeeded",
+    "templateHash": "6428901548688942575",
+    "templateLink": null,
+    "timestamp": "2025-07-09T10:54:42.961337+00:00",
+    "validatedResources": null,
+    "validationLevel": null
+  },
+  "resourceGroup": "yugen-rg",
+  "tags": null,
+  "type": "Microsoft.Resources/deployments"
+}
