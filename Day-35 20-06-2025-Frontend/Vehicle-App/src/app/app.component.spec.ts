@@ -1,29 +1,56 @@
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+
+// ✅ Mock NavBarComponent
+@Component({
+  selector: 'app-nav-bar',
+  standalone: true,
+  template: '<div>Mock NavBar</div>'
+})
+class MockNavBarComponent {}
+
+// ✅ Mock FooterComponent
+@Component({
+  selector: 'app-footer',
+  standalone: true,
+  template: '<div>Mock Footer</div>'
+})
+class MockFooterComponent {}
 
 describe('AppComponent', () => {
+  let fixture: ComponentFixture<AppComponent>;
+  let component: AppComponent;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent],
+      imports: [
+        AppComponent,
+        RouterOutlet,
+        HttpClientTestingModule,
+        MockNavBarComponent,
+        MockFooterComponent
+      ]
     }).compileComponents();
-  });
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
-  it(`should have the 'Vehicle-App' title`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('Vehicle-App');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
     fixture.detectChanges();
+  });
+
+  it('should create the AppComponent', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('should have title "AutoCare"', () => {
+    expect(component.title).toBe('AutoCare');
+  });
+
+  it('should render NavBar and Footer components', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, Vehicle-App');
+    expect(compiled.textContent).toContain('Mock NavBar');
+    expect(compiled.textContent).toContain('Mock Footer');
   });
 });

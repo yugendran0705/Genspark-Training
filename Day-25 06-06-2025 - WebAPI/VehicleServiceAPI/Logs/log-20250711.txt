@@ -1,0 +1,1297 @@
+2025-07-11 15:29:05.836 +05:30 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-07-11 15:29:06.146 +05:30 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-07-11 15:29:06.155 +05:30 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-07-11 15:29:06.158 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2025-07-11 15:29:06.159 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-07-11 15:29:06.165 +05:30 [INF] No migrations were applied. The database is already up to date.
+2025-07-11 15:29:06.297 +05:30 [INF] User profile is available. Using '/Users/yugendransunder/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-07-11 15:29:06.386 +05:30 [INF] Now listening on: http://localhost:5192
+2025-07-11 15:29:06.387 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-11 15:29:06.387 +05:30 [INF] Hosting environment: Development
+2025-07-11 15:29:06.388 +05:30 [INF] Content root path: /Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025 - WebAPI/VehicleServiceAPI
+2025-07-11 15:29:52.038 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 15:29:52.083 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-07-11 15:29:52.084 +05:30 [INF] CORS policy execution failed.
+2025-07-11 15:29:52.084 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 15:29:52.095 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 59.0826ms
+2025-07-11 15:32:48.361 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 15:32:48.367 +05:30 [INF] CORS policy execution failed.
+2025-07-11 15:32:48.368 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 15:32:48.368 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 7.5906ms
+2025-07-11 15:33:11.527 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 15:33:11.528 +05:30 [INF] CORS policy execution failed.
+2025-07-11 15:33:11.529 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 15:33:11.529 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 1.7191ms
+2025-07-11 15:33:37.584 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 15:33:37.585 +05:30 [INF] CORS policy execution failed.
+2025-07-11 15:33:37.585 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 15:33:37.586 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 1.4142ms
+2025-07-11 15:34:07.103 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 15:34:07.104 +05:30 [INF] CORS policy execution failed.
+2025-07-11 15:34:07.104 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 15:34:07.104 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 1.2409ms
+2025-07-11 15:34:33.221 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 15:34:33.221 +05:30 [INF] CORS policy execution failed.
+2025-07-11 15:34:33.221 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 15:34:33.222 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 1.0647ms
+2025-07-11 15:34:36.628 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 15:34:36.629 +05:30 [INF] CORS policy execution failed.
+2025-07-11 15:34:36.629 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 15:34:36.629 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 1.0549ms
+2025-07-11 15:34:41.675 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 15:34:41.676 +05:30 [INF] CORS policy execution failed.
+2025-07-11 15:34:41.676 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 15:34:41.676 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 1.131ms
+2025-07-11 15:34:45.436 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 15:34:45.437 +05:30 [INF] CORS policy execution failed.
+2025-07-11 15:34:45.437 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 15:34:45.438 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 1.5746ms
+2025-07-11 15:34:47.926 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 15:34:47.926 +05:30 [INF] CORS policy execution failed.
+2025-07-11 15:34:47.926 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 15:34:47.926 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 0.8238ms
+2025-07-11 15:35:11.226 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 15:35:11.226 +05:30 [INF] CORS policy execution failed.
+2025-07-11 15:35:11.226 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 15:35:11.227 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 0.9721ms
+2025-07-11 15:36:12.209 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 15:36:12.210 +05:30 [INF] CORS policy execution failed.
+2025-07-11 15:36:12.210 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 15:36:12.211 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 1.475ms
+2025-07-11 15:36:41.835 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 15:36:41.836 +05:30 [INF] CORS policy execution failed.
+2025-07-11 15:36:41.836 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 15:36:41.836 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 0.7694ms
+2025-07-11 15:36:51.444 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 15:36:51.445 +05:30 [INF] CORS policy execution failed.
+2025-07-11 15:36:51.445 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 15:36:51.445 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 1.0583ms
+2025-07-11 15:38:21.829 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 15:38:21.829 +05:30 [INF] CORS policy execution failed.
+2025-07-11 15:38:21.829 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 15:38:21.829 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 0.7527ms
+2025-07-11 15:38:26.781 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 15:38:26.781 +05:30 [INF] CORS policy execution failed.
+2025-07-11 15:38:26.781 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 15:38:26.782 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 0.9551ms
+2025-07-11 15:39:31.819 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 15:39:31.819 +05:30 [INF] CORS policy execution failed.
+2025-07-11 15:39:31.819 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 15:39:31.820 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 1.245ms
+2025-07-11 15:39:39.479 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 15:39:39.480 +05:30 [INF] CORS policy execution failed.
+2025-07-11 15:39:39.480 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 15:39:39.480 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 1.0587ms
+2025-07-11 15:43:24.068 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 15:43:24.069 +05:30 [INF] CORS policy execution failed.
+2025-07-11 15:43:24.069 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 15:43:24.070 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 1.0904ms
+2025-07-11 15:45:21.737 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 15:45:21.752 +05:30 [INF] CORS policy execution failed.
+2025-07-11 15:45:21.760 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 15:45:21.760 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 22.9068ms
+2025-07-11 15:45:46.042 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 15:45:46.043 +05:30 [INF] CORS policy execution failed.
+2025-07-11 15:45:46.043 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 15:45:46.043 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 1.0991ms
+2025-07-11 15:46:17.489 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 15:46:17.490 +05:30 [INF] CORS policy execution failed.
+2025-07-11 15:46:17.490 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 15:46:17.490 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 0.8193ms
+2025-07-11 15:51:35.454 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 15:51:35.455 +05:30 [INF] CORS policy execution failed.
+2025-07-11 15:51:35.456 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 15:51:35.456 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 2.4013ms
+2025-07-11 15:52:32.203 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 15:52:32.203 +05:30 [INF] CORS policy execution failed.
+2025-07-11 15:52:32.203 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 15:52:32.203 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 0.4903ms
+2025-07-11 15:54:01.137 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 15:54:01.138 +05:30 [INF] CORS policy execution failed.
+2025-07-11 15:54:01.138 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 15:54:01.138 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 1.1985ms
+2025-07-11 15:56:17.322 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 15:56:17.323 +05:30 [INF] CORS policy execution failed.
+2025-07-11 15:56:17.323 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 15:56:17.323 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 1.3185ms
+2025-07-11 15:57:14.188 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 15:57:14.189 +05:30 [INF] CORS policy execution failed.
+2025-07-11 15:57:14.189 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 15:57:14.190 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 1.5769ms
+2025-07-11 15:58:41.353 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 15:58:41.354 +05:30 [INF] CORS policy execution failed.
+2025-07-11 15:58:41.354 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 15:58:41.354 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 1.6396ms
+2025-07-11 16:01:02.803 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:01:02.804 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:01:02.804 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:01:02.804 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 1.2468ms
+2025-07-11 16:02:02.388 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:02:02.389 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:02:02.389 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:02:02.389 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 1.6411ms
+2025-07-11 16:05:31.159 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:05:31.161 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:05:31.161 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:05:31.162 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 2.1203ms
+2025-07-11 16:10:13.850 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:10:13.851 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:10:13.851 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:10:13.851 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 1.0173ms
+2025-07-11 16:12:11.439 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:12:11.439 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:12:11.439 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:12:11.440 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 0.4292ms
+2025-07-11 16:13:36.217 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:13:36.218 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:13:36.218 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:13:36.218 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 0.7576ms
+2025-07-11 16:14:56.976 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:14:56.977 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:14:56.977 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:14:56.977 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 0.923ms
+2025-07-11 16:15:30.310 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:15:30.310 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:15:30.310 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:15:30.311 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 0.659ms
+2025-07-11 16:15:39.670 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:15:39.671 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:15:39.671 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:15:39.671 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 0.7573ms
+2025-07-11 16:15:58.586 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:15:58.587 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:15:58.587 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:15:58.587 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 0.5205ms
+2025-07-11 16:17:09.809 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:17:09.810 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:17:09.810 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:17:09.811 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 1.2615ms
+2025-07-11 16:17:20.462 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:17:20.463 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:17:20.463 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:17:20.463 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 0.6815ms
+2025-07-11 16:18:39.961 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:18:39.962 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:18:39.962 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:18:39.962 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 0.8979ms
+2025-07-11 16:19:18.298 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:19:18.299 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:19:18.299 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:19:18.299 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 1.3903ms
+2025-07-11 16:19:50.821 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:19:50.821 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:19:50.821 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:19:50.822 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 0.8524ms
+2025-07-11 16:21:43.306 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:21:43.307 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:21:43.307 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:21:43.307 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 1.3727ms
+2025-07-11 16:21:47.952 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:21:47.952 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:21:47.952 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:21:47.953 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 0.592ms
+2025-07-11 16:24:51.263 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:24:51.264 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:24:51.264 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:24:51.264 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 1.5729ms
+2025-07-11 16:25:20.918 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:25:20.918 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:25:20.918 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:25:20.919 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 0.9858ms
+2025-07-11 16:28:03.407 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:28:03.408 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:28:03.408 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:28:03.408 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 0.9767ms
+2025-07-11 16:36:54.445 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:36:54.446 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:36:54.447 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:36:54.447 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 1.5321ms
+2025-07-11 16:38:22.718 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:38:22.719 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:38:22.719 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:38:22.719 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 1.4329ms
+2025-07-11 16:39:07.104 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:39:07.105 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:39:07.106 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:39:07.106 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 1.9792ms
+2025-07-11 16:40:07.720 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:40:07.721 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:40:07.721 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:40:07.721 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 1.2636ms
+2025-07-11 16:41:59.921 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:41:59.922 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:41:59.923 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:41:59.923 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 1.4138ms
+2025-07-11 16:42:31.023 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:42:31.023 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:42:31.023 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:42:31.023 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 0.445ms
+2025-07-11 16:42:55.656 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:42:55.657 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:42:55.657 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:42:55.657 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 1.2428ms
+2025-07-11 16:43:53.517 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:43:53.518 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:43:53.518 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:43:53.518 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 1.1913ms
+2025-07-11 16:43:55.830 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:43:55.830 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:43:55.830 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:43:55.830 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 0.8036ms
+2025-07-11 16:45:08.674 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:45:08.674 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:45:08.674 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:45:08.675 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 0.5223ms
+2025-07-11 16:45:36.039 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Auth/refresh - null null
+2025-07-11 16:45:36.044 +05:30 [INF] CORS policy execution successful.
+2025-07-11 16:45:36.048 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Auth/refresh - 204 null null 9.5668ms
+2025-07-11 16:45:36.051 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5192/api/v1/Auth/refresh - application/json 300
+2025-07-11 16:45:36.056 +05:30 [INF] CORS policy execution successful.
+2025-07-11 16:45:36.167 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.AuthController.Refresh (VehicleServiceAPI)'
+2025-07-11 16:45:36.200 +05:30 [INF] Route matched with {action = "Refresh", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Refresh(VehicleServiceAPI.Models.DTOs.RefreshTokenRequestDTO) on controller VehicleServiceAPI.Controllers.AuthController (VehicleServiceAPI).
+2025-07-11 16:45:36.762 +05:30 [INF] Executed DbCommand (24ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 16:45:36.858 +05:30 [INF] Executing OkObjectResult, writing value of type 'VehicleServiceAPI.Models.DTOs.LoginResponseDTO'.
+2025-07-11 16:45:36.869 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.AuthController.Refresh (VehicleServiceAPI) in 665.0554ms
+2025-07-11 16:45:36.870 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.AuthController.Refresh (VehicleServiceAPI)'
+2025-07-11 16:45:36.875 +05:30 [INF] HTTP POST /api/v1/Auth/refresh responded 200 in 705.5740 ms
+2025-07-11 16:45:36.882 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5192/api/v1/Auth/refresh - 200 null application/json; charset=utf-8 830.5742ms
+2025-07-11 16:45:36.890 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/User/profile - null null
+2025-07-11 16:45:36.890 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Vehicle/user - null null
+2025-07-11 16:45:36.890 +05:30 [INF] CORS policy execution successful.
+2025-07-11 16:45:36.890 +05:30 [INF] CORS policy execution successful.
+2025-07-11 16:45:36.891 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Vehicle/user - 204 null null 0.5545ms
+2025-07-11 16:45:36.891 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/User/profile - 204 null null 0.6853ms
+2025-07-11 16:45:36.892 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Vehicle/user - application/json null
+2025-07-11 16:45:36.893 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/User/profile - application/json null
+2025-07-11 16:45:36.901 +05:30 [INF] CORS policy execution successful.
+2025-07-11 16:45:36.901 +05:30 [INF] CORS policy execution successful.
+2025-07-11 16:45:36.945 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.UserController.GetProfile (VehicleServiceAPI)'
+2025-07-11 16:45:36.945 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.VehicleController.GetAllVehiclesByUser (VehicleServiceAPI)'
+2025-07-11 16:45:36.950 +05:30 [INF] Route matched with {action = "GetProfile", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[VehicleServiceAPI.Models.DTOs.UserDTO]] GetProfile() on controller VehicleServiceAPI.Controllers.UserController (VehicleServiceAPI).
+2025-07-11 16:45:36.950 +05:30 [INF] Route matched with {action = "GetAllVehiclesByUser", controller = "Vehicle"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.VehicleDTO]]] GetAllVehiclesByUser() on controller VehicleServiceAPI.Controllers.VehicleController (VehicleServiceAPI).
+2025-07-11 16:45:36.954 +05:30 [INF] Getting vehicles for current user
+2025-07-11 16:45:36.955 +05:30 [INF] User 7 requested their profile.
+2025-07-11 16:45:37.009 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 16:45:37.011 +05:30 [INF] Executing OkObjectResult, writing value of type 'VehicleServiceAPI.Models.DTOs.UserDTO'.
+2025-07-11 16:45:37.016 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.UserController.GetProfile (VehicleServiceAPI) in 66.2403ms
+2025-07-11 16:45:37.017 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.UserController.GetProfile (VehicleServiceAPI)'
+2025-07-11 16:45:37.017 +05:30 [INF] HTTP GET /api/v1/User/profile responded 200 in 71.3588 ms
+2025-07-11 16:45:37.017 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/User/profile - 200 null application/json; charset=utf-8 124.471ms
+2025-07-11 16:45:37.022 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."OwnerId" = @__userId_0
+2025-07-11 16:45:37.039 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 16:45:37.040 +05:30 [INF] User 7 retrieved 1 vehicles
+2025-07-11 16:45:37.041 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.VehicleDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 16:45:37.047 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.VehicleController.GetAllVehiclesByUser (VehicleServiceAPI) in 96.5569ms
+2025-07-11 16:45:37.047 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.VehicleController.GetAllVehiclesByUser (VehicleServiceAPI)'
+2025-07-11 16:45:37.047 +05:30 [INF] HTTP GET /api/v1/Vehicle/user responded 200 in 101.8383 ms
+2025-07-11 16:45:37.048 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Vehicle/user - 200 null application/json; charset=utf-8 155.19ms
+2025-07-11 16:46:31.287 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:46:31.288 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:46:31.288 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:46:31.288 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 1.1326ms
+2025-07-11 16:48:05.431 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:48:05.431 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:48:05.432 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:48:05.432 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 0.9342ms
+2025-07-11 16:48:16.581 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:48:16.581 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:48:16.581 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:48:16.581 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 0.4848ms
+2025-07-11 16:48:22.943 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:48:22.943 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:48:22.944 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:48:22.944 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 0.8131ms
+2025-07-11 16:50:54.248 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:50:54.249 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:50:54.249 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:50:54.249 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 1.1351ms
+2025-07-11 16:50:56.086 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:50:56.087 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:50:56.087 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:50:56.087 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 0.4782ms
+2025-07-11 16:51:24.642 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:51:24.643 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:51:24.643 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:51:24.644 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 1.8384ms
+2025-07-11 16:51:29.011 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:51:29.011 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:51:29.011 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:51:29.012 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 0.4476ms
+2025-07-11 16:51:31.774 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:51:31.774 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:51:31.774 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:51:31.774 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 0.3672ms
+2025-07-11 16:51:48.867 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:51:48.867 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:51:48.867 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:51:48.867 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 0.5966ms
+2025-07-11 16:51:51.569 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:51:51.570 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:51:51.570 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:51:51.571 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 1.2791ms
+2025-07-11 16:53:11.693 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:53:11.694 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:53:11.695 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:53:11.695 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 1.4568ms
+2025-07-11 16:54:02.805 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:54:02.805 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:54:02.805 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:54:02.805 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 0.4254ms
+2025-07-11 16:54:45.010 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:54:45.010 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:54:45.010 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:54:45.010 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 0.6011ms
+2025-07-11 16:54:50.910 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:54:50.911 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:54:50.911 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:54:50.911 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 0.8532ms
+2025-07-11 16:55:24.732 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:55:24.732 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:55:24.733 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:55:24.733 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 1.1174ms
+2025-07-11 16:55:43.790 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:55:43.791 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:55:43.791 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:55:43.791 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 0.5904ms
+2025-07-11 16:56:40.691 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/User/profile - null null
+2025-07-11 16:56:40.691 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Vehicle/user - null null
+2025-07-11 16:56:40.692 +05:30 [INF] CORS policy execution successful.
+2025-07-11 16:56:40.692 +05:30 [INF] CORS policy execution successful.
+2025-07-11 16:56:40.692 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Vehicle/user - 204 null null 0.7719ms
+2025-07-11 16:56:40.692 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/User/profile - 204 null null 0.9258ms
+2025-07-11 16:56:40.699 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Vehicle/user - application/json null
+2025-07-11 16:56:40.699 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/User/profile - application/json null
+2025-07-11 16:56:40.700 +05:30 [INF] CORS policy execution successful.
+2025-07-11 16:56:40.700 +05:30 [INF] CORS policy execution successful.
+2025-07-11 16:56:40.718 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.UserController.GetProfile (VehicleServiceAPI)'
+2025-07-11 16:56:40.718 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.VehicleController.GetAllVehiclesByUser (VehicleServiceAPI)'
+2025-07-11 16:56:40.719 +05:30 [INF] Route matched with {action = "GetProfile", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[VehicleServiceAPI.Models.DTOs.UserDTO]] GetProfile() on controller VehicleServiceAPI.Controllers.UserController (VehicleServiceAPI).
+2025-07-11 16:56:40.719 +05:30 [INF] Route matched with {action = "GetAllVehiclesByUser", controller = "Vehicle"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.VehicleDTO]]] GetAllVehiclesByUser() on controller VehicleServiceAPI.Controllers.VehicleController (VehicleServiceAPI).
+2025-07-11 16:56:40.722 +05:30 [INF] Getting vehicles for current user
+2025-07-11 16:56:40.722 +05:30 [INF] User 7 requested their profile.
+2025-07-11 16:56:40.774 +05:30 [INF] Executed DbCommand (32ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."OwnerId" = @__userId_0
+2025-07-11 16:56:40.774 +05:30 [INF] Executed DbCommand (33ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 16:56:40.775 +05:30 [INF] Executing OkObjectResult, writing value of type 'VehicleServiceAPI.Models.DTOs.UserDTO'.
+2025-07-11 16:56:40.776 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.UserController.GetProfile (VehicleServiceAPI) in 56.8416ms
+2025-07-11 16:56:40.776 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.UserController.GetProfile (VehicleServiceAPI)'
+2025-07-11 16:56:40.776 +05:30 [INF] HTTP GET /api/v1/User/profile responded 200 in 57.9406 ms
+2025-07-11 16:56:40.777 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/User/profile - 200 null application/json; charset=utf-8 77.4311ms
+2025-07-11 16:56:40.781 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 16:56:40.782 +05:30 [INF] User 7 retrieved 1 vehicles
+2025-07-11 16:56:40.782 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.VehicleDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 16:56:40.783 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.VehicleController.GetAllVehiclesByUser (VehicleServiceAPI) in 63.5879ms
+2025-07-11 16:56:40.783 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.VehicleController.GetAllVehiclesByUser (VehicleServiceAPI)'
+2025-07-11 16:56:40.783 +05:30 [INF] HTTP GET /api/v1/Vehicle/user responded 200 in 64.7923 ms
+2025-07-11 16:56:40.783 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Vehicle/user - 200 null application/json; charset=utf-8 84.3035ms
+2025-07-11 16:56:41.052 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:56:41.052 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:56:41.052 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:56:41.053 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 0.5929ms
+2025-07-11 16:56:48.543 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/User/profile - null null
+2025-07-11 16:56:48.543 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Vehicle/user - null null
+2025-07-11 16:56:48.543 +05:30 [INF] CORS policy execution successful.
+2025-07-11 16:56:48.543 +05:30 [INF] CORS policy execution successful.
+2025-07-11 16:56:48.543 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/User/profile - 204 null null 0.484ms
+2025-07-11 16:56:48.543 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Vehicle/user - 204 null null 0.7393ms
+2025-07-11 16:56:48.545 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/User/profile - application/json null
+2025-07-11 16:56:48.545 +05:30 [INF] CORS policy execution successful.
+2025-07-11 16:56:48.546 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.UserController.GetProfile (VehicleServiceAPI)'
+2025-07-11 16:56:48.546 +05:30 [INF] Route matched with {action = "GetProfile", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[VehicleServiceAPI.Models.DTOs.UserDTO]] GetProfile() on controller VehicleServiceAPI.Controllers.UserController (VehicleServiceAPI).
+2025-07-11 16:56:48.547 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Vehicle/user - application/json null
+2025-07-11 16:56:48.548 +05:30 [INF] CORS policy execution successful.
+2025-07-11 16:56:48.549 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.VehicleController.GetAllVehiclesByUser (VehicleServiceAPI)'
+2025-07-11 16:56:48.549 +05:30 [INF] Route matched with {action = "GetAllVehiclesByUser", controller = "Vehicle"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.VehicleDTO]]] GetAllVehiclesByUser() on controller VehicleServiceAPI.Controllers.VehicleController (VehicleServiceAPI).
+2025-07-11 16:56:48.560 +05:30 [INF] Getting vehicles for current user
+2025-07-11 16:56:48.562 +05:30 [INF] User 7 requested their profile.
+2025-07-11 16:56:48.564 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."OwnerId" = @__userId_0
+2025-07-11 16:56:48.569 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 16:56:48.569 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 16:56:48.570 +05:30 [INF] User 7 retrieved 1 vehicles
+2025-07-11 16:56:48.570 +05:30 [INF] Executing OkObjectResult, writing value of type 'VehicleServiceAPI.Models.DTOs.UserDTO'.
+2025-07-11 16:56:48.570 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.VehicleDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 16:56:48.570 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.VehicleController.GetAllVehiclesByUser (VehicleServiceAPI) in 20.94ms
+2025-07-11 16:56:48.570 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.UserController.GetProfile (VehicleServiceAPI) in 23.8729ms
+2025-07-11 16:56:48.570 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.UserController.GetProfile (VehicleServiceAPI)'
+2025-07-11 16:56:48.570 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.VehicleController.GetAllVehiclesByUser (VehicleServiceAPI)'
+2025-07-11 16:56:48.571 +05:30 [INF] HTTP GET /api/v1/User/profile responded 200 in 24.7863 ms
+2025-07-11 16:56:48.571 +05:30 [INF] HTTP GET /api/v1/Vehicle/user responded 200 in 21.9840 ms
+2025-07-11 16:56:48.571 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Vehicle/user - 200 null application/json; charset=utf-8 24.2949ms
+2025-07-11 16:56:48.571 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/User/profile - 200 null application/json; charset=utf-8 26.0367ms
+2025-07-11 16:56:50.027 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 16:56:50.027 +05:30 [INF] CORS policy execution failed.
+2025-07-11 16:56:50.027 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 16:56:50.027 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 0.7997ms
+2025-07-11 17:04:13.036 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 17:04:13.036 +05:30 [INF] CORS policy execution failed.
+2025-07-11 17:04:13.036 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 17:04:13.036 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 0.9245ms
+2025-07-11 17:05:17.781 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 17:05:17.781 +05:30 [INF] CORS policy execution failed.
+2025-07-11 17:05:17.781 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 17:05:17.782 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 0.9872ms
+2025-07-11 17:05:20.595 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 17:05:20.596 +05:30 [INF] CORS policy execution failed.
+2025-07-11 17:05:20.596 +05:30 [INF] Request origin http://localhost:9876 does not have permission to access the resource.
+2025-07-11 17:05:20.596 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 0.5387ms
+2025-07-11 17:05:33.241 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/ServiceSlot/available - null null
+2025-07-11 17:05:33.241 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Vehicle/user - null null
+2025-07-11 17:05:33.241 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:05:33.241 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:05:33.242 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Vehicle/user - 204 null null 1.1749ms
+2025-07-11 17:05:33.242 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/ServiceSlot/available - 204 null null 1.3405ms
+2025-07-11 17:05:33.244 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/ServiceSlot/available - application/json null
+2025-07-11 17:05:33.244 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Vehicle/user - application/json null
+2025-07-11 17:05:33.245 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:05:33.246 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:05:33.246 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.VehicleController.GetAllVehiclesByUser (VehicleServiceAPI)'
+2025-07-11 17:05:33.246 +05:30 [INF] Route matched with {action = "GetAllVehiclesByUser", controller = "Vehicle"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.VehicleDTO]]] GetAllVehiclesByUser() on controller VehicleServiceAPI.Controllers.VehicleController (VehicleServiceAPI).
+2025-07-11 17:05:33.247 +05:30 [INF] Getting vehicles for current user
+2025-07-11 17:05:33.247 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.ServiceSlotController.GetAvailableSlots (VehicleServiceAPI)'
+2025-07-11 17:05:33.253 +05:30 [INF] Route matched with {action = "GetAvailableSlots", controller = "ServiceSlot"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.ServiceSlotDTO]]] GetAvailableSlots() on controller VehicleServiceAPI.Controllers.ServiceSlotController (VehicleServiceAPI).
+2025-07-11 17:05:33.255 +05:30 [INF] Getting available service slots
+2025-07-11 17:05:33.272 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."OwnerId" = @__userId_0
+2025-07-11 17:05:33.274 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 17:05:33.274 +05:30 [INF] User 7 retrieved 1 vehicles
+2025-07-11 17:05:33.274 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.VehicleDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 17:05:33.275 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.VehicleController.GetAllVehiclesByUser (VehicleServiceAPI) in 27.7473ms
+2025-07-11 17:05:33.275 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.VehicleController.GetAllVehiclesByUser (VehicleServiceAPI)'
+2025-07-11 17:05:33.275 +05:30 [INF] HTTP GET /api/v1/Vehicle/user responded 200 in 28.7112 ms
+2025-07-11 17:05:33.275 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Vehicle/user - 200 null application/json; charset=utf-8 30.6602ms
+2025-07-11 17:05:33.288 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Status" = 'available' AND NOT (s."IsDeleted")
+2025-07-11 17:05:33.310 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 17:05:33.312 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 17:05:33.313 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 17:05:33.313 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.ServiceSlotDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 17:05:33.322 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.ServiceSlotController.GetAvailableSlots (VehicleServiceAPI) in 69.0204ms
+2025-07-11 17:05:33.322 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.ServiceSlotController.GetAvailableSlots (VehicleServiceAPI)'
+2025-07-11 17:05:33.322 +05:30 [INF] HTTP GET /api/v1/ServiceSlot/available responded 200 in 75.0362 ms
+2025-07-11 17:05:33.323 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/ServiceSlot/available - 200 null application/json; charset=utf-8 78.5011ms
+2025-07-11 17:05:34.455 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/user - null null
+2025-07-11 17:05:34.455 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:05:34.456 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/user - 204 null null 0.6444ms
+2025-07-11 17:05:34.457 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Booking/user - application/json null
+2025-07-11 17:05:34.458 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:05:34.458 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingsByCurrentUser (VehicleServiceAPI)'
+2025-07-11 17:05:34.463 +05:30 [INF] Route matched with {action = "GetBookingsByCurrentUser", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.BookingDTO]]] GetBookingsByCurrentUser() on controller VehicleServiceAPI.Controllers.BookingController (VehicleServiceAPI).
+2025-07-11 17:05:34.465 +05:30 [INF] Getting bookings for user ID 7.
+2025-07-11 17:05:34.508 +05:30 [INF] Executed DbCommand (24ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."IsDeleted", b."SlotId", b."Status", b."UserId", b."VehicleId", s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Bookings" AS b
+INNER JOIN "ServiceSlots" AS s ON b."SlotId" = s."Id"
+INNER JOIN "Vehicles" AS v ON b."VehicleId" = v."Id"
+INNER JOIN "Users" AS u ON b."UserId" = u."Id"
+WHERE b."UserId" = @__userId_0
+2025-07-11 17:05:34.521 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 17:05:34.522 +05:30 [INF] Retrieved 1 bookings for user ID 7.
+2025-07-11 17:05:34.522 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.BookingDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 17:05:34.525 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.BookingController.GetBookingsByCurrentUser (VehicleServiceAPI) in 62.5217ms
+2025-07-11 17:05:34.526 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingsByCurrentUser (VehicleServiceAPI)'
+2025-07-11 17:05:34.526 +05:30 [INF] HTTP GET /api/v1/Booking/user responded 200 in 67.2107 ms
+2025-07-11 17:05:34.526 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Booking/user - 200 null application/json; charset=utf-8 69.2603ms
+2025-07-11 17:05:35.479 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 17:05:35.479 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:05:35.479 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 0.5344ms
+2025-07-11 17:05:35.480 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null 0
+2025-07-11 17:05:35.480 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:05:35.481 +05:30 [INF] Executing endpoint '/eventhub/negotiate'
+2025-07-11 17:05:35.489 +05:30 [INF] Executed endpoint '/eventhub/negotiate'
+2025-07-11 17:05:35.489 +05:30 [INF] HTTP POST /eventhub/negotiate responded 200 in 8.4821 ms
+2025-07-11 17:05:35.489 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 200 316 application/json 9.292ms
+2025-07-11 17:05:35.493 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/eventhub?id=-d1lBX9XJH4tGNhXxcZuGA - null null
+2025-07-11 17:05:35.493 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:05:35.493 +05:30 [INF] Executing endpoint '/eventhub'
+2025-07-11 17:05:36.691 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Booking/user - application/json null
+2025-07-11 17:05:36.692 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:05:36.692 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingsByCurrentUser (VehicleServiceAPI)'
+2025-07-11 17:05:36.693 +05:30 [INF] Route matched with {action = "GetBookingsByCurrentUser", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.BookingDTO]]] GetBookingsByCurrentUser() on controller VehicleServiceAPI.Controllers.BookingController (VehicleServiceAPI).
+2025-07-11 17:05:36.694 +05:30 [INF] Getting bookings for user ID 7.
+2025-07-11 17:05:36.696 +05:30 [INF] Executed endpoint '/eventhub'
+2025-07-11 17:05:36.696 +05:30 [INF] HTTP GET /eventhub responded 101 in 1202.6596 ms
+2025-07-11 17:05:36.696 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/eventhub?id=-d1lBX9XJH4tGNhXxcZuGA - 101 null null 1203.1874ms
+2025-07-11 17:05:36.696 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."IsDeleted", b."SlotId", b."Status", b."UserId", b."VehicleId", s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Bookings" AS b
+INNER JOIN "ServiceSlots" AS s ON b."SlotId" = s."Id"
+INNER JOIN "Vehicles" AS v ON b."VehicleId" = v."Id"
+INNER JOIN "Users" AS u ON b."UserId" = u."Id"
+WHERE b."UserId" = @__userId_0
+2025-07-11 17:05:36.698 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 17:05:36.699 +05:30 [INF] Retrieved 1 bookings for user ID 7.
+2025-07-11 17:05:36.699 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.BookingDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 17:05:36.699 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.BookingController.GetBookingsByCurrentUser (VehicleServiceAPI) in 6.4923ms
+2025-07-11 17:05:36.699 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingsByCurrentUser (VehicleServiceAPI)'
+2025-07-11 17:05:36.699 +05:30 [INF] HTTP GET /api/v1/Booking/user responded 200 in 7.0123 ms
+2025-07-11 17:05:36.700 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Booking/user - 200 null application/json; charset=utf-8 8.1699ms
+2025-07-11 17:05:38.126 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/ServiceSlot/available - application/json null
+2025-07-11 17:05:38.126 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Vehicle/user - application/json null
+2025-07-11 17:05:38.126 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:05:38.126 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:05:38.126 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.VehicleController.GetAllVehiclesByUser (VehicleServiceAPI)'
+2025-07-11 17:05:38.126 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.ServiceSlotController.GetAvailableSlots (VehicleServiceAPI)'
+2025-07-11 17:05:38.127 +05:30 [INF] Route matched with {action = "GetAllVehiclesByUser", controller = "Vehicle"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.VehicleDTO]]] GetAllVehiclesByUser() on controller VehicleServiceAPI.Controllers.VehicleController (VehicleServiceAPI).
+2025-07-11 17:05:38.127 +05:30 [INF] Route matched with {action = "GetAvailableSlots", controller = "ServiceSlot"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.ServiceSlotDTO]]] GetAvailableSlots() on controller VehicleServiceAPI.Controllers.ServiceSlotController (VehicleServiceAPI).
+2025-07-11 17:05:38.127 +05:30 [INF] Getting vehicles for current user
+2025-07-11 17:05:38.127 +05:30 [INF] Getting available service slots
+2025-07-11 17:05:38.128 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."OwnerId" = @__userId_0
+2025-07-11 17:05:38.130 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 17:05:38.130 +05:30 [INF] User 7 retrieved 1 vehicles
+2025-07-11 17:05:38.131 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.VehicleDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 17:05:38.131 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.VehicleController.GetAllVehiclesByUser (VehicleServiceAPI) in 4.3408ms
+2025-07-11 17:05:38.131 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.VehicleController.GetAllVehiclesByUser (VehicleServiceAPI)'
+2025-07-11 17:05:38.131 +05:30 [INF] HTTP GET /api/v1/Vehicle/user responded 200 in 4.8126 ms
+2025-07-11 17:05:38.131 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Vehicle/user - 200 null application/json; charset=utf-8 5.5844ms
+2025-07-11 17:05:38.143 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Status" = 'available' AND NOT (s."IsDeleted")
+2025-07-11 17:05:38.144 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 17:05:38.146 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 17:05:38.146 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 17:05:38.147 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.ServiceSlotDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 17:05:38.147 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.ServiceSlotController.GetAvailableSlots (VehicleServiceAPI) in 20.1293ms
+2025-07-11 17:05:38.147 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.ServiceSlotController.GetAvailableSlots (VehicleServiceAPI)'
+2025-07-11 17:05:38.147 +05:30 [INF] HTTP GET /api/v1/ServiceSlot/available responded 200 in 20.6817 ms
+2025-07-11 17:05:38.147 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/ServiceSlot/available - 200 null application/json; charset=utf-8 21.8632ms
+2025-07-11 17:05:45.431 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/ServiceSlot/available - null null
+2025-07-11 17:05:45.431 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Vehicle/user - null null
+2025-07-11 17:05:45.431 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:05:45.431 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:05:45.432 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Vehicle/user - 204 null null 0.7501ms
+2025-07-11 17:05:45.432 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/ServiceSlot/available - 204 null null 0.8551ms
+2025-07-11 17:05:45.434 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Vehicle/user - application/json null
+2025-07-11 17:05:45.434 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/ServiceSlot/available - application/json null
+2025-07-11 17:05:45.434 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:05:45.434 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:05:45.435 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.VehicleController.GetAllVehiclesByUser (VehicleServiceAPI)'
+2025-07-11 17:05:45.435 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.ServiceSlotController.GetAvailableSlots (VehicleServiceAPI)'
+2025-07-11 17:05:45.435 +05:30 [INF] Route matched with {action = "GetAllVehiclesByUser", controller = "Vehicle"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.VehicleDTO]]] GetAllVehiclesByUser() on controller VehicleServiceAPI.Controllers.VehicleController (VehicleServiceAPI).
+2025-07-11 17:05:45.435 +05:30 [INF] Route matched with {action = "GetAvailableSlots", controller = "ServiceSlot"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.ServiceSlotDTO]]] GetAvailableSlots() on controller VehicleServiceAPI.Controllers.ServiceSlotController (VehicleServiceAPI).
+2025-07-11 17:05:45.436 +05:30 [INF] Getting vehicles for current user
+2025-07-11 17:05:45.438 +05:30 [INF] Getting available service slots
+2025-07-11 17:05:45.438 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."OwnerId" = @__userId_0
+2025-07-11 17:05:45.439 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Status" = 'available' AND NOT (s."IsDeleted")
+2025-07-11 17:05:45.439 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 17:05:45.439 +05:30 [INF] User 7 retrieved 1 vehicles
+2025-07-11 17:05:45.440 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.VehicleDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 17:05:45.440 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.VehicleController.GetAllVehiclesByUser (VehicleServiceAPI) in 4.5768ms
+2025-07-11 17:05:45.440 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.VehicleController.GetAllVehiclesByUser (VehicleServiceAPI)'
+2025-07-11 17:05:45.440 +05:30 [INF] HTTP GET /api/v1/Vehicle/user responded 200 in 5.1912 ms
+2025-07-11 17:05:45.440 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Vehicle/user - 200 null application/json; charset=utf-8 6.6178ms
+2025-07-11 17:05:45.440 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 17:05:45.442 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 17:05:45.444 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 17:05:45.444 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.ServiceSlotDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 17:05:45.445 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.ServiceSlotController.GetAvailableSlots (VehicleServiceAPI) in 9.1465ms
+2025-07-11 17:05:45.445 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.ServiceSlotController.GetAvailableSlots (VehicleServiceAPI)'
+2025-07-11 17:05:45.445 +05:30 [INF] HTTP GET /api/v1/ServiceSlot/available responded 200 in 9.8792 ms
+2025-07-11 17:05:45.445 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/ServiceSlot/available - 200 null application/json; charset=utf-8 11.1244ms
+2025-07-11 17:06:26.057 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/User/profile - null null
+2025-07-11 17:06:26.057 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:06:26.057 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Vehicle/user - null null
+2025-07-11 17:06:26.057 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/User/profile - 204 null null 0.5103ms
+2025-07-11 17:06:26.057 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:06:26.058 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Vehicle/user - 204 null null 0.69ms
+2025-07-11 17:06:26.059 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/User/profile - application/json null
+2025-07-11 17:06:26.059 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:06:26.059 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Vehicle/user - application/json null
+2025-07-11 17:06:26.059 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:06:26.060 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.VehicleController.GetAllVehiclesByUser (VehicleServiceAPI)'
+2025-07-11 17:06:26.060 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.UserController.GetProfile (VehicleServiceAPI)'
+2025-07-11 17:06:26.060 +05:30 [INF] Route matched with {action = "GetAllVehiclesByUser", controller = "Vehicle"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.VehicleDTO]]] GetAllVehiclesByUser() on controller VehicleServiceAPI.Controllers.VehicleController (VehicleServiceAPI).
+2025-07-11 17:06:26.060 +05:30 [INF] Route matched with {action = "GetProfile", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[VehicleServiceAPI.Models.DTOs.UserDTO]] GetProfile() on controller VehicleServiceAPI.Controllers.UserController (VehicleServiceAPI).
+2025-07-11 17:06:26.061 +05:30 [INF] Getting vehicles for current user
+2025-07-11 17:06:26.061 +05:30 [INF] User 7 requested their profile.
+2025-07-11 17:06:26.064 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 17:06:26.064 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."OwnerId" = @__userId_0
+2025-07-11 17:06:26.065 +05:30 [INF] Executing OkObjectResult, writing value of type 'VehicleServiceAPI.Models.DTOs.UserDTO'.
+2025-07-11 17:06:26.066 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.UserController.GetProfile (VehicleServiceAPI) in 5.1122ms
+2025-07-11 17:06:26.066 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.UserController.GetProfile (VehicleServiceAPI)'
+2025-07-11 17:06:26.066 +05:30 [INF] HTTP GET /api/v1/User/profile responded 200 in 5.9475 ms
+2025-07-11 17:06:26.066 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/User/profile - 200 null application/json; charset=utf-8 7.7307ms
+2025-07-11 17:06:26.067 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 17:06:26.068 +05:30 [INF] User 7 retrieved 1 vehicles
+2025-07-11 17:06:26.068 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.VehicleDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 17:06:26.068 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.VehicleController.GetAllVehiclesByUser (VehicleServiceAPI) in 7.6801ms
+2025-07-11 17:06:26.068 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.VehicleController.GetAllVehiclesByUser (VehicleServiceAPI)'
+2025-07-11 17:06:26.068 +05:30 [INF] HTTP GET /api/v1/Vehicle/user responded 200 in 8.4475 ms
+2025-07-11 17:06:26.069 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Vehicle/user - 200 null application/json; charset=utf-8 9.6385ms
+2025-07-11 17:06:41.736 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/ServiceSlot/available - null null
+2025-07-11 17:06:41.737 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Vehicle/user - null null
+2025-07-11 17:06:41.737 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:06:41.737 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/ServiceSlot/available - 204 null null 0.6367ms
+2025-07-11 17:06:41.737 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:06:41.737 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Vehicle/user - 204 null null 0.8129ms
+2025-07-11 17:06:41.739 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/ServiceSlot/available - application/json null
+2025-07-11 17:06:41.739 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:06:41.739 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Vehicle/user - application/json null
+2025-07-11 17:06:41.740 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:06:41.740 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.ServiceSlotController.GetAvailableSlots (VehicleServiceAPI)'
+2025-07-11 17:06:41.740 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.VehicleController.GetAllVehiclesByUser (VehicleServiceAPI)'
+2025-07-11 17:06:41.740 +05:30 [INF] Route matched with {action = "GetAvailableSlots", controller = "ServiceSlot"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.ServiceSlotDTO]]] GetAvailableSlots() on controller VehicleServiceAPI.Controllers.ServiceSlotController (VehicleServiceAPI).
+2025-07-11 17:06:41.740 +05:30 [INF] Route matched with {action = "GetAllVehiclesByUser", controller = "Vehicle"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.VehicleDTO]]] GetAllVehiclesByUser() on controller VehicleServiceAPI.Controllers.VehicleController (VehicleServiceAPI).
+2025-07-11 17:06:41.741 +05:30 [INF] Getting available service slots
+2025-07-11 17:06:41.741 +05:30 [INF] Getting vehicles for current user
+2025-07-11 17:06:41.748 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."OwnerId" = @__userId_0
+2025-07-11 17:06:41.748 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Status" = 'available' AND NOT (s."IsDeleted")
+2025-07-11 17:06:41.750 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 17:06:41.750 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 17:06:41.750 +05:30 [INF] User 7 retrieved 1 vehicles
+2025-07-11 17:06:41.750 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.VehicleDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 17:06:41.750 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.VehicleController.GetAllVehiclesByUser (VehicleServiceAPI) in 9.6945ms
+2025-07-11 17:06:41.750 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.VehicleController.GetAllVehiclesByUser (VehicleServiceAPI)'
+2025-07-11 17:06:41.750 +05:30 [INF] HTTP GET /api/v1/Vehicle/user responded 200 in 10.2574 ms
+2025-07-11 17:06:41.751 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Vehicle/user - 200 null application/json; charset=utf-8 11.2006ms
+2025-07-11 17:06:41.751 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 17:06:41.752 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 17:06:41.752 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.ServiceSlotDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 17:06:41.752 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.ServiceSlotController.GetAvailableSlots (VehicleServiceAPI) in 12.0352ms
+2025-07-11 17:06:41.753 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.ServiceSlotController.GetAvailableSlots (VehicleServiceAPI)'
+2025-07-11 17:06:41.753 +05:30 [INF] HTTP GET /api/v1/ServiceSlot/available responded 200 in 12.7992 ms
+2025-07-11 17:06:41.753 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/ServiceSlot/available - 200 null application/json; charset=utf-8 14.0979ms
+2025-07-11 17:06:54.438 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/user - null null
+2025-07-11 17:06:54.439 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:06:54.439 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/user - 204 null null 1.1116ms
+2025-07-11 17:06:54.448 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Booking/user - application/json null
+2025-07-11 17:06:54.448 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:06:54.449 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingsByCurrentUser (VehicleServiceAPI)'
+2025-07-11 17:06:54.449 +05:30 [INF] Route matched with {action = "GetBookingsByCurrentUser", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.BookingDTO]]] GetBookingsByCurrentUser() on controller VehicleServiceAPI.Controllers.BookingController (VehicleServiceAPI).
+2025-07-11 17:06:54.451 +05:30 [INF] Getting bookings for user ID 7.
+2025-07-11 17:06:54.467 +05:30 [INF] Executed DbCommand (15ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."IsDeleted", b."SlotId", b."Status", b."UserId", b."VehicleId", s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Bookings" AS b
+INNER JOIN "ServiceSlots" AS s ON b."SlotId" = s."Id"
+INNER JOIN "Vehicles" AS v ON b."VehicleId" = v."Id"
+INNER JOIN "Users" AS u ON b."UserId" = u."Id"
+WHERE b."UserId" = @__userId_0
+2025-07-11 17:06:54.468 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 17:06:54.468 +05:30 [INF] Retrieved 1 bookings for user ID 7.
+2025-07-11 17:06:54.469 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.BookingDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 17:06:54.469 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.BookingController.GetBookingsByCurrentUser (VehicleServiceAPI) in 19.8787ms
+2025-07-11 17:06:54.469 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingsByCurrentUser (VehicleServiceAPI)'
+2025-07-11 17:06:54.469 +05:30 [INF] HTTP GET /api/v1/Booking/user responded 200 in 20.3752 ms
+2025-07-11 17:06:54.469 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Booking/user - 200 null application/json; charset=utf-8 21.6628ms
+2025-07-11 17:06:57.222 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/5 - null null
+2025-07-11 17:06:57.222 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Image/booking/5 - null null
+2025-07-11 17:06:57.223 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:06:57.223 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:06:57.223 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/5 - 204 null null 0.588ms
+2025-07-11 17:06:57.223 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Image/booking/5 - 204 null null 0.6789ms
+2025-07-11 17:06:57.224 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Booking/5 - application/json null
+2025-07-11 17:06:57.224 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Image/booking/5 - application/json null
+2025-07-11 17:06:57.224 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:06:57.225 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:06:57.225 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI)'
+2025-07-11 17:06:57.225 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.ImageController.GetImageFilesByBookingId (VehicleServiceAPI)'
+2025-07-11 17:06:57.230 +05:30 [INF] Route matched with {action = "GetBookingById", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[VehicleServiceAPI.Models.DTOs.BookingDTO]] GetBookingById(Int32) on controller VehicleServiceAPI.Controllers.BookingController (VehicleServiceAPI).
+2025-07-11 17:06:57.230 +05:30 [INF] Route matched with {action = "GetImageFilesByBookingId", controller = "Image"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetImageFilesByBookingId(Int32) on controller VehicleServiceAPI.Controllers.ImageController (VehicleServiceAPI).
+2025-07-11 17:06:57.233 +05:30 [INF] Getting booking by ID: 5
+2025-07-11 17:06:57.233 +05:30 [INF] Getting files for images with Booking ID 5
+2025-07-11 17:06:57.268 +05:30 [INF] Executed DbCommand (18ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."IsDeleted", b."SlotId", b."Status", b."UserId", b."VehicleId", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year"
+FROM "Bookings" AS b
+INNER JOIN "Users" AS u ON b."UserId" = u."Id"
+INNER JOIN "ServiceSlots" AS s ON b."SlotId" = s."Id"
+INNER JOIN "Vehicles" AS v ON b."VehicleId" = v."Id"
+WHERE b."Id" = @__id_0
+LIMIT 1
+2025-07-11 17:06:57.271 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 17:06:57.271 +05:30 [INF] Booking with ID 5 retrieved.
+2025-07-11 17:06:57.271 +05:30 [INF] Executing OkObjectResult, writing value of type 'VehicleServiceAPI.Models.DTOs.BookingDTO'.
+2025-07-11 17:06:57.272 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI) in 41.4528ms
+2025-07-11 17:06:57.272 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI)'
+2025-07-11 17:06:57.272 +05:30 [INF] HTTP GET /api/v1/Booking/5 responded 200 in 47.2405 ms
+2025-07-11 17:06:57.272 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Booking/5 - 200 null application/json; charset=utf-8 48.1681ms
+2025-07-11 17:06:57.276 +05:30 [INF] Executed DbCommand (34ms) [Parameters=[@__bookingId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT i."Id", i."Base64Data", i."BookingId", i."IsDeleted", i."VehicleId"
+FROM "Images" AS i
+WHERE i."BookingId" = @__bookingId_0 AND NOT (i."IsDeleted")
+2025-07-11 17:06:57.285 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[VehicleServiceAPI.Models.Image, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[VehicleServiceAPI.Models.DTOs.ImageDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 17:06:57.290 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.ImageController.GetImageFilesByBookingId (VehicleServiceAPI) in 59.0458ms
+2025-07-11 17:06:57.290 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.ImageController.GetImageFilesByBookingId (VehicleServiceAPI)'
+2025-07-11 17:06:57.290 +05:30 [INF] HTTP GET /api/v1/Image/booking/5 responded 200 in 65.0446 ms
+2025-07-11 17:06:57.290 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Image/booking/5 - 200 null application/json; charset=utf-8 65.8702ms
+2025-07-11 17:07:09.281 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null null
+2025-07-11 17:07:09.281 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:07:09.281 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 204 null null 0.3266ms
+2025-07-11 17:07:09.282 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - null 0
+2025-07-11 17:07:09.282 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:07:09.282 +05:30 [INF] Executing endpoint '/eventhub/negotiate'
+2025-07-11 17:07:09.282 +05:30 [INF] Executed endpoint '/eventhub/negotiate'
+2025-07-11 17:07:09.283 +05:30 [INF] HTTP POST /eventhub/negotiate responded 200 in 0.5823 ms
+2025-07-11 17:07:09.283 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5192/eventhub/negotiate?negotiateVersion=1 - 200 316 application/json 1.1681ms
+2025-07-11 17:07:09.288 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/eventhub?id=Ody_sUQuU3WYhO2CGB7HKA - null null
+2025-07-11 17:07:09.289 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:07:09.289 +05:30 [INF] Executing endpoint '/eventhub'
+2025-07-11 17:07:10.698 +05:30 [INF] Executed endpoint '/eventhub'
+2025-07-11 17:07:10.698 +05:30 [INF] HTTP GET /eventhub responded 101 in 1408.7682 ms
+2025-07-11 17:07:10.698 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/eventhub?id=Ody_sUQuU3WYhO2CGB7HKA - 101 null null 1409.3548ms
+2025-07-11 17:07:10.700 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/ServiceSlot/available - null null
+2025-07-11 17:07:10.700 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Vehicle/user - null null
+2025-07-11 17:07:10.700 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:07:10.701 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:07:10.701 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/ServiceSlot/available - 204 null null 0.7322ms
+2025-07-11 17:07:10.701 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Vehicle/user - 204 null null 0.5045ms
+2025-07-11 17:07:10.702 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/ServiceSlot/available - application/json null
+2025-07-11 17:07:10.702 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Vehicle/user - application/json null
+2025-07-11 17:07:10.702 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:07:10.703 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:07:10.703 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.ServiceSlotController.GetAvailableSlots (VehicleServiceAPI)'
+2025-07-11 17:07:10.703 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.VehicleController.GetAllVehiclesByUser (VehicleServiceAPI)'
+2025-07-11 17:07:10.703 +05:30 [INF] Route matched with {action = "GetAvailableSlots", controller = "ServiceSlot"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.ServiceSlotDTO]]] GetAvailableSlots() on controller VehicleServiceAPI.Controllers.ServiceSlotController (VehicleServiceAPI).
+2025-07-11 17:07:10.704 +05:30 [INF] Route matched with {action = "GetAllVehiclesByUser", controller = "Vehicle"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.VehicleDTO]]] GetAllVehiclesByUser() on controller VehicleServiceAPI.Controllers.VehicleController (VehicleServiceAPI).
+2025-07-11 17:07:10.704 +05:30 [INF] Getting available service slots
+2025-07-11 17:07:10.704 +05:30 [INF] Getting vehicles for current user
+2025-07-11 17:07:10.706 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Status" = 'available' AND NOT (s."IsDeleted")
+2025-07-11 17:07:10.706 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."OwnerId" = @__userId_0
+2025-07-11 17:07:10.707 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 17:07:10.707 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 17:07:10.707 +05:30 [INF] User 7 retrieved 1 vehicles
+2025-07-11 17:07:10.708 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.VehicleDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 17:07:10.708 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.VehicleController.GetAllVehiclesByUser (VehicleServiceAPI) in 4.0456ms
+2025-07-11 17:07:10.708 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.VehicleController.GetAllVehiclesByUser (VehicleServiceAPI)'
+2025-07-11 17:07:10.709 +05:30 [INF] HTTP GET /api/v1/Vehicle/user responded 200 in 5.4520 ms
+2025-07-11 17:07:10.709 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Vehicle/user - 200 null application/json; charset=utf-8 6.7184ms
+2025-07-11 17:07:10.710 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 17:07:10.711 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 17:07:10.711 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.ServiceSlotDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 17:07:10.712 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.ServiceSlotController.GetAvailableSlots (VehicleServiceAPI) in 7.9913ms
+2025-07-11 17:07:10.712 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.ServiceSlotController.GetAvailableSlots (VehicleServiceAPI)'
+2025-07-11 17:07:10.712 +05:30 [INF] HTTP GET /api/v1/ServiceSlot/available responded 200 in 9.0325 ms
+2025-07-11 17:07:10.712 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/ServiceSlot/available - 200 null application/json; charset=utf-8 10.1808ms
+2025-07-11 17:07:12.732 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/User/profile - null null
+2025-07-11 17:07:12.732 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Vehicle/user - application/json null
+2025-07-11 17:07:12.733 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:07:12.733 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:07:12.733 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/User/profile - 204 null null 0.9255ms
+2025-07-11 17:07:12.734 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.VehicleController.GetAllVehiclesByUser (VehicleServiceAPI)'
+2025-07-11 17:07:12.734 +05:30 [INF] Route matched with {action = "GetAllVehiclesByUser", controller = "Vehicle"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.VehicleDTO]]] GetAllVehiclesByUser() on controller VehicleServiceAPI.Controllers.VehicleController (VehicleServiceAPI).
+2025-07-11 17:07:12.734 +05:30 [INF] Getting vehicles for current user
+2025-07-11 17:07:12.734 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/User/profile - application/json null
+2025-07-11 17:07:12.735 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:07:12.735 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.UserController.GetProfile (VehicleServiceAPI)'
+2025-07-11 17:07:12.736 +05:30 [INF] Route matched with {action = "GetProfile", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[VehicleServiceAPI.Models.DTOs.UserDTO]] GetProfile() on controller VehicleServiceAPI.Controllers.UserController (VehicleServiceAPI).
+2025-07-11 17:07:12.736 +05:30 [INF] User 7 requested their profile.
+2025-07-11 17:07:12.737 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."OwnerId" = @__userId_0
+2025-07-11 17:07:12.739 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 17:07:12.739 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 17:07:12.739 +05:30 [INF] User 7 retrieved 1 vehicles
+2025-07-11 17:07:12.739 +05:30 [INF] Executing OkObjectResult, writing value of type 'VehicleServiceAPI.Models.DTOs.UserDTO'.
+2025-07-11 17:07:12.739 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.VehicleDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 17:07:12.739 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.UserController.GetProfile (VehicleServiceAPI) in 3.5032ms
+2025-07-11 17:07:12.740 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.UserController.GetProfile (VehicleServiceAPI)'
+2025-07-11 17:07:12.740 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.VehicleController.GetAllVehiclesByUser (VehicleServiceAPI) in 5.5447ms
+2025-07-11 17:07:12.740 +05:30 [INF] HTTP GET /api/v1/User/profile responded 200 in 4.4099 ms
+2025-07-11 17:07:12.740 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.VehicleController.GetAllVehiclesByUser (VehicleServiceAPI)'
+2025-07-11 17:07:12.740 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/User/profile - 200 null application/json; charset=utf-8 5.8179ms
+2025-07-11 17:07:12.740 +05:30 [INF] HTTP GET /api/v1/Vehicle/user responded 200 in 6.8350 ms
+2025-07-11 17:07:12.741 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Vehicle/user - 200 null application/json; charset=utf-8 8.482ms
+2025-07-11 17:16:23.849 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Auth/login - null null
+2025-07-11 17:16:23.850 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:16:23.850 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Auth/login - 204 null null 0.7391ms
+2025-07-11 17:16:23.850 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5192/api/v1/Auth/login - application/json 60
+2025-07-11 17:16:23.851 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:16:23.851 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.AuthController.Login (VehicleServiceAPI)'
+2025-07-11 17:16:23.855 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(VehicleServiceAPI.Models.DTOs.LoginRequestDTO) on controller VehicleServiceAPI.Controllers.AuthController (VehicleServiceAPI).
+2025-07-11 17:16:23.859 +05:30 [INF] Attempting to authenticate user with email: yugendran.sunder@gmail.com
+2025-07-11 17:16:23.884 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@__email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Email" = @__email_0 AND NOT (u."IsDeleted")
+LIMIT 1
+2025-07-11 17:16:23.887 +05:30 [INF] User authenticated successfully: yugendran.sunder@gmail.com
+2025-07-11 17:16:23.887 +05:30 [INF] Executing OkObjectResult, writing value of type 'VehicleServiceAPI.Models.DTOs.LoginResponseDTO'.
+2025-07-11 17:16:23.887 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.AuthController.Login (VehicleServiceAPI) in 31.621ms
+2025-07-11 17:16:23.887 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.AuthController.Login (VehicleServiceAPI)'
+2025-07-11 17:16:23.887 +05:30 [INF] HTTP POST /api/v1/Auth/login responded 200 in 35.9775 ms
+2025-07-11 17:16:23.887 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5192/api/v1/Auth/login - 200 null application/json; charset=utf-8 36.7814ms
+2025-07-11 17:16:23.893 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/User/profile - null null
+2025-07-11 17:16:23.893 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:16:23.893 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/User/profile - 204 null null 0.3346ms
+2025-07-11 17:16:23.894 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/User/profile - application/json null
+2025-07-11 17:16:23.895 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Vehicle/user - null null
+2025-07-11 17:16:23.895 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:16:23.895 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:16:23.895 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Vehicle/user - 204 null null 0.4144ms
+2025-07-11 17:16:23.895 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.UserController.GetProfile (VehicleServiceAPI)'
+2025-07-11 17:16:23.896 +05:30 [INF] Route matched with {action = "GetProfile", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[VehicleServiceAPI.Models.DTOs.UserDTO]] GetProfile() on controller VehicleServiceAPI.Controllers.UserController (VehicleServiceAPI).
+2025-07-11 17:16:23.896 +05:30 [INF] User 7 requested their profile.
+2025-07-11 17:16:23.896 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Vehicle/user - application/json null
+2025-07-11 17:16:23.896 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:16:23.897 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.VehicleController.GetAllVehiclesByUser (VehicleServiceAPI)'
+2025-07-11 17:16:23.897 +05:30 [INF] Route matched with {action = "GetAllVehiclesByUser", controller = "Vehicle"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.VehicleDTO]]] GetAllVehiclesByUser() on controller VehicleServiceAPI.Controllers.VehicleController (VehicleServiceAPI).
+2025-07-11 17:16:23.897 +05:30 [INF] Getting vehicles for current user
+2025-07-11 17:16:23.899 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 17:16:23.899 +05:30 [INF] Executing OkObjectResult, writing value of type 'VehicleServiceAPI.Models.DTOs.UserDTO'.
+2025-07-11 17:16:23.900 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.UserController.GetProfile (VehicleServiceAPI) in 3.8107ms
+2025-07-11 17:16:23.900 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.UserController.GetProfile (VehicleServiceAPI)'
+2025-07-11 17:16:23.900 +05:30 [INF] HTTP GET /api/v1/User/profile responded 200 in 4.3896 ms
+2025-07-11 17:16:23.900 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/User/profile - 200 null application/json; charset=utf-8 5.6851ms
+2025-07-11 17:16:23.917 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."OwnerId" = @__userId_0
+2025-07-11 17:16:23.918 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 17:16:23.919 +05:30 [INF] User 7 retrieved 1 vehicles
+2025-07-11 17:16:23.930 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.VehicleDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 17:16:23.933 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.VehicleController.GetAllVehiclesByUser (VehicleServiceAPI) in 35.3714ms
+2025-07-11 17:16:23.934 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.VehicleController.GetAllVehiclesByUser (VehicleServiceAPI)'
+2025-07-11 17:16:23.934 +05:30 [INF] HTTP GET /api/v1/Vehicle/user responded 200 in 37.1558 ms
+2025-07-11 17:16:23.935 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Vehicle/user - 200 null application/json; charset=utf-8 39.0391ms
+2025-07-11 17:16:26.162 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/user - null null
+2025-07-11 17:16:26.162 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:16:26.162 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/user - 204 null null 0.5444ms
+2025-07-11 17:16:26.163 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Booking/user - application/json null
+2025-07-11 17:16:26.164 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:16:26.164 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingsByCurrentUser (VehicleServiceAPI)'
+2025-07-11 17:16:26.164 +05:30 [INF] Route matched with {action = "GetBookingsByCurrentUser", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.BookingDTO]]] GetBookingsByCurrentUser() on controller VehicleServiceAPI.Controllers.BookingController (VehicleServiceAPI).
+2025-07-11 17:16:26.165 +05:30 [INF] Getting bookings for user ID 7.
+2025-07-11 17:16:26.169 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."IsDeleted", b."SlotId", b."Status", b."UserId", b."VehicleId", s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Bookings" AS b
+INNER JOIN "ServiceSlots" AS s ON b."SlotId" = s."Id"
+INNER JOIN "Vehicles" AS v ON b."VehicleId" = v."Id"
+INNER JOIN "Users" AS u ON b."UserId" = u."Id"
+WHERE b."UserId" = @__userId_0
+2025-07-11 17:16:26.170 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 17:16:26.171 +05:30 [INF] Retrieved 1 bookings for user ID 7.
+2025-07-11 17:16:26.171 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.BookingDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 17:16:26.171 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.BookingController.GetBookingsByCurrentUser (VehicleServiceAPI) in 6.5183ms
+2025-07-11 17:16:26.171 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingsByCurrentUser (VehicleServiceAPI)'
+2025-07-11 17:16:26.171 +05:30 [INF] HTTP GET /api/v1/Booking/user responded 200 in 7.0648 ms
+2025-07-11 17:16:26.171 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Booking/user - 200 null application/json; charset=utf-8 8.2522ms
+2025-07-11 17:16:27.112 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/5 - null null
+2025-07-11 17:16:27.112 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Image/booking/5 - null null
+2025-07-11 17:16:27.112 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:16:27.112 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:16:27.113 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/5 - 204 null null 0.8625ms
+2025-07-11 17:16:27.113 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Image/booking/5 - 204 null null 0.9436ms
+2025-07-11 17:16:27.114 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Booking/5 - application/json null
+2025-07-11 17:16:27.114 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Image/booking/5 - application/json null
+2025-07-11 17:16:27.115 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:16:27.115 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:16:27.116 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI)'
+2025-07-11 17:16:27.116 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.ImageController.GetImageFilesByBookingId (VehicleServiceAPI)'
+2025-07-11 17:16:27.116 +05:30 [INF] Route matched with {action = "GetBookingById", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[VehicleServiceAPI.Models.DTOs.BookingDTO]] GetBookingById(Int32) on controller VehicleServiceAPI.Controllers.BookingController (VehicleServiceAPI).
+2025-07-11 17:16:27.116 +05:30 [INF] Route matched with {action = "GetImageFilesByBookingId", controller = "Image"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetImageFilesByBookingId(Int32) on controller VehicleServiceAPI.Controllers.ImageController (VehicleServiceAPI).
+2025-07-11 17:16:27.117 +05:30 [INF] Getting booking by ID: 5
+2025-07-11 17:16:27.118 +05:30 [INF] Getting files for images with Booking ID 5
+2025-07-11 17:16:27.120 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."IsDeleted", b."SlotId", b."Status", b."UserId", b."VehicleId", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year"
+FROM "Bookings" AS b
+INNER JOIN "Users" AS u ON b."UserId" = u."Id"
+INNER JOIN "ServiceSlots" AS s ON b."SlotId" = s."Id"
+INNER JOIN "Vehicles" AS v ON b."VehicleId" = v."Id"
+WHERE b."Id" = @__id_0
+LIMIT 1
+2025-07-11 17:16:27.120 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__bookingId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT i."Id", i."Base64Data", i."BookingId", i."IsDeleted", i."VehicleId"
+FROM "Images" AS i
+WHERE i."BookingId" = @__bookingId_0 AND NOT (i."IsDeleted")
+2025-07-11 17:16:27.121 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[VehicleServiceAPI.Models.Image, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[VehicleServiceAPI.Models.DTOs.ImageDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 17:16:27.121 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.ImageController.GetImageFilesByBookingId (VehicleServiceAPI) in 5.0004ms
+2025-07-11 17:16:27.121 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.ImageController.GetImageFilesByBookingId (VehicleServiceAPI)'
+2025-07-11 17:16:27.121 +05:30 [INF] HTTP GET /api/v1/Image/booking/5 responded 200 in 5.7499 ms
+2025-07-11 17:16:27.122 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Image/booking/5 - 200 null application/json; charset=utf-8 7.2341ms
+2025-07-11 17:16:27.122 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 17:16:27.122 +05:30 [INF] Booking with ID 5 retrieved.
+2025-07-11 17:16:27.123 +05:30 [INF] Executing OkObjectResult, writing value of type 'VehicleServiceAPI.Models.DTOs.BookingDTO'.
+2025-07-11 17:16:27.123 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI) in 6.9962ms
+2025-07-11 17:16:27.123 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI)'
+2025-07-11 17:16:27.123 +05:30 [INF] HTTP GET /api/v1/Booking/5 responded 200 in 7.7602 ms
+2025-07-11 17:16:27.124 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Booking/5 - 200 null application/json; charset=utf-8 9.3231ms
+2025-07-11 17:16:29.778 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/ServiceSlot/available - null null
+2025-07-11 17:16:29.778 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:16:29.778 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Vehicle/user - null null
+2025-07-11 17:16:29.779 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/ServiceSlot/available - 204 null null 0.5227ms
+2025-07-11 17:16:29.779 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:16:29.779 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Vehicle/user - 204 null null 0.7791ms
+2025-07-11 17:16:29.780 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/ServiceSlot/available - application/json null
+2025-07-11 17:16:29.781 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Vehicle/user - application/json null
+2025-07-11 17:16:29.781 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:16:29.781 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:16:29.781 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.VehicleController.GetAllVehiclesByUser (VehicleServiceAPI)'
+2025-07-11 17:16:29.781 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.ServiceSlotController.GetAvailableSlots (VehicleServiceAPI)'
+2025-07-11 17:16:29.782 +05:30 [INF] Route matched with {action = "GetAllVehiclesByUser", controller = "Vehicle"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.VehicleDTO]]] GetAllVehiclesByUser() on controller VehicleServiceAPI.Controllers.VehicleController (VehicleServiceAPI).
+2025-07-11 17:16:29.782 +05:30 [INF] Route matched with {action = "GetAvailableSlots", controller = "ServiceSlot"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.ServiceSlotDTO]]] GetAvailableSlots() on controller VehicleServiceAPI.Controllers.ServiceSlotController (VehicleServiceAPI).
+2025-07-11 17:16:29.782 +05:30 [INF] Getting vehicles for current user
+2025-07-11 17:16:29.782 +05:30 [INF] Getting available service slots
+2025-07-11 17:16:29.784 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Status" = 'available' AND NOT (s."IsDeleted")
+2025-07-11 17:16:29.785 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."OwnerId" = @__userId_0
+2025-07-11 17:16:29.786 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 17:16:29.787 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 17:16:29.787 +05:30 [INF] User 7 retrieved 1 vehicles
+2025-07-11 17:16:29.787 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.VehicleDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 17:16:29.787 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 17:16:29.787 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.VehicleController.GetAllVehiclesByUser (VehicleServiceAPI) in 5.6301ms
+2025-07-11 17:16:29.788 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.VehicleController.GetAllVehiclesByUser (VehicleServiceAPI)'
+2025-07-11 17:16:29.788 +05:30 [INF] HTTP GET /api/v1/Vehicle/user responded 200 in 6.3051 ms
+2025-07-11 17:16:29.788 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Vehicle/user - 200 null application/json; charset=utf-8 7.2782ms
+2025-07-11 17:16:29.789 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 17:16:29.789 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.ServiceSlotDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 17:16:29.790 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.ServiceSlotController.GetAvailableSlots (VehicleServiceAPI) in 8.1121ms
+2025-07-11 17:16:29.790 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.ServiceSlotController.GetAvailableSlots (VehicleServiceAPI)'
+2025-07-11 17:16:29.790 +05:30 [INF] HTTP GET /api/v1/ServiceSlot/available responded 200 in 8.8792 ms
+2025-07-11 17:16:29.791 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/ServiceSlot/available - 200 null application/json; charset=utf-8 11.5233ms
+2025-07-11 17:16:30.512 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Booking/user - application/json null
+2025-07-11 17:16:30.512 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:16:30.513 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingsByCurrentUser (VehicleServiceAPI)'
+2025-07-11 17:16:30.513 +05:30 [INF] Route matched with {action = "GetBookingsByCurrentUser", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.BookingDTO]]] GetBookingsByCurrentUser() on controller VehicleServiceAPI.Controllers.BookingController (VehicleServiceAPI).
+2025-07-11 17:16:30.513 +05:30 [INF] Getting bookings for user ID 7.
+2025-07-11 17:16:30.515 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."IsDeleted", b."SlotId", b."Status", b."UserId", b."VehicleId", s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Bookings" AS b
+INNER JOIN "ServiceSlots" AS s ON b."SlotId" = s."Id"
+INNER JOIN "Vehicles" AS v ON b."VehicleId" = v."Id"
+INNER JOIN "Users" AS u ON b."UserId" = u."Id"
+WHERE b."UserId" = @__userId_0
+2025-07-11 17:16:30.516 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 17:16:30.516 +05:30 [INF] Retrieved 1 bookings for user ID 7.
+2025-07-11 17:16:30.516 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.BookingDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 17:16:30.517 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.BookingController.GetBookingsByCurrentUser (VehicleServiceAPI) in 3.4088ms
+2025-07-11 17:16:30.517 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingsByCurrentUser (VehicleServiceAPI)'
+2025-07-11 17:16:30.517 +05:30 [INF] HTTP GET /api/v1/Booking/user responded 200 in 4.0029 ms
+2025-07-11 17:16:30.517 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Booking/user - 200 null application/json; charset=utf-8 5.1269ms
+2025-07-11 17:16:32.262 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/5 - null null
+2025-07-11 17:16:32.262 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Image/booking/5 - null null
+2025-07-11 17:16:32.262 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:16:32.262 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:16:32.263 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Image/booking/5 - 204 null null 0.6786ms
+2025-07-11 17:16:32.263 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/5 - 204 null null 0.6792ms
+2025-07-11 17:16:32.264 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Image/booking/5 - application/json null
+2025-07-11 17:16:32.265 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Booking/5 - application/json null
+2025-07-11 17:16:32.265 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:16:32.265 +05:30 [INF] CORS policy execution successful.
+2025-07-11 17:16:32.266 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI)'
+2025-07-11 17:16:32.266 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.ImageController.GetImageFilesByBookingId (VehicleServiceAPI)'
+2025-07-11 17:16:32.266 +05:30 [INF] Route matched with {action = "GetBookingById", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[VehicleServiceAPI.Models.DTOs.BookingDTO]] GetBookingById(Int32) on controller VehicleServiceAPI.Controllers.BookingController (VehicleServiceAPI).
+2025-07-11 17:16:32.266 +05:30 [INF] Route matched with {action = "GetImageFilesByBookingId", controller = "Image"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetImageFilesByBookingId(Int32) on controller VehicleServiceAPI.Controllers.ImageController (VehicleServiceAPI).
+2025-07-11 17:16:32.266 +05:30 [INF] Getting booking by ID: 5
+2025-07-11 17:16:32.269 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."IsDeleted", b."SlotId", b."Status", b."UserId", b."VehicleId", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year"
+FROM "Bookings" AS b
+INNER JOIN "Users" AS u ON b."UserId" = u."Id"
+INNER JOIN "ServiceSlots" AS s ON b."SlotId" = s."Id"
+INNER JOIN "Vehicles" AS v ON b."VehicleId" = v."Id"
+WHERE b."Id" = @__id_0
+LIMIT 1
+2025-07-11 17:16:32.270 +05:30 [INF] Getting files for images with Booking ID 5
+2025-07-11 17:16:32.270 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-11 17:16:32.271 +05:30 [INF] Booking with ID 5 retrieved.
+2025-07-11 17:16:32.271 +05:30 [INF] Executing OkObjectResult, writing value of type 'VehicleServiceAPI.Models.DTOs.BookingDTO'.
+2025-07-11 17:16:32.271 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI) in 5.0398ms
+2025-07-11 17:16:32.271 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI)'
+2025-07-11 17:16:32.271 +05:30 [INF] HTTP GET /api/v1/Booking/5 responded 200 in 5.5071 ms
+2025-07-11 17:16:32.271 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Booking/5 - 200 null application/json; charset=utf-8 6.7264ms
+2025-07-11 17:16:32.272 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__bookingId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT i."Id", i."Base64Data", i."BookingId", i."IsDeleted", i."VehicleId"
+FROM "Images" AS i
+WHERE i."BookingId" = @__bookingId_0 AND NOT (i."IsDeleted")
+2025-07-11 17:16:32.272 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[VehicleServiceAPI.Models.Image, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[VehicleServiceAPI.Models.DTOs.ImageDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 17:16:32.272 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.ImageController.GetImageFilesByBookingId (VehicleServiceAPI) in 6.3029ms
+2025-07-11 17:16:32.273 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.ImageController.GetImageFilesByBookingId (VehicleServiceAPI)'
+2025-07-11 17:16:32.273 +05:30 [INF] HTTP GET /api/v1/Image/booking/5 responded 200 in 7.1085 ms
+2025-07-11 17:16:32.273 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Image/booking/5 - 200 null application/json; charset=utf-8 8.7159ms

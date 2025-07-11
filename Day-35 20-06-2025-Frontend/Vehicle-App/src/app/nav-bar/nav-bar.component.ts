@@ -1,6 +1,5 @@
 import { Component, DoCheck } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { AuthService } from '../services/auth.service';
+import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -17,7 +16,7 @@ export class NavBarComponent implements DoCheck {
   isLoggedIn = false;
   mobileMenuOpen = false;
 
-  constructor(private auth: AuthService) {}
+  constructor() {}
 
   ngDoCheck() {
     this.isLoggedIn = !!localStorage.getItem('accessToken');

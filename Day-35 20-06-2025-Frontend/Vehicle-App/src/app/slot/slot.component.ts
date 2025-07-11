@@ -40,7 +40,9 @@ export class SlotComponent implements OnInit{
     this.vehicleService.getAllByUser().subscribe({
       next: (response) =>{
         if(response.length == 0){
-          this.errorMessage = "No Vehicles Found. Please add the vehicle details in profile page.";
+          if (!this.errorMessage) {
+            this.errorMessage = "No Vehicles Found. Please add the vehicle details in profile page.";
+          }
         }
         this.vehicles = response;
       },
