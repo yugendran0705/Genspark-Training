@@ -18,4 +18,29 @@
     class="block w-full h-[500px]">
     </ag-charts>
   </div>
+
+  <div class="bg-white shadow rounded p-4">
+    <h3 class="text-lg font-medium mb-4">Service Slot Utilization</h3>
+    <ag-charts 
+      [options]="slotChartOptions" 
+      class="block w-full h-[300px]">
+    </ag-charts>
+  </div>
+
+  <div class="bg-white shadow rounded p-4">
+    <h3 class="text-lg font-medium mb-4">Bookings Over Time</h3>
+    <ag-charts 
+      [options]="timeChartOptions" 
+      class="block w-full h-[400px]">
+    </ag-charts>
+  </div>
+
+  <div class="bg-white shadow rounded p-4">
+    <h3 class="text-lg font-medium mb-4">User Role Distribution</h3>
+    <ag-charts 
+      [options]="userRoleChartOptions" 
+      class="block w-full h-[300px]">
+    </ag-charts>
+  </div>
+
 </div>

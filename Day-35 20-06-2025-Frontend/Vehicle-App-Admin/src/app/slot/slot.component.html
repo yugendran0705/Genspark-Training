@@ -35,7 +35,9 @@
           <td class="px-4 py-2 border capitalize">
             <span [ngClass]="{
               'text-green-600': slot.status === 'available',
-              'text-red-500': slot.status !== 'available'
+              'text-red-500': slot.status === 'cancelled',
+              'text-[blue]': slot.status === 'booked',
+              'text-green-800 font-bold': slot.status === 'completed'
             }">{{ slot.status }}</span>
           </td>
           <td class="px-4 py-2 border text-center">
@@ -102,6 +104,7 @@
             <option value="available">Available</option>
             <option value="booked">Booked</option>
             <option value="completed">Completed</option>
+            <option value="cancelled">Cancelled</option>
           </select>
         </div>
 
