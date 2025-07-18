@@ -54,6 +54,8 @@ namespace VehicleServiceAPI.Services
         /// </summary>
         public async Task<InvoiceDTO> CreateInvoiceAsync(CreateInvoiceDTO request)
         {
+
+            //here check the user bookings and update amount based on invoice flag
             var invoiceEntity = await MapCreateDTOToInvoice(request);
             if (invoiceEntity.Booking.Status != "completed")
             {
@@ -176,6 +178,8 @@ namespace VehicleServiceAPI.Services
                 MechanicName = mechanic.Name,
                 VehicleId = invoice.Booking.VehicleId,
                 RegistrationNumber = vehicle.RegistrationNumber,
+                DiscountFlag = invoice.DiscountFlag,
+                DiscountPercentage = invoice.DiscountPercentage,
             };
         }
 
@@ -183,13 +187,33 @@ namespace VehicleServiceAPI.Services
         private async Task<Invoice> MapCreateDTOToInvoice(CreateInvoiceDTO request)
         {
             var booking = await _bookingRepository.GetByIdAsync(request.BookingId);
+            //get user booking details and.check the orders he has
+            bool DiscountFlag = false;
+            int DiscountPercentage = 0;
+            var userId= booking.UserId;
+            var user= await _userRepository.GetByIdAsync(userId);
+            if(user.RoleId==2){
+                DiscountFlag= true;
+                DiscountPercentage= 5;
+            }
+            else{   
+            var userbookings = await _bookingRepository.GetBookingsByUserIdAsync(userId);
+            Console.WriteLine($"User {userId} has {userbookings.Count()} bookings.");
+            if(userbookings.Count() > 3)
+            {
+                DiscountPercentage=10;
+                DiscountFlag= true;
+            }
+            }
 
             return new Invoice
             {
                 Amount = request.Amount,
                 ServiceDetails = request.ServiceDetails,
                 BookingId = request.BookingId,
-                Booking = booking
+                Booking = booking,
+                DiscountFlag = DiscountFlag,
+                DiscountPercentage = DiscountPercentage
             };
         }
 

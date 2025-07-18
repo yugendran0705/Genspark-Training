@@ -16,7 +16,11 @@ namespace VehicleServiceAPI.Models
         
         [Required]
         public decimal Amount { get; set; }
-        
+
+        public bool DiscountFlag { get; set; } = false;
+
+        public int DiscountPercentage { get; set; } = 0;
+
         public required string ServiceDetails { get; set; }
         
         public bool IsDeleted { get; set; } = false;

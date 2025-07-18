@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using VehicleServiceAPI.Context;
@@ -11,9 +12,11 @@ using VehicleServiceAPI.Context;
 namespace VehicleServiceAPI.Migrations
 {
     [DbContext(typeof(VehicleServiceDbContext))]
-    partial class VehicleServiceDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250715065252_addedflag")]
+    partial class addedflag
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -103,9 +106,6 @@ namespace VehicleServiceAPI.Migrations
 
                     b.Property<bool>("DiscountFlag")
                         .HasColumnType("boolean");
-
-                    b.Property<int>("DiscountPercentage")
-                        .HasColumnType("integer");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");

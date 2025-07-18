@@ -51,6 +51,7 @@ builder.Services.AddScoped<IServiceSlotService, ServiceSlotService>();
 builder.Services.AddScoped<IBookingService, BookingService>();
 builder.Services.AddScoped<IInvoiceService, InvoiceService>();
 builder.Services.AddScoped<IImageService, ImageService>();
+builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddRateLimiter(options =>
 {
@@ -79,7 +80,7 @@ builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
     {
-        policy.WithOrigins("http://localhost:5192", "http://127.0.0.1:5500", "http://127.0.0.1:4200", "http://localhost:4200", "http://localhost:53225")
+        policy.WithOrigins("http://localhost:5192", "http://127.0.0.1:5500", "http://127.0.0.1:4200", "http://localhost:4200", "http://localhost:51613")
               .AllowAnyHeader()
               .AllowAnyMethod()
               .AllowCredentials();

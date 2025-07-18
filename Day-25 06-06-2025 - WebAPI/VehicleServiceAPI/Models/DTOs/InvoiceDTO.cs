@@ -18,6 +18,8 @@ namespace VehicleServiceAPI.Models.DTOs
         public string RegistrationNumber { get; set; }
         public string ServiceStatus { get; set; }
         public decimal Amount { get; set; }
+        public bool DiscountFlag { get; set; } = false;
+        public int DiscountPercentage { get; set; } = 0;
         public string ServiceDetails { get; set; }
         public bool IsDeleted { get; set; } = false;
     }

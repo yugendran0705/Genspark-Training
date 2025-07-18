@@ -1,0 +1,2361 @@
+2025-07-17 14:43:53.596 +05:30 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-07-17 14:43:53.947 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-07-17 14:43:53.956 +05:30 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-07-17 14:43:53.969 +05:30 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2025-07-17 14:43:53.970 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-07-17 14:43:53.974 +05:30 [INF] No migrations were applied. The database is already up to date.
+2025-07-17 14:43:54.086 +05:30 [INF] User profile is available. Using '/Users/subramaniyans/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-07-17 14:43:54.163 +05:30 [INF] Now listening on: http://localhost:5192
+2025-07-17 14:43:54.165 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-17 14:43:54.165 +05:30 [INF] Hosting environment: Development
+2025-07-17 14:43:54.166 +05:30 [INF] Content root path: /Users/subramaniyans/Desktop/project2/Genspark-Training/Day-25 06-06-2025 - WebAPI/VehicleServiceAPI
+2025-07-17 14:44:48.176 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Auth/login - null null
+2025-07-17 14:44:48.220 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-07-17 14:44:48.229 +05:30 [INF] CORS policy execution successful.
+2025-07-17 14:44:48.235 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Auth/login - 204 null null 61.8386ms
+2025-07-17 14:44:48.274 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5192/api/v1/Auth/login - application/json 50
+2025-07-17 14:44:48.278 +05:30 [INF] CORS policy execution successful.
+2025-07-17 14:44:48.321 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.AuthController.Login (VehicleServiceAPI)'
+2025-07-17 14:44:48.339 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(VehicleServiceAPI.Models.DTOs.LoginRequestDTO) on controller VehicleServiceAPI.Controllers.AuthController (VehicleServiceAPI).
+2025-07-17 14:44:48.370 +05:30 [INF] Attempting to authenticate user with email: admin@gmail.com
+2025-07-17 14:44:48.749 +05:30 [INF] Executed DbCommand (24ms) [Parameters=[@__email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Email" = @__email_0 AND NOT (u."IsDeleted")
+LIMIT 1
+2025-07-17 14:44:48.842 +05:30 [INF] User authenticated successfully: admin@gmail.com
+2025-07-17 14:44:48.849 +05:30 [INF] Executing OkObjectResult, writing value of type 'VehicleServiceAPI.Models.DTOs.LoginResponseDTO'.
+2025-07-17 14:44:48.860 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.AuthController.Login (VehicleServiceAPI) in 517.0426ms
+2025-07-17 14:44:48.861 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.AuthController.Login (VehicleServiceAPI)'
+2025-07-17 14:44:48.863 +05:30 [INF] HTTP POST /api/v1/Auth/login responded 200 in 541.8880 ms
+2025-07-17 14:44:48.870 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5192/api/v1/Auth/login - 200 null application/json; charset=utf-8 595.517ms
+2025-07-17 14:44:48.881 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/User/profile - null null
+2025-07-17 14:44:48.884 +05:30 [INF] CORS policy execution successful.
+2025-07-17 14:44:48.885 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/User/profile - 204 null null 3.7195ms
+2025-07-17 14:44:48.886 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Vehicle/user - null null
+2025-07-17 14:44:48.888 +05:30 [INF] CORS policy execution successful.
+2025-07-17 14:44:48.889 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Vehicle/user - 204 null null 2.7008ms
+2025-07-17 14:44:48.890 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/User/profile - application/json null
+2025-07-17 14:44:48.894 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Vehicle/user - application/json null
+2025-07-17 14:44:48.897 +05:30 [INF] CORS policy execution successful.
+2025-07-17 14:44:48.897 +05:30 [INF] CORS policy execution successful.
+2025-07-17 14:44:48.951 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.VehicleController.GetAllVehiclesByUser (VehicleServiceAPI)'
+2025-07-17 14:44:48.951 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.UserController.GetProfile (VehicleServiceAPI)'
+2025-07-17 14:44:48.955 +05:30 [INF] Route matched with {action = "GetAllVehiclesByUser", controller = "Vehicle"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.VehicleDTO]]] GetAllVehiclesByUser() on controller VehicleServiceAPI.Controllers.VehicleController (VehicleServiceAPI).
+2025-07-17 14:44:48.955 +05:30 [INF] Route matched with {action = "GetProfile", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[VehicleServiceAPI.Models.DTOs.UserDTO]] GetProfile() on controller VehicleServiceAPI.Controllers.UserController (VehicleServiceAPI).
+2025-07-17 14:44:48.959 +05:30 [INF] Getting vehicles for current user
+2025-07-17 14:44:48.959 +05:30 [INF] User 3 requested their profile.
+2025-07-17 14:44:49.019 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:44:49.022 +05:30 [INF] Executing OkObjectResult, writing value of type 'VehicleServiceAPI.Models.DTOs.UserDTO'.
+2025-07-17 14:44:49.025 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.UserController.GetProfile (VehicleServiceAPI) in 69.7303ms
+2025-07-17 14:44:49.026 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.UserController.GetProfile (VehicleServiceAPI)'
+2025-07-17 14:44:49.026 +05:30 [INF] HTTP GET /api/v1/User/profile responded 200 in 75.3363 ms
+2025-07-17 14:44:49.026 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/User/profile - 200 null application/json; charset=utf-8 136.1743ms
+2025-07-17 14:44:49.048 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."OwnerId" = @__userId_0
+2025-07-17 14:44:49.050 +05:30 [INF] User 3 retrieved 0 vehicles
+2025-07-17 14:44:49.050 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.VehicleDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-17 14:44:49.053 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.VehicleController.GetAllVehiclesByUser (VehicleServiceAPI) in 97.9484ms
+2025-07-17 14:44:49.054 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.VehicleController.GetAllVehiclesByUser (VehicleServiceAPI)'
+2025-07-17 14:44:49.054 +05:30 [INF] HTTP GET /api/v1/Vehicle/user responded 200 in 103.8249 ms
+2025-07-17 14:44:49.055 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Vehicle/user - 200 null application/json; charset=utf-8 161.0757ms
+2025-07-17 14:44:51.888 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking - null null
+2025-07-17 14:44:51.889 +05:30 [INF] CORS policy execution successful.
+2025-07-17 14:44:51.890 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking - 204 null null 1.7145ms
+2025-07-17 14:44:51.891 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Booking - application/json null
+2025-07-17 14:44:51.892 +05:30 [INF] CORS policy execution successful.
+2025-07-17 14:44:51.899 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.BookingController.GetAllBookings (VehicleServiceAPI)'
+2025-07-17 14:44:51.904 +05:30 [INF] Route matched with {action = "GetAllBookings", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.BookingDTO]]] GetAllBookings() on controller VehicleServiceAPI.Controllers.BookingController (VehicleServiceAPI).
+2025-07-17 14:44:51.907 +05:30 [INF] Getting all bookings (Admin access).
+2025-07-17 14:44:51.942 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."IsDeleted", b."SlotId", b."Status", b."UserId", b."VehicleId", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year"
+FROM "Bookings" AS b
+INNER JOIN "Users" AS u ON b."UserId" = u."Id"
+INNER JOIN "ServiceSlots" AS s ON b."SlotId" = s."Id"
+INNER JOIN "Vehicles" AS v ON b."VehicleId" = v."Id"
+2025-07-17 14:44:52.025 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:44:52.030 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:44:52.031 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:44:52.033 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:44:52.034 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:44:52.035 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:44:52.037 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:44:52.038 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:44:52.039 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:44:52.040 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:44:52.042 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:44:52.043 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:44:52.044 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:44:52.045 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:44:52.046 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:44:52.050 +05:30 [INF] Retrieved 15 bookings.
+2025-07-17 14:44:52.050 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.BookingDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-17 14:44:52.063 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.BookingController.GetAllBookings (VehicleServiceAPI) in 158.4828ms
+2025-07-17 14:44:52.063 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.BookingController.GetAllBookings (VehicleServiceAPI)'
+2025-07-17 14:44:52.063 +05:30 [INF] HTTP GET /api/v1/Booking responded 200 in 163.8354 ms
+2025-07-17 14:44:52.063 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Booking - 200 null application/json; charset=utf-8 171.8767ms
+2025-07-17 14:44:53.272 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/ServiceSlot/ - null null
+2025-07-17 14:44:53.273 +05:30 [INF] CORS policy execution successful.
+2025-07-17 14:44:53.273 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/ServiceSlot/ - 204 null null 1.1609ms
+2025-07-17 14:44:53.276 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/ServiceSlot/ - application/json null
+2025-07-17 14:44:53.276 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/User/mechanics - null null
+2025-07-17 14:44:53.276 +05:30 [INF] CORS policy execution successful.
+2025-07-17 14:44:53.277 +05:30 [INF] CORS policy execution successful.
+2025-07-17 14:44:53.277 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/User/mechanics - 204 null null 1.1904ms
+2025-07-17 14:44:53.279 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.ServiceSlotController.GetAllServiceSlots (VehicleServiceAPI)'
+2025-07-17 14:44:53.279 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/User/mechanics - application/json null
+2025-07-17 14:44:53.280 +05:30 [INF] CORS policy execution successful.
+2025-07-17 14:44:53.281 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.UserController.GetAllMechanics (VehicleServiceAPI)'
+2025-07-17 14:44:53.283 +05:30 [INF] Route matched with {action = "GetAllServiceSlots", controller = "ServiceSlot"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.ServiceSlotDTO]]] GetAllServiceSlots() on controller VehicleServiceAPI.Controllers.ServiceSlotController (VehicleServiceAPI).
+2025-07-17 14:44:53.284 +05:30 [INF] Route matched with {action = "GetAllMechanics", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.UserDTO]]] GetAllMechanics() on controller VehicleServiceAPI.Controllers.UserController (VehicleServiceAPI).
+2025-07-17 14:44:53.285 +05:30 [INF] Getting all service slots
+2025-07-17 14:44:53.285 +05:30 [INF] Admin requested all mechanics.
+2025-07-17 14:44:53.299 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+2025-07-17 14:44:53.300 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."RoleId" = 2 AND NOT (u."IsDeleted")
+2025-07-17 14:44:53.301 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[VehicleServiceAPI.Models.User, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[VehicleServiceAPI.Models.DTOs.UserDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-17 14:44:53.302 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.UserController.GetAllMechanics (VehicleServiceAPI) in 17.9611ms
+2025-07-17 14:44:53.302 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.UserController.GetAllMechanics (VehicleServiceAPI)'
+2025-07-17 14:44:53.302 +05:30 [INF] HTTP GET /api/v1/User/mechanics responded 200 in 21.6225 ms
+2025-07-17 14:44:53.302 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/User/mechanics - 200 null application/json; charset=utf-8 22.9777ms
+2025-07-17 14:44:53.305 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:44:53.307 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:44:53.308 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:44:53.309 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:44:53.310 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:44:53.311 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:44:53.312 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:44:53.313 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:44:53.314 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:44:53.315 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:44:53.315 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:44:53.316 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:44:53.317 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:44:53.318 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:44:53.319 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:44:53.319 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.ServiceSlotDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-17 14:44:53.321 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.ServiceSlotController.GetAllServiceSlots (VehicleServiceAPI) in 38.0939ms
+2025-07-17 14:44:53.322 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.ServiceSlotController.GetAllServiceSlots (VehicleServiceAPI)'
+2025-07-17 14:44:53.322 +05:30 [INF] HTTP GET /api/v1/ServiceSlot/ responded 200 in 42.8315 ms
+2025-07-17 14:44:53.322 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/ServiceSlot/ - 200 null application/json; charset=utf-8 46.2653ms
+2025-07-17 14:46:08.646 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/swagger/index.html - null null
+2025-07-17 14:46:08.700 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/swagger/index.html - 200 null text/html;charset=utf-8 54.0629ms
+2025-07-17 14:46:08.723 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/swagger/swagger-ui.css - null null
+2025-07-17 14:46:08.732 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/swagger/index.css - null null
+2025-07-17 14:46:08.732 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/swagger/swagger-ui-bundle.js - null null
+2025-07-17 14:46:08.732 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/swagger/swagger-ui-standalone-preset.js - null null
+2025-07-17 14:46:08.732 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/swagger/index.js - null null
+2025-07-17 14:46:08.734 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/swagger/index.js - 200 null application/javascript;charset=utf-8 1.4378ms
+2025-07-17 14:46:08.735 +05:30 [INF] Sending file. Request path: '/index.css'. Physical path: 'N/A'
+2025-07-17 14:46:08.735 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/swagger/index.css - 200 202 text/css 3.2436ms
+2025-07-17 14:46:08.747 +05:30 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-07-17 14:46:08.748 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/swagger/swagger-ui.css - 200 154949 text/css 24.7027ms
+2025-07-17 14:46:08.748 +05:30 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-07-17 14:46:08.749 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/swagger/swagger-ui-standalone-preset.js - 200 229223 text/javascript 17.0828ms
+2025-07-17 14:46:08.757 +05:30 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-07-17 14:46:08.758 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/swagger/swagger-ui-bundle.js - 200 1484234 text/javascript 25.7617ms
+2025-07-17 14:46:09.113 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/swagger/v1/swagger.json - null null
+2025-07-17 14:46:09.138 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/swagger/favicon-32x32.png - null null
+2025-07-17 14:46:09.139 +05:30 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-07-17 14:46:09.139 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/swagger/favicon-32x32.png - 200 628 image/png 0.6138ms
+2025-07-17 14:46:09.217 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 104.0036ms
+2025-07-17 14:47:24.153 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking - null null
+2025-07-17 14:47:24.154 +05:30 [INF] CORS policy execution successful.
+2025-07-17 14:47:24.154 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking - 204 null null 0.8895ms
+2025-07-17 14:47:24.155 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Booking - application/json null
+2025-07-17 14:47:24.156 +05:30 [INF] CORS policy execution successful.
+2025-07-17 14:47:24.156 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.BookingController.GetAllBookings (VehicleServiceAPI)'
+2025-07-17 14:47:24.157 +05:30 [INF] Route matched with {action = "GetAllBookings", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.BookingDTO]]] GetAllBookings() on controller VehicleServiceAPI.Controllers.BookingController (VehicleServiceAPI).
+2025-07-17 14:47:24.158 +05:30 [INF] Getting all bookings (Admin access).
+2025-07-17 14:47:24.161 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."IsDeleted", b."SlotId", b."Status", b."UserId", b."VehicleId", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year"
+FROM "Bookings" AS b
+INNER JOIN "Users" AS u ON b."UserId" = u."Id"
+INNER JOIN "ServiceSlots" AS s ON b."SlotId" = s."Id"
+INNER JOIN "Vehicles" AS v ON b."VehicleId" = v."Id"
+2025-07-17 14:47:24.165 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:24.167 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:24.167 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:24.168 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:24.169 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:24.170 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:24.171 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:24.172 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:24.173 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:24.191 +05:30 [INF] Executed DbCommand (17ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:24.192 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:24.193 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:24.193 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:24.194 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:24.195 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:24.195 +05:30 [INF] Retrieved 15 bookings.
+2025-07-17 14:47:24.195 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.BookingDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-17 14:47:24.196 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.BookingController.GetAllBookings (VehicleServiceAPI) in 38.9132ms
+2025-07-17 14:47:24.196 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.BookingController.GetAllBookings (VehicleServiceAPI)'
+2025-07-17 14:47:24.196 +05:30 [INF] HTTP GET /api/v1/Booking responded 200 in 39.8698 ms
+2025-07-17 14:47:24.197 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Booking - 200 null application/json; charset=utf-8 42.0296ms
+2025-07-17 14:47:25.692 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Invoice - null null
+2025-07-17 14:47:25.693 +05:30 [INF] CORS policy execution successful.
+2025-07-17 14:47:25.693 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Invoice - 204 null null 0.8026ms
+2025-07-17 14:47:25.694 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Invoice - application/json null
+2025-07-17 14:47:25.695 +05:30 [INF] CORS policy execution successful.
+2025-07-17 14:47:25.695 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.InvoiceController.GetAllInvoices (VehicleServiceAPI)'
+2025-07-17 14:47:25.701 +05:30 [INF] Route matched with {action = "GetAllInvoices", controller = "Invoice"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.InvoiceDTO]]] GetAllInvoices() on controller VehicleServiceAPI.Controllers.InvoiceController (VehicleServiceAPI).
+2025-07-17 14:47:25.704 +05:30 [INF] Getting all invoices.
+2025-07-17 14:47:25.720 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT i."Id", i."Amount", i."BookingId", i."DiscountFlag", i."DiscountPercentage", i."IsDeleted", i."ServiceDetails", b."Id", b."IsDeleted", b."SlotId", b."Status", b."UserId", b."VehicleId"
+FROM "Invoices" AS i
+INNER JOIN "Bookings" AS b ON i."BookingId" = b."Id"
+2025-07-17 14:47:25.741 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.752 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.753 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.763 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.765 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.766 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.767 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.767 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.768 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.769 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.791 +05:30 [INF] Executed DbCommand (15ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.792 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.793 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.793 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.794 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.795 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.796 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.797 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.798 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.798 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.799 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.800 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.800 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.801 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.802 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.802 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.803 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.804 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.805 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.805 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.806 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.807 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.807 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.808 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.809 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.809 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.810 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.811 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.811 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.813 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.813 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.814 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.815 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.815 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.816 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.817 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.817 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.818 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:47:25.819 +05:30 [INF] Retrieved 12 invoices.
+2025-07-17 14:47:25.819 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.InvoiceDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-17 14:47:25.826 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.InvoiceController.GetAllInvoices (VehicleServiceAPI) in 124.7093ms
+2025-07-17 14:47:25.826 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.InvoiceController.GetAllInvoices (VehicleServiceAPI)'
+2025-07-17 14:47:25.826 +05:30 [INF] HTTP GET /api/v1/Invoice responded 200 in 130.8583 ms
+2025-07-17 14:47:25.826 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Invoice - 200 null application/json; charset=utf-8 132.1754ms
+2025-07-17 14:48:29.612 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Invoice - null null
+2025-07-17 14:48:29.616 +05:30 [INF] CORS policy execution successful.
+2025-07-17 14:48:29.629 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Invoice - 204 null null 16.7863ms
+2025-07-17 14:48:29.634 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Invoice - application/json null
+2025-07-17 14:48:29.640 +05:30 [INF] CORS policy execution successful.
+2025-07-17 14:48:29.644 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.InvoiceController.GetAllInvoices (VehicleServiceAPI)'
+2025-07-17 14:48:29.645 +05:30 [INF] Route matched with {action = "GetAllInvoices", controller = "Invoice"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.InvoiceDTO]]] GetAllInvoices() on controller VehicleServiceAPI.Controllers.InvoiceController (VehicleServiceAPI).
+2025-07-17 14:48:29.647 +05:30 [INF] Getting all invoices.
+2025-07-17 14:48:29.688 +05:30 [INF] Executed DbCommand (38ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT i."Id", i."Amount", i."BookingId", i."DiscountFlag", i."DiscountPercentage", i."IsDeleted", i."ServiceDetails", b."Id", b."IsDeleted", b."SlotId", b."Status", b."UserId", b."VehicleId"
+FROM "Invoices" AS i
+INNER JOIN "Bookings" AS b ON i."BookingId" = b."Id"
+2025-07-17 14:48:29.692 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.694 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.706 +05:30 [INF] Executed DbCommand (11ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.708 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.710 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.711 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.712 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.720 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.723 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.733 +05:30 [INF] Executed DbCommand (9ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.734 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.735 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.736 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.745 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.746 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.748 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.749 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.751 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.753 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.754 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.757 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.759 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.760 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.762 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.763 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.765 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.767 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.768 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.769 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.771 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.772 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.774 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.776 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.777 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.777 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.779 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.780 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.780 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.782 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.784 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.786 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.791 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.792 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.794 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.795 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.796 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.798 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.799 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:48:29.800 +05:30 [INF] Retrieved 12 invoices.
+2025-07-17 14:48:29.800 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.InvoiceDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-17 14:48:29.801 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.InvoiceController.GetAllInvoices (VehicleServiceAPI) in 155.3753ms
+2025-07-17 14:48:29.801 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.InvoiceController.GetAllInvoices (VehicleServiceAPI)'
+2025-07-17 14:48:29.801 +05:30 [INF] HTTP GET /api/v1/Invoice responded 200 in 156.9809 ms
+2025-07-17 14:48:29.802 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Invoice - 200 null application/json; charset=utf-8 167.7991ms
+2025-07-17 14:49:40.379 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Invoice - null null
+2025-07-17 14:49:40.379 +05:30 [INF] CORS policy execution successful.
+2025-07-17 14:49:40.379 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Invoice - 204 null null 0.6205ms
+2025-07-17 14:49:40.390 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Invoice - application/json null
+2025-07-17 14:49:40.390 +05:30 [INF] CORS policy execution successful.
+2025-07-17 14:49:40.391 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.InvoiceController.GetAllInvoices (VehicleServiceAPI)'
+2025-07-17 14:49:40.391 +05:30 [INF] Route matched with {action = "GetAllInvoices", controller = "Invoice"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.InvoiceDTO]]] GetAllInvoices() on controller VehicleServiceAPI.Controllers.InvoiceController (VehicleServiceAPI).
+2025-07-17 14:49:40.400 +05:30 [INF] Getting all invoices.
+2025-07-17 14:49:40.425 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT i."Id", i."Amount", i."BookingId", i."DiscountFlag", i."DiscountPercentage", i."IsDeleted", i."ServiceDetails", b."Id", b."IsDeleted", b."SlotId", b."Status", b."UserId", b."VehicleId"
+FROM "Invoices" AS i
+INNER JOIN "Bookings" AS b ON i."BookingId" = b."Id"
+2025-07-17 14:49:40.437 +05:30 [INF] Executed DbCommand (10ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.440 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.443 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.446 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.447 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.448 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.450 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.451 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.452 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.453 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.454 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.456 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.457 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.460 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.462 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.463 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.464 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.465 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.466 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.470 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.473 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.476 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.478 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.480 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.481 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.485 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.487 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.489 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.492 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.494 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.496 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.498 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.500 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.502 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.503 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.505 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.509 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.511 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.512 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.513 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.513 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.514 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.515 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.516 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.517 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.518 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.520 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.522 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:49:40.522 +05:30 [INF] Retrieved 12 invoices.
+2025-07-17 14:49:40.522 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.InvoiceDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-17 14:49:40.522 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.InvoiceController.GetAllInvoices (VehicleServiceAPI) in 131.0628ms
+2025-07-17 14:49:40.523 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.InvoiceController.GetAllInvoices (VehicleServiceAPI)'
+2025-07-17 14:49:40.523 +05:30 [INF] HTTP GET /api/v1/Invoice responded 200 in 132.2480 ms
+2025-07-17 14:49:40.524 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Invoice - 200 null application/json; charset=utf-8 134.1875ms
+2025-07-17 14:50:18.826 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Invoice - null null
+2025-07-17 14:50:18.827 +05:30 [INF] CORS policy execution successful.
+2025-07-17 14:50:18.827 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Invoice - 204 null null 1.0125ms
+2025-07-17 14:50:18.829 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Invoice - application/json null
+2025-07-17 14:50:18.829 +05:30 [INF] CORS policy execution successful.
+2025-07-17 14:50:18.829 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.InvoiceController.GetAllInvoices (VehicleServiceAPI)'
+2025-07-17 14:50:18.830 +05:30 [INF] Route matched with {action = "GetAllInvoices", controller = "Invoice"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.InvoiceDTO]]] GetAllInvoices() on controller VehicleServiceAPI.Controllers.InvoiceController (VehicleServiceAPI).
+2025-07-17 14:50:18.830 +05:30 [INF] Getting all invoices.
+2025-07-17 14:50:18.834 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT i."Id", i."Amount", i."BookingId", i."DiscountFlag", i."DiscountPercentage", i."IsDeleted", i."ServiceDetails", b."Id", b."IsDeleted", b."SlotId", b."Status", b."UserId", b."VehicleId"
+FROM "Invoices" AS i
+INNER JOIN "Bookings" AS b ON i."BookingId" = b."Id"
+2025-07-17 14:50:18.837 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.839 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.841 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.859 +05:30 [INF] Executed DbCommand (18ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.861 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.872 +05:30 [INF] Executed DbCommand (10ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.876 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.879 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.881 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.885 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.889 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.891 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.894 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.896 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.897 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.899 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.905 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.906 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.908 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.909 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.911 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.912 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.913 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.914 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.915 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.916 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.918 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.920 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.922 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.923 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.924 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.925 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.926 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.927 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.928 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.929 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.930 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.931 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.932 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.934 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.936 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.937 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.938 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.939 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.940 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.941 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.943 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.944 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 14:50:18.944 +05:30 [INF] Retrieved 12 invoices.
+2025-07-17 14:50:18.944 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.InvoiceDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-17 14:50:18.945 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.InvoiceController.GetAllInvoices (VehicleServiceAPI) in 115.0718ms
+2025-07-17 14:50:18.945 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.InvoiceController.GetAllInvoices (VehicleServiceAPI)'
+2025-07-17 14:50:18.945 +05:30 [INF] HTTP GET /api/v1/Invoice responded 200 in 115.5455 ms
+2025-07-17 14:50:18.945 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Invoice - 200 null application/json; charset=utf-8 116.5975ms
+2025-07-17 15:47:53.700 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5192/api/v1/Auth/login - application/json 59
+2025-07-17 15:47:53.703 +05:30 [INF] CORS policy execution successful.
+2025-07-17 15:47:53.704 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.AuthController.Login (VehicleServiceAPI)'
+2025-07-17 15:47:53.705 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(VehicleServiceAPI.Models.DTOs.LoginRequestDTO) on controller VehicleServiceAPI.Controllers.AuthController (VehicleServiceAPI).
+2025-07-17 15:47:53.713 +05:30 [INF] Attempting to authenticate user with email: user1@gmail.com
+2025-07-17 15:47:53.742 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[@__email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Email" = @__email_0 AND NOT (u."IsDeleted")
+LIMIT 1
+2025-07-17 15:47:53.747 +05:30 [INF] User authenticated successfully: user1@gmail.com
+2025-07-17 15:47:53.748 +05:30 [INF] Executing OkObjectResult, writing value of type 'VehicleServiceAPI.Models.DTOs.LoginResponseDTO'.
+2025-07-17 15:47:53.748 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.AuthController.Login (VehicleServiceAPI) in 43.118ms
+2025-07-17 15:47:53.749 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.AuthController.Login (VehicleServiceAPI)'
+2025-07-17 15:47:53.749 +05:30 [INF] HTTP POST /api/v1/Auth/login responded 200 in 44.5043 ms
+2025-07-17 15:47:53.749 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5192/api/v1/Auth/login - 200 null application/json; charset=utf-8 48.9227ms
+2025-07-17 15:48:24.919 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Booking/user - null null
+2025-07-17 15:48:24.920 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingsByCurrentUser (VehicleServiceAPI)'
+2025-07-17 15:48:24.933 +05:30 [INF] Route matched with {action = "GetBookingsByCurrentUser", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.BookingDTO]]] GetBookingsByCurrentUser() on controller VehicleServiceAPI.Controllers.BookingController (VehicleServiceAPI).
+2025-07-17 15:48:24.938 +05:30 [INF] Getting bookings for user ID 4.
+2025-07-17 15:48:24.966 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."IsDeleted", b."SlotId", b."Status", b."UserId", b."VehicleId", s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Bookings" AS b
+INNER JOIN "ServiceSlots" AS s ON b."SlotId" = s."Id"
+INNER JOIN "Vehicles" AS v ON b."VehicleId" = v."Id"
+INNER JOIN "Users" AS u ON b."UserId" = u."Id"
+WHERE b."UserId" = @__userId_0
+2025-07-17 15:48:24.970 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 15:48:24.971 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 15:48:24.972 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 15:48:24.973 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 15:48:24.973 +05:30 [INF] Retrieved 4 bookings for user ID 4.
+2025-07-17 15:48:24.974 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.BookingDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-17 15:48:24.974 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.BookingController.GetBookingsByCurrentUser (VehicleServiceAPI) in 41.011ms
+2025-07-17 15:48:24.975 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingsByCurrentUser (VehicleServiceAPI)'
+2025-07-17 15:48:24.975 +05:30 [INF] HTTP GET /api/v1/Booking/user responded 200 in 54.4352 ms
+2025-07-17 15:48:24.975 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Booking/user - 200 null application/json; charset=utf-8 56.343ms
+2025-07-17 17:37:08.162 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Auth/refresh - null null
+2025-07-17 17:37:08.165 +05:30 [INF] CORS policy execution successful.
+2025-07-17 17:37:08.168 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Auth/refresh - 204 null null 6.3628ms
+2025-07-17 17:37:08.170 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5192/api/v1/Auth/refresh - application/json 300
+2025-07-17 17:37:08.170 +05:30 [INF] CORS policy execution successful.
+2025-07-17 17:37:08.172 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.AuthController.Refresh (VehicleServiceAPI)'
+2025-07-17 17:37:08.186 +05:30 [INF] Route matched with {action = "Refresh", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Refresh(VehicleServiceAPI.Models.DTOs.RefreshTokenRequestDTO) on controller VehicleServiceAPI.Controllers.AuthController (VehicleServiceAPI).
+2025-07-17 17:37:08.328 +05:30 [INF] Executed DbCommand (12ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.331 +05:30 [INF] Executing OkObjectResult, writing value of type 'VehicleServiceAPI.Models.DTOs.LoginResponseDTO'.
+2025-07-17 17:37:08.331 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.AuthController.Refresh (VehicleServiceAPI) in 145.2106ms
+2025-07-17 17:37:08.331 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.AuthController.Refresh (VehicleServiceAPI)'
+2025-07-17 17:37:08.331 +05:30 [INF] HTTP POST /api/v1/Auth/refresh responded 200 in 159.7077 ms
+2025-07-17 17:37:08.332 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5192/api/v1/Auth/refresh - 200 null application/json; charset=utf-8 162.2367ms
+2025-07-17 17:37:08.344 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Invoice - null null
+2025-07-17 17:37:08.345 +05:30 [INF] CORS policy execution successful.
+2025-07-17 17:37:08.345 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Invoice - 204 null null 1.0378ms
+2025-07-17 17:37:08.347 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Invoice - application/json null
+2025-07-17 17:37:08.347 +05:30 [INF] CORS policy execution successful.
+2025-07-17 17:37:08.349 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.InvoiceController.GetAllInvoices (VehicleServiceAPI)'
+2025-07-17 17:37:08.349 +05:30 [INF] Route matched with {action = "GetAllInvoices", controller = "Invoice"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.InvoiceDTO]]] GetAllInvoices() on controller VehicleServiceAPI.Controllers.InvoiceController (VehicleServiceAPI).
+2025-07-17 17:37:08.349 +05:30 [INF] Getting all invoices.
+2025-07-17 17:37:08.354 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT i."Id", i."Amount", i."BookingId", i."DiscountFlag", i."DiscountPercentage", i."IsDeleted", i."ServiceDetails", b."Id", b."IsDeleted", b."SlotId", b."Status", b."UserId", b."VehicleId"
+FROM "Invoices" AS i
+INNER JOIN "Bookings" AS b ON i."BookingId" = b."Id"
+2025-07-17 17:37:08.355 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.357 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.358 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.360 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.361 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.361 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.362 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.362 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.363 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.363 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.364 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.364 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.365 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.365 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.366 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.367 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.368 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.369 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.370 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.370 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.371 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.372 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.382 +05:30 [INF] Executed DbCommand (10ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.383 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.384 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.401 +05:30 [INF] Executed DbCommand (17ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.402 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.403 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.403 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.404 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.405 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.405 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.406 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.406 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.407 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.408 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.408 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.409 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.409 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.410 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.410 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.410 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.411 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.412 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.415 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.417 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.418 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.419 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 17:37:08.419 +05:30 [INF] Retrieved 12 invoices.
+2025-07-17 17:37:08.420 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.InvoiceDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-17 17:37:08.420 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.InvoiceController.GetAllInvoices (VehicleServiceAPI) in 71.004ms
+2025-07-17 17:37:08.420 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.InvoiceController.GetAllInvoices (VehicleServiceAPI)'
+2025-07-17 17:37:08.420 +05:30 [INF] HTTP GET /api/v1/Invoice responded 200 in 71.4979 ms
+2025-07-17 17:37:08.421 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Invoice - 200 null application/json; charset=utf-8 73.4314ms
+2025-07-17 18:30:08.252 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Invoice - null null
+2025-07-17 18:30:08.255 +05:30 [INF] CORS policy execution successful.
+2025-07-17 18:30:08.257 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Invoice - 204 null null 5.7691ms
+2025-07-17 18:30:08.262 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Invoice - application/json null
+2025-07-17 18:30:08.263 +05:30 [INF] CORS policy execution successful.
+2025-07-17 18:30:08.264 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.InvoiceController.GetAllInvoices (VehicleServiceAPI)'
+2025-07-17 18:30:08.265 +05:30 [INF] Route matched with {action = "GetAllInvoices", controller = "Invoice"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.InvoiceDTO]]] GetAllInvoices() on controller VehicleServiceAPI.Controllers.InvoiceController (VehicleServiceAPI).
+2025-07-17 18:30:08.268 +05:30 [INF] Getting all invoices.
+2025-07-17 18:30:08.270 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT i."Id", i."Amount", i."BookingId", i."DiscountFlag", i."DiscountPercentage", i."IsDeleted", i."ServiceDetails", b."Id", b."IsDeleted", b."SlotId", b."Status", b."UserId", b."VehicleId"
+FROM "Invoices" AS i
+INNER JOIN "Bookings" AS b ON i."BookingId" = b."Id"
+2025-07-17 18:30:08.287 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.294 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.301 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.303 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.305 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.308 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.309 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.310 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.311 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.312 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.313 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.313 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.314 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.315 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.317 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.317 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.318 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.319 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.320 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.322 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.323 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.325 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.326 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.326 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.327 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.328 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.329 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.329 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.330 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.332 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.333 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.334 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.335 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.335 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.336 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.337 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.338 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.339 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.339 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.340 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.341 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.342 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.343 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.343 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.345 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.345 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "ServiceSlots" AS s
+INNER JOIN "Users" AS u ON s."MechanicID" = u."Id"
+WHERE s."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.347 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.347 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-07-17 18:30:08.347 +05:30 [INF] Retrieved 12 invoices.
+2025-07-17 18:30:08.348 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.InvoiceDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-17 18:30:08.349 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.InvoiceController.GetAllInvoices (VehicleServiceAPI) in 84.3379ms
+2025-07-17 18:30:08.349 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.InvoiceController.GetAllInvoices (VehicleServiceAPI)'
+2025-07-17 18:30:08.350 +05:30 [INF] HTTP GET /api/v1/Invoice responded 200 in 85.1344 ms
+2025-07-17 18:30:08.350 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Invoice - 200 null application/json; charset=utf-8 87.3492ms
+2025-07-17 21:10:01.054 +05:30 [INF] Application is shutting down...
