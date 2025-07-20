@@ -135,7 +135,7 @@ namespace VehicleServiceAPI.Services
                 DrawRow("Mechanic", dto.MechanicName);
                 DrawRow("Vehicle", dto.RegistrationNumber);
                 DrawRow("Details", dto.ServiceDetails);
-                DrawRow("Amount", $"Rs.{dto.Amount:F2}");
+                DrawRow("Amount", $"Rs.{dto.Amount-(dto.Amount*dto.DiscountPercentage/100):F2}");
 
                 document.Save(ms, false);
                 pdfBytes = ms.ToArray();

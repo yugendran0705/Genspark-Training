@@ -29,7 +29,7 @@
           </td>
           <td class="px-4 py-2 border">{{ invoice.slotDateTime | date: 'medium' }}</td>
           <td class="px-4 py-2 border">{{ invoice.mechanicName }}</td>
-          <td class="px-4 py-2 border">₹{{ invoice.amount }}</td>
+          <td class="px-4 py-2 border">₹{{ invoice.amount - (invoice.amount*(invoice.discountPercentage/100)) }}</td>
         </tr>
       </tbody>
     </table>
