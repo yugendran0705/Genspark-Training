@@ -14,6 +14,7 @@ export class InvoiceComponent implements OnInit {
   invoice: any = null;
   loading = true;
   error: string | null = null;
+  discountedAmount: number | null = null;
 
   constructor(
     private route: ActivatedRoute, 
@@ -27,15 +28,22 @@ export class InvoiceComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
       this.invoiceService.getInvoiceByBookingID(id).subscribe({
-          next: (data) => {
-            this.invoice = data;
-            this.loading = false;
-          },
-          error: () => {
-            this.error = 'Failed to fetch invoice.';
-            this.loading = false;
+        next: (data) => {
+          this.invoice = data;
+          this.loading = false;
+          if (this.invoice.discountFlag && this.invoice.discountPercentage > 0) {
+            this.discountedAmount = Math.round(
+              this.invoice.amount * (1 - this.invoice.discountPercentage / 100)
+            );
+          } else {
+            this.discountedAmount = null;
           }
-        });
+        },
+        error: () => {
+          this.error = 'Failed to fetch invoice.';
+          this.loading = false;
+        }
+      });
     }
   }
 

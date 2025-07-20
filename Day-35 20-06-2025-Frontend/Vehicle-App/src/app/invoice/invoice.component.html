@@ -13,7 +13,16 @@
     <div><strong>Mechanic:</strong> {{ invoice.mechanicName }}</div>
     <div><strong>Vehicle:</strong> {{ invoice.registrationNumber }}</div>
     <div><strong>Service Details:</strong> {{ invoice.serviceDetails }}</div>
-    <div><strong>Amount:</strong> ₹{{ invoice.amount }}</div>
+    <div><strong>Amount:</strong>
+      <ng-container *ngIf="invoice.discountFlag && discountedAmount !== null; else noDiscount">
+        <span class="line-through text-gray-400">₹{{ invoice.amount }}</span>
+        <span class="text-green-700 font-semibold ml-2">₹{{ discountedAmount }}</span>
+        <span class="ml-1 text-xs text-green-600">({{ invoice.discountPercentage }}% off)</span>
+      </ng-container>
+      <ng-template #noDiscount>
+        ₹{{ invoice.amount }}
+      </ng-template>
+    </div>
   </div>
 
   <hr class="my-4" />
