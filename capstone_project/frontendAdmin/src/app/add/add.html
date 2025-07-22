@@ -1,0 +1,150 @@
+<div class="container my-4">
+    <div class="mb-3">
+        <button class="btn btn-outline-secondary d-flex align-items-center" (click)="gotohome()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-arrow-left-circle mx-1" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
+            </svg>
+            <div>
+                Back
+
+            </div>
+        </button>
+    </div>
+    <h3 class="mb-4 text-center">Add Event</h3>
+
+    <form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
+        <div class="row g-3">
+
+            <!-- Title -->
+            <div class="col-md-6">
+                <label class="form-label">Title</label>
+                <input type="text" class="form-control" formControlName="title" />
+                <div *ngIf="eventForm.get('title')?.invalid && eventForm.get('title')?.touched"
+                    class="text-danger small">
+                    Title is required
+                </div>
+            </div>
+
+            <!-- Description -->
+            <div class="col-md-6">
+                <label class="form-label">Description</label>
+                <input type="text" class="form-control" formControlName="description" />
+                <div *ngIf="eventForm.get('description')?.touched && eventForm.get('description')?.invalid"
+                    class="text-danger small">
+                    <div *ngIf="eventForm.get('description')?.errors?.['required']">Description is required.</div>
+                    <div *ngIf="eventForm.get('description')?.errors?.['minlength']">Description must be at least 10
+                        characters.</div>
+                </div>
+            </div>
+
+            <!-- Context -->
+            <div class="col-12">
+                <label class="form-label">Context</label>
+                <textarea class="form-control" formControlName="context" rows="3"></textarea>
+                <div *ngIf="eventForm.get('context')?.touched && eventForm.get('context')?.invalid"
+                    class="text-danger small">
+                    <div *ngIf="eventForm.get('context')?.errors?.['required']">Context is required.</div>
+                    <div *ngIf="eventForm.get('context')?.errors?.['minlength']">Context must be at least 10 characters.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Address -->
+            <div class="col-md-6">
+                <label class="form-label">Address</label>
+                <input type="text" class="form-control" formControlName="address" />
+                <div *ngIf="eventForm.get('address')?.touched && eventForm.get('address')?.invalid"
+                    class="text-danger small">
+                    <div *ngIf="eventForm.get('address')?.errors?.['required']">Address is required.</div>
+                    <div *ngIf="eventForm.get('address')?.errors?.['minlength']">Address must be at least 10 characters.
+                    </div>
+                </div>
+            </div>
+
+            <!-- City -->
+            <div class="col-md-6">
+                <label class="form-label">City</label>
+                <input type="text" class="form-control" formControlName="city" />
+                <div *ngIf="eventForm.get('city')?.invalid && eventForm.get('city')?.touched" class="text-danger small">
+                    City is required
+                </div>
+            </div>
+
+            <!-- Category  -->
+            <div class="col-md-6">
+                <label class="form-label">Category</label>
+                <input type="text" class="form-control" formControlName="categoryName" />
+                <div *ngIf="eventForm.get('categoryName')?.invalid && eventForm.get('categoryName')?.touched"
+                    class="text-danger small">
+                    categoryName is required
+                </div>
+            </div>
+
+            <!-- imageurl -->
+            <div class="col-md-6">
+                <label class="form-label">Imageurl</label>
+                <input type="text" class="form-control" formControlName="imageurl" />
+                <div *ngIf="eventForm.get('imageurl')?.invalid && eventForm.get('imageurl')?.touched"
+                    class="text-danger small">
+                    imageurl is required
+                </div>
+            </div>
+
+            <!-- Price -->
+            <div class="col-md-3">
+                <label class="form-label">Price</label>
+                <input type="number" class="form-control" formControlName="price" />
+                <div *ngIf="eventForm.get('price')?.invalid && eventForm.get('price')?.touched"
+                    class="text-danger small">
+                    Enter valid price
+                </div>
+            </div>
+
+            <!-- Ticket Count -->
+            <div class="col-md-3">
+                <label class="form-label">Ticket Count</label>
+                <input type="number" class="form-control" formControlName="ticketcount" />
+                <div *ngIf="eventForm.get('ticketcount')?.invalid && eventForm.get('ticketcount')?.touched"
+                    class="text-danger small">
+                    Enter valid ticket count
+                </div>
+            </div>
+
+            <!-- Date -->
+            <div class="col-md-6">
+                <label class="form-label">Date & Time</label>
+                <input type="datetime-local" class="form-control" formControlName="date" />
+                <div *ngIf="eventForm.get('date')?.invalid && eventForm.get('date')?.touched" class="text-danger small">
+                    Date is required
+                </div>
+            </div>
+
+            <!-- Creator Email -->
+            <div class="col-md-6">
+                <label class="form-label">Creator Email</label>
+                <input type="email" class="form-control" [value]="creatorEmail" disabled />
+            </div>
+
+            <!-- Submit -->
+            <div class="col-12 d-flex justify-content-end">
+                <button class="btn btn-danger" type="submit" [disabled]="eventForm.invalid">Add New Event</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<!-- Toast -->
+<div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1100;">
+    <div class="toast align-items-center text-white bg-success border-0" role="alert" [class.show]="showToast"
+        [class.hide]="!showToast">
+        <div class="d-flex">
+            <div class="toast-body">
+                Event Added Successfully!
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" (click)="closeToast()"></button>
+        </div>
+    </div>
+</div>

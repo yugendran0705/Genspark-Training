@@ -1,0 +1,32 @@
+.toast-container {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1100;
+}
+
+#profileDropdown {
+  cursor: pointer;
+}
+
+.logout{
+  cursor: pointer;
+
+}
+
+.nav-link:hover{
+  color: red;
+  cursor: pointer;
+}
+
+.notification-dropdown {
+  min-width: 250px;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 1050;
+}
+
+.cross{
+  cursor: pointer;
+}
+

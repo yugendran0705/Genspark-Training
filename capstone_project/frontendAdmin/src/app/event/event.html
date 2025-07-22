@@ -1,0 +1,148 @@
+<div class="container my-4">
+  <div class="mb-3">
+        <button class="btn btn-outline-secondary d-flex align-items-center" (click)="gotohome()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-arrow-left-circle mx-1" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
+            </svg>
+            <div>
+                Back
+
+            </div>
+        </button>
+    </div>
+  <h3 class="mb-4 text-center">Edit Event</h3>
+
+  <form #eventForm="ngForm" novalidate>
+    <div class="row g-3">
+
+      <!-- Title -->
+      <div class="col-md-6">
+        <label class="form-label">Title</label>
+        <input type="text" class="form-control" name="title" required [(ngModel)]="event.title" #title="ngModel" />
+        <div *ngIf="title.invalid && title.touched" class="text-danger small">
+          Title is required
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div class="col-md-6">
+        <label class="form-label">Description</label>
+        <input type="text" class="form-control" name="description" required [(ngModel)]="event.description"
+          #description="ngModel" />
+        <div *ngIf="description.invalid && description.touched" class="text-danger small">
+          Description is required
+        </div>
+      </div>
+
+      <!-- Context -->
+      <div class="col-12">
+        <label class="form-label">Context</label>
+        <textarea class="form-control" name="context" [(ngModel)]="event.context" rows="3"></textarea>
+      </div>
+
+      <!-- Address -->
+      <div class="col-md-6">
+        <label class="form-label">Address</label>
+        <input type="text" class="form-control" name="address" required [(ngModel)]="event.address"
+          #address="ngModel" />
+        <div *ngIf="address.invalid && address.touched" class="text-danger small">
+          Address is required
+        </div>
+      </div>
+
+      <!-- City -->
+      <div class="col-md-6">
+        <label class="form-label">City</label>
+        <input type="text" class="form-control" name="city" required [(ngModel)]="event.city" #city="ngModel" disabled />
+        <div *ngIf="city.invalid && city.touched" class="text-danger small">
+          City is required
+        </div>
+      </div>
+
+      <!-- Category -->
+      <div class="col-md-6">
+        <label class="form-label">Category</label>
+        <input type="text" class="form-control" [value]="event.category?.name" disabled />
+      </div>
+
+      <!-- Price -->
+      <div class="col-md-3">
+        <label class="form-label">Price</label>
+        <input type="number" class="form-control" name="price" required min="1" [(ngModel)]="event.price"
+          #price="ngModel" disabled />
+        <div *ngIf="price.invalid && price.touched" class="text-danger small">
+          Enter valid price
+        </div>
+      </div>
+
+      <!-- Ticket Count -->
+      <div class="col-md-3">
+        <label class="form-label">Ticket Count</label>
+        <input type="number" class="form-control" name="ticketcount" required min="1" [(ngModel)]="event.ticketcount"
+          #ticketcount="ngModel" />
+        <div *ngIf="ticketcount.invalid && ticketcount.touched" class="text-danger small">
+          Enter valid ticket count
+        </div>
+      </div>
+
+
+
+      <!-- Creator Email -->
+      <div class="col-md-6">
+        <label class="form-label">Creator Email</label>
+        <input type="email" class="form-control" [value]="event.creatorEmail" disabled />
+      </div>
+
+      <!-- Submit -->
+      <div class="col-12 d-flex justify-content-end">
+        <button class="btn btn-success" (click)="updateEvent(eventForm)" [disabled]="eventForm.invalid">Update Event</button>
+        <button class="btn btn btn-danger ms-2 " (click)="openCancelModal(event.id)">Cancel Event</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!-- Toasts -->
+
+<div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1100;">
+  <div class="toast align-items-center text-white bg-success border-0" role="alert" [class.show]="showToast"
+    [class.hide]="!showToast">
+    <div class="d-flex">
+      <div class="toast-body">
+        Updated Successfully!
+      </div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" (click)="closeToast()"></button>
+    </div>
+  </div>
+</div>
+
+<div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1100;">
+  <div class="toast align-items-center text-white bg-danger border-0" role="alert" [class.show]="showDeleteToast"
+    [class.hide]="!showDeleteToast">
+    <div class="d-flex">
+      <div class="toast-body">
+        Event Cancelled Successfully!
+      </div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" (click)="closeDeleteToast()"></button>
+    </div>
+  </div>
+</div>
+
+<!-- Cancel Modal -->
+<div class="modal fade" id="cancelModal" tabindex="-1" aria-labelledby="cancelModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0 shadow">
+      <div class="modal-header bg-light">
+        <h5 class="modal-title" id="cancelModalLabel">Cancel Event</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">Are you sure you want to cancel this Event?</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-danger" (click)="confirmCancel()">Yes, Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

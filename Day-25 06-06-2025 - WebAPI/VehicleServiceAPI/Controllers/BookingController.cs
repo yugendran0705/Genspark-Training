@@ -111,6 +111,39 @@ namespace VehicleServiceAPI.Controllers
         }
 
         /// <summary>
+        /// Retrieves all bookings made by mechanic by their ID. (Mechanic access only)
+        /// </summary>
+        [Authorize(Policy = "MechanicAccess")]
+        [HttpGet("mechanic")]
+        public async Task<ActionResult<IEnumerable<BookingDTO>>> GetBookingsByMechanicId()
+        {
+            try
+            {
+                var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+                if (userIdClaim == null)
+                {
+                    _logger.LogWarning("User ID not found in token during .");
+                    return Unauthorized("User ID not found in token.");
+                }
+
+                int mechanicId = int.Parse(userIdClaim.Value);
+                var bookings = await _bookingService.GetBookingsByMechanicIdAsync(mechanicId);
+                _logger.LogInformation("Retrieved {Count} bookings for mechanic ID {MechanicId}.", bookings?.Count() ?? 0, mechanicId);
+                return Ok(bookings);
+            }
+            catch (InvalidOperationException ex)
+            {
+                _logger.LogWarning(ex, "Mechanic not found.");
+                return NotFound(new { error = ex.Message });
+            }   
+            catch(Exception ex)
+            {
+                _logger.LogError(ex, "Error retrieving bookings for mechanic.");
+                return BadRequest(new { error = ex.Message });
+            }
+        }
+
+        /// <summary>
         /// Updates an existing booking.
         /// </summary>
         [Authorize(Policy = "MechanicAccess")]

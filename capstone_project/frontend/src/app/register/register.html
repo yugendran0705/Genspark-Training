@@ -1,0 +1,82 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card p-4 shadow rounded" style="width: 100%; max-width: 450px;">
+    <h4 class="text-center mb-4">Register</h4>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onRegisterClick()">
+
+      <!-- Step 1: Name & Email -->
+      <div *ngIf="currentStep === 1">
+        <div class="mb-3">
+          <label class="form-label">Name</label>
+          <input type="text" formControlName="name" class="form-control" placeholder="Enter your name">
+          <div *ngIf="registerForm.get('name')?.invalid && registerForm.get('name')?.touched" class="text-danger small">
+            Name is required.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Email</label>
+          <input type="email" formControlName="email" class="form-control" placeholder="Enter your email">
+          <div *ngIf="emailExists" class="text-danger small">Email already exists.</div>
+          <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="text-danger small">
+            Valid email is required.
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-danger w-100"
+          [disabled]="registerForm.get('email')?.invalid || registerForm.get('name')?.invalid"
+          (click)="checkEmail()">Next</button>
+      </div>
+
+      <!-- Step 2: Password, Confirm Password, Phone -->
+      <div *ngIf="currentStep === 2">
+        <div class="mb-3">
+          <label class="form-label">Password</label>
+          <input type="password" class="form-control" formControlName="password" placeholder="Password" />
+          <div *ngIf="registerForm.get('password')?.errors?.['weakPassword'] && registerForm.get('password')?.touched"
+            class="text-danger small">
+            Password must be at least 6 characters, contain a number and a symbol.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Confirm Password</label>
+          <input type="password" class="form-control" formControlName="confirmPassword" placeholder="Confirm Password" />
+          <div *ngIf="registerForm.errors?.['passwordMismatch'] && registerForm.get('confirmPassword')?.touched"
+            class="text-danger small">
+            Passwords do not match.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Phone Number</label>
+          <input type="tel" formControlName="phone" class="form-control" placeholder="Enter 10-digit phone number">
+          <div *ngIf="registerForm.get('phone')?.invalid && registerForm.get('phone')?.touched"
+            class="text-danger small">
+            Enter a valid 10-digit phone number.
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-danger w-100" [disabled]="registerForm.invalid">Register</button>
+      </div>
+
+      <div class="text-center mt-3">
+        <span class="text-muted">Already have an account?</span>
+        <a href="/login" class="text-danger fw-bold ms-1">Login</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1100;">
+  <div class="toast align-items-center text-white bg-success border-0" role="alert" [class.show]="showToast"
+    [class.hide]="!showToast">
+    <div class="d-flex">
+      <div class="toast-body">
+        Registered successfully!
+      </div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" (click)="closeToast()"></button>
+    </div>
+  </div>
+</div>

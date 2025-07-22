@@ -12,5 +12,6 @@ namespace VehicleServiceAPI.Interfaces
         Task<IEnumerable<BookingDTO>> GetBookingsByUserIdAsync(int userId);
         Task<IEnumerable<BookingDTO>> GetAllBookingsAsync();
         Task<IEnumerable<BookingDTO>> GetBookingsByStatusAsync(string status);
+        Task<IEnumerable<BookingDTO>> GetBookingsByMechanicIdAsync(int mechanicId);
     }
 }

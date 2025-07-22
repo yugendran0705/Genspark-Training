@@ -1,0 +1,104 @@
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="d-flex m-2 flex-column justify-content-center align-items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                    class="bi bi-person-circle" viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                    <path fill-rule="evenodd"
+                        d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+                </svg>
+                <div class="text-center fs-2">
+                    Profile Information
+                </div>
+            </div>
+            <div class="card shadow rounded">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="rounded-circle bg-danger text-white d-flex justify-content-center align-items-center"
+                            style="width: 60px; height: 60px; font-size: 24px;">
+                            {{ userdata.name?.charAt(0).toUpperCase() || '?' }}
+                        </div>
+                        <div class="ms-3">
+                            <h4 class="mb-0">{{ userdata.name || 'N/A' }}</h4>
+                            <small class="text-muted">Email- {{ userdata.email }}</small>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3 gap-2">
+                            <div class="d-flex my-2 flex-col align-items-center ">
+                                <div class="text-secondary">Username</div>
+                                <p class="mb-0">:{{ userdata.name}}</p>
+                            </div>
+                            <div class="d-flex my-2 flex-col align-items-center ">
+                                <div class="text-secondary">Email</div>
+                                <p class="mb-0">:{{ userdata.email}}</p>
+                            </div>
+                            <div class="d-flex my-2 flex-col align-items-center ">
+                                <div class="text-secondary">phoneNumber</div>
+                                <p class="mb-0">:{{ userdata.phoneNumber}}</p>
+                            </div>
+                            <div>
+                                <button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#editProfileModal" (click)="openEditModal()">Edit Profile</button>
+
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <h6 class="text-secondary">Total Tickets Booked</h6>
+                            <p class="mb-0">
+                                <span class="badge bg-danger fs-6 px-3">{{ ticketCount }}</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Profile Modal -->
+<div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" style="backdrop-filter: blur(5px);">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editProfileLabel">Edit Profile</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <form [formGroup]="editFormGroup" (ngSubmit)="submitEdit()">
+        <div class="modal-body">
+          <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" formControlName="name" />
+            <div *ngIf="editFormGroup.get('name')?.invalid && editFormGroup.get('name')?.touched" class="text-danger small">
+              Name is required (min 3 characters).
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" formControlName="email"  />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Phone</label>
+            <input type="tel" class="form-control" formControlName="phoneNumber" />
+            <div *ngIf="editFormGroup.get('phoneNumber')?.invalid && editFormGroup.get('phoneNumber')?.touched" class="text-danger small">
+              Enter a valid 10-digit phone number.
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-danger" [disabled]="editFormGroup.invalid">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+

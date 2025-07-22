@@ -1,0 +1,24 @@
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header">
+      <h4>Upload Training Video</h4>
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="onUpload()" #videoForm="ngForm">
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input id="title" type="text" class="form-control" name="title" [(ngModel)]="title" required>
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <input id="description" type="text" class="form-control" name="description" [(ngModel)]="description" required>
+        </div>
+        <div class="mb-3">
+          <label for="videoFile" class="form-label">Video File</label>
+          <input id="videoFile" type="file" class="form-control" (change)="onFileSelected($event)" accept="video/*" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Upload</button>
+      </form>
+    </div>
+  </div>
+</div>

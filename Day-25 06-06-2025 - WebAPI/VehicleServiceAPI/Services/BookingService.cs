@@ -122,15 +122,30 @@ namespace VehicleServiceAPI.Services
 
             return bookingDtos;
         }
+        
+        /// <summary>
+        /// Retrieves all bookings made by a specific mechanic.
+        /// </summary>
+        public async Task<IEnumerable<BookingDTO>> GetBookingsByMechanicIdAsync(int mechanicId)
+        {
+            var bookings = await _bookingRepository.GetBookingsByMechanicIdAsync(mechanicId);
+            var bookingDtos = new List<BookingDTO>();
+            foreach (var booking in bookings)
+            {
+                var dto = await MapBookingToDto(booking);
+                bookingDtos.Add(dto);
+            }
+            return bookingDtos;
+        }
 
         #region Mapping Methods
 
-        // Maps a Booking domain model to a BookingDTO.
+            // Maps a Booking domain model to a BookingDTO.
         private async Task<BookingDTO> MapBookingToDto(Booking booking)
         {
             // Console.WriteLine($"Id: {booking.Id}, UserId: {booking.UserId}, Name: {booking.User.Name}, Email: {booking.User.Email}, Phone: {booking.User.Phone}, SlotId: {booking.SlotId}, SlotStatus: {booking.ServiceSlot.Status}, SlotDateTime: {booking.ServiceSlot.SlotDateTime}, MechanicID: {booking.ServiceSlot.MechanicID}, MechanicName: {booking.ServiceSlot.Mechanic.Name}, VehicleId: {booking.VehicleId}, Make: {booking.Vehicle.Make}, Model: {booking.Vehicle.Model}, Year: {booking.Vehicle.Year}, RegistrationNumber: {booking.Vehicle.RegistrationNumber}, Status: {booking.Status}");
             var mechanic = await _userRepository.GetByIdAsync(booking.ServiceSlot.MechanicID);
-            
+
             return new BookingDTO
             {
                 Id = booking.Id,

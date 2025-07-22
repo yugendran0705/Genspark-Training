@@ -19,7 +19,7 @@ namespace VehicleServiceAPI.Models.DTOs
         public string ServiceStatus { get; set; }
         public decimal Amount { get; set; }
         public string ServiceDetails { get; set; }
-        public bool IsDeleted { get; set; } = false;
+        public bool IsDeleted { get; set; }
     }
 
     public class CreateInvoiceDTO

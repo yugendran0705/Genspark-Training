@@ -1,0 +1,55 @@
+<!-- <p>login works!</p>
+
+<button (click)="onLoginClick()">Login</button> -->
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card p-4 shadow rounded" style="width: 100%; max-width: 400px;">
+    <h4 class="text-center mb-4 d-flex justify-content-center">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+        class="bi bi-box-arrow-in-right mx-1" viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+          d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z" />
+        <path fill-rule="evenodd"
+          d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z" />
+      </svg>
+      <div>Login</div>
+    </h4>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onLoginClick()">
+      <div class="mb-3">
+        <label for="username" class="form-label ">Username</label>
+        <input type="text" formControlName="username" class="form-control " id="username" placeholder="Enter username">
+        <div *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched" class="text-danger small">
+          Username is required.
+        </div>
+      </div>
+      
+
+      <div class="mb-3">
+        <label for="password" class="form-label ">Password</label>
+        <input type="password" formControlName="password" class="form-control " id="password"
+          placeholder="Enter password">
+        <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="text-danger small">
+          Password is required.
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-danger w-100" [disabled]="loginForm.invalid">Login</button>
+    </form>
+
+    <div class="text-center mt-3">
+      <span class="text-muted">Don't have an account?</span>
+      <a href="/register" class="text-danger fw-bold m-1"> Register</a>
+    </div>
+  </div>
+</div>
+<div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1100;">
+  <div class="toast align-items-center text-white bg-success border-0" role="alert" [class.show]="showToast"
+    [class.hide]="!showToast">
+    <div class="d-flex">
+      <div class="toast-body">
+        Login successful! Welcome {{ loginForm.value.username }}.
+      </div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" (click)="closeToast()"></button>
+    </div>
+  </div>
+</div>

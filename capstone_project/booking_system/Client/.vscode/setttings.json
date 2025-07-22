@@ -1,0 +1,12 @@
+{
+  "liveServer.settings.fullReload": false,
+  "liveServer.settings.ignoreFiles": [
+    "*/.cs",
+    "*/.js",
+    "*/.json",
+    "*/.csproj",
+    "*/bin/*",
+    "*/obj/*"
+  ],
+  "liveServer.settings.wait": 1000
+}

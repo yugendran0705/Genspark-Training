@@ -16,7 +16,15 @@ export class InvoicesComponent implements OnInit {
 
   ngOnInit(): void {
     this.invoiceService.getAllInvoices().subscribe({
-      next: (data) => this.invoices = data,
+      next: (data) => {
+        for (const invoice of data) {
+          this.invoices.push(invoice);
+          // if (!invoice.isDeleted) {
+          // }
+        }
+        this.invoices.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+        console.log('Invoices fetched successfully:', this.invoices);
+      },
       error: () => console.error('Failed to fetch invoices')
     });
   }

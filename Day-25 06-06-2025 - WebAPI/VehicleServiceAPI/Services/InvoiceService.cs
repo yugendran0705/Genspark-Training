@@ -59,6 +59,13 @@ namespace VehicleServiceAPI.Services
             {
                 throw new InvalidOperationException("Invoice can only be created for completed bookings.");
             }
+
+            var invoiceExists = await _invoiceRepository.GetInvoiceByBookingIdAsync(invoiceEntity.BookingId);
+            if (invoiceExists != null)
+            {
+                throw new InvalidOperationException("An invoice for this booking already exists.");
+            }
+
             var createdInvoice = await _invoiceRepository.AddAsync(invoiceEntity);
             return await MapInvoiceToDto(createdInvoice);
         }
@@ -92,7 +99,7 @@ namespace VehicleServiceAPI.Services
 
         public async Task<InvoiceDTO> GetInvoiceByBookingIdAsync(int id)
         {
-            var invoiceMeta = await _invoiceRepository.GetInvoicesByBookingIdAsync(id);
+            var invoiceMeta = await _invoiceRepository.GetInvoiceByBookingIdAsync(id) ?? throw new InvalidOperationException("Invoice not found for the specified booking.");
             var dto = await MapInvoiceToDto(invoiceMeta);
             return dto;
         }
@@ -102,7 +109,7 @@ namespace VehicleServiceAPI.Services
         /// </summary>
         public async Task<InvoicePdfDTO> GetInvoicePDFByBookingIdAsync(int id)
         {
-            var invoiceMeta = await _invoiceRepository.GetInvoicesByBookingIdAsync(id);
+            var invoiceMeta = await _invoiceRepository.GetInvoiceByBookingIdAsync(id) ?? throw new InvalidOperationException("Invoice not found for the specified booking.");
             var dto = await MapInvoiceToDto(invoiceMeta);
             byte[] pdfBytes;
 
@@ -176,14 +183,14 @@ namespace VehicleServiceAPI.Services
                 MechanicName = mechanic.Name,
                 VehicleId = invoice.Booking.VehicleId,
                 RegistrationNumber = vehicle.RegistrationNumber,
+                IsDeleted = invoice.IsDeleted
             };
         }
 
         // Maps a CreateInvoiceDTO to an Invoice domain model.
         private async Task<Invoice> MapCreateDTOToInvoice(CreateInvoiceDTO request)
         {
-            var booking = await _bookingRepository.GetByIdAsync(request.BookingId);
-
+            var booking = await _bookingRepository.GetByIdAsync(request.BookingId) ?? throw new InvalidOperationException("Booking not found.");
             return new Invoice
             {
                 Amount = request.Amount,

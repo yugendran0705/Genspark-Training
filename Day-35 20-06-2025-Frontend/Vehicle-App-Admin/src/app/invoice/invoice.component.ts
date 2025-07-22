@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -18,7 +18,8 @@ export class InvoiceComponent implements OnInit {
   constructor(
     private route: ActivatedRoute, 
     private http: HttpClient,
-    private invoiceService: InvoiceService
+    private invoiceService: InvoiceService,
+    private router: Router
   ) {
 
   }
@@ -67,5 +68,19 @@ export class InvoiceComponent implements OnInit {
     });
   }
 
+  deleteInvoice(): void {
+    const id = this.invoice?.id;
+    if (!id) return;
 
+    this.invoiceService.deleteInvoice(id).subscribe({
+      next: () => {
+        alert('Invoice deleted successfully.');
+        this.invoice = null;
+        this.router.navigate([`/invoices`]);
+      },
+      error: () => {
+        alert('Failed to delete invoice. Please try again.');
+      }
+    });
+  }
 }

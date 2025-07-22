@@ -18,8 +18,11 @@
       <tbody>
         <tr
           *ngFor="let invoice of invoices"
+          [class.opacity-50]="invoice.isDeleted"
+          [class.pointer-events-none]="invoice.isDeleted"
+          [class.cursor-not-allowed]="invoice.isDeleted"
           class="hover:bg-blue-50 cursor-pointer transition"
-          (click)="viewInvoice(invoice.bookingId)"
+          (click)="!invoice.isDeleted && viewInvoice(invoice.bookingId)"
         >
           <td class="px-4 py-2 border">{{ invoice.id }}</td>
           <td class="px-4 py-2 border">{{ invoice.bookingId }}</td>

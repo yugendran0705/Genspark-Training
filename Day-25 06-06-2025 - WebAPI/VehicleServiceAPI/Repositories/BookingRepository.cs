@@ -92,5 +92,16 @@ namespace VehicleServiceAPI.Repositories
                 .Where(b => b.Status == status)
                 .ToListAsync();
         }
+
+        // Retrieve all bookings for a mechanic
+        public async Task<IEnumerable<Booking>> GetBookingsByMechanicIdAsync(int mechanicId)
+        {
+            return await _context.Bookings
+                .Include(b => b.User)
+                .Include(b => b.ServiceSlot)
+                .Include(b => b.Vehicle)
+                .Where(b => b.ServiceSlot.MechanicID == mechanicId)
+                .ToListAsync();
+        }
     }
 }

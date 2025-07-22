@@ -68,12 +68,12 @@ namespace VehicleServiceAPI.Repositories
         }
 
         // Retrieve all invoices related to a specific booking
-        public async Task<Invoice> GetInvoicesByBookingIdAsync(int bookingId)
+        public async Task<Invoice?> GetInvoiceByBookingIdAsync(int bookingId)
         {
             return await _context.Invoices
                 .Include(i => i.Booking)
                 .Where(i => i.BookingId == bookingId && !i.IsDeleted)
-                .FirstOrDefaultAsync(i => i.BookingId == bookingId) ?? throw new InvalidOperationException($"Invoice not found.");
+                .FirstOrDefaultAsync(i => i.BookingId == bookingId);
         }
     }
 }

@@ -1,0 +1,163 @@
+2025-07-18 15:17:16.080 +05:30 [ERR] An error occurred using the connection to database 'BookingDb' on server 'tcp://db:5432'.
+2025-07-18 15:18:58.624 +05:30 [ERR] An error occurred using the connection to database 'BookingDb' on server 'tcp://db:5432'.
+2025-07-18 15:20:00.770 +05:30 [ERR] Failed executing DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-07-18 15:20:49.086 +05:30 [ERR] Failed executing DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-07-18 15:20:49.353 +05:30 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-07-18 15:20:49.372 +05:30 [INF] Applying migration '20250624101900_first'.
+2025-07-18 15:20:49.427 +05:30 [INF] Applying migration '20250718095040_init'.
+2025-07-18 15:20:59.379 +05:30 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-07-18 15:20:59.724 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-07-18 15:20:59.731 +05:30 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-07-18 15:20:59.732 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2025-07-18 15:20:59.732 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-07-18 15:20:59.736 +05:30 [INF] No migrations were applied. The database is already up to date.
+2025-07-18 15:20:59.859 +05:30 [INF] User profile is available. Using '/Users/yugendransunder/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-07-18 15:20:59.953 +05:30 [INF] Now listening on: http://localhost:5136
+2025-07-18 15:20:59.955 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-18 15:20:59.955 +05:30 [INF] Hosting environment: Development
+2025-07-18 15:20:59.955 +05:30 [INF] Content root path: /Users/yugendransunder/Documents/Genspark-training/Genspark-Training/capstone_project/booking_system
+2025-07-18 15:21:02.921 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5136/ - null null
+2025-07-18 15:21:02.970 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-07-18 15:21:03.023 +05:30 [INF] HTTP GET / responded 404 in 1.1184 ms
+2025-07-18 15:21:03.039 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5136/ - 404 0 null 119.9963ms
+2025-07-18 15:21:03.047 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5136/, Response status code: 404
+2025-07-18 15:21:09.160 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5136/swagger - null null
+2025-07-18 15:21:09.164 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5136/swagger - 301 0 null 4.0103ms
+2025-07-18 15:21:09.167 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5136/swagger/index.html - null null
+2025-07-18 15:21:09.243 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5136/swagger/index.html - 200 null text/html;charset=utf-8 75.7612ms
+2025-07-18 15:21:09.268 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5136/swagger/swagger-ui.css - null null
+2025-07-18 15:21:09.272 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5136/swagger/index.css - null null
+2025-07-18 15:21:09.273 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5136/swagger/swagger-ui-bundle.js - null null
+2025-07-18 15:21:09.273 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5136/swagger/swagger-ui-standalone-preset.js - null null
+2025-07-18 15:21:09.273 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5136/swagger/index.js - null null
+2025-07-18 15:21:09.275 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5136/swagger/index.js - 200 null application/javascript;charset=utf-8 1.5403ms
+2025-07-18 15:21:09.283 +05:30 [INF] Sending file. Request path: '/index.css'. Physical path: 'N/A'
+2025-07-18 15:21:09.283 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5136/swagger/index.css - 200 202 text/css 10.8111ms
+2025-07-18 15:21:09.294 +05:30 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-07-18 15:21:09.294 +05:30 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-07-18 15:21:09.297 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5136/swagger/swagger-ui-standalone-preset.js - 200 229223 text/javascript 23.8477ms
+2025-07-18 15:21:09.297 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5136/swagger/swagger-ui.css - 200 154949 text/css 28.7832ms
+2025-07-18 15:21:09.305 +05:30 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-07-18 15:21:09.305 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5136/swagger/swagger-ui-bundle.js - 200 1484234 text/javascript 32.3337ms
+2025-07-18 15:21:09.462 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5136/swagger/v1/swagger.json - null null
+2025-07-18 15:21:09.482 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5136/swagger/favicon-32x32.png - null null
+2025-07-18 15:21:09.482 +05:30 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-07-18 15:21:09.482 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5136/swagger/favicon-32x32.png - 200 628 image/png 0.6754ms
+2025-07-18 15:21:09.579 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5136/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 117.4256ms
+2025-07-18 15:23:32.792 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5136/api/v1/Admin/register - application/json 107
+2025-07-18 15:23:32.796 +05:30 [INF] CORS policy execution failed.
+2025-07-18 15:23:32.796 +05:30 [INF] Request origin http://localhost:5136 does not have permission to access the resource.
+2025-07-18 15:23:32.799 +05:30 [INF] Executing endpoint 'BookingSystem.Controllers.AdminController.RegisterAdmin (booking_system)'
+2025-07-18 15:23:32.815 +05:30 [INF] Route matched with {action = "RegisterAdmin", controller = "Admin"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[BookingSystem.Models.Admin]] RegisterAdmin(BookingSystem.Models.DTOs.AdminDto) on controller BookingSystem.Controllers.AdminController (booking_system).
+2025-07-18 15:23:33.224 +05:30 [INF] Executed DbCommand (18ms) [Parameters=[@__key_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Email", u."Name", u."Password", u."Role", u."WalletCustomerEmail"
+FROM "Users" AS u
+WHERE u."Email" = @__key_0
+LIMIT 2
+2025-07-18 15:23:33.688 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?', @p4='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Users" ("Email", "Name", "Password", "Role", "WalletCustomerEmail")
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-07-18 15:23:33.729 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?', @p1='?' (DbType = Int32), @p2='?', @p3='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Admins" ("Email", "Id", "Name", "PhoneNumber")
+VALUES (@p0, @p1, @p2, @p3);
+2025-07-18 15:23:33.735 +05:30 [INF] Executing CreatedAtActionResult, writing value of type 'BookingSystem.Models.Admin'.
+2025-07-18 15:23:33.771 +05:30 [INF] Executed action BookingSystem.Controllers.AdminController.RegisterAdmin (booking_system) in 952.2287ms
+2025-07-18 15:23:33.779 +05:30 [INF] Executed endpoint 'BookingSystem.Controllers.AdminController.RegisterAdmin (booking_system)'
+2025-07-18 15:23:33.780 +05:30 [INF] HTTP POST /api/v1/Admin/register responded 201 in 981.4230 ms
+2025-07-18 15:23:33.804 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5136/api/v1/Admin/register - 201 null application/json; charset=utf-8 1011.9919ms
+2025-07-18 15:24:14.878 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5136/api/v1/Authentication - application/json 59
+2025-07-18 15:24:14.880 +05:30 [INF] CORS policy execution failed.
+2025-07-18 15:24:14.880 +05:30 [INF] Request origin http://localhost:5136 does not have permission to access the resource.
+2025-07-18 15:24:14.882 +05:30 [INF] Executing endpoint 'AuthenticationController.UserLogin (booking_system)'
+2025-07-18 15:24:14.888 +05:30 [INF] Route matched with {action = "UserLogin", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[BookingSystem.Models.DTOs.UserLoginResponse]] UserLogin(BookingSystem.Models.DTOs.UserLoginRequest) on controller AuthenticationController (booking_system).
+2025-07-18 15:24:14.944 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__key_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Email", u."Name", u."Password", u."Role", u."WalletCustomerEmail"
+FROM "Users" AS u
+WHERE u."Email" = @__key_0
+LIMIT 2
+2025-07-18 15:24:15.246 +05:30 [INF] User admin@xyz.com logged in successfully
+2025-07-18 15:24:15.246 +05:30 [INF] Executing OkObjectResult, writing value of type 'BookingSystem.Models.DTOs.UserLoginResponse'.
+2025-07-18 15:24:15.248 +05:30 [INF] Executed action AuthenticationController.UserLogin (booking_system) in 359.3581ms
+2025-07-18 15:24:15.248 +05:30 [INF] Executed endpoint 'AuthenticationController.UserLogin (booking_system)'
+2025-07-18 15:24:15.248 +05:30 [INF] HTTP POST /api/v1/Authentication responded 200 in 366.1987 ms
+2025-07-18 15:24:15.249 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5136/api/v1/Authentication - 200 null application/json; charset=utf-8 371.0289ms
+2025-07-18 15:24:42.248 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5136/api/v1/Admin - null null
+2025-07-18 15:24:42.298 +05:30 [INF] Executing endpoint 'BookingSystem.Controllers.AdminController.GetAllAdmins (booking_system)'
+2025-07-18 15:24:42.300 +05:30 [INF] Route matched with {action = "GetAllAdmins", controller = "Admin"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[BookingSystem.Models.Admin]]] GetAllAdmins() on controller BookingSystem.Controllers.AdminController (booking_system).
+2025-07-18 15:24:42.336 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Admins" AS a
+2025-07-18 15:24:42.355 +05:30 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Email", a."Id", a."Name", a."PhoneNumber"
+FROM "Admins" AS a
+2025-07-18 15:24:42.358 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[BookingSystem.Models.Admin, booking_system, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-18 15:24:42.359 +05:30 [INF] Executed action BookingSystem.Controllers.AdminController.GetAllAdmins (booking_system) in 58.3196ms
+2025-07-18 15:24:42.359 +05:30 [INF] Executed endpoint 'BookingSystem.Controllers.AdminController.GetAllAdmins (booking_system)'
+2025-07-18 15:24:42.359 +05:30 [INF] HTTP GET /api/v1/Admin responded 200 in 61.6122 ms
+2025-07-18 15:24:42.359 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5136/api/v1/Admin - 200 null application/json; charset=utf-8 111.1147ms
+2025-07-18 15:25:45.678 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5136/api/Events - application/json 276
+2025-07-18 15:25:45.678 +05:30 [INF] CORS policy execution failed.
+2025-07-18 15:25:45.678 +05:30 [INF] Request origin http://localhost:5136 does not have permission to access the resource.
+2025-07-18 15:25:45.681 +05:30 [INF] Executing endpoint 'BookingSystem.Controllers.EventsController.CreateEvent (booking_system)'
+2025-07-18 15:25:45.694 +05:30 [INF] Route matched with {action = "CreateEvent", controller = "Events"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[BookingSystem.Models.Event]] CreateEvent(BookingSystem.Models.DTOs.EventDto) on controller BookingSystem.Controllers.EventsController (booking_system).
+2025-07-18 15:25:45.717 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__key_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Name"
+FROM "Categories" AS c
+WHERE c."Name" = @__key_0
+LIMIT 2
+2025-07-18 15:25:45.747 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Categories" ("Name")
+VALUES (@p0)
+RETURNING "Id";
+2025-07-18 15:25:45.815 +05:30 [INF] Executed DbCommand (10ms) [Parameters=[@p0='?', @p1='?' (DbType = Int32), @p2='?', @p3='?', @p4='?', @p5='?' (DbType = DateTime), @p6='?', @p7='?', @p8='?' (DbType = Boolean), @p9='?' (DbType = Int32), @p10='?' (DbType = Int32), @p11='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Events" ("Address", "CategoryId", "City", "Context", "CreatorEmail", "Date", "Description", "Imageurl", "IsCancelled", "Price", "Ticketcount", "Title")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11)
+RETURNING "Id";
+2025-07-18 15:25:45.818 +05:30 [INF] Event event1 created successfully
+2025-07-18 15:25:45.819 +05:30 [INF] Executing CreatedAtActionResult, writing value of type 'BookingSystem.Models.Event'.
+2025-07-18 15:25:45.823 +05:30 [INF] Executed action BookingSystem.Controllers.EventsController.CreateEvent (booking_system) in 128.993ms
+2025-07-18 15:25:45.823 +05:30 [INF] Executed endpoint 'BookingSystem.Controllers.EventsController.CreateEvent (booking_system)'
+2025-07-18 15:25:45.823 +05:30 [INF] HTTP POST /api/Events responded 201 in 142.7038 ms
+2025-07-18 15:25:45.824 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5136/api/Events - 201 null application/json; charset=utf-8 145.9894ms
+2025-07-18 15:39:31.885 +05:30 [INF] Application is shutting down...
+2025-07-18 17:10:47.038 +05:30 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-07-18 17:10:47.299 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-07-18 17:10:47.307 +05:30 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-07-18 17:10:47.308 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2025-07-18 17:10:47.309 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-07-18 17:10:47.312 +05:30 [INF] No migrations were applied. The database is already up to date.
+2025-07-18 17:10:47.395 +05:30 [INF] User profile is available. Using '/Users/yugendransunder/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-07-18 17:10:47.443 +05:30 [INF] Now listening on: http://localhost:5136
+2025-07-18 17:10:47.444 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-18 17:10:47.444 +05:30 [INF] Hosting environment: Development
+2025-07-18 17:10:47.444 +05:30 [INF] Content root path: /Users/yugendransunder/Documents/Genspark-training/Genspark-Training/capstone_project/booking_system
