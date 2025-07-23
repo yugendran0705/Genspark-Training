@@ -1,0 +1,14 @@
+<div class="max-w-xl mx-auto mt-10 p-6 bg-white shadow-md rounded-lg">
+  <h2 class="text-xl font-semibold text-center text-gray-800 mb-6">📢 Event Notification</h2>
+
+  <div class="border-t pt-4 space-y-4">
+    <div 
+      class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded shadow-sm" 
+      *ngFor="let msg of messages">
+      <p class="text-blue-700 font-bold mb-1">{{ msg.type }}:</p>
+      <p><strong>SlotDateTime:</strong> {{ msg.SlotDateTime }}</p>
+      <p><strong>MechanicName:</strong> {{ msg.MechanicName }}</p>
+      <p><strong>Status:</strong> {{ msg.Status }}</p>
+    </div>
+  </div>
+</div>

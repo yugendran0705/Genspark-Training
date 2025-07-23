@@ -1,0 +1,992 @@
+2025-06-27 00:48:16.451 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Auth/refresh - null null
+2025-06-27 00:48:16.461 +05:30 [INF] CORS policy execution successful.
+2025-06-27 00:48:16.462 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Auth/refresh - 204 null null 10.665ms
+2025-06-27 00:48:16.466 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5192/api/v1/Auth/refresh - application/json 300
+2025-06-27 00:48:16.467 +05:30 [INF] CORS policy execution successful.
+2025-06-27 00:48:16.467 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.AuthController.Refresh (VehicleServiceAPI)'
+2025-06-27 00:48:16.467 +05:30 [INF] Route matched with {action = "Refresh", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Refresh(VehicleServiceAPI.Models.DTOs.RefreshTokenRequestDTO) on controller VehicleServiceAPI.Controllers.AuthController (VehicleServiceAPI).
+2025-06-27 00:48:16.519 +05:30 [INF] Executed DbCommand (18ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-06-27 00:48:16.520 +05:30 [INF] Executing OkObjectResult, writing value of type 'VehicleServiceAPI.Models.DTOs.LoginResponseDTO'.
+2025-06-27 00:48:16.521 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.AuthController.Refresh (VehicleServiceAPI) in 53.4497ms
+2025-06-27 00:48:16.521 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.AuthController.Refresh (VehicleServiceAPI)'
+2025-06-27 00:48:16.522 +05:30 [INF] HTTP POST /api/v1/Auth/refresh responded 200 in 54.7982 ms
+2025-06-27 00:48:16.523 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5192/api/v1/Auth/refresh - 200 null application/json; charset=utf-8 57.4503ms
+2025-06-27 00:48:16.544 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/user - null null
+2025-06-27 00:48:16.544 +05:30 [INF] CORS policy execution successful.
+2025-06-27 00:48:16.545 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/user - 204 null null 0.8325ms
+2025-06-27 00:48:16.546 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Booking/user - application/json null
+2025-06-27 00:48:16.547 +05:30 [INF] CORS policy execution successful.
+2025-06-27 00:48:16.547 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingsByCurrentUser (VehicleServiceAPI)'
+2025-06-27 00:48:16.547 +05:30 [INF] Route matched with {action = "GetBookingsByCurrentUser", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.BookingDTO]]] GetBookingsByCurrentUser() on controller VehicleServiceAPI.Controllers.BookingController (VehicleServiceAPI).
+2025-06-27 00:48:16.548 +05:30 [INF] Getting bookings for user ID 2.
+2025-06-27 00:48:16.562 +05:30 [INF] Executed DbCommand (13ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."IsDeleted", b."SlotId", b."Status", b."UserId", b."VehicleId", s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Bookings" AS b
+INNER JOIN "ServiceSlots" AS s ON b."SlotId" = s."Id"
+INNER JOIN "Vehicles" AS v ON b."VehicleId" = v."Id"
+INNER JOIN "Users" AS u ON b."UserId" = u."Id"
+WHERE b."UserId" = @__userId_0
+2025-06-27 00:48:16.563 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-06-27 00:48:16.564 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-06-27 00:48:16.564 +05:30 [INF] Retrieved 2 bookings for user ID 2.
+2025-06-27 00:48:16.564 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.BookingDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-06-27 00:48:16.565 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.BookingController.GetBookingsByCurrentUser (VehicleServiceAPI) in 16.8959ms
+2025-06-27 00:48:16.565 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingsByCurrentUser (VehicleServiceAPI)'
+2025-06-27 00:48:16.565 +05:30 [INF] HTTP GET /api/v1/Booking/user responded 200 in 17.6786 ms
+2025-06-27 00:48:16.565 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Booking/user - 200 null application/json; charset=utf-8 18.8929ms
+2025-06-27 00:48:20.369 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Booking/user - application/json null
+2025-06-27 00:48:20.369 +05:30 [INF] CORS policy execution successful.
+2025-06-27 00:48:20.370 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingsByCurrentUser (VehicleServiceAPI)'
+2025-06-27 00:48:20.371 +05:30 [INF] Route matched with {action = "GetBookingsByCurrentUser", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.BookingDTO]]] GetBookingsByCurrentUser() on controller VehicleServiceAPI.Controllers.BookingController (VehicleServiceAPI).
+2025-06-27 00:48:20.371 +05:30 [INF] Getting bookings for user ID 2.
+2025-06-27 00:48:20.374 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."IsDeleted", b."SlotId", b."Status", b."UserId", b."VehicleId", s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Bookings" AS b
+INNER JOIN "ServiceSlots" AS s ON b."SlotId" = s."Id"
+INNER JOIN "Vehicles" AS v ON b."VehicleId" = v."Id"
+INNER JOIN "Users" AS u ON b."UserId" = u."Id"
+WHERE b."UserId" = @__userId_0
+2025-06-27 00:48:20.376 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-06-27 00:48:20.378 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-06-27 00:48:20.378 +05:30 [INF] Retrieved 2 bookings for user ID 2.
+2025-06-27 00:48:20.378 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.BookingDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-06-27 00:48:20.378 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.BookingController.GetBookingsByCurrentUser (VehicleServiceAPI) in 7.6422ms
+2025-06-27 00:48:20.379 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingsByCurrentUser (VehicleServiceAPI)'
+2025-06-27 00:48:20.379 +05:30 [INF] HTTP GET /api/v1/Booking/user responded 200 in 8.5322 ms
+2025-06-27 00:48:20.380 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Booking/user - 200 null application/json; charset=utf-8 10.8541ms
+2025-06-27 00:48:22.348 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/user - null null
+2025-06-27 00:48:22.348 +05:30 [INF] CORS policy execution successful.
+2025-06-27 00:48:22.348 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/user - 204 null null 0.5056ms
+2025-06-27 00:48:22.349 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Booking/user - application/json null
+2025-06-27 00:48:22.350 +05:30 [INF] CORS policy execution successful.
+2025-06-27 00:48:22.350 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingsByCurrentUser (VehicleServiceAPI)'
+2025-06-27 00:48:22.350 +05:30 [INF] Route matched with {action = "GetBookingsByCurrentUser", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.BookingDTO]]] GetBookingsByCurrentUser() on controller VehicleServiceAPI.Controllers.BookingController (VehicleServiceAPI).
+2025-06-27 00:48:22.351 +05:30 [INF] Getting bookings for user ID 2.
+2025-06-27 00:48:22.359 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."IsDeleted", b."SlotId", b."Status", b."UserId", b."VehicleId", s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Bookings" AS b
+INNER JOIN "ServiceSlots" AS s ON b."SlotId" = s."Id"
+INNER JOIN "Vehicles" AS v ON b."VehicleId" = v."Id"
+INNER JOIN "Users" AS u ON b."UserId" = u."Id"
+WHERE b."UserId" = @__userId_0
+2025-06-27 00:48:22.360 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-06-27 00:48:22.361 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-06-27 00:48:22.361 +05:30 [INF] Retrieved 2 bookings for user ID 2.
+2025-06-27 00:48:22.361 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.BookingDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-06-27 00:48:22.361 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.BookingController.GetBookingsByCurrentUser (VehicleServiceAPI) in 10.6275ms
+2025-06-27 00:48:22.362 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingsByCurrentUser (VehicleServiceAPI)'
+2025-06-27 00:48:22.362 +05:30 [INF] HTTP GET /api/v1/Booking/user responded 200 in 11.7066 ms
+2025-06-27 00:48:22.362 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Booking/user - 200 null application/json; charset=utf-8 12.8574ms
+2025-06-27 01:01:21.147 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/user - null null
+2025-06-27 01:01:21.149 +05:30 [INF] CORS policy execution successful.
+2025-06-27 01:01:21.149 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/user - 204 null null 1.581ms
+2025-06-27 01:01:21.151 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Booking/user - application/json null
+2025-06-27 01:01:21.151 +05:30 [INF] CORS policy execution successful.
+2025-06-27 01:01:21.152 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingsByCurrentUser (VehicleServiceAPI)'
+2025-06-27 01:01:21.153 +05:30 [INF] Route matched with {action = "GetBookingsByCurrentUser", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.BookingDTO]]] GetBookingsByCurrentUser() on controller VehicleServiceAPI.Controllers.BookingController (VehicleServiceAPI).
+2025-06-27 01:01:21.154 +05:30 [INF] Getting bookings for user ID 2.
+2025-06-27 01:01:21.220 +05:30 [INF] Executed DbCommand (10ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."IsDeleted", b."SlotId", b."Status", b."UserId", b."VehicleId", s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Bookings" AS b
+INNER JOIN "ServiceSlots" AS s ON b."SlotId" = s."Id"
+INNER JOIN "Vehicles" AS v ON b."VehicleId" = v."Id"
+INNER JOIN "Users" AS u ON b."UserId" = u."Id"
+WHERE b."UserId" = @__userId_0
+2025-06-27 01:01:21.222 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-06-27 01:01:21.223 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-06-27 01:01:21.223 +05:30 [INF] Retrieved 2 bookings for user ID 2.
+2025-06-27 01:01:21.223 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.BookingDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-06-27 01:01:21.224 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.BookingController.GetBookingsByCurrentUser (VehicleServiceAPI) in 70.6095ms
+2025-06-27 01:01:21.224 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingsByCurrentUser (VehicleServiceAPI)'
+2025-06-27 01:01:21.224 +05:30 [INF] HTTP GET /api/v1/Booking/user responded 200 in 71.7443 ms
+2025-06-27 01:01:21.224 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Booking/user - 200 null application/json; charset=utf-8 73.4557ms
+2025-06-27 01:01:22.603 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/4 - null null
+2025-06-27 01:01:22.603 +05:30 [INF] CORS policy execution successful.
+2025-06-27 01:01:22.603 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/4 - 204 null null 0.3783ms
+2025-06-27 01:01:22.604 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Booking/4 - application/json null
+2025-06-27 01:01:22.605 +05:30 [INF] CORS policy execution successful.
+2025-06-27 01:01:22.605 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI)'
+2025-06-27 01:01:22.611 +05:30 [INF] Route matched with {action = "GetBookingById", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[VehicleServiceAPI.Models.DTOs.BookingDTO]] GetBookingById(Int32) on controller VehicleServiceAPI.Controllers.BookingController (VehicleServiceAPI).
+2025-06-27 01:01:22.613 +05:30 [INF] Getting booking by ID: 4
+2025-06-27 01:01:22.634 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."IsDeleted", b."SlotId", b."Status", b."UserId", b."VehicleId", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year"
+FROM "Bookings" AS b
+INNER JOIN "Users" AS u ON b."UserId" = u."Id"
+INNER JOIN "ServiceSlots" AS s ON b."SlotId" = s."Id"
+INNER JOIN "Vehicles" AS v ON b."VehicleId" = v."Id"
+WHERE b."Id" = @__id_0
+LIMIT 1
+2025-06-27 01:01:22.635 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-06-27 01:01:22.636 +05:30 [INF] Booking with ID 4 retrieved.
+2025-06-27 01:01:22.636 +05:30 [INF] Executing OkObjectResult, writing value of type 'VehicleServiceAPI.Models.DTOs.BookingDTO'.
+2025-06-27 01:01:22.636 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI) in 24.6646ms
+2025-06-27 01:01:22.636 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI)'
+2025-06-27 01:01:22.636 +05:30 [INF] HTTP GET /api/v1/Booking/4 responded 200 in 30.8474 ms
+2025-06-27 01:01:22.636 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Booking/4 - 200 null application/json; charset=utf-8 31.759ms
+2025-06-27 01:06:47.016 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/10 - null null
+2025-06-27 01:06:47.017 +05:30 [INF] CORS policy execution successful.
+2025-06-27 01:06:47.017 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/10 - 204 null null 1.1419ms
+2025-06-27 01:06:47.026 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Booking/10 - application/json null
+2025-06-27 01:06:47.026 +05:30 [INF] CORS policy execution successful.
+2025-06-27 01:06:47.026 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI)'
+2025-06-27 01:06:47.027 +05:30 [INF] Route matched with {action = "GetBookingById", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[VehicleServiceAPI.Models.DTOs.BookingDTO]] GetBookingById(Int32) on controller VehicleServiceAPI.Controllers.BookingController (VehicleServiceAPI).
+2025-06-27 01:06:47.028 +05:30 [INF] Getting booking by ID: 10
+2025-06-27 01:06:47.070 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."IsDeleted", b."SlotId", b."Status", b."UserId", b."VehicleId", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year"
+FROM "Bookings" AS b
+INNER JOIN "Users" AS u ON b."UserId" = u."Id"
+INNER JOIN "ServiceSlots" AS s ON b."SlotId" = s."Id"
+INNER JOIN "Vehicles" AS v ON b."VehicleId" = v."Id"
+WHERE b."Id" = @__id_0
+LIMIT 1
+2025-06-27 01:06:47.071 +05:30 [WRN] Booking with ID 10 not found.
+System.InvalidOperationException: Booking not found.
+   at VehicleServiceAPI.Repositories.BookingRepository.GetByIdAsync(Int32 id) in /Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025 - WebAPI/VehicleServiceAPI/Repositories/BookingRepository.cs:line 20
+   at VehicleServiceAPI.Services.BookingService.GetBookingByIdAsync(Int32 id) in /Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025 - WebAPI/VehicleServiceAPI/Services/BookingService.cs:line 32
+   at VehicleServiceAPI.Controllers.BookingController.GetBookingById(Int32 id) in /Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025 - WebAPI/VehicleServiceAPI/Controllers/BookingController.cs:line 57
+2025-06-27 01:06:47.073 +05:30 [INF] Executing NotFoundObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-06-27 01:06:47.073 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI) in 46.0153ms
+2025-06-27 01:06:47.073 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI)'
+2025-06-27 01:06:47.073 +05:30 [INF] HTTP GET /api/v1/Booking/10 responded 404 in 46.9182 ms
+2025-06-27 01:06:47.073 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Booking/10 - 404 null application/json; charset=utf-8 47.7893ms
+2025-06-27 01:10:24.282 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/10 - null null
+2025-06-27 01:10:24.282 +05:30 [INF] CORS policy execution successful.
+2025-06-27 01:10:24.283 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/10 - 204 null null 1.653ms
+2025-06-27 01:10:24.285 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Booking/10 - application/json null
+2025-06-27 01:10:24.285 +05:30 [INF] CORS policy execution successful.
+2025-06-27 01:10:24.286 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI)'
+2025-06-27 01:10:24.286 +05:30 [INF] Route matched with {action = "GetBookingById", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[VehicleServiceAPI.Models.DTOs.BookingDTO]] GetBookingById(Int32) on controller VehicleServiceAPI.Controllers.BookingController (VehicleServiceAPI).
+2025-06-27 01:10:24.287 +05:30 [INF] Getting booking by ID: 10
+2025-06-27 01:10:24.289 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."IsDeleted", b."SlotId", b."Status", b."UserId", b."VehicleId", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year"
+FROM "Bookings" AS b
+INNER JOIN "Users" AS u ON b."UserId" = u."Id"
+INNER JOIN "ServiceSlots" AS s ON b."SlotId" = s."Id"
+INNER JOIN "Vehicles" AS v ON b."VehicleId" = v."Id"
+WHERE b."Id" = @__id_0
+LIMIT 1
+2025-06-27 01:10:24.291 +05:30 [WRN] Booking with ID 10 not found.
+System.InvalidOperationException: Booking not found.
+   at VehicleServiceAPI.Repositories.BookingRepository.GetByIdAsync(Int32 id) in /Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025 - WebAPI/VehicleServiceAPI/Repositories/BookingRepository.cs:line 20
+   at VehicleServiceAPI.Services.BookingService.GetBookingByIdAsync(Int32 id) in /Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025 - WebAPI/VehicleServiceAPI/Services/BookingService.cs:line 32
+   at VehicleServiceAPI.Controllers.BookingController.GetBookingById(Int32 id) in /Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025 - WebAPI/VehicleServiceAPI/Controllers/BookingController.cs:line 57
+2025-06-27 01:10:24.293 +05:30 [INF] Executing NotFoundObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-06-27 01:10:24.293 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI) in 6.7577ms
+2025-06-27 01:10:24.293 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI)'
+2025-06-27 01:10:24.293 +05:30 [INF] HTTP GET /api/v1/Booking/10 responded 404 in 7.6446 ms
+2025-06-27 01:10:24.296 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Booking/10 - 404 null application/json; charset=utf-8 10.6864ms
+2025-06-27 01:10:30.408 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/10 - null null
+2025-06-27 01:10:30.409 +05:30 [INF] CORS policy execution successful.
+2025-06-27 01:10:30.409 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/10 - 204 null null 0.8084ms
+2025-06-27 01:10:30.414 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Booking/10 - application/json null
+2025-06-27 01:10:30.415 +05:30 [INF] CORS policy execution successful.
+2025-06-27 01:10:30.415 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI)'
+2025-06-27 01:10:30.415 +05:30 [INF] Route matched with {action = "GetBookingById", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[VehicleServiceAPI.Models.DTOs.BookingDTO]] GetBookingById(Int32) on controller VehicleServiceAPI.Controllers.BookingController (VehicleServiceAPI).
+2025-06-27 01:10:30.417 +05:30 [INF] Getting booking by ID: 10
+2025-06-27 01:10:30.428 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."IsDeleted", b."SlotId", b."Status", b."UserId", b."VehicleId", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year"
+FROM "Bookings" AS b
+INNER JOIN "Users" AS u ON b."UserId" = u."Id"
+INNER JOIN "ServiceSlots" AS s ON b."SlotId" = s."Id"
+INNER JOIN "Vehicles" AS v ON b."VehicleId" = v."Id"
+WHERE b."Id" = @__id_0
+LIMIT 1
+2025-06-27 01:10:30.429 +05:30 [WRN] Booking with ID 10 not found.
+System.InvalidOperationException: Booking not found.
+   at VehicleServiceAPI.Repositories.BookingRepository.GetByIdAsync(Int32 id) in /Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025 - WebAPI/VehicleServiceAPI/Repositories/BookingRepository.cs:line 20
+   at VehicleServiceAPI.Services.BookingService.GetBookingByIdAsync(Int32 id) in /Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025 - WebAPI/VehicleServiceAPI/Services/BookingService.cs:line 32
+   at VehicleServiceAPI.Controllers.BookingController.GetBookingById(Int32 id) in /Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025 - WebAPI/VehicleServiceAPI/Controllers/BookingController.cs:line 57
+2025-06-27 01:10:30.430 +05:30 [INF] Executing NotFoundObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-06-27 01:10:30.431 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI) in 15.0579ms
+2025-06-27 01:10:30.431 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI)'
+2025-06-27 01:10:30.431 +05:30 [INF] HTTP GET /api/v1/Booking/10 responded 404 in 16.0596 ms
+2025-06-27 01:10:30.432 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Booking/10 - 404 null application/json; charset=utf-8 17.5702ms
+2025-06-27 01:10:43.478 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/10 - null null
+2025-06-27 01:10:43.479 +05:30 [INF] CORS policy execution successful.
+2025-06-27 01:10:43.480 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/10 - 204 null null 1.5204ms
+2025-06-27 01:10:43.482 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Booking/10 - application/json null
+2025-06-27 01:10:43.482 +05:30 [INF] CORS policy execution successful.
+2025-06-27 01:10:43.484 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI)'
+2025-06-27 01:10:43.484 +05:30 [INF] Route matched with {action = "GetBookingById", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[VehicleServiceAPI.Models.DTOs.BookingDTO]] GetBookingById(Int32) on controller VehicleServiceAPI.Controllers.BookingController (VehicleServiceAPI).
+2025-06-27 01:10:43.485 +05:30 [INF] Getting booking by ID: 10
+2025-06-27 01:10:43.488 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."IsDeleted", b."SlotId", b."Status", b."UserId", b."VehicleId", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year"
+FROM "Bookings" AS b
+INNER JOIN "Users" AS u ON b."UserId" = u."Id"
+INNER JOIN "ServiceSlots" AS s ON b."SlotId" = s."Id"
+INNER JOIN "Vehicles" AS v ON b."VehicleId" = v."Id"
+WHERE b."Id" = @__id_0
+LIMIT 1
+2025-06-27 01:10:43.488 +05:30 [WRN] Booking with ID 10 not found.
+System.InvalidOperationException: Booking not found.
+   at VehicleServiceAPI.Repositories.BookingRepository.GetByIdAsync(Int32 id) in /Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025 - WebAPI/VehicleServiceAPI/Repositories/BookingRepository.cs:line 20
+   at VehicleServiceAPI.Services.BookingService.GetBookingByIdAsync(Int32 id) in /Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025 - WebAPI/VehicleServiceAPI/Services/BookingService.cs:line 32
+   at VehicleServiceAPI.Controllers.BookingController.GetBookingById(Int32 id) in /Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025 - WebAPI/VehicleServiceAPI/Controllers/BookingController.cs:line 57
+2025-06-27 01:10:43.489 +05:30 [INF] Executing NotFoundObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-06-27 01:10:43.490 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI) in 5.3951ms
+2025-06-27 01:10:43.490 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI)'
+2025-06-27 01:10:43.491 +05:30 [INF] HTTP GET /api/v1/Booking/10 responded 404 in 7.0260 ms
+2025-06-27 01:10:43.491 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Booking/10 - 404 null application/json; charset=utf-8 9.6398ms
+2025-06-27 01:12:40.954 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/4 - null null
+2025-06-27 01:12:40.954 +05:30 [INF] CORS policy execution successful.
+2025-06-27 01:12:40.955 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/4 - 204 null null 0.803ms
+2025-06-27 01:12:40.959 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Booking/4 - application/json null
+2025-06-27 01:12:40.960 +05:30 [INF] CORS policy execution successful.
+2025-06-27 01:12:40.960 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI)'
+2025-06-27 01:12:40.961 +05:30 [INF] Route matched with {action = "GetBookingById", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[VehicleServiceAPI.Models.DTOs.BookingDTO]] GetBookingById(Int32) on controller VehicleServiceAPI.Controllers.BookingController (VehicleServiceAPI).
+2025-06-27 01:12:40.962 +05:30 [INF] Getting booking by ID: 4
+2025-06-27 01:12:41.120 +05:30 [INF] Executed DbCommand (15ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."IsDeleted", b."SlotId", b."Status", b."UserId", b."VehicleId", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year"
+FROM "Bookings" AS b
+INNER JOIN "Users" AS u ON b."UserId" = u."Id"
+INNER JOIN "ServiceSlots" AS s ON b."SlotId" = s."Id"
+INNER JOIN "Vehicles" AS v ON b."VehicleId" = v."Id"
+WHERE b."Id" = @__id_0
+LIMIT 1
+2025-06-27 01:12:41.122 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-06-27 01:12:41.122 +05:30 [INF] Booking with ID 4 retrieved.
+2025-06-27 01:12:41.122 +05:30 [INF] Executing OkObjectResult, writing value of type 'VehicleServiceAPI.Models.DTOs.BookingDTO'.
+2025-06-27 01:12:41.122 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI) in 161.0913ms
+2025-06-27 01:12:41.122 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI)'
+2025-06-27 01:12:41.122 +05:30 [INF] HTTP GET /api/v1/Booking/4 responded 200 in 161.7258 ms
+2025-06-27 01:12:41.122 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Booking/4 - 200 null application/json; charset=utf-8 163.4761ms
+2025-06-27 01:12:44.677 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/10 - null null
+2025-06-27 01:12:44.677 +05:30 [INF] CORS policy execution successful.
+2025-06-27 01:12:44.677 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/10 - 204 null null 0.5333ms
+2025-06-27 01:12:44.680 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Booking/10 - application/json null
+2025-06-27 01:12:44.680 +05:30 [INF] CORS policy execution successful.
+2025-06-27 01:12:44.681 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI)'
+2025-06-27 01:12:44.681 +05:30 [INF] Route matched with {action = "GetBookingById", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[VehicleServiceAPI.Models.DTOs.BookingDTO]] GetBookingById(Int32) on controller VehicleServiceAPI.Controllers.BookingController (VehicleServiceAPI).
+2025-06-27 01:12:44.682 +05:30 [INF] Getting booking by ID: 10
+2025-06-27 01:12:44.692 +05:30 [INF] Executed DbCommand (9ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."IsDeleted", b."SlotId", b."Status", b."UserId", b."VehicleId", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year"
+FROM "Bookings" AS b
+INNER JOIN "Users" AS u ON b."UserId" = u."Id"
+INNER JOIN "ServiceSlots" AS s ON b."SlotId" = s."Id"
+INNER JOIN "Vehicles" AS v ON b."VehicleId" = v."Id"
+WHERE b."Id" = @__id_0
+LIMIT 1
+2025-06-27 01:12:44.693 +05:30 [WRN] Booking with ID 10 not found.
+System.InvalidOperationException: Booking not found.
+   at VehicleServiceAPI.Repositories.BookingRepository.GetByIdAsync(Int32 id) in /Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025 - WebAPI/VehicleServiceAPI/Repositories/BookingRepository.cs:line 20
+   at VehicleServiceAPI.Services.BookingService.GetBookingByIdAsync(Int32 id) in /Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025 - WebAPI/VehicleServiceAPI/Services/BookingService.cs:line 32
+   at VehicleServiceAPI.Controllers.BookingController.GetBookingById(Int32 id) in /Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025 - WebAPI/VehicleServiceAPI/Controllers/BookingController.cs:line 57
+2025-06-27 01:12:44.693 +05:30 [INF] Executing NotFoundObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-06-27 01:12:44.694 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI) in 12.2077ms
+2025-06-27 01:12:44.694 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI)'
+2025-06-27 01:12:44.694 +05:30 [INF] HTTP GET /api/v1/Booking/10 responded 404 in 13.2746 ms
+2025-06-27 01:12:44.694 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Booking/10 - 404 null application/json; charset=utf-8 14.2396ms
+2025-06-27 01:13:01.044 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/4 - null null
+2025-06-27 01:13:01.044 +05:30 [INF] CORS policy execution successful.
+2025-06-27 01:13:01.045 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/4 - 204 null null 1.4708ms
+2025-06-27 01:13:01.050 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Booking/4 - application/json null
+2025-06-27 01:13:01.053 +05:30 [INF] CORS policy execution successful.
+2025-06-27 01:13:01.054 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI)'
+2025-06-27 01:13:01.055 +05:30 [INF] Route matched with {action = "GetBookingById", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[VehicleServiceAPI.Models.DTOs.BookingDTO]] GetBookingById(Int32) on controller VehicleServiceAPI.Controllers.BookingController (VehicleServiceAPI).
+2025-06-27 01:13:01.056 +05:30 [INF] Getting booking by ID: 4
+2025-06-27 01:13:01.059 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."IsDeleted", b."SlotId", b."Status", b."UserId", b."VehicleId", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year"
+FROM "Bookings" AS b
+INNER JOIN "Users" AS u ON b."UserId" = u."Id"
+INNER JOIN "ServiceSlots" AS s ON b."SlotId" = s."Id"
+INNER JOIN "Vehicles" AS v ON b."VehicleId" = v."Id"
+WHERE b."Id" = @__id_0
+LIMIT 1
+2025-06-27 01:13:01.061 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-06-27 01:13:01.062 +05:30 [INF] Booking with ID 4 retrieved.
+2025-06-27 01:13:01.062 +05:30 [INF] Executing OkObjectResult, writing value of type 'VehicleServiceAPI.Models.DTOs.BookingDTO'.
+2025-06-27 01:13:01.062 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI) in 6.9962ms
+2025-06-27 01:13:01.062 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI)'
+2025-06-27 01:13:01.063 +05:30 [INF] HTTP GET /api/v1/Booking/4 responded 200 in 8.5096 ms
+2025-06-27 01:13:01.063 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Booking/4 - 200 null application/json; charset=utf-8 13.0843ms
+2025-06-27 01:16:01.835 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5192/api/v1/Auth/login - application/json 56
+2025-06-27 01:16:01.837 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.AuthController.Login (VehicleServiceAPI)'
+2025-06-27 01:16:01.837 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(VehicleServiceAPI.Models.DTOs.LoginRequestDTO) on controller VehicleServiceAPI.Controllers.AuthController (VehicleServiceAPI).
+2025-06-27 01:16:01.838 +05:30 [INF] Attempting to authenticate user with email: admin@xyz.com
+2025-06-27 01:16:01.840 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Email" = @__email_0 AND NOT (u."IsDeleted")
+LIMIT 1
+2025-06-27 01:16:01.841 +05:30 [INF] User authenticated successfully: admin@xyz.com
+2025-06-27 01:16:01.842 +05:30 [INF] Executing OkObjectResult, writing value of type 'VehicleServiceAPI.Models.DTOs.LoginResponseDTO'.
+2025-06-27 01:16:01.842 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.AuthController.Login (VehicleServiceAPI) in 4.5604ms
+2025-06-27 01:16:01.842 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.AuthController.Login (VehicleServiceAPI)'
+2025-06-27 01:16:01.842 +05:30 [INF] HTTP POST /api/v1/Auth/login responded 200 in 5.1127 ms
+2025-06-27 01:16:01.842 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5192/api/v1/Auth/login - 200 null application/json; charset=utf-8 6.697ms
+2025-06-27 01:16:36.960 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/user - null null
+2025-06-27 01:16:36.961 +05:30 [INF] CORS policy execution successful.
+2025-06-27 01:16:36.961 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/user - 204 null null 0.8173ms
+2025-06-27 01:16:36.970 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Booking/user - application/json null
+2025-06-27 01:16:36.970 +05:30 [INF] CORS policy execution successful.
+2025-06-27 01:16:36.971 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingsByCurrentUser (VehicleServiceAPI)'
+2025-06-27 01:16:36.971 +05:30 [INF] Route matched with {action = "GetBookingsByCurrentUser", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.BookingDTO]]] GetBookingsByCurrentUser() on controller VehicleServiceAPI.Controllers.BookingController (VehicleServiceAPI).
+2025-06-27 01:16:36.971 +05:30 [INF] Getting bookings for user ID 2.
+2025-06-27 01:16:36.980 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."IsDeleted", b."SlotId", b."Status", b."UserId", b."VehicleId", s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Bookings" AS b
+INNER JOIN "ServiceSlots" AS s ON b."SlotId" = s."Id"
+INNER JOIN "Vehicles" AS v ON b."VehicleId" = v."Id"
+INNER JOIN "Users" AS u ON b."UserId" = u."Id"
+WHERE b."UserId" = @__userId_0
+2025-06-27 01:16:36.983 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-06-27 01:16:36.984 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-06-27 01:16:36.985 +05:30 [INF] Retrieved 2 bookings for user ID 2.
+2025-06-27 01:16:36.985 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.BookingDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-06-27 01:16:36.986 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.BookingController.GetBookingsByCurrentUser (VehicleServiceAPI) in 14.4976ms
+2025-06-27 01:16:36.986 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingsByCurrentUser (VehicleServiceAPI)'
+2025-06-27 01:16:36.986 +05:30 [INF] HTTP GET /api/v1/Booking/user responded 200 in 15.3166 ms
+2025-06-27 01:16:36.986 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Booking/user - 200 null application/json; charset=utf-8 16.3739ms
+2025-06-27 01:16:42.491 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/4 - null null
+2025-06-27 01:16:42.492 +05:30 [INF] CORS policy execution successful.
+2025-06-27 01:16:42.493 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/4 - 204 null null 1.0323ms
+2025-06-27 01:16:42.494 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Booking/4 - application/json null
+2025-06-27 01:16:42.495 +05:30 [INF] CORS policy execution successful.
+2025-06-27 01:16:42.495 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI)'
+2025-06-27 01:16:42.496 +05:30 [INF] Route matched with {action = "GetBookingById", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[VehicleServiceAPI.Models.DTOs.BookingDTO]] GetBookingById(Int32) on controller VehicleServiceAPI.Controllers.BookingController (VehicleServiceAPI).
+2025-06-27 01:16:42.496 +05:30 [INF] Getting booking by ID: 4
+2025-06-27 01:16:42.499 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."IsDeleted", b."SlotId", b."Status", b."UserId", b."VehicleId", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year"
+FROM "Bookings" AS b
+INNER JOIN "Users" AS u ON b."UserId" = u."Id"
+INNER JOIN "ServiceSlots" AS s ON b."SlotId" = s."Id"
+INNER JOIN "Vehicles" AS v ON b."VehicleId" = v."Id"
+WHERE b."Id" = @__id_0
+LIMIT 1
+2025-06-27 01:16:42.501 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-06-27 01:16:42.501 +05:30 [INF] Booking with ID 4 retrieved.
+2025-06-27 01:16:42.501 +05:30 [INF] Executing OkObjectResult, writing value of type 'VehicleServiceAPI.Models.DTOs.BookingDTO'.
+2025-06-27 01:16:42.501 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI) in 5.5336ms
+2025-06-27 01:16:42.502 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI)'
+2025-06-27 01:16:42.502 +05:30 [INF] HTTP GET /api/v1/Booking/4 responded 200 in 6.1358 ms
+2025-06-27 01:16:42.502 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Booking/4 - 200 null application/json; charset=utf-8 7.6643ms
+2025-06-27 01:17:26.101 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5192/api/v1/Image - multipart/form-data; boundary=--------------------------718678593012746551302219 275
+2025-06-27 01:17:26.102 +05:30 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '6/20/2025 11:31:53 AM', Current time (UTC): '6/26/2025 7:47:26 PM'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-06-27 01:17:26.103 +05:30 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '6/20/2025 11:31:53 AM', Current time (UTC): '6/26/2025 7:47:26 PM'.
+2025-06-27 01:17:26.103 +05:30 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin|Mechanic|User)
+2025-06-27 01:17:26.103 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2025-06-27 01:17:26.104 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5192/api/v1/Image - 401 0 null 2.5875ms
+2025-06-27 01:17:36.952 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5192/api/v1/Image - multipart/form-data; boundary=--------------------------734214980221494592978007 275
+2025-06-27 01:17:36.953 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.ImageController.UploadImage (VehicleServiceAPI)'
+2025-06-27 01:17:36.961 +05:30 [INF] Route matched with {action = "UploadImage", controller = "Image"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UploadImage(VehicleServiceAPI.Models.DTOs.CreateImageDTO) on controller VehicleServiceAPI.Controllers.ImageController (VehicleServiceAPI).
+2025-06-27 01:17:36.989 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-06-27 01:17:37.008 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.ImageController.UploadImage (VehicleServiceAPI) in 47.1712ms
+2025-06-27 01:17:37.009 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.ImageController.UploadImage (VehicleServiceAPI)'
+2025-06-27 01:17:37.009 +05:30 [INF] HTTP POST /api/v1/Image responded 400 in 56.0960 ms
+2025-06-27 01:17:37.009 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5192/api/v1/Image - 400 null application/problem+json; charset=utf-8 56.5748ms
+2025-06-27 01:17:57.166 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5192/api/v1/Image - multipart/form-data; boundary=--------------------------731838729538117679444356 977
+2025-06-27 01:17:57.167 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.ImageController.UploadImage (VehicleServiceAPI)'
+2025-06-27 01:17:57.167 +05:30 [INF] Route matched with {action = "UploadImage", controller = "Image"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UploadImage(VehicleServiceAPI.Models.DTOs.CreateImageDTO) on controller VehicleServiceAPI.Controllers.ImageController (VehicleServiceAPI).
+2025-06-27 01:17:57.173 +05:30 [INF] Saving uploaded file to /Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025 - WebAPI/VehicleServiceAPI/wwwroot/uploads/89089bb9-5f6a-4c01-bcde-f7f7e72fc967.png
+2025-06-27 01:17:57.175 +05:30 [INF] Saving image metadata to database.
+2025-06-27 01:17:57.201 +05:30 [INF] Executed DbCommand (13ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."IsDeleted", b."SlotId", b."Status", b."UserId", b."VehicleId", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year"
+FROM "Bookings" AS b
+INNER JOIN "Users" AS u ON b."UserId" = u."Id"
+INNER JOIN "ServiceSlots" AS s ON b."SlotId" = s."Id"
+INNER JOIN "Vehicles" AS v ON b."VehicleId" = v."Id"
+WHERE b."Id" = @__id_0
+LIMIT 1
+2025-06-27 01:17:57.203 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-06-27 01:17:57.227 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?', @p2='?' (DbType = Boolean), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Images" ("BookingId", "FilePath", "IsDeleted", "VehicleId")
+VALUES (@p0, @p1, @p2, @p3)
+RETURNING "Id";
+2025-06-27 01:17:57.231 +05:30 [INF] Image uploaded successfully with ID 4
+2025-06-27 01:17:57.232 +05:30 [INF] Executing CreatedAtActionResult, writing value of type '<>f__AnonymousType2`5[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-06-27 01:17:57.235 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.ImageController.UploadImage (VehicleServiceAPI) in 68.3238ms
+2025-06-27 01:17:57.235 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.ImageController.UploadImage (VehicleServiceAPI)'
+2025-06-27 01:17:57.235 +05:30 [INF] HTTP POST /api/v1/Image responded 201 in 68.8251 ms
+2025-06-27 01:17:57.236 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5192/api/v1/Image - 201 null application/json; charset=utf-8 70.1505ms
+2025-06-27 01:17:59.320 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5192/api/v1/Image - multipart/form-data; boundary=--------------------------742255217290817370545481 977
+2025-06-27 01:17:59.320 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.ImageController.UploadImage (VehicleServiceAPI)'
+2025-06-27 01:17:59.320 +05:30 [INF] Route matched with {action = "UploadImage", controller = "Image"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UploadImage(VehicleServiceAPI.Models.DTOs.CreateImageDTO) on controller VehicleServiceAPI.Controllers.ImageController (VehicleServiceAPI).
+2025-06-27 01:17:59.323 +05:30 [INF] Saving uploaded file to /Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025 - WebAPI/VehicleServiceAPI/wwwroot/uploads/e4b22cea-07a9-4491-aeb8-1ddc5d25dd7a.png
+2025-06-27 01:17:59.324 +05:30 [INF] Saving image metadata to database.
+2025-06-27 01:17:59.325 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."IsDeleted", b."SlotId", b."Status", b."UserId", b."VehicleId", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year"
+FROM "Bookings" AS b
+INNER JOIN "Users" AS u ON b."UserId" = u."Id"
+INNER JOIN "ServiceSlots" AS s ON b."SlotId" = s."Id"
+INNER JOIN "Vehicles" AS v ON b."VehicleId" = v."Id"
+WHERE b."Id" = @__id_0
+LIMIT 1
+2025-06-27 01:17:59.326 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-06-27 01:17:59.329 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?', @p2='?' (DbType = Boolean), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Images" ("BookingId", "FilePath", "IsDeleted", "VehicleId")
+VALUES (@p0, @p1, @p2, @p3)
+RETURNING "Id";
+2025-06-27 01:17:59.329 +05:30 [INF] Image uploaded successfully with ID 5
+2025-06-27 01:17:59.329 +05:30 [INF] Executing CreatedAtActionResult, writing value of type '<>f__AnonymousType2`5[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-06-27 01:17:59.330 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.ImageController.UploadImage (VehicleServiceAPI) in 9.1779ms
+2025-06-27 01:17:59.330 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.ImageController.UploadImage (VehicleServiceAPI)'
+2025-06-27 01:17:59.330 +05:30 [INF] HTTP POST /api/v1/Image responded 201 in 9.7041 ms
+2025-06-27 01:17:59.331 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5192/api/v1/Image - 201 null application/json; charset=utf-8 10.6442ms
+2025-06-27 01:18:00.427 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5192/api/v1/Image - multipart/form-data; boundary=--------------------------711538378680544105848051 977
+2025-06-27 01:18:00.428 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.ImageController.UploadImage (VehicleServiceAPI)'
+2025-06-27 01:18:00.428 +05:30 [INF] Route matched with {action = "UploadImage", controller = "Image"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UploadImage(VehicleServiceAPI.Models.DTOs.CreateImageDTO) on controller VehicleServiceAPI.Controllers.ImageController (VehicleServiceAPI).
+2025-06-27 01:18:00.430 +05:30 [INF] Saving uploaded file to /Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025 - WebAPI/VehicleServiceAPI/wwwroot/uploads/486cc88f-6692-4581-861e-e593ec211383.png
+2025-06-27 01:18:00.431 +05:30 [INF] Saving image metadata to database.
+2025-06-27 01:18:00.433 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."IsDeleted", b."SlotId", b."Status", b."UserId", b."VehicleId", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year"
+FROM "Bookings" AS b
+INNER JOIN "Users" AS u ON b."UserId" = u."Id"
+INNER JOIN "ServiceSlots" AS s ON b."SlotId" = s."Id"
+INNER JOIN "Vehicles" AS v ON b."VehicleId" = v."Id"
+WHERE b."Id" = @__id_0
+LIMIT 1
+2025-06-27 01:18:00.434 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."Id" = @__id_0
+LIMIT 1
+2025-06-27 01:18:00.436 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?', @p2='?' (DbType = Boolean), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Images" ("BookingId", "FilePath", "IsDeleted", "VehicleId")
+VALUES (@p0, @p1, @p2, @p3)
+RETURNING "Id";
+2025-06-27 01:18:00.436 +05:30 [INF] Image uploaded successfully with ID 6
+2025-06-27 01:18:00.436 +05:30 [INF] Executing CreatedAtActionResult, writing value of type '<>f__AnonymousType2`5[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-06-27 01:18:00.437 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.ImageController.UploadImage (VehicleServiceAPI) in 8.445ms
+2025-06-27 01:18:00.437 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.ImageController.UploadImage (VehicleServiceAPI)'
+2025-06-27 01:18:00.437 +05:30 [INF] HTTP POST /api/v1/Image responded 201 in 8.8782 ms
+2025-06-27 01:18:00.437 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5192/api/v1/Image - 201 null application/json; charset=utf-8 9.6402ms
+2025-06-27 01:18:53.264 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Image/booking/4 - null null
+2025-06-27 01:18:53.266 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.ImageController.GetImageFilesByBookingId (VehicleServiceAPI)'
+2025-06-27 01:18:53.269 +05:30 [INF] Route matched with {action = "GetImageFilesByBookingId", controller = "Image"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetImageFilesByBookingId(Int32) on controller VehicleServiceAPI.Controllers.ImageController (VehicleServiceAPI).
+2025-06-27 01:18:53.270 +05:30 [INF] Getting files for images with Booking ID 4
+2025-06-27 01:18:53.278 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__bookingId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT i."Id", i."BookingId", i."FilePath", i."IsDeleted", i."VehicleId"
+FROM "Images" AS i
+WHERE i."BookingId" = @__bookingId_0 AND NOT (i."IsDeleted")
+2025-06-27 01:18:53.281 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.ImageController.GetImageFilesByBookingId (VehicleServiceAPI) in 12.1841ms
+2025-06-27 01:18:53.281 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.ImageController.GetImageFilesByBookingId (VehicleServiceAPI)'
+2025-06-27 01:18:53.282 +05:30 [ERR] HTTP GET /api/v1/Image/booking/4 responded 500 in 16.0572 ms
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at VehicleServiceAPI.Services.ImageService.MapImageToDto(Image image) in /Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025 - WebAPI/VehicleServiceAPI/Services/ImageServices.cs:line 153
+   at System.Linq.Enumerable.ListSelectIterator`2.GetCount(Boolean onlyIfCheap)
+   at VehicleServiceAPI.Controllers.ImageController.GetImageFilesByBookingId(Int32 id) in /Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025 - WebAPI/VehicleServiceAPI/Controllers/ImageController.cs:line 143
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2025-06-27 01:18:53.287 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at VehicleServiceAPI.Services.ImageService.MapImageToDto(Image image) in /Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025 - WebAPI/VehicleServiceAPI/Services/ImageServices.cs:line 153
+   at System.Linq.Enumerable.ListSelectIterator`2.GetCount(Boolean onlyIfCheap)
+   at VehicleServiceAPI.Controllers.ImageController.GetImageFilesByBookingId(Int32 id) in /Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025 - WebAPI/VehicleServiceAPI/Controllers/ImageController.cs:line 143
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.RateLimiting.RateLimitingMiddleware.InvokeInternal(HttpContext context, EnableRateLimitingAttribute enableRateLimitingAttribute)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-06-27 01:18:53.297 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Image/booking/4 - 500 null text/plain; charset=utf-8 32.6951ms
+2025-06-27 01:24:30.055 +05:30 [INF] Application is shutting down...
+2025-06-27 01:24:46.487 +05:30 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-06-27 01:24:46.773 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-06-27 01:24:46.781 +05:30 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-06-27 01:24:46.782 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2025-06-27 01:24:46.782 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-06-27 01:24:46.787 +05:30 [INF] No migrations were applied. The database is already up to date.
+2025-06-27 01:24:46.889 +05:30 [INF] User profile is available. Using '/Users/yugendransunder/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-06-27 01:24:46.959 +05:30 [INF] Now listening on: http://localhost:5192
+2025-06-27 01:24:46.961 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-27 01:24:46.961 +05:30 [INF] Hosting environment: Development
+2025-06-27 01:24:46.961 +05:30 [INF] Content root path: /Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025 - WebAPI/VehicleServiceAPI
+2025-06-27 01:24:58.150 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Image/booking/4 - null null
+2025-06-27 01:24:58.196 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-06-27 01:24:58.294 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.ImageController.GetImageFilesByBookingId (VehicleServiceAPI)'
+2025-06-27 01:24:58.315 +05:30 [INF] Route matched with {action = "GetImageFilesByBookingId", controller = "Image"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetImageFilesByBookingId(Int32) on controller VehicleServiceAPI.Controllers.ImageController (VehicleServiceAPI).
+2025-06-27 01:24:58.331 +05:30 [INF] Getting files for images with Booking ID 4
+2025-06-27 01:24:58.694 +05:30 [INF] Executed DbCommand (18ms) [Parameters=[@__bookingId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT i."Id", i."BookingId", i."FilePath", i."IsDeleted", i."VehicleId"
+FROM "Images" AS i
+WHERE i."BookingId" = @__bookingId_0 AND NOT (i."IsDeleted")
+2025-06-27 01:24:58.752 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Microsoft.AspNetCore.Mvc.IActionResult, Microsoft.AspNetCore.Mvc.Abstractions, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]'.
+2025-06-27 01:24:58.774 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.ImageController.GetImageFilesByBookingId (VehicleServiceAPI) in 453.8658ms
+2025-06-27 01:24:58.778 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.ImageController.GetImageFilesByBookingId (VehicleServiceAPI)'
+2025-06-27 01:24:58.781 +05:30 [INF] HTTP GET /api/v1/Image/booking/4 responded 200 in 486.7938 ms
+2025-06-27 01:24:58.790 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Image/booking/4 - 200 null application/json; charset=utf-8 642.5479ms
+2025-06-27 01:25:34.454 +05:30 [INF] Application is shutting down...
+2025-06-27 01:25:44.966 +05:30 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-06-27 01:25:45.252 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-06-27 01:25:45.259 +05:30 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-06-27 01:25:45.261 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2025-06-27 01:25:45.262 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-06-27 01:25:45.267 +05:30 [INF] No migrations were applied. The database is already up to date.
+2025-06-27 01:25:45.391 +05:30 [INF] User profile is available. Using '/Users/yugendransunder/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-06-27 01:25:45.444 +05:30 [INF] Now listening on: http://localhost:5192
+2025-06-27 01:25:45.445 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-27 01:25:45.445 +05:30 [INF] Hosting environment: Development
+2025-06-27 01:25:45.446 +05:30 [INF] Content root path: /Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025 - WebAPI/VehicleServiceAPI
+2025-06-27 01:25:48.043 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Image/booking/4 - null null
+2025-06-27 01:25:48.082 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-06-27 01:25:48.173 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.ImageController.GetImageFilesByBookingId (VehicleServiceAPI)'
+2025-06-27 01:25:48.187 +05:30 [INF] Route matched with {action = "GetImageFilesByBookingId", controller = "Image"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetImageFilesByBookingId(Int32) on controller VehicleServiceAPI.Controllers.ImageController (VehicleServiceAPI).
+2025-06-27 01:25:48.199 +05:30 [INF] Getting files for images with Booking ID 4
+2025-06-27 01:25:48.496 +05:30 [INF] Executed DbCommand (14ms) [Parameters=[@__bookingId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT i."Id", i."BookingId", i."FilePath", i."IsDeleted", i."VehicleId"
+FROM "Images" AS i
+WHERE i."BookingId" = @__bookingId_0 AND NOT (i."IsDeleted")
+2025-06-27 01:25:48.545 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Microsoft.AspNetCore.Mvc.IActionResult, Microsoft.AspNetCore.Mvc.Abstractions, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]'.
+2025-06-27 01:25:48.563 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.ImageController.GetImageFilesByBookingId (VehicleServiceAPI) in 372.7476ms
+2025-06-27 01:25:48.568 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.ImageController.GetImageFilesByBookingId (VehicleServiceAPI)'
+2025-06-27 01:25:48.570 +05:30 [INF] HTTP GET /api/v1/Image/booking/4 responded 200 in 397.2675 ms
+2025-06-27 01:25:48.578 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Image/booking/4 - 200 null application/json; charset=utf-8 536.0618ms
+2025-06-27 01:26:10.839 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Image/file/6 - null null
+2025-06-27 01:26:10.847 +05:30 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '6/20/2025 11:31:53 AM', Current time (UTC): '6/26/2025 7:56:10 PM'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-06-27 01:26:10.858 +05:30 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '6/20/2025 11:31:53 AM', Current time (UTC): '6/26/2025 7:56:10 PM'.
+2025-06-27 01:26:10.860 +05:30 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin|Mechanic|User)
+2025-06-27 01:26:10.866 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2025-06-27 01:26:10.867 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Image/file/6 - 401 0 null 27.4456ms
+2025-06-27 01:26:21.005 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Image/file/6 - null null
+2025-06-27 01:26:21.010 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.ImageController.GetImageFile (VehicleServiceAPI)'
+2025-06-27 01:26:21.014 +05:30 [INF] Route matched with {action = "GetImageFile", controller = "Image"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetImageFile(Int32) on controller VehicleServiceAPI.Controllers.ImageController (VehicleServiceAPI).
+2025-06-27 01:26:21.018 +05:30 [INF] Getting file for image with ID 6
+2025-06-27 01:26:21.159 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT i."Id", i."BookingId", i."FilePath", i."IsDeleted", i."VehicleId", b."Id", b."IsDeleted", b."SlotId", b."Status", b."UserId", b."VehicleId", v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year"
+FROM "Images" AS i
+INNER JOIN "Bookings" AS b ON i."BookingId" = b."Id"
+INNER JOIN "Vehicles" AS v ON i."VehicleId" = v."Id"
+WHERE i."Id" = @__id_0
+LIMIT 1
+2025-06-27 01:26:21.198 +05:30 [INF] Returning file 37761b8a-916d-4c8f-8d9a-023677797814.png for image ID 6 with content type image/png
+2025-06-27 01:26:21.201 +05:30 [INF] Executing PhysicalFileResult, sending file '/Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025 - WebAPI/VehicleServiceAPI/wwwroot/uploads/37761b8a-916d-4c8f-8d9a-023677797814.png' with download name '' ...
+2025-06-27 01:26:21.214 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.ImageController.GetImageFile (VehicleServiceAPI) in 199.0114ms
+2025-06-27 01:26:21.214 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.ImageController.GetImageFile (VehicleServiceAPI)'
+2025-06-27 01:26:21.214 +05:30 [INF] HTTP GET /api/v1/Image/file/6 responded 200 in 204.2765 ms
+2025-06-27 01:26:21.214 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Image/file/6 - 200 547 image/png 209.1527ms
+2025-06-27 01:32:03.945 +05:30 [INF] Application is shutting down...
+2025-06-27 16:55:25.914 +05:30 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-06-27 17:16:49.746 +05:30 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-06-27 17:16:50.075 +05:30 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-06-27 17:16:50.084 +05:30 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-06-27 17:16:50.088 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2025-06-27 17:16:50.089 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-06-27 17:16:50.097 +05:30 [INF] Applying migration '20250627114614_Init3'.
+2025-06-27 17:16:50.117 +05:30 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Images" RENAME COLUMN "FilePath" TO "Base64Data";
+2025-06-27 17:16:50.121 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20250627114614_Init3', '9.0.5');
+2025-06-27 17:18:47.528 +05:30 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-06-27 17:18:47.826 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-06-27 17:18:47.833 +05:30 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-06-27 17:18:47.835 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2025-06-27 17:18:47.835 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-06-27 17:18:47.839 +05:30 [INF] No migrations were applied. The database is already up to date.
+2025-06-27 17:18:47.962 +05:30 [INF] User profile is available. Using '/Users/yugendransunder/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-06-27 17:18:48.053 +05:30 [INF] Now listening on: http://localhost:5192
+2025-06-27 17:18:48.055 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-27 17:18:48.055 +05:30 [INF] Hosting environment: Development
+2025-06-27 17:18:48.055 +05:30 [INF] Content root path: /Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025 - WebAPI/VehicleServiceAPI
+2025-06-27 17:18:53.099 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Auth/login - null null
+2025-06-27 17:18:53.136 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-06-27 17:18:53.137 +05:30 [INF] CORS policy execution successful.
+2025-06-27 17:18:53.148 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Auth/login - 204 null null 50.1523ms
+2025-06-27 17:18:53.154 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5192/api/v1/Auth/login - application/json 47
+2025-06-27 17:18:53.158 +05:30 [INF] CORS policy execution successful.
+2025-06-27 17:18:53.224 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.AuthController.Login (VehicleServiceAPI)'
+2025-06-27 17:18:53.239 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(VehicleServiceAPI.Models.DTOs.LoginRequestDTO) on controller VehicleServiceAPI.Controllers.AuthController (VehicleServiceAPI).
+2025-06-27 17:18:53.266 +05:30 [INF] Attempting to authenticate user with email: admin@xyz.com
+2025-06-27 17:18:53.674 +05:30 [INF] Executed DbCommand (22ms) [Parameters=[@__email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Email" = @__email_0 AND NOT (u."IsDeleted")
+LIMIT 1
+2025-06-27 17:18:53.765 +05:30 [INF] User authenticated successfully: admin@xyz.com
+2025-06-27 17:18:53.771 +05:30 [INF] Executing OkObjectResult, writing value of type 'VehicleServiceAPI.Models.DTOs.LoginResponseDTO'.
+2025-06-27 17:18:53.780 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.AuthController.Login (VehicleServiceAPI) in 537.3613ms
+2025-06-27 17:18:53.780 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.AuthController.Login (VehicleServiceAPI)'
+2025-06-27 17:18:53.783 +05:30 [INF] HTTP POST /api/v1/Auth/login responded 200 in 558.3584 ms
+2025-06-27 17:18:53.790 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5192/api/v1/Auth/login - 200 null application/json; charset=utf-8 636.9201ms
+2025-06-27 17:18:53.811 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/User/profile - null null
+2025-06-27 17:18:53.812 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Vehicle/user - null null
+2025-06-27 17:18:53.813 +05:30 [INF] CORS policy execution successful.
+2025-06-27 17:18:53.813 +05:30 [INF] CORS policy execution successful.
+2025-06-27 17:18:53.813 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Vehicle/user - 204 null null 1.4474ms
+2025-06-27 17:18:53.813 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/User/profile - 204 null null 1.6759ms
+2025-06-27 17:18:53.816 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/User/profile - application/json null
+2025-06-27 17:18:53.816 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Vehicle/user - application/json null
+2025-06-27 17:18:53.827 +05:30 [INF] CORS policy execution successful.
+2025-06-27 17:18:53.827 +05:30 [INF] CORS policy execution successful.
+2025-06-27 17:18:53.876 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.UserController.GetProfile (VehicleServiceAPI)'
+2025-06-27 17:18:53.876 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.VehicleController.GetAllVehiclesByUser (VehicleServiceAPI)'
+2025-06-27 17:18:53.880 +05:30 [INF] Route matched with {action = "GetProfile", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[VehicleServiceAPI.Models.DTOs.UserDTO]] GetProfile() on controller VehicleServiceAPI.Controllers.UserController (VehicleServiceAPI).
+2025-06-27 17:18:53.880 +05:30 [INF] Route matched with {action = "GetAllVehiclesByUser", controller = "Vehicle"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.VehicleDTO]]] GetAllVehiclesByUser() on controller VehicleServiceAPI.Controllers.VehicleController (VehicleServiceAPI).
+2025-06-27 17:18:53.883 +05:30 [INF] Getting vehicles for current user
+2025-06-27 17:18:53.883 +05:30 [INF] User 2 requested their profile.
+2025-06-27 17:18:53.946 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-06-27 17:18:53.949 +05:30 [INF] Executing OkObjectResult, writing value of type 'VehicleServiceAPI.Models.DTOs.UserDTO'.
+2025-06-27 17:18:53.956 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.UserController.GetProfile (VehicleServiceAPI) in 76.3783ms
+2025-06-27 17:18:53.957 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.UserController.GetProfile (VehicleServiceAPI)'
+2025-06-27 17:18:53.957 +05:30 [INF] HTTP GET /api/v1/User/profile responded 200 in 81.3183 ms
+2025-06-27 17:18:53.958 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/User/profile - 200 null application/json; charset=utf-8 141.9977ms
+2025-06-27 17:18:53.985 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Vehicles" AS v
+INNER JOIN "Users" AS u ON v."OwnerId" = u."Id"
+WHERE v."OwnerId" = @__userId_0
+2025-06-27 17:18:54.005 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-06-27 17:18:54.007 +05:30 [INF] User 2 retrieved 1 vehicles
+2025-06-27 17:18:54.007 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.VehicleDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-06-27 17:18:54.012 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.VehicleController.GetAllVehiclesByUser (VehicleServiceAPI) in 131.956ms
+2025-06-27 17:18:54.012 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.VehicleController.GetAllVehiclesByUser (VehicleServiceAPI)'
+2025-06-27 17:18:54.013 +05:30 [INF] HTTP GET /api/v1/Vehicle/user responded 200 in 136.5706 ms
+2025-06-27 17:18:54.013 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Vehicle/user - 200 null application/json; charset=utf-8 196.8288ms
+2025-06-27 17:19:06.445 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/user - null null
+2025-06-27 17:19:06.446 +05:30 [INF] CORS policy execution successful.
+2025-06-27 17:19:06.447 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/user - 204 null null 1.6425ms
+2025-06-27 17:19:06.449 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Booking/user - application/json null
+2025-06-27 17:19:06.452 +05:30 [INF] CORS policy execution successful.
+2025-06-27 17:19:06.461 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingsByCurrentUser (VehicleServiceAPI)'
+2025-06-27 17:19:06.465 +05:30 [INF] Route matched with {action = "GetBookingsByCurrentUser", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.BookingDTO]]] GetBookingsByCurrentUser() on controller VehicleServiceAPI.Controllers.BookingController (VehicleServiceAPI).
+2025-06-27 17:19:06.470 +05:30 [INF] Getting bookings for user ID 2.
+2025-06-27 17:19:06.663 +05:30 [INF] Executed DbCommand (157ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."IsDeleted", b."SlotId", b."Status", b."UserId", b."VehicleId", s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Bookings" AS b
+INNER JOIN "ServiceSlots" AS s ON b."SlotId" = s."Id"
+INNER JOIN "Vehicles" AS v ON b."VehicleId" = v."Id"
+INNER JOIN "Users" AS u ON b."UserId" = u."Id"
+WHERE b."UserId" = @__userId_0
+2025-06-27 17:19:06.691 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-06-27 17:19:06.695 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-06-27 17:19:06.696 +05:30 [INF] Retrieved 2 bookings for user ID 2.
+2025-06-27 17:19:06.696 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.BookingDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-06-27 17:19:06.704 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.BookingController.GetBookingsByCurrentUser (VehicleServiceAPI) in 238.2913ms
+2025-06-27 17:19:06.704 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingsByCurrentUser (VehicleServiceAPI)'
+2025-06-27 17:19:06.704 +05:30 [INF] HTTP GET /api/v1/Booking/user responded 200 in 243.3120 ms
+2025-06-27 17:19:06.705 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Booking/user - 200 null application/json; charset=utf-8 256.128ms
+2025-06-27 17:19:09.640 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/4 - null null
+2025-06-27 17:19:09.641 +05:30 [INF] CORS policy execution successful.
+2025-06-27 17:19:09.641 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/4 - 204 null null 1.0169ms
+2025-06-27 17:19:09.643 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Booking/4 - application/json null
+2025-06-27 17:19:09.643 +05:30 [INF] CORS policy execution successful.
+2025-06-27 17:19:09.644 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI)'
+2025-06-27 17:19:09.648 +05:30 [INF] Route matched with {action = "GetBookingById", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[VehicleServiceAPI.Models.DTOs.BookingDTO]] GetBookingById(Int32) on controller VehicleServiceAPI.Controllers.BookingController (VehicleServiceAPI).
+2025-06-27 17:19:09.651 +05:30 [INF] Getting booking by ID: 4
+2025-06-27 17:19:09.674 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."IsDeleted", b."SlotId", b."Status", b."UserId", b."VehicleId", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year"
+FROM "Bookings" AS b
+INNER JOIN "Users" AS u ON b."UserId" = u."Id"
+INNER JOIN "ServiceSlots" AS s ON b."SlotId" = s."Id"
+INNER JOIN "Vehicles" AS v ON b."VehicleId" = v."Id"
+WHERE b."Id" = @__id_0
+LIMIT 1
+2025-06-27 17:19:09.677 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-06-27 17:19:09.678 +05:30 [INF] Booking with ID 4 retrieved.
+2025-06-27 17:19:09.678 +05:30 [INF] Executing OkObjectResult, writing value of type 'VehicleServiceAPI.Models.DTOs.BookingDTO'.
+2025-06-27 17:19:09.678 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI) in 29.7559ms
+2025-06-27 17:19:09.679 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI)'
+2025-06-27 17:19:09.679 +05:30 [INF] HTTP GET /api/v1/Booking/4 responded 200 in 35.0313 ms
+2025-06-27 17:19:09.679 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Booking/4 - 200 null application/json; charset=utf-8 36.4295ms
+2025-06-27 17:21:18.516 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/user - null null
+2025-06-27 17:21:18.518 +05:30 [INF] CORS policy execution successful.
+2025-06-27 17:21:18.519 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/user - 204 null null 2.6464ms
+2025-06-27 17:21:18.522 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Booking/user - application/json null
+2025-06-27 17:21:18.523 +05:30 [INF] CORS policy execution successful.
+2025-06-27 17:21:18.524 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingsByCurrentUser (VehicleServiceAPI)'
+2025-06-27 17:21:18.524 +05:30 [INF] Route matched with {action = "GetBookingsByCurrentUser", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.BookingDTO]]] GetBookingsByCurrentUser() on controller VehicleServiceAPI.Controllers.BookingController (VehicleServiceAPI).
+2025-06-27 17:21:18.535 +05:30 [INF] Getting bookings for user ID 2.
+2025-06-27 17:21:18.539 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."IsDeleted", b."SlotId", b."Status", b."UserId", b."VehicleId", s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId"
+FROM "Bookings" AS b
+INNER JOIN "ServiceSlots" AS s ON b."SlotId" = s."Id"
+INNER JOIN "Vehicles" AS v ON b."VehicleId" = v."Id"
+INNER JOIN "Users" AS u ON b."UserId" = u."Id"
+WHERE b."UserId" = @__userId_0
+2025-06-27 17:21:18.546 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-06-27 17:21:18.549 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-06-27 17:21:18.549 +05:30 [INF] Retrieved 2 bookings for user ID 2.
+2025-06-27 17:21:18.550 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[VehicleServiceAPI.Models.DTOs.BookingDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-06-27 17:21:18.550 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.BookingController.GetBookingsByCurrentUser (VehicleServiceAPI) in 25.335ms
+2025-06-27 17:21:18.550 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingsByCurrentUser (VehicleServiceAPI)'
+2025-06-27 17:21:18.550 +05:30 [INF] HTTP GET /api/v1/Booking/user responded 200 in 26.4740 ms
+2025-06-27 17:21:18.552 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Booking/user - 200 null application/json; charset=utf-8 29.2566ms
+2025-06-27 17:21:20.113 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/4 - null null
+2025-06-27 17:21:20.114 +05:30 [INF] CORS policy execution successful.
+2025-06-27 17:21:20.114 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/4 - 204 null null 0.4955ms
+2025-06-27 17:21:20.116 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Booking/4 - application/json null
+2025-06-27 17:21:20.116 +05:30 [INF] CORS policy execution successful.
+2025-06-27 17:21:20.117 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI)'
+2025-06-27 17:21:20.117 +05:30 [INF] Route matched with {action = "GetBookingById", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[VehicleServiceAPI.Models.DTOs.BookingDTO]] GetBookingById(Int32) on controller VehicleServiceAPI.Controllers.BookingController (VehicleServiceAPI).
+2025-06-27 17:21:20.119 +05:30 [INF] Getting booking by ID: 4
+2025-06-27 17:21:20.122 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."IsDeleted", b."SlotId", b."Status", b."UserId", b."VehicleId", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year"
+FROM "Bookings" AS b
+INNER JOIN "Users" AS u ON b."UserId" = u."Id"
+INNER JOIN "ServiceSlots" AS s ON b."SlotId" = s."Id"
+INNER JOIN "Vehicles" AS v ON b."VehicleId" = v."Id"
+WHERE b."Id" = @__id_0
+LIMIT 1
+2025-06-27 17:21:20.124 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-06-27 17:21:20.125 +05:30 [INF] Booking with ID 4 retrieved.
+2025-06-27 17:21:20.125 +05:30 [INF] Executing OkObjectResult, writing value of type 'VehicleServiceAPI.Models.DTOs.BookingDTO'.
+2025-06-27 17:21:20.125 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI) in 7.6909ms
+2025-06-27 17:21:20.126 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI)'
+2025-06-27 17:21:20.126 +05:30 [INF] HTTP GET /api/v1/Booking/4 responded 200 in 8.6146 ms
+2025-06-27 17:21:20.126 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Booking/4 - 200 null application/json; charset=utf-8 10.4381ms
+2025-06-27 17:29:54.262 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/4 - null null
+2025-06-27 17:29:54.263 +05:30 [INF] CORS policy execution successful.
+2025-06-27 17:29:54.264 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/4 - 204 null null 1.1666ms
+2025-06-27 17:29:54.265 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Booking/4 - application/json null
+2025-06-27 17:29:54.265 +05:30 [INF] CORS policy execution successful.
+2025-06-27 17:29:54.265 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI)'
+2025-06-27 17:29:54.265 +05:30 [INF] Route matched with {action = "GetBookingById", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[VehicleServiceAPI.Models.DTOs.BookingDTO]] GetBookingById(Int32) on controller VehicleServiceAPI.Controllers.BookingController (VehicleServiceAPI).
+2025-06-27 17:29:54.266 +05:30 [INF] Getting booking by ID: 4
+2025-06-27 17:29:54.302 +05:30 [INF] Executed DbCommand (19ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."IsDeleted", b."SlotId", b."Status", b."UserId", b."VehicleId", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year"
+FROM "Bookings" AS b
+INNER JOIN "Users" AS u ON b."UserId" = u."Id"
+INNER JOIN "ServiceSlots" AS s ON b."SlotId" = s."Id"
+INNER JOIN "Vehicles" AS v ON b."VehicleId" = v."Id"
+WHERE b."Id" = @__id_0
+LIMIT 1
+2025-06-27 17:29:54.304 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-06-27 17:29:54.304 +05:30 [INF] Booking with ID 4 retrieved.
+2025-06-27 17:29:54.305 +05:30 [INF] Executing OkObjectResult, writing value of type 'VehicleServiceAPI.Models.DTOs.BookingDTO'.
+2025-06-27 17:29:54.305 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI) in 39.2196ms
+2025-06-27 17:29:54.305 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI)'
+2025-06-27 17:29:54.305 +05:30 [INF] HTTP GET /api/v1/Booking/4 responded 200 in 39.6372 ms
+2025-06-27 17:29:54.305 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Booking/4 - 200 null application/json; charset=utf-8 40.6152ms
+2025-06-27 17:38:52.831 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/4 - null null
+2025-06-27 17:38:52.831 +05:30 [INF] CORS policy execution successful.
+2025-06-27 17:38:52.832 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/Booking/4 - 204 null null 1.0618ms
+2025-06-27 17:38:52.834 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/Booking/4 - application/json null
+2025-06-27 17:38:52.835 +05:30 [INF] CORS policy execution successful.
+2025-06-27 17:38:52.835 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI)'
+2025-06-27 17:38:52.836 +05:30 [INF] Route matched with {action = "GetBookingById", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[VehicleServiceAPI.Models.DTOs.BookingDTO]] GetBookingById(Int32) on controller VehicleServiceAPI.Controllers.BookingController (VehicleServiceAPI).
+2025-06-27 17:38:52.837 +05:30 [INF] Getting booking by ID: 4
+2025-06-27 17:38:52.850 +05:30 [INF] Executed DbCommand (11ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."IsDeleted", b."SlotId", b."Status", b."UserId", b."VehicleId", u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", s."Id", s."IsDeleted", s."MechanicID", s."SlotDateTime", s."Status", v."Id", v."IsDeleted", v."Make", v."Model", v."OwnerId", v."RegistrationNumber", v."Year"
+FROM "Bookings" AS b
+INNER JOIN "Users" AS u ON b."UserId" = u."Id"
+INNER JOIN "ServiceSlots" AS s ON b."SlotId" = s."Id"
+INNER JOIN "Vehicles" AS v ON b."VehicleId" = v."Id"
+WHERE b."Id" = @__id_0
+LIMIT 1
+2025-06-27 17:38:52.852 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-06-27 17:38:52.853 +05:30 [INF] Booking with ID 4 retrieved.
+2025-06-27 17:38:52.853 +05:30 [INF] Executing OkObjectResult, writing value of type 'VehicleServiceAPI.Models.DTOs.BookingDTO'.
+2025-06-27 17:38:52.853 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI) in 17.2393ms
+2025-06-27 17:38:52.853 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.BookingController.GetBookingById (VehicleServiceAPI)'
+2025-06-27 17:38:52.853 +05:30 [INF] HTTP GET /api/v1/Booking/4 responded 200 in 18.3313 ms
+2025-06-27 17:38:52.854 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/Booking/4 - 200 null application/json; charset=utf-8 19.7276ms
