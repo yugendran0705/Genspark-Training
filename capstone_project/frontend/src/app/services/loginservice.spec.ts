@@ -48,7 +48,9 @@ describe('Loginservice', () => {
       email: 'test@mail.com', 
       password: 'pass', 
       name: 'Test User', 
-      phoneNumber: '1234567890' 
+      phoneNumber: '1234567890',
+      address: '123 Test St',
+      walletBalance: 100
     };
     const mockResponse = { success: true };
     service.register(mockObj, 'user').subscribe(data => {

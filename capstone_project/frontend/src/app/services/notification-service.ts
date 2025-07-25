@@ -19,7 +19,7 @@ export class NotificationService {
   constructor() { }
   startConnection(): void {
     this.hubConnection = new signalR.HubConnectionBuilder()
-      .withUrl('/eventhub')
+      .withUrl('http://localhost:5136/eventhub')
       .withAutomaticReconnect()
       .build();
 

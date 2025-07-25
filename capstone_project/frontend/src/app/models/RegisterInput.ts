@@ -3,4 +3,6 @@ export interface RegisterInput {
   email: string;
   password: string;
   phoneNumber: string;
+  address: string;
+  walletBalance: number;
 }

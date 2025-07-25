@@ -44,6 +44,14 @@
           <span class="fw-bold fs-5 text-dark">₹{{ event()?.price * count() }}</span>
         </li>
       </ul>
+      <div class="mb-3 d-flex align-items-center">
+        <strong class="me-2">Payment Method:</strong>
+        <span class="me-3">{{ useWallet ? 'Wallet' : 'Standard Payment' }}</span>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" id="walletToggle" [(ngModel)]="useWallet">
+          <label class="form-check-label" for="walletToggle">Use Wallet</label>
+        </div>
+      </div>
 
       <button class="btn btn-danger w-100 mt-3" (click)="confirmBooking()">
         <span><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"

@@ -9,7 +9,7 @@ import { LoginInput } from '../models/LoginInput';
 })
 export class Loginservice {
 
-  private apiUrl = '/api/v1/authentication';
+  private apiUrl = 'http://localhost:5136/api/v1/authentication';
 
   private loginsubject = new BehaviorSubject<boolean>(false);
   islogged$ = this.loginsubject.asObservable();
@@ -39,9 +39,9 @@ export class Loginservice {
 
   register(obj: RegisterInput, role: string): Observable<any> {
     if (role == "user") {
-      return this.httpclient.post('/api/v1/customer/register', obj);
+      return this.httpclient.post('http://localhost:5136/api/v1/customer/register', obj);
     }
-    return this.httpclient.post('/api/v1/admin/register', obj);
+    return this.httpclient.post('http://localhost:5136/api/v1/admin/register', obj);
   }
 
   setlogintrue() {
@@ -54,7 +54,7 @@ export class Loginservice {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
-    const resp= this.httpclient.get(`/api/v1/customer/${email}`, {headers:headers});
+    const resp= this.httpclient.get(`http://localhost:5136/api/v1/customer/${email}`, {headers:headers});
     resp.subscribe((data:any)=>{
       console.log(data)
       this.namesubject.next(data.name);
@@ -62,7 +62,7 @@ export class Loginservice {
   }
 
   checkUserExists(email:string):Observable<any>{
-    return this.httpclient.get(`/api/v1/customer/${email}`);
+    return this.httpclient.get(`http://localhost:5136/api/v1/customer/${email}`);
   }
 
 

@@ -12,10 +12,10 @@ export class EventService {
 
   geteventbyid(id:number):Observable<any>
   {
-    return this.httpclient.get(`/api/events/${id}`);
+    return this.httpclient.get(`http://localhost:5136/api/events/${id}`);
   }
 
   getallevents(): Observable<any> {
-    return this.httpclient.get<any>('/api/events');
+    return this.httpclient.get<any>('http://localhost:5136/api/events');
   }
 }

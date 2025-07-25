@@ -20,10 +20,10 @@ export class ProfileService {
 
   getUserProfile():Observable<any>{
     const email=localStorage.getItem('username');
-    return this.httpclient.get(`/api/v1/customer/${email}`)
+    return this.httpclient.get(`http://localhost:5136/api/v1/customer/${email}`)
   }
 
   updateUserProfile(updatedData:UpdateUserProfileInput):Observable<any>{
-    return this.httpclient.put(`/api/v1/customer/update`,updatedData)
+    return this.httpclient.put(`http://localhost:5136/api/v1/customer/update`,updatedData)
   }
 }

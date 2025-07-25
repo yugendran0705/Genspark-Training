@@ -3,10 +3,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ConfirmationService } from '../services/confirmation-service';
 import { CommonModule } from '@angular/common';
 import { TicketService } from '../services/ticket-service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-confirmbooking',
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './confirmbooking.html',
   styleUrl: './confirmbooking.css'
 })
@@ -15,23 +16,29 @@ export class Confirmbooking implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private confirmationService: ConfirmationService,
-    private ticketservice:TicketService
+    private ticketservice:TicketService,
   ) {}
   
 
   event: any;
   count: any;
   showToast: boolean = false;
+  useWallet!: boolean;
 
   ngOnInit(): void {
     this.event = this.confirmationService.eventDetail;
     this.count = this.confirmationService.ticketCount;
+    this.useWallet = this.confirmationService.useWallet();
     console.log("Confirmed Event:", this.event());
     console.log("Ticket Count:", this.count());
   }
 
   confirmBooking() {
-     this.ticketservice.bookticket({eventName:this.event().title, quantity:this.count()}).subscribe({
+     this.ticketservice.bookticket({
+      eventName:this.event().title, 
+      quantity:this.count(),
+      useWallet:this.useWallet,
+    }).subscribe({
       next: (response: Blob) => {
         const blob = new Blob([response], { type: 'application/pdf' });
         const url = window.URL.createObjectURL(blob);

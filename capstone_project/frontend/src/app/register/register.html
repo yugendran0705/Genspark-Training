@@ -28,13 +28,12 @@
           (click)="checkEmail()">Next</button>
       </div>
 
-      <!-- Step 2: Password, Confirm Password, Phone -->
+      <!-- Step 2: Password, Confirm Password, Phone, Address, Wallet -->
       <div *ngIf="currentStep === 2">
         <div class="mb-3">
           <label class="form-label">Password</label>
           <input type="password" class="form-control" formControlName="password" placeholder="Password" />
-          <div *ngIf="registerForm.get('password')?.errors?.['weakPassword'] && registerForm.get('password')?.touched"
-            class="text-danger small">
+          <div *ngIf="registerForm.get('password')?.errors?.['weakPassword'] && registerForm.get('password')?.touched" class="text-danger small">
             Password must be at least 6 characters, contain a number and a symbol.
           </div>
         </div>
@@ -42,8 +41,7 @@
         <div class="mb-3">
           <label class="form-label">Confirm Password</label>
           <input type="password" class="form-control" formControlName="confirmPassword" placeholder="Confirm Password" />
-          <div *ngIf="registerForm.errors?.['passwordMismatch'] && registerForm.get('confirmPassword')?.touched"
-            class="text-danger small">
+          <div *ngIf="registerForm.errors?.['passwordMismatch'] && registerForm.get('confirmPassword')?.touched" class="text-danger small">
             Passwords do not match.
           </div>
         </div>
@@ -51,9 +49,24 @@
         <div class="mb-3">
           <label class="form-label">Phone Number</label>
           <input type="tel" formControlName="phone" class="form-control" placeholder="Enter 10-digit phone number">
-          <div *ngIf="registerForm.get('phone')?.invalid && registerForm.get('phone')?.touched"
-            class="text-danger small">
+          <div *ngIf="registerForm.get('phone')?.invalid && registerForm.get('phone')?.touched" class="text-danger small">
             Enter a valid 10-digit phone number.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Address</label>
+          <input type="text" class="form-control" formControlName="address" placeholder="Enter your address" />
+          <div *ngIf="registerForm.get('address')?.invalid && registerForm.get('address')?.touched" class="text-danger small">
+            Address is required.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Wallet Balance</label>
+          <input type="number" class="form-control" formControlName="walletBalance" min="0" placeholder="Enter initial balance" />
+          <div *ngIf="registerForm.get('walletBalance')?.invalid && registerForm.get('walletBalance')?.touched" class="text-danger small">
+            Wallet balance must be a non-negative number.
           </div>
         </div>
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileService } from '../services/profile-service';
+import { WalletService } from '../services/wallet-service';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule,ReactiveFormsModule,ValidationErrors,Validators } from '@angular/forms';
 //@ts-ignore
@@ -16,11 +17,16 @@ import * as bootstrap from 'bootstrap';
 })
 export class Profile implements OnInit {
   userdata: any = {};
+  walletBalance: number = 0;
   ticketCount: number = 0;
   editData: any = {};
   editFormGroup!:FormGroup
 
-  constructor(private profileservice: ProfileService,private fb:FormBuilder) { }
+  constructor(
+    private profileservice: ProfileService,
+    private fb:FormBuilder,
+    private walletService: WalletService
+  ) { }
 
   ngOnInit(): void {
     this.editFormGroup = this.fb.group({
@@ -38,6 +44,14 @@ export class Profile implements OnInit {
         },
         error: (err: any) => {
           console.error('Failed to load profile:', err);
+        }
+      });
+      this.walletService.getWalletByEmail(email).subscribe({
+        next: (wallet: any) => {
+          this.walletBalance = wallet.balance;
+        },
+        error: (err) => {
+          console.error('Failed to load wallet:', err);
         }
       });
     }

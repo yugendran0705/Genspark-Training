@@ -30,6 +30,8 @@ export class Register {
         password: ['', [Validators.required, CustomValidators.passwordStrength()]],
         confirmPassword: ['', Validators.required],
         phone: ['', [Validators.required, Validators.pattern(/^[0-9]{10}$/)]],
+        address: ['', Validators.required],
+        walletBalance: [0, [Validators.required, Validators.min(0)]],
         role: ['user', Validators.required]
       },
       {
@@ -38,39 +40,37 @@ export class Register {
     );
   }
 
-  // Step 1: Check email via API
   checkEmail() {
-  const email = this.registerForm.get('email')?.value;
-  this.loginservice.checkUserExists(email).subscribe({
-    next: (user: any) => {
-      // User exists
-      this.emailExists = true;
-    },
-    error: (err) => {
-      if (err.status === 404) {
-        // User does not exist, move to next step
-        this.emailExists = false;
-        this.currentStep = 2;
-      } else {
-        // Other errors
-        console.error(err);
-        alert("Error checking email.");
+    const email = this.registerForm.get('email')?.value;
+    this.loginservice.checkUserExists(email).subscribe({
+      next: () => {
+        this.emailExists = true;
+      },
+      error: (err) => {
+        if (err.status === 404) {
+          this.emailExists = false;
+          this.currentStep = 2;
+        } else {
+          console.error(err);
+          alert("Error checking email.");
+        }
       }
-    }
-  });
-}
+    });
+  }
 
-  // Step 2: Final registration
   onRegisterClick() {
     if (this.registerForm.valid) {
-      const obj:RegisterInput = {
+      const obj: RegisterInput = {
         name: this.registerForm.value.name,
         email: this.registerForm.value.email,
         password: this.registerForm.value.password,
-        phoneNumber: this.registerForm.value.phone
+        phoneNumber: this.registerForm.value.phone,
+        address: this.registerForm.value.address,
+        walletBalance: this.registerForm.value.walletBalance
       };
+
       this.loginservice.register(obj, this.registerForm.value.role).subscribe({
-        next: (data: any) => {
+        next: () => {
           this.showToast = true;
           setTimeout(() => {
             this.showToast = false;
