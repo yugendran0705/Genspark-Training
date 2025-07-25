@@ -1,0 +1,144 @@
+<!-- User Profile Section -->
+<div class="bg-white rounded shadow p-6 max-w-xl mx-auto my-6" *ngIf="!errorMessage; else errorBlock">
+  <h2 class="text-2xl font-semibold mb-4">User Profile</h2>
+  <ul class="space-y-2 text-gray-700">
+    <li><span class="font-medium">ID:</span> {{ user?.id }}</li>
+    <li><span class="font-medium">Name:</span> {{ user?.name }}</li>
+    <li><span class="font-medium">Email:</span> {{ user?.email }}</li>
+    <li><span class="font-medium">Phone:</span> {{ user?.phone }}</li>
+  </ul>
+  <button class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 text-lg my-4" (click)="logout()">Logout</button>
+</div>
+
+<ng-template #errorBlock>
+  <div class="text-red-600 text-center p-4">{{ errorMessage }}</div>
+</ng-template>
+
+
+<!-- Add Vehicle Button -->
+
+<div class="max-w-7xl mx-auto p-4 bg-white shadow rounded-lg">
+  <div class="flex items-center justify-between mb-4">
+    <h2 class="text-xl font-semibold">Vehicles</h2>
+    <button (click)="onAdd()" aria-label="Add vehicle" class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 text-lg font-bold">
+      +
+    </button>
+  </div>
+
+  <div *ngIf="errorMessage" class="text-red-600 mb-3">{{ errorMessage }}</div>
+
+  <div class="overflow-x-auto">
+    <table class="w-full table-auto border border-gray-200 text-sm">
+      <thead class="bg-gray-100 text-left">
+        <tr>
+          <th class="p-2 border">ID</th>
+          <th class="p-2 border">Make</th>
+          <th class="p-2 border">Model</th>
+          <th class="p-2 border">Registration #</th>
+          <th class="p-2 border">Year</th>
+          <th class="p-2 border">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let vehicle of vehicles" class="hover:bg-gray-50">
+          <td class="p-2 border">{{ vehicle.id }}</td>
+          <td class="p-2 border">{{ vehicle.make }}</td>
+          <td class="p-2 border">{{ vehicle.model }}</td>
+          <td class="p-2 border">{{ vehicle.registrationNumber }}</td>
+          <td class="p-2 border">{{ vehicle.year }}</td>
+          <td class="p-2 border text-center">
+            <button (click)="openDelete(vehicle.id)" class="text-red-600 hover:text-red-800">
+              &#10005;
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ng-template #noData>
+    <div class="text-center text-gray-500 py-4">No vehicles have been added yet.</div>
+  </ng-template>
+</div>
+
+<!-- Modal for confirming Delete -->
+ <div class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50" *ngIf="isModalDeleteOpen">
+  <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-md">
+    <h2 class="text-xl font-semibold mb-4">Are you sure that you want to delete the vehicle details ?</h2>
+    <div class="flex flex-row justify-between mt-16">
+      <button (click)="deleteVehicle()"
+        class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition">
+        Yes
+      </button>
+  
+      <button (click)="closeDelete()"
+        class="px-4 py-2 bg-[rgb(255,0,0,0.9)] text-white border border-gray-300 rounded hover:bg-[rgb(255,0,0,1)] transition">
+        No
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for Adding Vehicle -->
+<div class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50" *ngIf="isModalOpen">
+  <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-md">
+    <h2 class="text-xl font-semibold mb-4">Create Vehicle</h2>
+    <form [formGroup]="vehicleForm" (ngSubmit)="onSubmitVehicle()" class="space-y-4">
+      <div>
+        <label for="make" class="block font-medium">Vehicle Make</label>
+        <input id="make" formControlName="make" type="text" placeholder="Enter make"
+               class="w-full border px-3 py-2 rounded focus:outline-none focus:ring" />
+        <div *ngIf="vehicleForm.get('make')?.invalid && vehicleForm.get('make')?.touched" class="text-red-600 text-sm mt-1">
+          Vehicle make is required.
+        </div>
+      </div>
+
+      <div>
+        <label for="model" class="block font-medium">Vehicle Model</label>
+        <input id="model" formControlName="model" type="text" placeholder="Enter model"
+               class="w-full border px-3 py-2 rounded focus:outline-none focus:ring" />
+        <div *ngIf="vehicleForm.get('model')?.invalid && vehicleForm.get('model')?.touched" class="text-red-600 text-sm mt-1">
+          Vehicle model is required.
+        </div>
+      </div>
+
+      <div>
+        <label for="year" class="block font-medium">Vehicle Year</label>
+        <select
+          id="year"
+          formControlName="year"
+          class="w-full border px-3 py-2 rounded focus:outline-none focus:ring"
+        >
+          <option value="" disabled selected>Select year</option>
+          <option *ngFor="let year of yearOptions" [value]="year">
+            {{ year }}
+          </option>
+        </select>
+        <div
+          *ngIf="vehicleForm.get('year')?.invalid && vehicleForm.get('year')?.touched"
+          class="text-red-600 text-sm mt-1"
+        >
+          Please select a year.
+        </div>
+      </div>
+      
+      <div>
+        <label for="registrationNumber" class="block font-medium">Vehicle Registration Number</label>
+        <input id="registrationNumber" formControlName="registrationNumber" type="text" placeholder="Enter Registration Number"
+               class="w-full border px-3 py-2 rounded focus:outline-none focus:ring" />
+        <div *ngIf="vehicleForm.get('registrationNumber')?.invalid && vehicleForm.get('registrationNumber')?.touched" class="text-red-600 text-sm mt-1">
+          Vehicle Registration Number is required.
+        </div>
+      </div>
+
+      <div class="flex justify-end space-x-2">
+        <button type="button" (click)="closeModal()" class="px-4 py-2 rounded border text-gray-700 hover:bg-gray-100">
+          Cancel
+        </button>
+        <button type="submit" class="px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700">
+          Create Vehicle
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
