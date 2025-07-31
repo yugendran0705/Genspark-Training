@@ -20,7 +20,66 @@ export class Profile implements OnInit {
   walletBalance: number = 0;
   ticketCount: number = 0;
   editData: any = {};
-  editFormGroup!:FormGroup
+  editFormGroup!:FormGroup;
+  addAmount: number = 0;
+  deductAmount: number = 0;
+
+  submitAddFunds() {
+    if (!this.addAmount || this.addAmount <= 0) return;
+
+    const dto = {
+      email: this.userdata.email,
+      amount: this.addAmount
+    };
+
+    this.walletService.addFunds(dto).subscribe({
+      next: (wallet) => {
+        this.walletBalance = wallet.balance;
+        this.addAmount = 0;
+
+        const modalEl = document.getElementById('addFundsModal');
+        if (modalEl) {
+          const modal = bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
+          modal.hide();
+        }
+      },
+      error: (err) => {
+        console.error('Add funds failed:', err);
+        alert('Failed to add funds.');
+      }
+    });
+  }
+
+  submitDeductFunds() {
+    if (!this.deductAmount || this.deductAmount <= 0) return;
+    if (this.deductAmount > this.walletBalance) {
+      alert('Insufficient funds to deduct this amount.');
+      return;
+    }
+
+    const dto = {
+      email: this.userdata.email,
+      amount: this.deductAmount
+    };
+
+    this.walletService.deductFunds(dto).subscribe({
+      next: (wallet) => {
+        this.walletBalance = wallet.balance;
+        this.deductAmount = 0;
+
+        const modalEl = document.getElementById('deductFundsModal');
+        if (modalEl) {
+          const modal = bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
+          modal.hide();
+        }
+      },
+      error: (err) => {
+        console.error('Deduct funds failed:', err);
+        alert('Failed to deduct funds.');
+      }
+    });
+  }
+
 
   constructor(
     private profileservice: ProfileService,

@@ -55,7 +55,12 @@
                             <p class="mb-0">
                               <span class="badge bg-success fs-6 px-3">₹{{ walletBalance }}</span>
                             </p>
+                            <div class="mt-3">
+                              <button class="btn btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#addFundsModal">Add Funds</button>
+                              <button class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#deductFundsModal">Deduct Funds</button>
+                            </div>
                         </div>
+
                       </div>
                     </div>
             </div>
@@ -105,4 +110,40 @@
   </div>
 </div>
 
+<div class="modal fade" id="addFundsModal" tabindex="-1" aria-labelledby="addFundsLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <form class="modal-content" (ngSubmit)="submitAddFunds()">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addFundsLabel">Add Funds</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <label class="form-label">Amount (₹)</label>
+        <input type="number" class="form-control" [(ngModel)]="addAmount" name="addAmount" required min="1" />
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button class="btn btn-success" type="submit">Add</button>
+      </div>
+    </form>
+  </div>
+</div>
 
+<div class="modal fade" id="deductFundsModal" tabindex="-1" aria-labelledby="deductFundsLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <form class="modal-content" (ngSubmit)="submitDeductFunds()">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deductFundsLabel">Deduct Funds</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <label class="form-label">Amount (₹)</label>
+        <input type="number" class="form-control" [(ngModel)]="deductAmount" name="deductAmount" required min="1" />
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button class="btn btn-warning" type="submit">Deduct</button>
+      </div>
+    </form>
+  </div>
+</div>

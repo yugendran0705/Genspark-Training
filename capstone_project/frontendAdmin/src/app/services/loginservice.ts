@@ -8,7 +8,7 @@ import { HttpHeaders } from '@angular/common/http';
 })
 export class Loginservice {
 
-  private apiUrl = '/api/v1/authentication';
+  private apiUrl = 'http://localhost:5136/api/v1/authentication';
   public isloggedin = signal(false);
 
   constructor(private httpclient: HttpClient) {
@@ -31,12 +31,12 @@ export class Loginservice {
   }
 
   register(obj: any, role: string): Observable<any> {
-    return this.httpclient.post('/api/v1/admin/register', obj);
+    return this.httpclient.post('http://localhost:5136/api/v1/admin/register', obj);
   }
 
 
   checkUserExists(email: string): Observable<any> {
-    return this.httpclient.get(`/api/v1/admin/${email}`);
+    return this.httpclient.get(`http://localhost:5136/api/v1/admin/${email}`);
   }
   
 }

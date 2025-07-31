@@ -13,7 +13,7 @@ export class HomepageService {
 
   getallevents(): Observable<any> {
     const email=localStorage.getItem('username')
-    return this.http.get<any>(`/api/events/admin/${email}`);
+    return this.http.get<any>(`http://localhost:5136/api/events/admin/${email}`);
   }
 
 }

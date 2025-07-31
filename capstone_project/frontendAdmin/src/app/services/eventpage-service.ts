@@ -12,7 +12,7 @@ export class EventpageService {
 
   geteventbyid(id:number):Observable<any>
   {
-    return this.httpclient.get(`/api/events/${id}`);
+    return this.httpclient.get(`http://localhost:5136/api/events/${id}`);
   }
 
   updateEvent(updatedevent:any,eventname:string):Observable<any>{
@@ -20,7 +20,7 @@ export class EventpageService {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
-    return this.httpclient.put(`/api/events/${eventname}`,updatedevent,{headers:headers})
+    return this.httpclient.put(`http://localhost:5136/api/events/${eventname}`,updatedevent,{headers:headers})
   }
 
   deleteEvent(eventname:any):Observable<any>{
@@ -28,7 +28,7 @@ export class EventpageService {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
-    return this.httpclient.delete(`/api/events/${eventname}`,{headers:headers})
+    return this.httpclient.delete(`http://localhost:5136/api/events/${eventname}`,{headers:headers})
   }
 
   addevent(event:any):Observable<any>{
@@ -36,7 +36,7 @@ export class EventpageService {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
-    return this.httpclient.post(`/api/events`,event,{headers:headers})
+    return this.httpclient.post(`http://localhost:5136/api/events`,event,{headers:headers})
   }
 
 

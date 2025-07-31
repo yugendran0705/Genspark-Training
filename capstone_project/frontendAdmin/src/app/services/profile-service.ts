@@ -24,7 +24,7 @@ export class ProfileService {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
-    return this.httpclient.get(`/api/v1/admin/${email}`,{headers:headers})
+    return this.httpclient.get(`http://localhost:5136/api/v1/admin/${email}`,{headers:headers})
   }
   updateUserProfile(updatedData:UpdateUserProfileInput):Observable<any>{
     const email=localStorage.getItem('username');
@@ -32,6 +32,6 @@ export class ProfileService {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
-    return this.httpclient.put(`/api/v1/admin/update`,updatedData,{headers:headers})
+    return this.httpclient.put(`http://localhost:5136/api/v1/admin/update`,updatedData,{headers:headers})
   }
 }

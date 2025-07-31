@@ -46,10 +46,12 @@ export class Dashboard implements OnInit {
         );
 
         this.totalTicketsSold = this.createdEvents.reduce((acc, event) => {
+          if (event.isCancelled) return acc;
           return acc + (event.tickets?.reduce((sum: number, t: any) => sum + t.quantity, 0) || 0);
         }, 0);
 
         this.totalRevenue = this.createdEvents.reduce((acc, event) => {
+          if (event.isCancelled) return acc;
           return acc + (event.tickets?.reduce((sum: number, t: any) => sum + t.total, 0) || 0);
         }, 0);
       },
