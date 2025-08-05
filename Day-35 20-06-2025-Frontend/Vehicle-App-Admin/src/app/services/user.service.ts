@@ -65,6 +65,18 @@ export class UserService {
     );
   }
 
+  updateRole(body: {
+        UserId: number, 
+        RoleId: number
+    }): Observable<any> { 
+    return this.http.put(`${this.apiURL}/role`, body, {
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
+        }
+    });
+  }
+
   delete(): Observable<any> {
     return this.http.delete(`${this.apiURL}/`, {
         headers: {

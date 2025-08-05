@@ -80,7 +80,6 @@ export class DashboardComponent implements OnInit {
     for (const user of users) {
       const role = user.roleName.toLowerCase();
       if (role === 'admin') continue; // Skip admin role
-      console.log(role);
       roleCounts[role] = (roleCounts[role] || 0) + 1;
     }
 
@@ -109,7 +108,6 @@ export class DashboardComponent implements OnInit {
     const dateCounts: Record<string, number> = {};
 
     for (const s of slots) {
-      console.log(s);
       const date = new Date(s.slotDateTime).toISOString().split('T')[0]; // Extract date in YYYY-MM-DD format
       if (s.status.toLowerCase() !== 'booked') continue; // Only count booked slots
       dateCounts[date] = (dateCounts[date] || 0) + 1;

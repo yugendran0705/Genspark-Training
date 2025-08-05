@@ -47,15 +47,7 @@ export class BookingComponent implements OnInit{
               amount: [null, [Validators.required, Validators.min(0)]],
               serviceDetails: ['', Validators.required]
             });
-            this.imageService.getAllByBookingID(this.bookingId).subscribe({
-              next: (response) => {
-                this.images = response;
-              },
-              error: (error) => {
-                this.errorMessage = error.error.error ?? "Error. Please try again later";
-              }
-            })
-            this.startAutoSlide();
+            this.startImages();
           },
           error: (error) => {
             this.errorMessage = error.error.error ?? "Error. Please try again later";
@@ -67,6 +59,18 @@ export class BookingComponent implements OnInit{
 
   ngOnDestroy() {
     clearInterval(this.intervalId);
+  }
+
+  startImages(){
+    this.imageService.getAllByBookingID(this.bookingId).subscribe({
+      next: (response) => {
+        this.images = response;
+      },
+      error: (error) => {
+        this.errorMessage = error.error.error ?? "Error. Please try again later";
+      }
+    })
+    this.startAutoSlide();
   }
 
   startAutoSlide() {
@@ -108,7 +112,10 @@ export class BookingComponent implements OnInit{
     };
 
     this.imageService.uploadImage(payload).subscribe({
-      next: res => console.log('Image uploaded successfully', res),
+      next: res => {
+        this.base64Image = ""; // Reset the base64 image after upload
+        this.startImages(); // Refresh the images list
+      },
       error: err => console.error('Upload failed', err)
     });
   }
@@ -117,7 +124,9 @@ export class BookingComponent implements OnInit{
     var img = this.images[index];
 
     this.imageService.deleteImage(img.id).subscribe({
-      next: res => console.log('Image deleted successfully', res),
+      next: res => {
+        this.startImages(); // Refresh the images list after deletion
+      },
       error: err => console.error('Delete failed', err)
     })
 

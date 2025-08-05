@@ -27,4 +27,10 @@ namespace VehicleServiceAPI.Models.DTOs
         public string Email { get; set; }
         public string Phone { get; set; }
     }
+
+    public class UpdateUserRequestDTO
+    {
+        public int UserId { get; set; }
+        public int RoleId { get; set; }
+    }
 }

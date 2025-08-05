@@ -192,10 +192,47 @@ namespace VehicleServiceAPI.Controllers
             return BadRequest(new { error = ex.Message });
             }
         }
+
         /// <summary>
-        /// Soft-deletes the profile of the currently logged-in user.
+        /// Updates the role of a user (Admin access only).
         /// </summary>
-        [Authorize(Policy = "UserAccess")]
+        [Authorize(Policy = "AdminOnly")]
+        [HttpPut("role")]
+        public async Task<ActionResult<UserDTO>> UpdateUserRole([FromBody] UpdateUserRequestDTO updateRequest)
+        {
+            if (!ModelState.IsValid)
+            {
+            _logger?.LogWarning("Invalid model state while updating user role.");
+            return BadRequest(ModelState);
+            }   
+            try
+            {
+            _logger?.LogInformation("Admin requested to update role for user ID: {UserId}", updateRequest.UserId);
+            var updatedUser = await _userService.UpdateUserRoleAsync(updateRequest);
+            _logger?.LogInformation("User role updated successfully for user ID: {UserId}", updateRequest.UserId);
+            return Ok(updatedUser);
+            }
+            catch (InvalidOperationException ex)
+            {
+            _logger?.LogWarning(ex, "Invalid operation while updating user role for user ID: {UserId}.", updateRequest.UserId);
+            return NotFound(new { error = ex.Message });
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+            _logger?.LogWarning(ex, "Unauthorized access while updating user role for user ID: {UserId}.", updateRequest.UserId);
+            return Forbid();
+            }
+            catch (Exception ex)
+            {
+            _logger?.LogError(ex, "Unexpected error while updating user role for user ID: {UserId}.", updateRequest.UserId);
+            return BadRequest(new { error = ex.Message  });
+            }   
+        }
+
+        /// <summary>
+            /// Soft-deletes the profile of the currently logged-in user.
+            /// </summary>
+            [Authorize(Policy = "UserAccess")]
         [HttpDelete("")]
         public async Task<IActionResult> DeleteProfile()
         {

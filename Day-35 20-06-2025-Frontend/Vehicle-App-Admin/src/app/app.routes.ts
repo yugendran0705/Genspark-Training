@@ -9,6 +9,7 @@ import { SlotComponent } from './slot/slot.component';
 import { BookingComponent } from './booking/booking.component';
 import { InvoiceComponent } from './invoice/invoice.component';
 import { InvoicesComponent } from './invoices/invoices.component';
+import { MechanicsComponent } from './mechanics/mechanics.component';
 
 export const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
@@ -19,5 +20,6 @@ export const routes: Routes = [
   { path: 'booking/:id', component: BookingComponent, canActivate: [AuthGuard]},
   { path: 'invoices', component: InvoicesComponent, canActivate: [AuthGuard]},
   { path: 'invoice/:id', component: InvoiceComponent, canActivate: [AuthGuard]},
+  { path: 'mechanics', component: MechanicsComponent, canActivate: [AuthGuard]},
   { path: '**', redirectTo: '' }
 ];

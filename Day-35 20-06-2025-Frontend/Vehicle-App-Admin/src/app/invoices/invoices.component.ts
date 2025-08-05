@@ -23,7 +23,6 @@ export class InvoicesComponent implements OnInit {
           // }
         }
         this.invoices.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
-        console.log('Invoices fetched successfully:', this.invoices);
       },
       error: () => console.error('Failed to fetch invoices')
     });

@@ -52,6 +52,26 @@ namespace VehicleServiceAPI.Services
             return MapUserToDto(updatedUser);
         }
 
+        public async Task<UserDTO> UpdateUserRoleAsync(UpdateUserRequestDTO updateRequest)
+        {
+            var user = await _userRepository.GetByIdAsync(updateRequest.UserId);
+            if (user == null)
+            {
+                throw new InvalidOperationException("User not found.");
+            }
+
+            var role = await _roleRepository.GetByIdAsync(updateRequest.RoleId);
+            if (role == null)
+            {
+                throw new InvalidOperationException("Role not found.");
+            }
+
+            user.RoleId = updateRequest.RoleId;
+
+            var updatedUser = await _userRepository.UpdateAsync(user);
+            return MapUserToDto(updatedUser);
+        }
+
         public async Task<bool> DeleteUserAsync(int id)
         {
             return await _userRepository.DeleteAsync(id);
