@@ -27,7 +27,7 @@ export class InvoiceComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
-      this.invoiceService.getInvoice(id).subscribe({
+      this.invoiceService.getInvoiceByBookingID(id).subscribe({
           next: (data) => {
             this.invoice = data;
             this.loading = false;

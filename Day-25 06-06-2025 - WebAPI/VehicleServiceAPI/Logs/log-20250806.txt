@@ -19175,3 +19175,21 @@ INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
 2025-08-06 16:25:29.180 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.UserController.GetAll (VehicleServiceAPI)'
 2025-08-06 16:25:29.180 +05:30 [INF] HTTP GET /api/v1/User/ responded 200 in 3.0473 ms
 2025-08-06 16:25:29.180 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/User/ - 200 null application/json; charset=utf-8 4.4885ms
+2025-08-06 16:33:46.912 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/v1/User/mechanics - null null
+2025-08-06 16:33:46.913 +05:30 [INF] CORS policy execution successful.
+2025-08-06 16:33:46.913 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/v1/User/mechanics - 204 null null 0.4204ms
+2025-08-06 16:33:46.914 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/api/v1/User/mechanics - application/json null
+2025-08-06 16:33:46.914 +05:30 [INF] CORS policy execution successful.
+2025-08-06 16:33:46.914 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.UserController.GetAllMechanics (VehicleServiceAPI)'
+2025-08-06 16:33:46.914 +05:30 [INF] Route matched with {action = "GetAllMechanics", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[VehicleServiceAPI.Models.DTOs.UserDTO]]] GetAllMechanics() on controller VehicleServiceAPI.Controllers.UserController (VehicleServiceAPI).
+2025-08-06 16:33:46.914 +05:30 [INF] Admin requested all mechanics.
+2025-08-06 16:33:46.950 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."RoleId" = 2 AND NOT (u."IsDeleted")
+2025-08-06 16:33:46.950 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[VehicleServiceAPI.Models.User, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[VehicleServiceAPI.Models.DTOs.UserDTO, VehicleServiceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-06 16:33:46.950 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.UserController.GetAllMechanics (VehicleServiceAPI) in 35.8982ms
+2025-08-06 16:33:46.950 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.UserController.GetAllMechanics (VehicleServiceAPI)'
+2025-08-06 16:33:46.950 +05:30 [INF] HTTP GET /api/v1/User/mechanics responded 200 in 36.2758 ms
+2025-08-06 16:33:46.951 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/api/v1/User/mechanics - 200 null application/json; charset=utf-8 36.8449ms
