@@ -45,6 +45,10 @@ export class BookingComponent implements OnInit{
       }
     });
 
+    this.startImageSlider();
+  }
+
+  startImageSlider() {
     this.imageService.getAllByBookingID(this.bookingId).subscribe({
       next: (response) => {
         this.images = response;
@@ -101,7 +105,10 @@ export class BookingComponent implements OnInit{
     console.log(payload)
 
     this.imageService.uploadImage(payload).subscribe({
-      next: res => console.log('Image uploaded successfully', res),
+      next: res => {
+        this.base64Image = ""; // Reset the base64 image after upload
+        this.startImageSlider(); // Restart the auto slide to include the new image
+      },
       error: err => console.error('Upload failed', err)
     });
   }
@@ -110,7 +117,9 @@ export class BookingComponent implements OnInit{
     var img = this.images[index];
 
     this.imageService.deleteImage(img.id).subscribe({
-      next: res => console.log('Image deleted successfully', res),
+      next: res => {
+        this.startImageSlider(); // Refresh the image list after deletion
+      },
       error: err => console.error('Delete failed', err)
     })
 

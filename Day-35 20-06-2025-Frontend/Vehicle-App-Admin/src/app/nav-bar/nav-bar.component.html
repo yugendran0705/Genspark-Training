@@ -55,9 +55,11 @@
   <!-- Mobile Menu -->
   <div *ngIf="mobileMenuOpen" class="md:hidden bg-white border-t">
     <nav class="px-4 pt-4 pb-2 space-y-2">
+      <a routerLink="/dashboard" class="block hover:text-blue-600">Dashboard</a>
       <a routerLink="/slots" class="block hover:text-blue-600">Slots</a>
       <a routerLink="/bookings" class="block hover:text-blue-600">Bookings</a>
-      <a href="#testimonials" class="block hover:text-blue-600">Testimonials</a>
+      <a routerLink="/invoices" class="block hover:text-blue-600">Invoices</a>
+      <a routerLink="/mechanics" class="block hover:text-blue-600">Mechanics</a>
 
       <hr class="my-2" />
 

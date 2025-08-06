@@ -2,15 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { InvoiceService } from '../services/invoice.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-invoices',
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule],
   templateUrl: './invoices.component.html',
   styleUrl: './invoices.component.css'
 })
 export class InvoicesComponent implements OnInit {
   invoices: any[] = [];
+  searchQuery: string = '';
 
   constructor(private invoiceService: InvoiceService, private router: Router) {}
 
@@ -19,8 +21,6 @@ export class InvoicesComponent implements OnInit {
       next: (data) => {
         for (const invoice of data) {
           this.invoices.push(invoice);
-          // if (!invoice.isDeleted) {
-          // }
         }
         this.invoices.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
       },
@@ -30,5 +30,14 @@ export class InvoicesComponent implements OnInit {
 
   viewInvoice(id: number): void {
     this.router.navigate([`/invoice/${id}`]);
+  }
+
+  filteredInvoices(): any[] {
+    const query = this.searchQuery.trim().toLowerCase();
+    if (!query) return this.invoices;
+
+    return this.invoices.filter((invoice) =>
+      `${invoice.name} ${invoice.email}`.toLowerCase().includes(query)
+    );
   }
 }

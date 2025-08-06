@@ -2,7 +2,14 @@
   <h2 class="text-2xl font-semibold mb-6 text-gray-800">Invoices</h2>
 
   <div *ngIf="invoices.length === 0" class="text-red-500">No invoices found.</div>
-
+  <div class="mb-4">
+    <input
+      type="text"
+      placeholder="Search by customer name or email"
+      [(ngModel)]="searchQuery"
+      class="border rounded px-4 py-2 w-full max-w-md"
+    />
+  </div>
   <div class="overflow-x-auto">
     <table class="min-w-full border rounded-md text-sm text-left">
       <thead class="bg-gray-100">
@@ -17,12 +24,12 @@
       </thead>
       <tbody>
         <tr
-          *ngFor="let invoice of invoices"
+          *ngFor="let invoice of filteredInvoices()"
           [class.opacity-50]="invoice.isDeleted"
           [class.pointer-events-none]="invoice.isDeleted"
           [class.cursor-not-allowed]="invoice.isDeleted"
           class="hover:bg-blue-50 cursor-pointer transition"
-          (click)="!invoice.isDeleted && viewInvoice(invoice.bookingId)"
+          (click)="!invoice.isDeleted && viewInvoice(invoice.id)"
         >
           <td class="px-4 py-2 border">{{ invoice.id }}</td>
           <td class="px-4 py-2 border">{{ invoice.bookingId }}</td>

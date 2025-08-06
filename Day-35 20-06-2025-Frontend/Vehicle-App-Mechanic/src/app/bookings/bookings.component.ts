@@ -1,18 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { BookingService } from '../services/booking.service';
 
 @Component({
   selector: 'app-bookings',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule],
   templateUrl: './bookings.component.html',
   styleUrl: './bookings.component.css'
 })
 export class BookingsComponent implements OnInit{
   errorMessage: string = '';
   bookings: any[] = [];
+  filteredBookings: any[] = [];
+  searchTerm: string = '';
   
   constructor(
     private bookingService: BookingService,
@@ -23,6 +25,7 @@ export class BookingsComponent implements OnInit{
     this.bookingService.getAllByMechanic().subscribe({
       next: (response) => {
         this.bookings = response;
+        this.filteredBookings = response; // Initialize filteredBookings with all bookings
       },
       error: (error) => {
         this.errorMessage = error.error.error ?? "Error. Please try again later";
@@ -32,6 +35,13 @@ export class BookingsComponent implements OnInit{
 
   goToBooking(id: number): void{
     this.router.navigate([`/booking/${id}`]);
+  }
+
+  onSearch(): void {
+    const term = this.searchTerm.toLowerCase().trim();
+    this.filteredBookings = this.bookings.filter(b =>
+      b.name?.toLowerCase().includes(term)
+    );
   }
 
 }

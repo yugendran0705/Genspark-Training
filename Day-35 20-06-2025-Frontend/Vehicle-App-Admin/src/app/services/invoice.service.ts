@@ -71,4 +71,13 @@ export class InvoiceService{
             }
         });
     }
+
+    getInvoice(id: string): Observable<any> {
+        return this.http.get(`${this.apiURL}/${id}`, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        });
+    }
 }
