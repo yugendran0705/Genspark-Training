@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ImageService {
   // Change the URL to match your backend API base URL
-  private apiURL = 'http://localhost:5192/api/v1/Image';
+  private apiURL = `${environment.apiBaseUrl}/api/v1/Image`;
 
   constructor(private http: HttpClient) { }
 

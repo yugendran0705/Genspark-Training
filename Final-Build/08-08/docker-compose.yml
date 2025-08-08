@@ -1,0 +1,47 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    environment:
+      - ASPNETCORE_URLS=http://+:5192
+      - ConnectionStrings__DefaultConnection=Host=vehicleservice-db.postgres.database.azure.com;Database=postgres;Username=pgadmin;Password=Password@123;Ssl Mode=Require
+    ports:
+      - "5192:5192"
+    networks:
+      - app-network
+
+  user-frontend:
+    build:
+      context: ./frontend-user
+    ports:
+      - "4200:80"
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+  admin-frontend:
+    build:
+      context: ./frontend-admin
+    ports:
+      - "4201:80"
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+  mechanic-frontend:
+    build:
+      context: ./frontend-mechanic
+    ports:
+      - "4202:80"
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+volumes:
+  postgres_data:
+
+networks:
+  app-network:

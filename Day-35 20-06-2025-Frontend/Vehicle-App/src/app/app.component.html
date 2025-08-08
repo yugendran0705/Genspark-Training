@@ -1,15 +1,12 @@
-<!-- app.component.html -->
-<div class="flex flex-col min-h-screen">
-
-  <!-- NavBar -->
+<div class="flex flex-col min-h-screen bg-warm-gradient text-gray-900 bg-fixed">
+  <!-- Navigation Bar -->
   <app-nav-bar></app-nav-bar>
 
-  <!-- Main content grows to fill space -->
-  <main class="flex-grow">
+  <!-- Main Content Area -->
+  <main class="flex-grow pt-8 pb-16 px-4 sm:px-6 lg:px-8 backdrop-blur-xs bg-white/60 rounded-xl shadow-md mx-4 my-6">
     <router-outlet></router-outlet>
   </main>
 
-  <!-- Footer always at bottom -->
+  <!-- Footer -->
   <app-footer></app-footer>
-
 </div>

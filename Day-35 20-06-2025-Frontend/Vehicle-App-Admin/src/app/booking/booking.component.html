@@ -54,6 +54,12 @@
           {{ booking.name }} — {{ booking.email }} — {{ booking.phone }}
         </p>  
       </div>
+      <div class="sm:col-span-2 relative">
+        <p class="text-sm text-gray-500 ">Service Details</p>
+        <div class="text-lg font-medium">
+          {{ booking.serviceDetails || 'No details provided' }}
+        </div>
+      </div>
     </div>
     <div class="mt-6 text-right">
       <button

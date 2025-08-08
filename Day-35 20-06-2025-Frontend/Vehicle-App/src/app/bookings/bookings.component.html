@@ -1,42 +1,56 @@
-<div class="p-4 max-w-5xl mx-auto">
-  <h2 class="text-xl font-semibold mb-4">Service Bookings</h2>
-  <div class="overflow-x-auto">
+<div class="p-6 max-w-6xl mx-auto space-y-6">
+
+  <!-- Header -->
+  <div class="flex justify-between items-center">
+    <h2 class="text-3xl font-bold text-gray-800">Service Bookings</h2>
+  </div>
+
+  <!-- Table Container -->
+  <div class="rounded-xl overflow-hidden shadow-lg border border-gray-200 bg-white">
+
+    <!-- Table Head -->
     <table class="min-w-full text-sm text-left border-collapse">
-      <thead class="bg-gray-100 text-gray-700">
+      <thead class="bg-gradient-to-r from-yellow-200 via-yellow-100 to-yellow-50 text-gray-900 uppercase tracking-wider">
         <tr>
-          <th class="px-4 py-4 border">ID</th>
-          <th class="px-4 py-4 border">Slot Date</th>
-          <th class="px-4 py-4 border">Slot Time</th>
-          <th class="px-4 py-4 border">Mechanic</th>
-          <th class="px-4 py-4 border">Vehicle</th>
-          <th class="px-4 py-4 border">Registration</th>
-          <th class="px-4 py-4 border">Status</th>
+          <th class="px-6 py-4 border-b font-semibold">ID</th>
+          <th class="px-6 py-4 border-b font-semibold">Slot Date</th>
+          <th class="px-6 py-4 border-b font-semibold">Slot Time</th>
+          <th class="px-6 py-4 border-b font-semibold">Mechanic</th>
+          <th class="px-6 py-4 border-b font-semibold">Vehicle</th>
+          <th class="px-6 py-4 border-b font-semibold">Registration</th>
+          <th class="px-6 py-4 border-b font-semibold">Status</th>
         </tr>
       </thead>
+
+      <!-- Table Body -->
       <tbody>
-          <tr
+        <tr
           *ngFor="let booking of bookings"
           (click)="goToBooking(booking.id)"
-          class="hover:bg-blue-50 cursor-pointer transition"
+          class="hover:bg-yellow-50 hover:shadow-md transition cursor-pointer"
         >
-          <td class="px-4 py-4 border">{{ booking.id }}</td>
-          <td class="px-4 py-4 border">{{ booking.slotDateTime | date: 'mediumDate' }}</td>
-          <td class="px-4 py-4 border">{{ booking.slotDateTime | date: 'shortTime' }}</td>
-          <td class="px-4 py-4 border">{{ booking.mechanicName }}</td>
-          <td class="px-4 py-4 border">{{ booking.make }} {{ booking.model }} ({{ booking.year }})</td>
-          <td class="px-4 py-4 border">{{ booking.registrationNumber }}</td>
-          <td class="px-4 py-4 border capitalize">
-            <span [ngClass]="{
-              'text-green-600 font-semibold': booking.status === 'completed',
-              'text-yellow-600 font-medium': booking.status === 'pending',
-              'text-gray-600': booking.status !== 'completed' && booking.status !== 'pending'
-            }">
+          <td class="px-6 py-4 border-b text-gray-700 font-medium">{{ booking.id }}</td>
+          <td class="px-6 py-4 border-b text-gray-600">{{ booking.slotDateTime | date: 'mediumDate' }}</td>
+          <td class="px-6 py-4 border-b text-gray-600">{{ booking.slotDateTime | date: 'shortTime' }}</td>
+          <td class="px-6 py-4 border-b text-gray-700">{{ booking.mechanicName }}</td>
+          <td class="px-6 py-4 border-b text-gray-700">{{ booking.make }} {{ booking.model }} ({{ booking.year }})</td>
+          <td class="px-6 py-4 border-b text-gray-700">{{ booking.registrationNumber }}</td>
+          <td class="px-6 py-4 border-b">
+            <span
+              class="px-3 py-1.5 rounded-full text-xs font-semibold capitalize"
+              [ngClass]="{
+                'bg-green-100 text-green-700': booking.status === 'completed',
+                'bg-yellow-200 text-yellow-800': booking.status === 'pending',
+                'bg-red-100 text-red-700': booking.status === 'cancelled',
+                'bg-gray-100 text-gray-700': booking.status !== 'completed' && booking.status !== 'pending' && booking.status !== 'cancelled'
+              }"
+            >
               {{ booking.status }}
             </span>
           </td>
         </tr>
       </tbody>
     </table>
+
   </div>
 </div>
-

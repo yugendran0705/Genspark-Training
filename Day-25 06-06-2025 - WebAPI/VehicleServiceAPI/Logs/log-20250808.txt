@@ -1,0 +1,30 @@
+2025-08-08 00:39:31.628 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5192/api/v1/User - application/json 115
+2025-08-08 00:39:31.696 +05:30 [INF] Executing endpoint 'VehicleServiceAPI.Controllers.UserController.Create (VehicleServiceAPI)'
+2025-08-08 00:39:31.718 +05:30 [INF] Route matched with {action = "Create", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[VehicleServiceAPI.Models.DTOs.UserDTO]] Create(VehicleServiceAPI.Models.DTOs.UserCreationRequestDTO) on controller VehicleServiceAPI.Controllers.UserController (VehicleServiceAPI).
+2025-08-08 00:39:31.749 +05:30 [INF] Creating a new user with email: admin@xyz.com
+2025-08-08 00:39:31.861 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT r."Id", r."RoleName"
+FROM "Roles" AS r
+WHERE r."RoleName" = 'Admin'
+LIMIT 1
+2025-08-08 00:39:31.878 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__adminRole_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."Phone", u."RoleId", r."Id", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."Id"
+WHERE u."RoleId" = @__adminRole_Id_0 AND NOT (u."IsDeleted")
+LIMIT 1
+2025-08-08 00:39:31.879 +05:30 [WRN] Invalid operation while creating user.
+System.InvalidOperationException: An admin user already exists. Cannot create another admin.
+   at VehicleServiceAPI.Services.UserService.MapUserCreationRequestDtoToUser(UserCreationRequestDTO dto) in /Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025 - WebAPI/VehicleServiceAPI/Services/UserServices.cs:line 102
+   at VehicleServiceAPI.Services.UserService.CreateUserAsync(UserCreationRequestDTO user) in /Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025 - WebAPI/VehicleServiceAPI/Services/UserServices.cs:line 38
+   at VehicleServiceAPI.Controllers.UserController.Create(UserCreationRequestDTO userRequest) in /Users/yugendransunder/Documents/Genspark-training/Genspark-Training/Day-25 06-06-2025 - WebAPI/VehicleServiceAPI/Controllers/UserController.cs:line 135
+2025-08-08 00:39:31.884 +05:30 [INF] Executing NotFoundObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-08-08 00:39:31.884 +05:30 [INF] Executed action VehicleServiceAPI.Controllers.UserController.Create (VehicleServiceAPI) in 165.7113ms
+2025-08-08 00:39:31.885 +05:30 [INF] Executed endpoint 'VehicleServiceAPI.Controllers.UserController.Create (VehicleServiceAPI)'
+2025-08-08 00:39:31.885 +05:30 [INF] HTTP POST /api/v1/User responded 404 in 188.7805 ms
+2025-08-08 00:39:31.885 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5192/api/v1/User - 404 null application/json; charset=utf-8 260.5228ms
+2025-08-08 00:39:51.419 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5192//User - application/json 115
+2025-08-08 00:39:51.431 +05:30 [INF] HTTP POST //User responded 404 in 3.8206 ms
+2025-08-08 00:39:51.431 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5192//User - 404 0 null 11.9954ms
+2025-08-08 00:39:51.439 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5192//User, Response status code: 404
+2025-08-08 00:39:58.828 +05:30 [INF] Application is shutting down...

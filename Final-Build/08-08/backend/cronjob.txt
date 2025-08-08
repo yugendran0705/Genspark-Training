@@ -1,0 +1,8 @@
+CREATE OR REPLACE FUNCTION cancel_expired_slots()
+RETURNS void AS $$
+BEGIN
+  UPDATE "ServiceSlots"
+  SET "Status" = 'Cancelled'
+  WHERE "SlotDateTime" < NOW() AND "Status" = 'available';
+END;
+$$ LANGUAGE plpgsql;

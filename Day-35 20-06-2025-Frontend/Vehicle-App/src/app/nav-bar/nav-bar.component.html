@@ -1,45 +1,42 @@
-<header class="bg-white shadow-md">
+<header class="sticky top-0 z-50 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 shadow-md text-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
 
-    <!-- Logo / Home -->
-    <a routerLink="/" class="text-2xl font-bold text-blue-600">
-      <!-- <img src="assets/logo.png" alt="AutoCare" class="inline h-8 w-auto mr-2" /> -->
+    <!-- Logo -->
+    <a routerLink="/" class="text-2xl font-bold tracking-tight">
       AutoCare
-    </a>    
+    </a>
 
     <!-- Desktop Menu -->
-    <nav class="hidden md:flex space-x-6 items-center ml-auto mr-6">
-      <a routerLink="/slots" routerLinkActive="text-blue-600" class="hover:text-blue-600">Slots</a>
-      <a routerLink="/bookings" routerLinkActive="text-blue-600" class="hover:text-blue-600">Bookings</a>
-      <a routerLink="/notifications" routerLinkActive="text-blue-600" class="hover:text-blue-600">Notifications</a>
+    <nav class="hidden md:flex space-x-6 font-medium ml-auto mr-6">
+      <a routerLink="/slots" routerLinkActive="underline text-white" class="hover:underline">Slots</a>
+      <a routerLink="/bookings" routerLinkActive="underline text-white" class="hover:underline">Bookings</a>
+      <a routerLink="/notifications" routerLinkActive="underline text-white" class="hover:underline">Notifications</a>
     </nav>
 
     <!-- Auth Buttons -->
-    <div class="hidden md:flex items-center space-x-4">
-      <!-- If not logged in -->
+    <div class="hidden md:flex items-center space-x-3">
       <ng-container *ngIf="!isLoggedIn; else loggedInTpl">
         <a routerLink="/login"
-           class="px-4 py-2 border border-blue-600 text-blue-600 rounded hover:bg-blue-50">
+           class="px-4 py-1 border border-white rounded hover:bg-white hover:text-red-600 transition duration-200">
           Login
         </a>
         <a routerLink="/signup"
-           class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+           class="px-4 py-1 bg-white text-red-600 rounded hover:bg-gray-100 transition duration-200">
           Signup
         </a>
       </ng-container>
 
-      <!-- If logged in -->
       <ng-template #loggedInTpl>
         <a routerLink="/profile"
-           class="px-4 py-2 border text-white bg-blue-600 border-gray-300 rounded hover:bg-blue-800">
+           class="px-4 py-1 bg-white text-red-600 rounded hover:bg-gray-100 transition duration-200">
           Profile
         </a>
       </ng-template>
     </div>
 
-    <!-- Mobile menu button -->
+    <!-- Mobile Menu Button -->
     <button
-      class="md:hidden text-gray-600 focus:outline-none"
+      class="md:hidden text-white focus:outline-none"
       (click)="mobileMenuOpen = !mobileMenuOpen"
       aria-label="Toggle menu"
     >
@@ -55,22 +52,20 @@
   </div>
 
   <!-- Mobile Menu -->
-  <div *ngIf="mobileMenuOpen" class="md:hidden bg-white border-t">
-    <nav class="px-4 pt-4 pb-2 space-y-2">
-      <a routerLink="/slots" class="block hover:text-blue-600">Slots</a>
-      <a routerLink="/bookings" class="block hover:text-blue-600">Bookings</a>
-      <a href="#testimonials" class="block hover:text-blue-600">Testimonials</a>
+  <div *ngIf="mobileMenuOpen" class="md:hidden bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 border-t text-white px-4 pt-4 pb-4 space-y-3">
+    <a routerLink="/slots" class="block hover:underline">Slots</a>
+    <a routerLink="/bookings" class="block hover:underline">Bookings</a>
+    <a routerLink="/notifications" class="block hover:underline">Notifications</a>
 
-      <hr class="my-2" />
+    <hr class="border-white my-2" />
 
-      <ng-container *ngIf="!isLoggedIn; else mobileLoggedInTpl">
-        <a routerLink="/login" class="block px-2 py-1 border rounded hover:bg-blue-50">Login</a>
-        <a routerLink="/signup" class="block px-2 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 mt-1">Signup</a>
-      </ng-container>
+    <ng-container *ngIf="!isLoggedIn; else mobileLoggedInTpl">
+      <a routerLink="/login" class="block border border-white rounded px-3 py-1 hover:bg-white hover:text-red-600">Login</a>
+      <a routerLink="/signup" class="block bg-white text-red-600 rounded px-3 py-1 hover:bg-gray-100">Signup</a>
+    </ng-container>
 
-      <ng-template #mobileLoggedInTpl>
-        <a routerLink="/profile" class="block w-fit bg-blue-600 text-white px-2 py-1 rounded hover:bg-blue-800">Profile</a>
-      </ng-template>
-    </nav>
+    <ng-template #mobileLoggedInTpl>
+      <a routerLink="/profile" class="block bg-white text-red-600 rounded px-3 py-1 hover:bg-gray-100">Profile</a>
+    </ng-template>
   </div>
 </header>

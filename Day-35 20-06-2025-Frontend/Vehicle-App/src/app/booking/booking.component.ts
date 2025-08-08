@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { BookingService } from '../services/book.service';
@@ -7,7 +7,7 @@ import { ImageService } from '../services/image.service';
 
 @Component({
   selector: 'app-booking',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule],
   templateUrl: './booking.component.html',
   styleUrl: './booking.component.css'
 })
@@ -19,14 +19,43 @@ export class BookingComponent implements OnInit{
   base64Image: string = "";
   images: any[] = [];
   currentIndex = 0;
-  intervalId: any;
+  intervalId: any;// Inside BookingComponent
+  isEditingDetails = false;
+  editedServiceDetails = '';
 
+  
   constructor(
     private bookingService: BookingService,
     private imageService: ImageService,
     private router: Router,
     private route: ActivatedRoute
   ) {}
+  
+  toggleEditServiceDetails() {
+    this.isEditingDetails = !this.isEditingDetails;
+    this.editedServiceDetails = this.booking?.serviceDetails || '';
+  }
+
+  cancelEdit() {
+    this.isEditingDetails = false;
+  }
+
+  updateServiceDetail() {
+    const payload = {
+      BookingId: this.bookingId,
+      ServiceDetails: this.editedServiceDetails
+    };
+
+    this.bookingService.updateServiceDetails(payload).subscribe({
+      next: () => {
+        this.booking.serviceDetails = this.editedServiceDetails;
+        this.isEditingDetails = false;
+      },
+      error: (err) => {
+        console.error('Update failed', err);
+      }
+    });
+  }
 
   ngOnInit(): void {  
     this.route.paramMap.subscribe(params => {

@@ -14,7 +14,7 @@ export class SignalrEventComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.connection = new signalR.HubConnectionBuilder()
-      .withUrl('http://localhost:5192/eventhub', { withCredentials: true })
+      .withUrl('/eventhub', { withCredentials: true })
       .build();
 
     this.connection.start()
